@@ -7,7 +7,6 @@ import Footer from '@/Components/Agilizando/Partials/Footer/Footer';
 import Header from '@/Components/Agilizando/Partials/Header/Header';
 import Hero from '@/Components/Agilizando/Partials/Hero/Hero';
 import { Link, Head } from '@inertiajs/react';
-import GuestLayout from '@/Layouts/GuestLayout';
 import SiteLayout from '@/Layouts/SiteLayout';
 
 export default function Home({ auth, laravelVersion, phpVersion }) {

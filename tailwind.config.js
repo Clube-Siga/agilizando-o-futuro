@@ -8,6 +8,7 @@ export default {
         './storage/framework/views/*.php',
         './resources/views/**/*.blade.php',
         './resources/js/**/*.jsx',
+        'node_modules/flowbite-react/lib/esm/**/*.js'
     ],
 
     darkMode: 'class',
