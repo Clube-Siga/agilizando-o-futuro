@@ -1,8 +1,9 @@
-export default function Content(){
+export default function Content({children}){
     return (
         <>
-            <h1>Componente Content</h1>
-            <p>Teste</p>
+            <div>
+                {children}
+            </div>
         </>
     )
 }

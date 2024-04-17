@@ -1,8 +1,10 @@
-export default function Title(){
+import { Link } from "@inertiajs/react"
+export default function Title({titleClass, titleContent}){
     return (
         <>
-            <h1>Componente Title</h1>
-            <p>Teste</p>
+            <h3 className={titleClass}>
+                <Link href="#">{titleContent}</Link>
+            </h3>
         </>
     )
 }

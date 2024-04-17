@@ -1,8 +1,7 @@
-export default function Text(){
+export default function Text({textClass, textContent}){
     return (
         <>
-            <h1>Componente Text</h1>
-            <p>Teste</p>
+            <p className={textClass}>{textContent}</p>
         </>
     )
 }
