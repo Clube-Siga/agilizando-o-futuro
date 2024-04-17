@@ -1,8 +1,7 @@
-export default function Image(){
+export default function Image({altText, imgPath}){
     return (
         <>
-            <h1>Componente Image</h1>
-            <p>Teste</p>
+            <img src={imgPath} alt={altText} />
         </>
     )
 }

@@ -1,8 +1,9 @@
-export default function Title(){
+export default function Title({titleContent}){
     return (
         <>
-            <h1>Componente Title</h1>
-            <p>Teste</p>
+            <h3 className="text-xl font-bold tracking-tight text-gray-900 dark:text-white mb-4 mt-2">
+                    <a href="#">{titleContent}</a>
+              </h3>
         </>
     )
 }
