@@ -3,7 +3,7 @@ export default function Button({buttonClass ,path, title}){
 
     return (
             <Link href={path} className={buttonClass}>
-                        {title}
+                {title}
             </Link>
     )
 }
