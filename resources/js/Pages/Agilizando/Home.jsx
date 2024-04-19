@@ -11,6 +11,7 @@ import { Link, Head } from '@inertiajs/react';
 {/*import {} from 'flowbite-react'*/}
 
 import SiteLayout from '@/Layouts/SiteLayout';
+import { Carousel } from 'flowbite-react';
 
 export default function Home({ auth, laravelVersion, phpVersion }) {
 
@@ -24,6 +25,7 @@ export default function Home({ auth, laravelVersion, phpVersion }) {
             <CallToAction ctaClass={"w-full bg-white dark:bg-gray-300"}/>
             <Blog blogClass={"w-full bg-white dark:bg-gray-300"}/>
             <Contact contactClass={"w-full grid-cols-2 justify-evenly bg-gray-300 dark:bg-white"}/>
+            <Carousel CarouselClass=""/>
             <Footer footerClass={"w-full grid-cols-2 justify-evenly p-4 bg-gray-300 dark:bg-white sm:p-6"}/>
         </SiteLayout>
     </>);
