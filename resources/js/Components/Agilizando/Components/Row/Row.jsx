@@ -1,8 +1,9 @@
-export default function Row(){
+export default function Row({children, rowClass}){
     return (
         <>
-            <h1>Componente Row</h1>
-            <p>Teste</p>
+            <div className={rowClass}>
+                {children}
+            </div>
         </>
     )
 }

@@ -1,7 +1,7 @@
-export default function Image({altText, imgPath}){
+export default function Image({altText, imgClass, imgPath}){
     return (
         <>
-            <img src={imgPath} alt={altText} />
+            <img className={imgClass} src={imgPath} alt={altText} />
         </>
     )
 }
