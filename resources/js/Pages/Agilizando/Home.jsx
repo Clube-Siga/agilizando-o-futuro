@@ -6,7 +6,10 @@ import Courses from '@/Components/Agilizando/Partials/Courses/Courses';
 import Footer from '@/Components/Agilizando/Partials/Footer/Footer';
 import Header from '@/Components/Agilizando/Partials/Header/Header';
 import Hero from '@/Components/Agilizando/Partials/Hero/Hero';
+
 import { Link, Head } from '@inertiajs/react';
+{/*import {} from 'flowbite-react'*/}
+
 import SiteLayout from '@/Layouts/SiteLayout';
 
 export default function Home({ auth, laravelVersion, phpVersion }) {
