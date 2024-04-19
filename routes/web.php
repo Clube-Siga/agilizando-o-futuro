@@ -23,14 +23,12 @@ Route::get('/', function () {
     ]);
 });
 
-// Route::get('/transparency', function () {
-//     return Inertia::render('Agilizando/Transparency', [
-//         'canLogin' => Route::has('login'),
-//         'canRegister' => Route::has('register'),
-//         'laravelVersion' => Application::VERSION,
-//         'phpVersion' => PHP_VERSION,
-//     ]);
-// });
+Route::get('/teste', function () {
+    return Inertia::render('Agilizando/PageTest', [
+        'laravelVersion' => Application::VERSION,
+        'phpVersion' => PHP_VERSION,
+    ]);
+});
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
