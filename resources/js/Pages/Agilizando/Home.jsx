@@ -17,7 +17,7 @@ export default function Home({ auth, laravelVersion, phpVersion }) {
     return (<>
         <SiteLayout>
             <Head title="Agilizando" />
-            <Header headerClass={"bg-gray-100 border-gray-200 dark:bg-gray-900 w-mw-100 flex justify-evenly min-w-full px-4"}/>
+            <Header headerClass={"bg-gray-100 border-gray-200 dark:bg-gray-900 w-mw-100 flex justify-evenly min-w-full px-4 lg:px-6 py-2.5"}/>
             <Hero heroClass={"w-full grid-cols-2 justify-evenly bg-white dark:bg-gray-300 flex-wrap"}/>
             <About aboutClass={"w-full grid-cols-2 justify-evenly bg-white dark:bg-gray-300"}/>
             <Courses coursesClass={"w-full bg-white dark:bg-gray-300"}/>
