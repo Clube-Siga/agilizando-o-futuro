@@ -16,13 +16,12 @@ import withReactContent from 'sweetalert2-react-content'
 export default function Home({ message }) {
 
     const MySwal = withReactContent(Swal)
-
+    {/*implementar uma verificacao se message foi atribuida, se sim executar o alert*/}
     MySwal.fire({
         title: 'Success!',  
         text: message,
         icon: 'success',   
         confirmButtonColor: '#3085d6',
-        textColor: '#010b14' 
     });
 
     return (
