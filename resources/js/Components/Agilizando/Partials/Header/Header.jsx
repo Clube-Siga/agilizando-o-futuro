@@ -1,7 +1,6 @@
 import Logo from "../../Components/Logo/Logo";
 import { Link } from '@inertiajs/react';
 import { Navbar } from "flowbite-react";
-import anime from 'animejs';
 
 export default function Header({ headerClass }) {
     
