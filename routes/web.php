@@ -3,6 +3,9 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
+
+use App\Http\Controllers\ContactController; //Controlado responsavel pelo form
+
 use Inertia\Inertia;
 
 Route::get('/welcome', function () {
@@ -39,5 +42,9 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+
+// Formulario de Contato
+Route::post('/contact', [ContactController::class, 'store'])->name('contact');
 
 require __DIR__.'/auth.php';

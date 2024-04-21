@@ -20,8 +20,7 @@ export default function Header({ headerClass }) {
                     <Navbar.Link href="#">Pricing</Navbar.Link>
                     <Navbar.Link 
                         href="#contact"
-                        onClick={(event) => handleContactClick(event)}
-                    >Contact
+                    >Contato
                     </Navbar.Link>
                 </Navbar.Collapse>
             </Navbar>
