@@ -1,22 +1,28 @@
+import { useForm } from '@inertiajs/react';
 import Content from "../../Components/Content/Content";
 import Label from "../../Components/Label/Label";
 import Text from "../../Components/Text/Text";
 import Title from "../../Components/Title/Title";
-import { useForm } from '@inertiajs/react';
 
 export default function Contact({contactClass}){
-
-    const { data, setData, post, processing, errors } = useForm({
+    
+    const { data, setData, post, processing, errors, reset } = useForm({
         email: '',
-        subject: '',
-        message: '',
+        assunto: '',
+        menssagem: '',
     });
     
     function submit(e) {
         e.preventDefault(); // Prevent default form submission
     
         // Send form data to the server using Inertia
-        post(route('contact'), data); 
+        post(route('contact'), data, { 
+                preserveScroll: true,
+                onSuccess: () => reset(),
+            }
+        ); 
+
+  
     }
     
     return (
@@ -43,38 +49,40 @@ export default function Contact({contactClass}){
                              {errors.email && <div>{errors.email}</div>}
                         </div>
                         <div>
-                            <Label objective={"subject"}>
+                            <Label objective={"assunto"}>
                                 Subject
                             </Label>
                             <input
                                 value={data.subject}
-                                onChange={(event) => setData('subject', event.target.value)}
+                                onChange={(event) => setData('assunto', event.target.value)}
                                 type="text"
-                                id="subject"
+                                id="assunto"
                                 className="block p-3 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 shadow-sm focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
                                 placeholder="Let us know how we can help you"
                                 required
                             />
-                            {errors.subject && <div>{errors.subject}</div>}
+                            {errors.assunto && <div>{errors.assunto}</div>}
                         </div>
                         <Content contentClass={"sm:col-span-2"}>
-                            <Label objective={"message"}>
+                            <Label objective={"menssagem"}>
                                 Your message
                             </Label>
                             <textarea
-                                value={data.message}
-                                onChange={(event) => setData('message', event.target.value)}
-                                id="message"
+                                value={data.menssagem}
+                                onChange={(event) => setData('menssagem', event.target.value)}
+                                id="menssagem"
                                 rows="6"
                                 className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg shadow-sm border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                                 placeholder="Leave a comment..."
                             ></textarea>
                         </Content>
+
                         <button type="submit" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
                             Enviar
                         </button>
 
                     </form>
+
                 </div>
             </section>
         </>

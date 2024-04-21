@@ -2,14 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use Inertia\Inertia;
+use Inertia\Response;
+
 use Illuminate\Http\Request;
 
 class ContactController extends Controller
 {
     public function store (Request $request)
     {
-        dd($request);
-        return Inertia::render('Contact', [
+        $data = $request;
+
+        return back()->with('Agilizando/Home', [
             'message' => 'Sua mensagem foi enviada com sucesso!',
         ]);
     }

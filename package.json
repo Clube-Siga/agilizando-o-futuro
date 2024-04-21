@@ -21,6 +21,8 @@
         "vite": "^5.0"
     },
     "dependencies": {
-        "flowbite-react": "^0.9.0"
+        "flowbite-react": "^0.9.0",
+        "sweetalert2": "^11.10.8",
+        "sweetalert2-react-content": "^5.0.7"
     }
 }
