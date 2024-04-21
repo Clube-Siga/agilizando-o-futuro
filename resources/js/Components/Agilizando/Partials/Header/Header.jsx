@@ -1,8 +1,10 @@
 import Logo from "../../Components/Logo/Logo";
 import { Link } from '@inertiajs/react';
 import { Navbar } from "flowbite-react";
+import anime from 'animejs';
 
 export default function Header({ headerClass }) {
+    
     return (
         <>
             <Navbar fluid rounded>
@@ -17,7 +19,11 @@ export default function Header({ headerClass }) {
                     </Navbar.Link>
                     <Navbar.Link href="#">Services</Navbar.Link>
                     <Navbar.Link href="#">Pricing</Navbar.Link>
-                    <Navbar.Link href="#">Contact</Navbar.Link>
+                    <Navbar.Link 
+                        href="#contact"
+                        onClick={(event) => handleContactClick(event)}
+                    >Contact
+                    </Navbar.Link>
                 </Navbar.Collapse>
             </Navbar>
         </>
