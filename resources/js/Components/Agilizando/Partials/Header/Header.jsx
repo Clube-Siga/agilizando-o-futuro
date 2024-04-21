@@ -11,11 +11,11 @@ export default function Header({ headerClass }) {
                 <Logo className="mr-4" />
                 <Navbar.Toggle />
                 <Navbar.Collapse>
-                    <Navbar.Link href="#" active>
+                    <Navbar.Link href="/" active>
                         Home
                     </Navbar.Link>
-                    <Navbar.Link as={Link} href="#">
-                        About
+                    <Navbar.Link as={Link} href="#about">
+                        Sobre
                     </Navbar.Link>
                     <Navbar.Link href="#">Services</Navbar.Link>
                     <Navbar.Link href="#">Pricing</Navbar.Link>
