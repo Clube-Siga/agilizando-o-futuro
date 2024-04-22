@@ -6,23 +6,21 @@ import Title from "../../Components/Title/Title";
 
 export default function Contact({contactClass}){
     
-    const { data, setData, post, processing, errors, reset } = useForm({
+    const { data, setData, post, errors, reset } = useForm({
         email: '',
-        assunto: '',
-        menssagem: '',
+        subject: '',
+        formMessage: '',
     });
     
     function submit(e) {
         e.preventDefault(); // Prevent default form submission
     
         // Send form data to the server using Inertia
-        post(route('contact'), data, { 
+        post(route('contact.store'), data, { 
                 preserveScroll: true,
                 onSuccess: () => reset(),
             }
-        ); 
-
-  
+        );   
     }
     
     return (
@@ -49,31 +47,31 @@ export default function Contact({contactClass}){
                              {errors.email && <div>{errors.email}</div>}
                         </div>
                         <div>
-                            <Label objective={"assunto"}>
+                            <Label objective={"subject"}>
                                 Subject
                             </Label>
                             <input
                                 value={data.subject}
-                                onChange={(event) => setData('assunto', event.target.value)}
+                                onChange={(event) => setData('subject', event.target.value)}
                                 type="text"
-                                id="assunto"
+                                id="subject"
                                 className="block p-3 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 shadow-sm focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
                                 placeholder="Let us know how we can help you"
                                 required
                             />
-                            {errors.assunto && <div>{errors.assunto}</div>}
+                            {errors.subject && <div>{errors.subject}</div>}
                         </div>
                         <Content contentClass={"sm:col-span-2"}>
-                            <Label objective={"menssagem"}>
+                            <Label objective={"formMessage"}>
                                 Your message
                             </Label>
                             <textarea
-                                value={data.menssagem}
-                                onChange={(event) => setData('menssagem', event.target.value)}
-                                id="menssagem"
+                                value={data.formMessage}
+                                onChange={(event) => setData('formMessage', event.target.value)}
+                                id="formMessage"
                                 rows="6"
                                 className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg shadow-sm border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                                placeholder="Leave a comment..."
+                                placeholder="Menssagem de no maximo 500 caracteres"
                             ></textarea>
                         </Content>
 
