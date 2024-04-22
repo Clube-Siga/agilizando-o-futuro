@@ -6,14 +6,22 @@ use Inertia\Inertia;
 use Inertia\Response;
 
 use App\Models\Contact;
+use App\Services\ContactService;
 
 use Illuminate\Http\Request;
 
 class ContactController extends Controller
 {
-    public function store (Request $request)
+    private $contactService; // Declarar a variável para o service
+
+    public function __construct(ContactService $contactService) // Injetar a dependência
     {
-        //dd($request);
+        $this->contactService = $contactService;
+    }
+
+    public function store (Request $request)
+    { //remover bloco comentado 
+        /* //validar responsabilidade dos Request
         $validated = $request->validate([
             'email' => 'required|string|email|max:255',
             'subject' => 'required',
@@ -21,12 +29,17 @@ class ContactController extends Controller
         ]);
         
         // dados validados salvar no banco de dados
+        // resposabilidade dos model de criar e inforrmar caracteristicas diretas
         $newContact = Contact::create([
             'email' => $validated['email'],
             'subject' =>$validated['subject'],
             'formMessage' => $validated['formMessage'],
         ]);
-       
+       */
+
+       //programacao orientada a objeto passa a responsabilidade de criar um contato para classe de servico
+        $newContact = $this->contactService->createContact($request);
+
         if ($newContact ) {
 
             return Inertia::render('Agilizando/Home', [
