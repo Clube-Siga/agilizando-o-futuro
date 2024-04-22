@@ -15,10 +15,10 @@ import Team from "@/Components/Agilizando/Partials/Team/Team";
 export default function Teste() {
     return (
         <>
-            <Header headerClass={"bg-gray-100 border-gray-200 dark:bg-gray-900 w-mw-100 flex justify-evenly min-w-full px-4"}/>
+            <Header headerClass={"w-full grid-cols-2 gap-4 justify-evenly bg-gray-200 dark:bg-white flex-wrap sm:w-full sm:grid-cols-2 sm:gap-2"}/>
             <Hero heroClass={"w-full grid-cols-2 justify-evenly bg-white dark:bg-gray-300 flex-wrap"}/>
             <About aboutClass={"w-full grid-cols-2 justify-evenly bg-white dark:bg-gray-300"}/>
-            <Section sectionClass={"w-full grid-cols-2 justify-evenly bg-gray-300 dark:bg-white"}/>            
+            <Section sectionClass={"w-full grid-cols-2 justify-evenly bg-gray-300 dark:bg-white"}/>
             <Team teamClass={"w-full grid-cols-2 justify-evenly bg-white dark:bg-gray-300"}/>
             <Courses coursesClass={"w-full bg-white dark:bg-gray-300"}/>
             <Testimonials testimonialsClass={"w-full grid-cols-2 justify-evenly bg-white dark:bg-gray-300"}/>

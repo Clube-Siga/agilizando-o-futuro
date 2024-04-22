@@ -6,7 +6,7 @@ import Title from "../../Components/Title/Title";
 export default function Blog({blogClass}){
     return (
         <>
-            <section className={blogClass}>
+            <section id="blog" className={blogClass}>
                 <div className="flex flex-col justify-center py-8 px-4 mx-auto lg:py-16 lg:px-6 ">
                     <div className="grid gap-4 mb-6 lg:mb-16 md:grid-cols-1">
                         <div className="w-full flex justify-center">
