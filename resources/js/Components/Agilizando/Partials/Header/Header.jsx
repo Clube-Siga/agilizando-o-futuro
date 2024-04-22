@@ -10,7 +10,7 @@ export default function Header({ headerClass }) {
                 <Logo />
                 <NavbarToggle />
                 <NavbarCollapse>
-                    <NavbarLink href="/" active>
+                    <NavbarLink className="ml-8" href="/" active>
                         Home
                     </NavbarLink>
                     <NavbarLink as={Link} href="#about">
