@@ -1,7 +1,7 @@
-export default function Content({children}){
+export default function Content({children, contentClass}){
     return (
         <>
-            <div>
+            <div className={contentClass}>
                 {children}
             </div>
         </>

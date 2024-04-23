@@ -1,4 +1,3 @@
-import { Link } from "@inertiajs/react";
 import Image from "../Image/Image";
 import Text from "../Text/Text";
 
