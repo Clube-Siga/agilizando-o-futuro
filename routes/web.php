@@ -44,7 +44,7 @@ Route::middleware('auth')->group(function () {
 });
 
 
-// Formulario de Contato
-Route::post('/contact', [ContactController::class, 'store'])->name('contact');
+// Rota de Envio do Formulario de Contato
+Route::post('/contato', [ContactController::class, 'store'])->name('contact.store');
 
 require __DIR__.'/auth.php';
