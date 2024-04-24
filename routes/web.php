@@ -8,15 +8,6 @@ use App\Http\Controllers\ContactController; //Controlado responsavel pelo form
 
 use Inertia\Inertia;
 
-Route::get('/welcome', function () {
-    return Inertia::render('Welcome', [
-        'canLogin' => Route::has('login'),
-        'canRegister' => Route::has('register'),
-        'laravelVersion' => Application::VERSION,
-        'phpVersion' => PHP_VERSION,
-    ]);
-});
-
 Route::get('/', function () {
     return Inertia::render('Agilizando/Home', [
         'canLogin' => Route::has('login'),
@@ -25,6 +16,9 @@ Route::get('/', function () {
         'phpVersion' => PHP_VERSION,
     ]);
 });
+
+// Formulario de Contato
+Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
 
 Route::get('/teste', function () {
     return Inertia::render('Agilizando/PageTest', [
@@ -43,8 +37,13 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-
-// Formulario de Contato
-Route::post('/contact', [ContactController::class, 'store'])->name('contact');
+Route::get('/welcome', function () {
+    return Inertia::render('Welcome', [
+        'canLogin' => Route::has('login'),
+        'canRegister' => Route::has('register'),
+        'laravelVersion' => Application::VERSION,
+        'phpVersion' => PHP_VERSION,
+    ]);
+});
 
 require __DIR__.'/auth.php';

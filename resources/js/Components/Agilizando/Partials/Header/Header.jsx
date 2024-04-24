@@ -11,10 +11,10 @@ export default function Header({ headerClass }) {
     return (
         <>
             <Navbar className={headerClass} fluid rounded>
-                <div className="flex flex-row sm:flex sm:flex-row">
+                <div className="flex flex-row">
                     <Logo />
-                    <NavbarToggle />
                 </div>
+                <NavbarToggle />
                 <NavbarCollapse>
                     <NavbarLink className="ml-2" href="/" active>
                         Home
