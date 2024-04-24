@@ -29,7 +29,7 @@ class ContactService
         //validar os dados sempre se preferir pode usar um request personalizado, com regras e mensagens personalizadas
         $validated = $request->validate([
             'name' => 'required|string|max:255',
-            'phone' => 'required|string|max:20|regex:/^[0-9]{2}\s?[0-9]{5}\-[0-9]{4}$/',
+            'phone' => 'required|string|max:20|regex:/^\([0-9]{2}\)\s?[0-9]{5}\-[0-9]{4}$/',
             'email' => 'required|string|email|max:255',
             'subject' => 'required|string',
             'formMessage' => 'required|string|max:500',
