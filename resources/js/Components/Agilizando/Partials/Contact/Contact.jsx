@@ -5,34 +5,66 @@ import Text from "../../Components/Text/Text";
 import Title from "../../Components/Title/Title";
 
 export default function Contact({contactClass}){
-    
+
     const { data, setData, post, processing, errors, reset } = useForm({
+        name: '',
+        phone: '',
         email: '',
-        assunto: '',
-        menssagem: '',
+        subject: '',
+        formMessage: '',
     });
-    
+
     function submit(e) {
         e.preventDefault(); // Prevent default form submission
-    
+
         // Send form data to the server using Inertia
-        post(route('contact'), data, { 
+        post(route('contact.store'), data, {
                 preserveScroll: true,
                 onSuccess: () => reset(),
             }
-        ); 
+        );
 
-  
+
     }
-    
+
     return (
         <>
             <section id="contact" className={contactClass}>
                 <div className="py-8 lg:py-16 px-4 mx-auto max-w-screen-md">
                     <Title titleClass={"mb-4 text-4xl tracking-tight font-extrabold text-center text-gray-900 dark:text-white"} titleContent={"Contact Us"}/>
                     <Text textClass={"mb-8 lg:mb-16 font-light text-center text-gray-500 dark:text-gray-400 sm:text-xl"} textContent={"Got a technical issue? Want to send feedback about a beta feature? Need details about our Business plan? Let us know."}/>
-                    
+
                     <form onSubmit={submit} className="space-y-8">
+                        <div>
+                            <Label objective={"name"}>
+                                Your name
+                            </Label>
+                            <input
+                                value={data.name}
+                                onChange={(event) => setData('name', event.target.value)}
+                                type="name"
+                                id="name"
+                                className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
+                                placeholder="Your Name Here"
+                                required
+                            />
+                             {errors.name && <div>{errors.name}</div>}
+                        </div>
+                        <div>
+                            <Label objective={"phone"}>
+                                Your phone
+                            </Label>
+                            <input
+                                value={data.phone}
+                                onChange={(event) => setData('phone', event.target.value)}
+                                type="phone"
+                                id="phone"
+                                className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
+                                placeholder="(99) 99999-9999"
+                                required
+                            />
+                             {errors.phone && <div>{errors.phone}</div>}
+                        </div>
                         <div>
                             <Label objective={"email"}>
                                 Your email
@@ -49,31 +81,31 @@ export default function Contact({contactClass}){
                              {errors.email && <div>{errors.email}</div>}
                         </div>
                         <div>
-                            <Label objective={"assunto"}>
+                            <Label objective={"subject"}>
                                 Subject
                             </Label>
                             <input
                                 value={data.subject}
-                                onChange={(event) => setData('assunto', event.target.value)}
+                                onChange={(event) => setData('subject', event.target.value)}
                                 type="text"
-                                id="assunto"
+                                id="subject"
                                 className="block p-3 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 shadow-sm focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
                                 placeholder="Let us know how we can help you"
                                 required
                             />
-                            {errors.assunto && <div>{errors.assunto}</div>}
+                            {errors.subject && <div>{errors.subject}</div>}
                         </div>
                         <Content contentClass={"sm:col-span-2"}>
-                            <Label objective={"menssagem"}>
+                            <Label objective={"formMessage"}>
                                 Your message
                             </Label>
                             <textarea
-                                value={data.menssagem}
-                                onChange={(event) => setData('menssagem', event.target.value)}
-                                id="menssagem"
+                                value={data.formMessage}
+                                onChange={(event) => setData('formMessage', event.target.value)}
+                                id="formMessage"
                                 rows="6"
                                 className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg shadow-sm border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                                placeholder="Leave a comment..."
+                                placeholder="Envie sua mensagem em até 500 caracteres"
                             ></textarea>
                         </Content>
 
