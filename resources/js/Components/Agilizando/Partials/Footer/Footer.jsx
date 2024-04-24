@@ -22,7 +22,7 @@ export default function Footer({footerClass}){
                         <Content contentClass={"grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3"}>
                             <div>
                                 <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
-                                    Resources
+                                    Recursos
                                 </h2>
                                 <ul className="text-gray-600 dark:text-gray-400">
                                     <li className="mb-4">
@@ -45,7 +45,7 @@ export default function Footer({footerClass}){
                             </div>
                             <div>
                                 <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
-                                    Follow us
+                                Siga-nos
                                 </h2>
                                 <ul className="text-gray-600 dark:text-gray-400">
                                     <li className="mb-4">

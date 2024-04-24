@@ -27,13 +27,13 @@ export default function Contact({contactClass}){
         <>
             <section id="contact" className={contactClass}>
                 <div className="py-8 lg:py-16 px-4 mx-auto max-w-screen-md">
-                    <Title titleClass={"mb-4 text-4xl tracking-tight font-extrabold text-center text-gray-900 dark:text-white"} titleContent={"Contact Us"}/>
+                    <Title titleClass={"mb-4 text-4xl tracking-tight font-extrabold text-center text-gray-900 dark:text-white"} titleContent={"Contacte-nos"}/>
                     <Text textClass={"mb-8 lg:mb-16 font-light text-center text-gray-500 dark:text-gray-400 sm:text-xl"} textContent={"Got a technical issue? Want to send feedback about a beta feature? Need details about our Business plan? Let us know."}/>
                     
                     <form onSubmit={submit} className="space-y-8">
                         <div>
                             <Label objective={"email"}>
-                                Your email
+                                Seu email
                             </Label>
                             <input
                                 value={data.email}
@@ -48,7 +48,7 @@ export default function Contact({contactClass}){
                         </div>
                         <div>
                             <Label objective={"subject"}>
-                                Subject
+                               Assunto
                             </Label>
                             <input
                                 value={data.subject}
@@ -63,7 +63,7 @@ export default function Contact({contactClass}){
                         </div>
                         <Content contentClass={"sm:col-span-2"}>
                             <Label objective={"formMessage"}>
-                                Your message
+                               Sua mensagem 
                             </Label>
                             <textarea
                                 value={data.formMessage}

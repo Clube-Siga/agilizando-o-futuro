@@ -16,7 +16,7 @@ export default function Header({ headerClass }) {
                     <NavbarLink as={Link} href="#about">
                         Sobre
                     </NavbarLink>
-                    <NavbarLink href="#">Services</NavbarLink>
+                    <NavbarLink href="#">Serviços</NavbarLink>
                     <NavbarLink href="#">Pricing</NavbarLink>
                     <NavbarLink 
                         href="#contact"
