@@ -17,7 +17,7 @@ export default function Header({ headerClass }) {
                 <NavbarToggle />
                 <NavbarCollapse>
                     <NavbarLink className="ml-2" href="/" active>
-                        Home
+                        Início
                     </NavbarLink>
                     <NavbarLink as={Link} href="/#about">
                         Sobre
@@ -26,7 +26,7 @@ export default function Header({ headerClass }) {
                         Cursos
                     </NavbarLink>
                     <NavbarLink as={Link} href="/#cta">
-                        Apoie
+                        Apoie-nos
                     </NavbarLink>
                     <NavbarLink as={Link} href="/#blog">
                         Blog

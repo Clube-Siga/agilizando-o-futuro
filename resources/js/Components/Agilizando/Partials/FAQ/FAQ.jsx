@@ -6,8 +6,8 @@ export default function FAQ({faqClass}){
     return(<>
         <section id="faq" className={faqClass}>
                 <Content contentClass={"py-8 px-4 mx-auto max-w-screen-xl sm:py-16 lg:px-6"}>
-                    <Title titleClass={"mb-8 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white"} titleContent={"Frequently asked questions"}/>
-                    <Content contentClass={"grid pt-8 text-left border-t border-gray-200 md:gap-16 dark:border-gray-700 md:grid-cols-2"}>
+                    <Title titleClass={"mb-8 text-4xl tracking-tight font-extrabold text-primary-900 dark:text-white"} titleContent={"Frequently asked questions"}/>
+                    <Content contentClass={"grid pt-8 text-left border-t border-primary-200 md:gap-16 dark:border-primary-700 md:grid-cols-2"}>
                         <Content>
                             <Question questionAnswer={"You will have access to download the full Figma project including all of the pages, the components, responsive pages, and also the icons, illustrations, and images included in the screens."} questionTitle={"What do you mean by 'Figma assets'?"}/>
                             <Question questionAnswer={"Once you have purchased either the design, code, or both packages, you will have access to all of the future updates based on the roadmap, free of charge."} questionTitle={"What does 'lifetime access' exactly mean?"}/>

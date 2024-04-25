@@ -14,11 +14,11 @@ export default function Testimonial({
 }) {
     return (
         <>
-            <figure className="flex flex-col justify-center items-center p-8 text-center bg-gray-50 border-b border-gray-200 md:p-12 lg:border-r dark:bg-gray-800 dark:border-gray-700">
-                <blockquote className="mx-auto mb-8 max-w-2xl text-gray-500 dark:text-gray-400">
+            <figure className="flex flex-col justify-center items-center p-8 text-center bg-primary-50 border-b border-primary-200 md:p-12 lg:border-r dark:bg-primary-800 dark:border-primary-700">
+                <blockquote className="mx-auto mb-8 max-w-2xl text-primary-500 dark:text-primary-400">
                     <Title
                         titleClass={
-                            "text-lg font-semibold text-gray-900 dark:text-white"
+                            "text-lg font-semibold text-primary-900 dark:text-white"
                         }
                         titleContent={testimonialTitle}
                     />
@@ -37,7 +37,7 @@ export default function Testimonial({
                         <Content>{personName}</Content>
                         <Content
                             contentClass={
-                                "text-sm font-light text-gray-500 dark:text-gray-400"
+                                "text-sm font-light text-primary-500 dark:text-primary-400"
                             }
                         >
                             {personRole}

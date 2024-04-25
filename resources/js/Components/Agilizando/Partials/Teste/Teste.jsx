@@ -15,19 +15,19 @@ import Team from "@/Components/Agilizando/Partials/Team/Team";
 export default function Teste() {
     return (
         <>
-            <Header headerClass={"w-full grid-cols-2 gap-4 justify-evenly bg-gray-200 dark:bg-white flex-wrap sm:w-full sm:grid-cols-2 sm:gap-2"}/>
-            <Hero heroClass={"w-full grid-cols-2 justify-evenly bg-white dark:bg-gray-300 flex-wrap"}/>
-            <About aboutClass={"w-full grid-cols-2 justify-evenly bg-white dark:bg-gray-300"}/>
-            <Section sectionClass={"w-full grid-cols-2 justify-evenly bg-gray-300 dark:bg-white"}/>
-            <Team teamClass={"w-full grid-cols-2 justify-evenly bg-white dark:bg-gray-300"}/>
-            <Courses coursesClass={"w-full bg-white dark:bg-gray-300"}/>
-            <Testimonials testimonialsClass={"w-full grid-cols-2 justify-evenly bg-white dark:bg-gray-300"}/>
-            <CallToAction ctaClass={"w-full bg-white dark:bg-gray-300"}/>
-            <Blog blogClass={"w-full bg-white dark:bg-gray-300"}/>
-            <Newsletter newsletterClass={"w-full grid-cols-2 justify-evenly bg-white dark:bg-gray-300"}/>
-            <Contact contactClass={"w-full grid-cols-2 justify-evenly bg-gray-300 dark:bg-white"}/>
-            <FAQ faqClass={"w-full grid-cols-2 justify-evenly bg-white dark:bg-gray-300"}/>
-            <Footer footerClass={"w-full grid-cols-2 justify-evenly p-4 bg-gray-300 dark:bg-white sm:p-6"}/>
+            <Header headerClass={"w-full grid-cols-2 gap-4 justify-evenly bg-primary-200 dark:bg-white flex-wrap sm:w-full sm:grid-cols-2 sm:gap-2"}/>
+            <Hero heroClass={"w-full grid-cols-2 justify-evenly bg-white dark:bg-primary-300 flex-wrap"}/>
+            <About aboutClass={"w-full grid-cols-2 justify-evenly bg-white dark:bg-primary-300"}/>
+            <Section sectionClass={"w-full grid-cols-2 justify-evenly bg-primary-300 dark:bg-white"}/>
+            <Team teamClass={"w-full grid-cols-2 justify-evenly bg-white dark:bg-primary-300"}/>
+            <Courses coursesClass={"w-full bg-white dark:bg-primary-300"}/>
+            <Testimonials testimonialsClass={"w-full grid-cols-2 justify-evenly bg-white dark:bg-primary-300"}/>
+            <CallToAction ctaClass={"w-full bg-white dark:bg-primary-300"}/>
+            <Blog blogClass={"w-full bg-white dark:bg-primary-300"}/>
+            <Newsletter newsletterClass={"w-full grid-cols-2 justify-evenly bg-white dark:bg-primary-300"}/>
+            <Contact contactClass={"w-full grid-cols-2 justify-evenly bg-primary-300 dark:bg-white"}/>
+            <FAQ faqClass={"w-full grid-cols-2 justify-evenly bg-white dark:bg-primary-300"}/>
+            <Footer footerClass={"w-full grid-cols-2 justify-evenly p-4 bg-primary-300 dark:bg-white sm:p-6"}/>
             {/*Contact, FAQ, Footer, Newsletter, Section, Team, Testimonials*/}
         </>
     );
