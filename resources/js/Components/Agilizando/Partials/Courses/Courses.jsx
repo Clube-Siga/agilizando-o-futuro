@@ -5,7 +5,7 @@ import Title from "../../Components/Title/Title";
 export default function Courses({coursesClass}){
     return (
         <>
-            <section className={coursesClass}>
+            <section id="courses" className={coursesClass}>
                 <div className="flex flex-col justify-center py-8 px-4 mx-auto lg:py-16 lg:px-6 ">
                     <div className="grid gap-4 mb-6 lg:mb-16 md:grid-cols-1">
                         <Row rowClass={"w-full flex justify-center"}>

@@ -18,9 +18,9 @@ export default function Home({ message }) {
     const MySwal = withReactContent(Swal)
     {/*implementar uma verificacao se message foi atribuida, se sim executar o alert*/}
     MySwal.fire({
-        title: 'Success!',  
+        title: 'Success!',
         text: message,
-        icon: 'success',   
+        icon: 'success',
         confirmButtonColor: '#3085d6',
     });
 
@@ -28,8 +28,8 @@ export default function Home({ message }) {
         <>
             <SiteLayout>
                 <Head title="Agilizando" />
-                <Header headerClass={"bg-gray-100 border-gray-200 dark:bg-gray-900 w-mw-100 flex justify-evenly min-w-full px-4 lg:px-6 py-2.5"} />
-                <Hero heroClass={"w-full grid-cols-2 justify-evenly bg-white dark:bg-gray-300 flex-wrap"} />
+                <Header headerClass={"w-full fixed z-50 bg-gray-200 dark:bg-white grid-cols-2 flex-wrap justify-evenly sm:w-full lg:px-6 py-2.5"} />
+                <Hero heroClass={"flex sm:flex-col  sm:items-center md:flex-row md:space-around justify-center w-full "} />
                 <About aboutClass={"w-full grid-cols-2 justify-evenly bg-white dark:bg-gray-300"} />
                 <Courses coursesClass={"w-full bg-white dark:bg-gray-300"} />
                 <CallToAction ctaClass={"w-full bg-white dark:bg-gray-300"} />
@@ -38,7 +38,7 @@ export default function Home({ message }) {
                     contactClass={"w-full grid-cols-2 justify-evenly bg-gray-300 dark:bg-white"}
                     message={message}
                 />
-                <Footer footerClass={"w-full grid-cols-2 justify-evenly p-4 bg-gray-300 dark:bg-white sm:p-6"} />
+                <Footer  footerClass={"w-full grid-cols-2 justify-evenly p-4 bg-gray-300 dark:bg-white sm:p-6"} />
             </SiteLayout>
         </>
     );

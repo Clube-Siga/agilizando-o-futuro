@@ -4,7 +4,7 @@ import Title from "../../Components/Title/Title";
 
 export default function FAQ({faqClass}){
     return(<>
-        <section className={faqClass}>
+        <section id="faq" className={faqClass}>
                 <Content contentClass={"py-8 px-4 mx-auto max-w-screen-xl sm:py-16 lg:px-6"}>
                     <Title titleClass={"mb-8 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white"} titleContent={"Frequently asked questions"}/>
                     <Content contentClass={"grid pt-8 text-left border-t border-gray-200 md:gap-16 dark:border-gray-700 md:grid-cols-2"}>

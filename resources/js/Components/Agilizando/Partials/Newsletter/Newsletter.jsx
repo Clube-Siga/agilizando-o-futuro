@@ -6,7 +6,7 @@ import Title from "../../Components/Title/Title";
 
 export default function Newsletter({newsletterClass}){
     return(<>
-        <section className={newsletterClass}>
+        <section id="newsletter" className={newsletterClass}>
                 <Content contentClass={"py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6"}>
                     <Content contentClass={"mx-auto max-w-screen-md sm:text-center"}>
                         <Title titleClass={"mb-4 text-3xl tracking-tight font-extrabold text-gray-900 sm:text-4xl dark:text-white"} titleContent={"Sign up for our newsletter"}/>
