@@ -16,7 +16,7 @@ export default function Footer({footerClass}){
                                 className="flex items-center"
                             >
                                 <Image altText={"FlowBite Logo"} imgClass={"mr-3 h-8"} imgPath={"https://flowbite.com/docs/images/logo.svg"}/>
-                                <Span spanClass={"self-center text-2xl font-semibold whitespace-nowrap dark:text-white"} spanContent={"FlowBite"}/>
+                                <Span spanClass={"self-center text-2xl font-semibold whitespace-nowrap dark:text-white"} spanContent={"Agilizando o futuro"}/>
                             </Link>
                         </Content>
                         <Content contentClass={"grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3"}>
