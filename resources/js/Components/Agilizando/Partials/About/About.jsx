@@ -36,7 +36,7 @@ export default function About({aboutClass}) {
                     {/*Row*/}
                     <Row
                         rowClass={
-                            "grid grid-cols-3 gap-8 mb-6 lg:mb-16 md:grid-cols-3"
+                            "grid grid-rows-3 gap-8 mb-6 sm:mb-16 sm:flex sm:flex-row"
                         }
                     >
                         <BigCard
