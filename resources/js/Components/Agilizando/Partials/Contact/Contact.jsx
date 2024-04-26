@@ -32,7 +32,7 @@ export default function Contact({contactClass}){
                     <Title titleClass={"mb-4 text-4xl tracking-tight font-extrabold text-center text-primary-900 dark:text-white"} titleContent={"Entre em Contanto"}/>
                     <Text textClass={"mb-8 font-light text-center text-primary-500 lg:mb-16 sm:text-xl dark:text-primary-400"} textContent={"Got a technical issue? Want to send feedback about a beta feature? Need details about our Business plan? Let us know."}/>
 
-                    <form onSubmit={submit} className="space-y-8">
+                    <form onSubmit={submit} className="space-y-3">
                         <div>
                             <Label objective={"name"}>
                                 Seu nome
