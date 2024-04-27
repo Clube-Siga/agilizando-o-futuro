@@ -1,29 +1,41 @@
 import Logo from "../../Components/Logo/Logo";
-import { Link } from '@inertiajs/react';
-import { Navbar, NavbarCollapse, NavbarLink, NavbarToggle } from "flowbite-react";
+import { Link } from "@inertiajs/react";
+import {
+    Navbar,
+    NavbarCollapse,
+    NavbarLink,
+    NavbarToggle,
+} from "flowbite-react";
 
 export default function Header({ headerClass }) {
-    
     return (
         <>
-            <Navbar fluid rounded>
-                <Logo />
+            <Navbar className={headerClass} fluid rounded>
+                <div className="flex flex-row">
+                    <Logo />
+                </div>
                 <NavbarToggle />
                 <NavbarCollapse>
-                    <NavbarLink className="ml-8" href="/" active>
-                        Home
+                    <NavbarLink className="ml-2" href="/" active>
+                        Início
                     </NavbarLink>
-                    <NavbarLink as={Link} href="#about">
+                    <NavbarLink as={Link} href="/#about">
                         Sobre
                     </NavbarLink>
-                    <NavbarLink href="#">Services</NavbarLink>
-                    <NavbarLink href="#">Pricing</NavbarLink>
-                    <NavbarLink 
-                        href="#contact"
-                    >Contato
+                    <NavbarLink as={Link} href="/#courses">
+                        Cursos
+                    </NavbarLink>
+                    <NavbarLink as={Link} href="/#cta">
+                        Apoie-nos
+                    </NavbarLink>
+                    <NavbarLink as={Link} href="/#blog">
+                        Blog
+                    </NavbarLink>
+                    <NavbarLink as={Link} href="/#contact">
+                        Contato
                     </NavbarLink>
                 </NavbarCollapse>
             </Navbar>
         </>
-    )
+    );
 }

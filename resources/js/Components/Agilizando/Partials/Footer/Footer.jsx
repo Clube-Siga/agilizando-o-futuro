@@ -3,6 +3,7 @@ import Image from "../../Components/Image/Image";
 import Row from "../../Components/Row/Row";
 import Span from "../../Components/Span/Span";
 import Content from "../../Components/Content/Content";
+import Title from "../../Components/Title/Title";
 
 export default function Footer({footerClass}){
     return (
@@ -16,15 +17,15 @@ export default function Footer({footerClass}){
                                 className="flex items-center"
                             >
                                 <Image altText={"FlowBite Logo"} imgClass={"mr-3 h-8"} imgPath={"https://flowbite.com/docs/images/logo.svg"}/>
-                                <Span spanClass={"self-center text-2xl font-semibold whitespace-nowrap dark:text-white"} spanContent={"FlowBite"}/>
+                                <Span spanClass={"self-center text-2xl font-semibold whitespace-nowrap dark:text-white"} spanContent={"Agilizando"}/>
                             </Link>
                         </Content>
                         <Content contentClass={"grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3"}>
                             <div>
-                                <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
-                                    Resources
+                                <h2 className="mb-6 text-sm font-semibold text-primary-900 uppercase dark:text-white">
+                                    Recursos
                                 </h2>
-                                <ul className="text-gray-600 dark:text-gray-400">
+                                <ul className="text-primary-600 dark:text-primary-400">
                                     <li className="mb-4">
                                         <a
                                             href="https://flowbite.com"
@@ -44,10 +45,10 @@ export default function Footer({footerClass}){
                                 </ul>
                             </div>
                             <div>
-                                <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
-                                    Follow us
+                                <h2 className="mb-6 text-sm font-semibold text-primary-900 uppercase dark:text-white">
+                                    Siga-nos
                                 </h2>
-                                <ul className="text-gray-600 dark:text-gray-400">
+                                <ul className="text-primary-600 dark:text-primary-400">
                                     <li className="mb-4">
                                         <a
                                             href="https://github.com/themesberg/flowbite"
@@ -67,40 +68,40 @@ export default function Footer({footerClass}){
                                 </ul>
                             </div>
                             <div>
-                                <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
+                                <h2 className="mb-6 text-sm font-semibold text-primary-900 uppercase dark:text-white">
                                     Legal
                                 </h2>
-                                <ul className="text-gray-600 dark:text-gray-400">
+                                <ul className="text-primary-600 dark:text-primary-400">
                                     <li className="mb-4">
                                         <a href="#" className="hover:underline">
-                                            Privacy Policy
+                                            Política de Privacidade
                                         </a>
                                     </li>
                                     <li>
                                         <a href="#" className="hover:underline">
-                                            Terms &amp; Conditions
+                                            Termos &amp; Condições
                                         </a>
                                     </li>
                                 </ul>
                             </div>
                         </Content>
                     </Row>
-                    <hr className="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
+                    <hr className="my-6 border-primary-200 sm:mx-auto dark:border-primary-700 lg:my-8" />
                     <Row rowClass={"sm:flex sm:items-center sm:justify-between"}>
-                        <Span spanClass={"text-sm text-gray-500 sm:text-center dark:text-gray-400"}>
-                            © 2022{" "}
+                        <Span spanClass={"text-sm text-primary-500 sm:text-center dark:text-primary-400"}>
+                            © 2024{" "}
                             <Link
                                 href="https://flowbite.com"
                                 className="hover:underline"
                             >
-                                Flowbite™
+                                Agilizando™
                             </Link>
-                            . All Rights Reserved.
+                            . Todos os direitos reservados.
                         </Span>
                         <Content contentClass={"flex mt-4 space-x-6 sm:justify-center sm:mt-0"}>
                             <Link
                                 href="#"
-                                className="text-gray-500 hover:text-gray-900 dark:hover:text-white"
+                                className="text-primary-500 hover:text-primary-900 dark:hover:text-white"
                             >
                                 <svg
                                     className="w-5 h-5"
@@ -117,7 +118,7 @@ export default function Footer({footerClass}){
                             </Link>
                             <Link
                                 href="#"
-                                className="text-gray-500 hover:text-gray-900 dark:hover:text-white"
+                                className="text-primary-500 hover:text-primary-900 dark:hover:text-white"
                             >
                                 <svg
                                     className="w-5 h-5"
@@ -134,7 +135,7 @@ export default function Footer({footerClass}){
                             </Link>
                             <Link
                                 href="#"
-                                className="text-gray-500 hover:text-gray-900 dark:hover:text-white"
+                                className="text-primary-500 hover:text-primary-900 dark:hover:text-white"
                             >
                                 <svg
                                     className="w-5 h-5"
@@ -147,7 +148,7 @@ export default function Footer({footerClass}){
                             </Link>
                             <Link
                                 href="#"
-                                className="text-gray-500 hover:text-gray-900 dark:hover:text-white"
+                                className="text-primary-500 hover:text-primary-900 dark:hover:text-white"
                             >
                                 <svg
                                     className="w-5 h-5"
@@ -164,7 +165,7 @@ export default function Footer({footerClass}){
                             </Link>
                             <Link
                                 href="#"
-                                className="text-gray-500 hover:text-gray-900 dark:hover:text-white"
+                                className="text-primary-500 hover:text-primary-900 dark:hover:text-white"
                             >
                                 <svg
                                     className="w-5 h-5"
