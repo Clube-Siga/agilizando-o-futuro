@@ -17,15 +17,15 @@ export default function Footer({footerClass}){
                                 className="flex items-center"
                             >
                                 <Image altText={"FlowBite Logo"} imgClass={"mr-3 h-8"} imgPath={"https://flowbite.com/docs/images/logo.svg"}/>
-                                <Span spanClass={"self-center text-2xl font-semibold whitespace-nowrap dark:text-white"} spanContent={"Agilizando"}/>
+                                <Span spanClass={"self-center text-2xl text-primary font-semibold whitespace-nowrap dark:text-white"} spanContent={"Agilizando"}/>
                             </Link>
                         </Content>
                         <Content contentClass={"grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3"}>
                             <div>
-                                <h2 className="mb-6 text-sm font-semibold text-primary-900 uppercase dark:text-white">
+                                <h2 className="mb-6 text-sm font-semibold text-secondary uppercase dark:text-white">
                                     Recursos
                                 </h2>
-                                <ul className="text-primary-600 dark:text-primary-400">
+                                <ul className="text-primary dark:text-primary-400">
                                     <li className="mb-4">
                                         <a
                                             href="https://flowbite.com"
@@ -45,10 +45,10 @@ export default function Footer({footerClass}){
                                 </ul>
                             </div>
                             <div>
-                                <h2 className="mb-6 text-sm font-semibold text-primary-900 uppercase dark:text-white">
+                                <h2 className="mb-6 text-sm font-semibold text-secondary uppercase dark:text-white">
                                     Siga-nos
                                 </h2>
-                                <ul className="text-primary-600 dark:text-primary-400">
+                                <ul className="text-primary dark:text-primary-400">
                                     <li className="mb-4">
                                         <a
                                             href="https://github.com/themesberg/flowbite"
@@ -68,10 +68,10 @@ export default function Footer({footerClass}){
                                 </ul>
                             </div>
                             <div>
-                                <h2 className="mb-6 text-sm font-semibold text-primary-900 uppercase dark:text-white">
+                                <h2 className="mb-6 text-sm font-semibold text-secondary uppercase dark:text-white">
                                     Legal
                                 </h2>
-                                <ul className="text-primary-600 dark:text-primary-400">
+                                <ul className="text-primary dark:text-primary-400">
                                     <li className="mb-4">
                                         <a href="#" className="hover:underline">
                                             Política de Privacidade
@@ -86,9 +86,9 @@ export default function Footer({footerClass}){
                             </div>
                         </Content>
                     </Row>
-                    <hr className="my-6 border-primary-200 sm:mx-auto dark:border-primary-700 lg:my-8" />
+                    <hr className="my-6 border-secondary sm:mx-auto dark:border-primary lg:my-8" />
                     <Row rowClass={"sm:flex sm:items-center sm:justify-between"}>
-                        <Span spanClass={"text-sm text-primary-500 sm:text-center dark:text-primary-400"}>
+                        <Span spanClass={"text-sm text-primary sm:text-center dark:text-defaultW"}>
                             © 2024{" "}
                             <Link
                                 href="https://flowbite.com"
@@ -101,7 +101,7 @@ export default function Footer({footerClass}){
                         <Content contentClass={"flex mt-4 space-x-6 sm:justify-center sm:mt-0"}>
                             <Link
                                 href="#"
-                                className="text-primary-500 hover:text-primary-900 dark:hover:text-white"
+                                className="text-primary hover:text-secondary dark:hover:text-primary"
                             >
                                 <svg
                                     className="w-5 h-5"
@@ -118,7 +118,7 @@ export default function Footer({footerClass}){
                             </Link>
                             <Link
                                 href="#"
-                                className="text-primary-500 hover:text-primary-900 dark:hover:text-white"
+                                className="text-primary hover:text-secondary dark:hover:text-primary"
                             >
                                 <svg
                                     className="w-5 h-5"
@@ -135,7 +135,7 @@ export default function Footer({footerClass}){
                             </Link>
                             <Link
                                 href="#"
-                                className="text-primary-500 hover:text-primary-900 dark:hover:text-white"
+                                className="text-primary hover:text-secondary dark:hover:text-primary"
                             >
                                 <svg
                                     className="w-5 h-5"
@@ -148,7 +148,7 @@ export default function Footer({footerClass}){
                             </Link>
                             <Link
                                 href="#"
-                                className="text-primary-500 hover:text-primary-900 dark:hover:text-white"
+                                className="text-primary hover:text-secondary dark:hover:text-primary"
                             >
                                 <svg
                                     className="w-5 h-5"
@@ -165,7 +165,7 @@ export default function Footer({footerClass}){
                             </Link>
                             <Link
                                 href="#"
-                                className="text-primary-500 hover:text-primary-900 dark:hover:text-white"
+                                className="text-primary hover:text-secondary dark:hover:text-primary"
                             >
                                 <svg
                                     className="w-5 h-5"

@@ -24,23 +24,23 @@ export default function Home({ error, message }) {
             icon: 'success',
             confirmButtonColor: '#3085d6',
         });
-    } 
-    
+    }
+
     return (
         <>
             <SiteLayout>
                 <Head title="Agilizando" />
-                <Header headerClass={"w-full fixed z-50 bg-primary-200 grid-cols-2 py-2.5 flex-wrap justify-evenly sm:w-full lg:px-6 dark:bg-white"} />
-                <Hero heroClass={"flex justify-center w-full sm:flex-col sm:items-center md:flex-row md:space-around"} />
-                <About aboutClass={"w-full grid-cols-2 justify-evenly bg-white dark:bg-primary-300"} />
-                <Courses coursesClass={"w-full bg-white dark:bg-primary-300"} />
-                <CallToAction ctaClass={"w-full bg-white dark:bg-primary-300"} />
-                <Blog blogClass={"w-full bg-white dark:bg-primary-300"} />
+                <Header headerClass={"w-full fixed z-50 bg-primary text-defaultW grid-cols-2 py-2.5 flex-wrap justify-evenly sm:w-full lg:px-6 dark:bg-secondary"} />
+                <Hero heroClass={"flex justify-center bg-defaultW w-full sm:flex-col sm:items-center md:flex-row md:space-around dark:bg-defaultB"} />
+                <About aboutClass={"w-full grid-cols-2 justify-evenly bg-primary dark:bg-secondary"} />
+                <Courses coursesClass={"w-full bg-defaultW dark:bg-defaultB"} />
+                <CallToAction ctaClass={"w-full bg-secondary dark:bg-secondary"} />
+                <Blog blogClass={"w-full bg-defaultW dark:bg-defaultB"} />
                 <Contact
-                    contactClass={"w-full grid-cols-2 justify-evenly bg-primary-300 dark:bg-white"}
+                    contactClass={"w-full grid-cols-2 justify-evenly bg-secondary dark:bg-secondary"}
                     message={message}
                 />
-                <Footer  footerClass={"w-full grid-cols-2 justify-evenly p-4 bg-primary-300 sm:p-6 dark:bg-white"} />
+                <Footer  footerClass={"w-full grid-cols-2 justify-evenly p-4 bg-defaultW sm:p-6 dark:bg-defaultB"} />
             </SiteLayout>
         </>
     );

@@ -11,7 +11,7 @@ export default function Courses({coursesClass}){
                         <Row rowClass={"w-full flex justify-center"}>
                             <Title
                                 titleClass={
-                                    "mb-4 text-4xl tracking-tight font-extrabold text-primary-900 dark:text-white"
+                                    "mb-4 text-4xl tracking-tight font-extrabold text-secondary dark:text-defaultW"
                                 }
                                 titleContent={"Nosso Cursos"}
                             />
@@ -28,7 +28,7 @@ export default function Courses({coursesClass}){
                                     "https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/bonnie-green.png"
                                 }
                                 titleClass={
-                                    "text-xl font-bold tracking-tight text-primary-900 dark:text-white mb-4 mt-2"
+                                    "text-xl font-bold tracking-tight text-defaultB dark:text-defaultB mb-4 mt-2"
                                 }
                                 titleContent={"Bonnie Green"}
                             />
@@ -41,7 +41,7 @@ export default function Courses({coursesClass}){
                                     "https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/jese-leos.png"
                                 }
                                 titleClass={
-                                    "text-xl font-bold tracking-tight text-primary-900 dark:text-white mb-4 mt-2"
+                                    "text-xl font-bold tracking-tight text-defaultB dark:text-defaultB mb-4 mt-2"
                                 }
                                 titleContent={"Jese Leos"}
                             />
@@ -54,7 +54,7 @@ export default function Courses({coursesClass}){
                                     "https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/michael-gouch.png"
                                 }
                                 titleClass={
-                                    "text-xl font-bold tracking-tight text-primary-900 dark:text-white mb-4 mt-2"
+                                    "text-xl font-bold tracking-tight text-defaultB dark:text-defaultB mb-4 mt-2"
                                 }
                                 titleContent={"Michael Gough"}
                             />
@@ -67,7 +67,7 @@ export default function Courses({coursesClass}){
                                     "https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/helene-engels.png"
                                 }
                                 titleClass={
-                                    "text-xl font-bold tracking-tight text-primary-900 dark:text-white mb-4 mt-2"
+                                    "text-xl font-bold tracking-tight text-defaultB dark:text-defaultB mb-4 mt-2"
                                 }
                                 titleContent={"Helene Engels"}
                             />
@@ -80,7 +80,7 @@ export default function Courses({coursesClass}){
                                     "https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/joseph-mcfall.png"
                                 }
                                 titleClass={
-                                    "text-xl font-bold tracking-tight text-primary-900 dark:text-white mb-4 mt-2"
+                                    "text-xl font-bold tracking-tight text-defaultB dark:text-defaultB mb-4 mt-2"
                                 }
                                 titleContent={"Joseph McFall"}
                             />
@@ -93,7 +93,7 @@ export default function Courses({coursesClass}){
                                     "https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/sofia-mcguire.png"
                                 }
                                 titleClass={
-                                    "text-xl font-bold tracking-tight text-primary-900 dark:text-white mb-4 mt-2"
+                                    "text-xl font-bold tracking-tight text-defaultB dark:text-defaultB mb-4 mt-2"
                                 }
                                 titleContent={"Sofia McGuire"}
                             />
@@ -106,7 +106,7 @@ export default function Courses({coursesClass}){
                                     "https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/thomas-lean.png"
                                 }
                                 titleClass={
-                                    "text-xl font-bold tracking-tight text-primary-900 dark:text-white mb-4 mt-2"
+                                    "text-xl font-bold tracking-tight text-defaultB dark:text-defaultB mb-4 mt-2"
                                 }
                                 titleContent={"Thomas Lean"}
                             />
@@ -119,7 +119,7 @@ export default function Courses({coursesClass}){
                                     "https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/neil-sims.png"
                                 }
                                 titleClass={
-                                    "text-xl font-bold tracking-tight text-primary-900 dark:text-white mb-4 mt-2"
+                                    "text-xl font-bold tracking-tight text-defaultB dark:text-defaultB mb-4 mt-2"
                                 }
                                 titleContent={"Neil Sims"}
                             />
