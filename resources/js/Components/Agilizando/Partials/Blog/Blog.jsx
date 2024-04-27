@@ -11,7 +11,7 @@ export default function Blog({blogClass}){
                         <div className="w-full flex justify-center">
                             <Title
                                 titleClass={
-                                    "mb-4 text-4xl tracking-tight font-extrabold text-primary-900 dark:text-white"
+                                    "mb-4 text-4xl tracking-tight font-extrabold text-defaultW dark:text-defaultB"
                                 }
                                 titleContent={"Blog"}
                             />
