@@ -3,6 +3,7 @@ import Content from "../../Components/Content/Content";
 import Label from "../../Components/Label/Label";
 import Text from "../../Components/Text/Text";
 import Title from "../../Components/Title/Title";
+import {formatPhoneNumber } from '@/Utilis/utilis';
 
 export default function Contact({contactClass}){
 
@@ -59,7 +60,7 @@ export default function Contact({contactClass}){
                                 Seu whatsapp
                             </Label>
                             <input
-                                value={data.phone}
+                                value={formatPhoneNumber(data.phone)}
                                 onChange={(event) => setData('phone', event.target.value)}
                                 type="phone"
                                 id="phone"
