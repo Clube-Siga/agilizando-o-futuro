@@ -20,7 +20,13 @@ export default function Contact({contactClass}){
         // Send form data to the server using Inertia
         post(route('contact.store'), data, {
                 preserveScroll: true,
-                onSuccess: () => reset(),
+                onSuccess: () => {
+                    reset();
+                },
+                onError: () => {
+                    errors();
+                },
+
             }
         );
     }
