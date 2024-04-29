@@ -19,7 +19,7 @@ export default {
     theme: {
         extend: {
             colors: {
-                primary: {
+                structureReference: {
                     50: "#eff6ff",
                     100: "#dbeafe",
                     200: "#bfdbfe",
@@ -32,10 +32,16 @@ export default {
                     900: "#1e3a8a",
                     950: "#172554",
                 },
+                primary: "#5754D1",
+                secondary: "#181739",
+                support: "#20B95D",
+                defaultW: "#FEFEFE",
+                defaultB: "#0E0E10",
             },
         },
         fontFamily: {
             body: [
+                "Lexend",
                 "Inter",
                 "ui-sans-serif",
                 "system-ui",

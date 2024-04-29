@@ -14,11 +14,11 @@ export default function Testimonial({
 }) {
     return (
         <>
-            <figure className="flex flex-col justify-center items-center p-8 text-center bg-gray-50 border-b border-gray-200 md:p-12 lg:border-r dark:bg-gray-800 dark:border-gray-700">
-                <blockquote className="mx-auto mb-8 max-w-2xl text-gray-500 dark:text-gray-400">
+            <figure className="flex flex-col justify-center items-center p-8 text-center bg-primary border-b border-secondary md:p-12 lg:border-r dark:bg-secondary dark:border-primary">
+                <blockquote className="mx-auto mb-8 max-w-2xl text-secondary dark:text-primary">
                     <Title
                         titleClass={
-                            "text-lg font-semibold text-gray-900 dark:text-white"
+                            "text-lg font-semibold text-primary dark:text-defaultW"
                         }
                         titleContent={testimonialTitle}
                     />
@@ -33,11 +33,11 @@ export default function Testimonial({
                         altText={"profile picture"}
                     />
                     <Content></Content>
-                    <div className="space-y-0.5 font-medium dark:text-white text-left">
+                    <div className="space-y-0.5 font-medium dark:text-defaultW text-left">
                         <Content>{personName}</Content>
                         <Content
                             contentClass={
-                                "text-sm font-light text-gray-500 dark:text-gray-400"
+                                "text-sm font-light text-secondary dark:text-primary"
                             }
                         >
                             {personRole}

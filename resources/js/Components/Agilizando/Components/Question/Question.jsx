@@ -5,9 +5,9 @@ export default function Question({questionAnswer, questionTitle}) {
     return (
         <>
             <div className="mb-10">
-                <Title titleClass={"flex items-center mb-4 text-lg font-medium text-gray-900 dark:text-white"} titleContent={questionTitle}>
+                <Title titleClass={"flex items-center mb-4 text-lg font-medium text-secondary dark:text-white"} titleContent={questionTitle}>
                     <svg
-                        className="flex-shrink-0 mr-2 w-5 h-5 text-gray-500 dark:text-gray-400"
+                        className="flex-shrink-0 mr-2 w-5 h-5 text-primary dark:text-primary-400"
                         fill="currentColor"
                         viewBox="0 0 20 20"
                         xmlns="http://www.w3.org/2000/svg"
@@ -19,7 +19,7 @@ export default function Question({questionAnswer, questionTitle}) {
                         ></path>
                     </svg>
                 </Title>
-                <Text textClass={"text-gray-500 dark:text-gray-400"} textContent={questionAnswer}/>
+                <Text textClass={"text-primary dark:text-primary-400"} textContent={questionAnswer}/>
             </div>
         </>
     );
