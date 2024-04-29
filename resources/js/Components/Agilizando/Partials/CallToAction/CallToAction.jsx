@@ -7,7 +7,7 @@ import Title from "../../Components/Title/Title";
 export default function CallToAction({ctaClass}){
     return (
         <>
-            <section className={ctaClass}>
+            <section id="cta" className={ctaClass}>
                 <Row rowClass={"gap-8 items-center py-8 px-4 mx-auto max-w-screen-xl xl:gap-16 md:grid md:grid-cols-2 sm:py-16 lg:px-6"}>
                     <div className="mt-4 md:mt-0">
                         <Title titleClass={"mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white"} titleContent={"Let's create more tools and ideas that brings us together."}/>
