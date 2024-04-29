@@ -3,6 +3,8 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\SiteController;
+use App\Http\Controllers\PageTestController;
 
 use App\Http\Controllers\ContactController; //Controlado responsavel pelo form
 
@@ -46,5 +48,10 @@ Route::middleware('auth')->group(function () {
 
 // Rota de Envio do Formulario de Contato
 Route::post('/contato', [ContactController::class, 'store'])->name('contact.store');
+
+Route::post('/', [SiteController::class, 'index'])->name('site.index');
+
+Route::post('/teste',[PageTestController::class, 'index'])->name('pagetest.index');
+
 
 require __DIR__.'/auth.php';

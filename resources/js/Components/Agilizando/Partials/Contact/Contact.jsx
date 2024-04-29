@@ -3,10 +3,13 @@ import Content from "../../Components/Content/Content";
 import Label from "../../Components/Label/Label";
 import Text from "../../Components/Text/Text";
 import Title from "../../Components/Title/Title";
+import {formatPhoneNumber} from "@/Utilis/utilis";
 
 export default function Contact({contactClass}){
     
-    const { data, setData, post, errors, reset } = useForm({
+    const { data, setData, post, processing, errors, reset } = useForm({
+        name: '',
+        phone: '',
         email: '',
         subject: '',
         formMessage: '',
@@ -14,13 +17,19 @@ export default function Contact({contactClass}){
     
     function submit(e) {
         e.preventDefault(); // Prevent default form submission
-    
+
         // Send form data to the server using Inertia
-        post(route('contact.store'), data, { 
+        post(route('contact.store'), data, {
                 preserveScroll: true,
-                onSuccess: () => reset(),
+                onSuccess: () => {
+                    reset();
+                },
+                onError: () => {
+                    errors();
+                },
+
             }
-        );   
+        );
     }
     
     return (
@@ -31,6 +40,39 @@ export default function Contact({contactClass}){
                     <Text textClass={"mb-8 lg:mb-16 font-light text-center text-gray-500 dark:text-gray-400 sm:text-xl"} textContent={"Got a technical issue? Want to send feedback about a beta feature? Need details about our Business plan? Let us know."}/>
                     
                     <form onSubmit={submit} className="space-y-8">
+
+                    <div>
+                            <Label objective={"name"}>
+                                Seu nome
+                            </Label>
+                            <input
+                                value={data.name}
+                                onChange={(event) => setData('name', event.target.value)}
+                                type="name"
+                                id="name"
+                                className="shadow-sm bg-primary-50 border border-primary-300 text-primary-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-primary-700 dark:border-primary-600 dark:placeholder-primary-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
+                                placeholder="Seu nome aqui"
+                                required
+                            />
+                             {errors.name && <div>{errors.name}</div>}
+                        </div>
+
+                        <div>
+                            <Label objective={"phone"}>
+                                Seu whatsapp
+                            </Label>
+                            <input
+                                value={formatPhoneNumber(data.phone)}
+                                onChange={(event) => setData('phone', event.target.value)}
+                                type="phone"
+                                id="phone"
+                                className="shadow-sm bg-primary-50 border border-primary-300 text-primary-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-primary-700 dark:border-primary-600 dark:placeholder-primary-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
+                                placeholder="(99) 99999-9999"
+                                required
+                            />
+                             {errors.phone && <div>{errors.phone}</div>}
+                        </div>
+
                         <div>
                             <Label objective={"email"}>
                                 Seu email
