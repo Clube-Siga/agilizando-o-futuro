@@ -1,3 +1,4 @@
+import {formatPhoneNumber } from '@/Utils/utils';
 import { useForm } from '@inertiajs/react';
 import Content from "../../Components/Content/Content";
 import Label from "../../Components/Label/Label";
@@ -48,7 +49,7 @@ export default function Contact({contactClass}){
                                 onChange={(event) => setData('name', event.target.value)}
                                 type="name"
                                 id="name"
-                                className="shadow-sm bg-primary border border-secondary text-secondary text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-secondary dark:border-primary placeholder-defaultW dark:placeholder-primary-400 dark:text-defaultW dark:focus:ring-primary dark:focus:border-primary dark:shadow-sm-light"
+                                className="shadow-sm bg-primary border border-secondary text-defaultW text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-secondary dark:border-primary placeholder-defaultB dark:placeholder-primary-400 dark:text-defaultW dark:focus:ring-primary dark:focus:border-primary dark:shadow-sm-light"
                                 placeholder="Seu nome aqui"
                                 required
                             />
@@ -59,11 +60,11 @@ export default function Contact({contactClass}){
                                 Seu whatsapp
                             </Label>
                             <input
-                                value={data.phone}
+                                value={formatPhoneNumber(data.phone)}
                                 onChange={(event) => setData('phone', event.target.value)}
                                 type="phone"
                                 id="phone"
-                                className="shadow-sm bg-primary border border-secondary text-secondary text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-secondary dark:border-primary placeholder-defaultW dark:placeholder-primary-400 dark:text-defaultW dark:focus:ring-primary dark:focus:border-primary dark:shadow-sm-light"
+                                className="shadow-sm bg-primary border border-secondary text-defaultW text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-secondary dark:border-primary placeholder-defaultB dark:placeholder-primary-400 dark:text-defaultW dark:focus:ring-primary dark:focus:border-primary dark:shadow-sm-light"
                                 placeholder="(99) 99999-9999"
                                 required
                             />
@@ -78,7 +79,7 @@ export default function Contact({contactClass}){
                                 onChange={(event) => setData('email', event.target.value)}
                                 type="email"
                                 id="email"
-                                className="shadow-sm bg-primary border border-secondary text-secondary text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-secondary dark:border-primary placeholder-defaultW dark:placeholder-primary-400 dark:text-defaultW dark:focus:ring-primary dark:focus:border-primary dark:shadow-sm-light"
+                                className="shadow-sm bg-primary border border-secondary text-defaultW text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-secondary dark:border-primary placeholder-defaultB dark:placeholder-primary-400 dark:text-defaultW dark:focus:ring-primary dark:focus:border-primary dark:shadow-sm-light"
                                 placeholder="agilizando@clubesiga.com"
                                 required
                             />
@@ -93,7 +94,7 @@ export default function Contact({contactClass}){
                                 onChange={(event) => setData('subject', event.target.value)}
                                 type="text"
                                 id="subject"
-                                className="block p-3 w-full text-sm text-secondary bg-primary rounded-lg border border-secondary shadow-sm focus:ring-primary focus:border-primary dark:bg-secondary dark:border-primary placeholder-defaultW dark:placeholder-primary dark:text-defaultW dark:focus:ring-primary dark:focus:border-primary dark:shadow-sm-light"
+                                className="block p-3 w-full text-sm text-defaultW bg-primary rounded-lg border border-secondary shadow-sm focus:ring-primary focus:border-primary dark:bg-secondary dark:border-primary placeholder-defaultB dark:placeholder-primary dark:text-defaultW dark:focus:ring-primary dark:focus:border-primary dark:shadow-sm-light"
                                 placeholder="Nos informe o assunto da mensagem"
                                 required
                             />
@@ -108,7 +109,7 @@ export default function Contact({contactClass}){
                                 onChange={(event) => setData('formMessage', event.target.value)}
                                 id="formMessage"
                                 rows="6"
-                                className="block p-2.5 w-full text-sm text-secondary bg-primary rounded-lg shadow-sm border border-secondary focus:ring-primary focus:border-primary dark:bg-secondary dark:border-primary placeholder-defaultW dark:placeholder-primary dark:text-defaultW dark:focus:ring-primary dark:focus:border-primary"
+                                className="block p-2.5 w-full text-sm text-defaultW bg-primary rounded-lg shadow-sm border border-secondary focus:ring-primary focus:border-primary dark:bg-secondary dark:border-primary placeholder-defaultB dark:placeholder-primary dark:text-defaultW dark:focus:ring-primary dark:focus:border-primary"
                                 placeholder="Envie sua mensagem em até 500 caracteres"
                             ></textarea>
                         </Content>
