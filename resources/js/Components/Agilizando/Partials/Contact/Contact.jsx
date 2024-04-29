@@ -113,7 +113,7 @@ export default function Contact({contactClass}){
                             ></textarea>
                         </Content>
 
-                        <button type="submit" className="text-defaultW bg-primary hover:text-primary hover:bg-defaultW focus:ring-4 focus:ring-secondary font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-secondary dark:hover:bg-primary focus:outline-none dark:focus:ring-secondary">
+                        <button type="submit" className="text-defaultW bg-primary hover:text-primary hover:bg-defaultW focus:ring-4 focus:ring-secondary font-medium rounded-3xl text-sm px-5 py-2.5 me-2 mb-2 dark:bg-secondary dark:hover:bg-primary focus:outline-none dark:focus:ring-secondary">
                             Enviar
                         </button>
                     </form>
