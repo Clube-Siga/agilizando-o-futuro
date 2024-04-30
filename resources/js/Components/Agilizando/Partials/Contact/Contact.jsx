@@ -37,7 +37,7 @@ export default function Contact({contactClass}){
             <section id="contact" className={contactClass}>
                 <div className="py-8 px-4 mx-auto max-w-screen-md lg:py-16">
                     <Title titleClass={"font-body mb-4 text-4xl tracking-tight font-extrabold text-center text-defaultW dark:text-defaultW"} titleContent={"Entre em Contanto"}/>
-                    <Text textClass={"font-body mb-8 font-light text-center text-defaultW lg:mb-16 sm:text-xl dark:text-primary"} textContent={"Got a technical issue? Want to send feedback about a beta feature? Need details about our Business plan? Let us know."}/>
+                    <Text textClass={"font-body mb-8 font-light text-center text-defaultW lg:mb-16 sm:text-xl dark:text-primary"} textContent={"Está com algum problema técnico? Gostaria de enviar um feedback sobre a plataforma? Gostaria de mais detalhes sobre o projeto? Fale conosco"}/>
 
                     <form onSubmit={submit} className="space-y-3">
                         <div>
