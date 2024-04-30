@@ -11,7 +11,7 @@ export default function Hero({heroClass}){
                     <Button buttonClass={"flex items-center justify-center self-center mb-2 h-3/6 w-7/12 px-2 mr-1 text-sm font-body font-small text-center text-defaultW rounded-3xl bg-primary hover:border hover:border-secondary hover:text-secondary hover:bg-defaultW focus:ring-4 focus:ring-defaultW dark:focus:ring-secondary sm:px-5 sm:py-3 sm:mr-3 md:text-lg"} path={"#cta"} title={"Comece aqui"} />
                 </div>
                 <div className="flex mt-0 col-span-1 max-w-sm flex-1 md:mt-0 md:col-span-5 md:flex md:max-w-screen-md">
-                    <Image altText={"mockup"} imgPath={"https://flowbite.s3.amazonaws.com/blocks/marketing-ui/hero/phone-mockup.png"}/>
+                    <Image altText={"hero image"} imgPath={"https://raw.githubusercontent.com/Clube-Siga/agilizando-o-futuro/dae4887685c4aaa76769f3a96c6e54f97af21aa0/resources/images/image-hero.png"}/>
                 </div>
             </Row>
         </section>

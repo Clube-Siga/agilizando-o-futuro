@@ -11,9 +11,9 @@ export default function About({aboutClass}) {
                 <div className="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6 ">
                     <Row rowClass={"grid gap-8 mb-6 lg:mb-16 md:grid-cols-2"}>
                         <Image
-                            altText={"dashboard image"}
+                            altText={"about image"}
                             imgPath={
-                                "https://flowbite.s3.amazonaws.com/blocks/marketing-ui/cta/cta-dashboard-mockup-dark.svg"
+                                "https://raw.githubusercontent.com/Clube-Siga/agilizando-o-futuro/dae4887685c4aaa76769f3a96c6e54f97af21aa0/resources/images/image-about.png"
                             }
                         />
                         <div className="flex flex-col justify-center">
