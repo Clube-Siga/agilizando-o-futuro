@@ -10,11 +10,7 @@ import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content'
 {/*import {} from 'flowbite-react'*/ }
 
-<<<<<<< HEAD
 export default function Home({ error,message }) {
-=======
-export default function Home({ error, message }) {
->>>>>>> jean
 
     const MySwal = withReactContent(Swal)
     {/*implementar uma verificacao se message foi atribuida, se sim executar o alert*/}
