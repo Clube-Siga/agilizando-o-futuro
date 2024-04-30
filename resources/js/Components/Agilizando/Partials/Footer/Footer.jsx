@@ -16,7 +16,7 @@ export default function Footer({footerClass}){
                                 href="https://flowbite.com"
                                 className="flex items-center"
                             >
-                                <Image imgClass={"ml-3 h-6 sm:h-9"} altText={"Logo"} imgPath={"https://raw.githubusercontent.com/Clube-Siga/agilizando-o-futuro/jean/resources/Isologo%20Blue.png"} />
+                                <Image imgClass={"ml-3 h-6 sm:h-9"} altText={"Logo"} imgPath={"https://raw.githubusercontent.com/Clube-Siga/agilizando-o-futuro/jean/resources/images/Isologo%20Blue.png"} />
                             </Link>
                         </Content>
                         <Content contentClass={"grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-2"}>

@@ -20,14 +20,14 @@ export default function Courses({coursesClass}){
                     <Carousel className={"grid grid-rows-1 mx-4"}>
                         {/*Row*/}
                             <CarouselCard
-                                altText={"Bonnie Avatar"}
+                                altText={"Curso HTML"}
                                 buttonPath={"#"}
-                                buttonTitle={"Curso HTML"}
+                                buttonTitle={"Inscreva-se"}
                                 contentText={
                                     "Aprenda HTML do zero e torne-se capaz de criar páginas web completas e estruturadas, utilizando as últimas práticas e recursos."
                                 }
                                 imgPath={
-                                    "https://danieldigital.com.br/wp-content/uploads/2019/06/html5-tags-semanticas-estrutura-site-seo.jpg"
+                                    "https://raw.githubusercontent.com/Clube-Siga/agilizando-o-futuro/4c880ac99acf745d5284351badcebb37818ac844/resources/images/html.jpeg"
                                 }
                                 titleClass={
                                     "ml-3 mb-3 text-xl font-extrabold tracking-tight text-defaultB sm:mr-2 dark:text-defaultB"
@@ -42,7 +42,7 @@ export default function Courses({coursesClass}){
                                     "Domine as técnicas de CSS para estilizar seus sites, criar layouts profissionais e proporcionar uma ótima experiência do usuário."
                                 }
                                 imgPath={
-                                    "https://www.devmedia.com.br/arquivos/cursos/css_intro_2426/thumb.png"
+                                    "https://raw.githubusercontent.com/Clube-Siga/agilizando-o-futuro/4c880ac99acf745d5284351badcebb37818ac844/resources/images/css.jpeg"
                                 }
                                 titleClass={
                                     "ml-3 mb-3 text-xl font-extrabold tracking-tight text-defaultB sm:mr-2 dark:text-defaultB"
@@ -57,7 +57,7 @@ export default function Courses({coursesClass}){
                                     "Aprenda JavaScript e adicione funcionalidades interativas aos seus sites, criando efeitos visuais, animações e elementos dinâmicos."
                                 }
                                 imgPath={
-                                    "https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/michael-gouch.png"
+                                    "https://raw.githubusercontent.com/Clube-Siga/agilizando-o-futuro/4c880ac99acf745d5284351badcebb37818ac844/resources/images/js.jpeg"
                                 }
                                 titleClass={
                                     "ml-3 mb-3 text-xl font-extrabold tracking-tight text-defaultB sm:mr-2 dark:text-defaultB"
@@ -72,7 +72,7 @@ export default function Courses({coursesClass}){
                                     "Aprenda PHP e conecte seus sites a bancos de dados MySQL para criar páginas dinâmicas, sistemas de login e outras funcionalidades avançadas."
                                 }
                                 imgPath={
-                                    "https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/helene-engels.png"
+                                    "https://raw.githubusercontent.com/Clube-Siga/agilizando-o-futuro/4c880ac99acf745d5284351badcebb37818ac844/resources/images/php.jpeg"
                                 }
                                 titleClass={
                                     "ml-3 mb-3 text-xl font-extrabold tracking-tight text-defaultB sm:mr-2 dark:text-defaultB"
@@ -87,7 +87,7 @@ export default function Courses({coursesClass}){
                                     "Aprenda MySQL, um dos sistemas de gerenciamento de banco de dados mais utilizados, para armazenar, organizar e consultar dados de forma eficiente."
                                 }
                                 imgPath={
-                                    "https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/joseph-mcfall.png"
+                                    "https://raw.githubusercontent.com/Clube-Siga/agilizando-o-futuro/4c880ac99acf745d5284351badcebb37818ac844/resources/images/mysql.jpeg"
                                 }
                                 titleClass={
                                     "ml-3 mb-3 text-xl font-extrabold tracking-tight text-defaultB sm:mr-2 dark:text-defaultB"
@@ -102,7 +102,7 @@ export default function Courses({coursesClass}){
                                     "Aprenda Java, uma das linguagens de programação mais populares do mundo, e torne-se capaz de criar aplicações web, desktop e mobile."
                                 }
                                 imgPath={
-                                    "https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/sofia-mcguire.png"
+                                    "https://raw.githubusercontent.com/Clube-Siga/agilizando-o-futuro/4c880ac99acf745d5284351badcebb37818ac844/resources/images/java.jpeg"
                                 }
                                 titleClass={
                                     "ml-3 mb-3 text-xl font-extrabold tracking-tight text-defaultB sm:mr-2 dark:text-defaultB"
@@ -117,7 +117,7 @@ export default function Courses({coursesClass}){
                                     "Aprenda a usar Git e Github para versionar seu código, controlar alterações, colaborar com outros desenvolvedores e hospedar seus projetos em nuvem."
                                 }
                                 imgPath={
-                                    "https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/thomas-lean.png"
+                                    "https://raw.githubusercontent.com/Clube-Siga/agilizando-o-futuro/4c880ac99acf745d5284351badcebb37818ac844/resources/images/git.jpeg"
                                 }
                                 titleClass={
                                     "ml-3 mb-3 text-xl font-extrabold tracking-tight text-defaultB sm:mr-2 dark:text-defaultB"
@@ -132,7 +132,7 @@ export default function Courses({coursesClass}){
                                     "Aprenda os conceitos básicos da programação, lógica e algoritmos, utilizando uma linguagem de programação de sua preferência."
                                 }
                                 imgPath={
-                                    "https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/neil-sims.png"
+                                    "https://raw.githubusercontent.com/Clube-Siga/agilizando-o-futuro/4c880ac99acf745d5284351badcebb37818ac844/resources/images/inicio.jpeg"
                                 }
                                 titleClass={
                                     "ml-3 mb-3 text-xl font-extrabold tracking-tight text-defaultB sm:mr-2 dark:text-defaultB"
