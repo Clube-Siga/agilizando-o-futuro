@@ -19,13 +19,13 @@ export default function About({aboutClass}) {
                         <div className="flex flex-col justify-center">
                             <Title
                                 titleClass={
-                                    "mb-4 text-4xl tracking-tight font-extrabold text-secondary dark:text-defaultW"
+                                    "font-body mb-4 text-4xl tracking-tight font-extrabold text-defaultW dark:text-defaultW"
                                 }
                                 titleContent={"Sobre o Projeto"}
                             />
                             <Text
                                 textClass={
-                                    "mb-6 font-light text-secondary md:text-lg dark:text-primary"
+                                    "font-body mb-6 font-light text-defaultW md:text-lg dark:text-primary"
                                 }
                                 textContent={
                                     "Flowbite helps you connect with friends and communities of people who share your interests. Connecting with your friends and family as well as discovering new ones is easy with features like Groups."
@@ -48,7 +48,7 @@ export default function About({aboutClass}) {
                                 "https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/bonnie-green.png"
                             }
                             titleClass={
-                                "text-xl font-bold tracking-tight text-defaultW dark:text-defaultB mb-4 mt-2"
+                                "text-xl font-bold font-body tracking-tight text-defaultW dark:text-defaultB mb-4 mt-2"
                             }
                             titleContent={"Bonnie Green"}
                         />
@@ -61,7 +61,7 @@ export default function About({aboutClass}) {
                                 "https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/jese-leos.png"
                             }
                             titleClass={
-                                "text-xl font-bold tracking-tight text-defaultW dark:text-defaultB mb-4 mt-2"
+                                "text-xl font-bold font-body tracking-tight text-defaultW dark:text-defaultB mb-4 mt-2"
                             }
                             titleContent={"Jese Leos"}
                         />
@@ -74,7 +74,7 @@ export default function About({aboutClass}) {
                                 "https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/michael-gouch.png"
                             }
                             titleClass={
-                                "text-xl font-bold tracking-tight text-defaultW dark:text-defaultB mb-4 mt-2"
+                                "text-xl font-bold font-body tracking-tight text-defaultW dark:text-defaultB mb-4 mt-2"
                             }
                             titleContent={"Michael Gough"}
                         />

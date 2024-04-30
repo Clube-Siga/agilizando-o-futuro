@@ -11,7 +11,7 @@ export default function Courses({coursesClass}){
                         <Row rowClass={"w-full flex justify-center"}>
                             <Title
                                 titleClass={
-                                    "mb-4 text-4xl tracking-tight font-extrabold text-secondary dark:text-defaultW"
+                                    "mb-4 text-4xl tracking-tight font-extrabold font-body text-secondary dark:text-defaultW"
                                 }
                                 titleContent={"Nosso Cursos"}
                             />
@@ -21,6 +21,8 @@ export default function Courses({coursesClass}){
                         {/*Row*/}
                             <CarouselCard
                                 altText={"Bonnie Avatar"}
+                                buttonPath={"#"}
+                                buttonTitle={"Inscreva-se"}
                                 contentText={
                                     "Bonnie drives the technical strategy of the flowbite platform and brand."
                                 }
@@ -33,6 +35,8 @@ export default function Courses({coursesClass}){
                                 titleContent={"Bonnie Green"}
                             />
                             <CarouselCard
+                            buttonPath={"#"}
+                            buttonTitle={"Inscreva-se"}
                                 altText={"Jese Avatar"}
                                 contentText={
                                     "Jese drives the technical strategy of the flowbite platform and brand."
@@ -47,6 +51,8 @@ export default function Courses({coursesClass}){
                             />
                             <CarouselCard
                                 altText={"Michael Avatar"}
+                                buttonPath={"#"}
+                                buttonTitle={"Inscreva-se"}
                                 contentText={
                                     "Michael drives the technical strategy of the flowbite platform and brand."
                                 }
@@ -60,6 +66,8 @@ export default function Courses({coursesClass}){
                             />
                             <CarouselCard
                                 altText={"Helene Avatar"}
+                                buttonPath={"#"}
+                                buttonTitle={"Inscreva-se"}
                                 contentText={
                                     "Helene drives the technical strategy of the flowbite platform and brand."
                                 }
@@ -73,6 +81,8 @@ export default function Courses({coursesClass}){
                             />
                             <CarouselCard
                                 altText={"Joseph Avatar"}
+                                buttonPath={"#"}
+                                buttonTitle={"Inscreva-se"}
                                 contentText={
                                     "Joseph drives the technical strategy of the flowbite platform and brand."
                                 }
@@ -86,6 +96,8 @@ export default function Courses({coursesClass}){
                             />
                             <CarouselCard
                                 altText={"Sofia Avatar"}
+                                buttonPath={"#"}
+                                buttonTitle={"Inscreva-se"}
                                 contentText={
                                     "Sofia drives the technical strategy of the flowbite platform and brand."
                                 }
@@ -99,6 +111,8 @@ export default function Courses({coursesClass}){
                             />
                             <CarouselCard
                                 altText={"Thomas Avatar"}
+                                buttonPath={"#"}
+                                buttonTitle={"Inscreva-se"}
                                 contentText={
                                     "Thomas drives the technical strategy of the flowbite platform and brand."
                                 }
@@ -111,6 +125,8 @@ export default function Courses({coursesClass}){
                                 titleContent={"Thomas Lean"}
                             />
                             <CarouselCard
+                            buttonPath={"#"}
+                            buttonTitle={"Inscreva-se"}
                                 altText={"Neil Avatar"}
                                 contentText={
                                     "Neil drives the technical strategy of the flowbite platform and brand."

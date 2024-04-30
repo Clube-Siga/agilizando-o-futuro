@@ -3,7 +3,7 @@ export default function Label({children, objective}) {
         <>
             <label
                 htmlFor={objective}
-                className="block mb-2 text-sm font-medium text-primary dark:text-primary"
+                className="font-body block mb-2 text-sm font-medium text-primary dark:text-primary"
             >{children}</label>
         </>
     );

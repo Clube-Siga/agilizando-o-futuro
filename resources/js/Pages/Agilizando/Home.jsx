@@ -30,7 +30,7 @@ export default function Home({ error, message }) {
         <>
             <SiteLayout>
                 <Head title="Agilizando" />
-                <Header headerClass={"w-full fixed z-50 bg-primary text-defaultW grid-cols-2 py-2.5 flex-wrap justify-evenly sm:w-full lg:px-6 dark:bg-secondary"} />
+                <Header headerClass={"w-full border-b-2 border-secondary fixed z-50 bg-defaultW text-defaultW grid-cols-2 py-2.5 flex-wrap justify-evenly sm:w-full lg:px-6 dark:bg-secondary"} />
                 <Hero heroClass={"flex justify-center bg-defaultW w-full sm:flex-col sm:items-center md:flex-row md:space-around dark:bg-defaultB"} />
                 <About aboutClass={"w-full grid-cols-2 justify-evenly bg-primary dark:bg-secondary"} />
                 <Courses coursesClass={"w-full bg-defaultW dark:bg-defaultB"} />

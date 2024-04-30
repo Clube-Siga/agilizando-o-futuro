@@ -16,39 +16,15 @@ export default function Footer({footerClass}){
                                 href="https://flowbite.com"
                                 className="flex items-center"
                             >
-                                <Image altText={"FlowBite Logo"} imgClass={"mr-3 h-8"} imgPath={"https://flowbite.com/docs/images/logo.svg"}/>
-                                <Span spanClass={"self-center text-2xl text-primary font-semibold whitespace-nowrap dark:text-white"} spanContent={"Agilizando"}/>
+                                <Image imgClass={"ml-3 h-6 sm:h-9"} altText={"Logo"} imgPath={"https://raw.githubusercontent.com/Clube-Siga/agilizando-o-futuro/jean/resources/Isologo%20Blue.png"} />
                             </Link>
                         </Content>
-                        <Content contentClass={"grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3"}>
+                        <Content contentClass={"grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-2"}>
                             <div>
-                                <h2 className="mb-6 text-sm font-semibold text-secondary uppercase dark:text-white">
-                                    Recursos
-                                </h2>
-                                <ul className="text-primary dark:text-primary-400">
-                                    <li className="mb-4">
-                                        <a
-                                            href="https://flowbite.com"
-                                            className="hover:underline"
-                                        >
-                                            Flowbite
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a
-                                            href="https://tailwindcss.com/"
-                                            className="hover:underline"
-                                        >
-                                            Tailwind CSS
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div>
-                                <h2 className="mb-6 text-sm font-semibold text-secondary uppercase dark:text-white">
+                                <h2 className="font-body mb-6 text-sm font-semibold text-secondary uppercase dark:text-white">
                                     Siga-nos
                                 </h2>
-                                <ul className="text-primary dark:text-primary-400">
+                                <ul className="font-body text-primary dark:text-primary-400">
                                     <li className="mb-4">
                                         <a
                                             href="https://github.com/themesberg/flowbite"
@@ -68,10 +44,10 @@ export default function Footer({footerClass}){
                                 </ul>
                             </div>
                             <div>
-                                <h2 className="mb-6 text-sm font-semibold text-secondary uppercase dark:text-white">
+                                <h2 className="font-body mb-6 text-sm font-semibold text-secondary uppercase dark:text-white">
                                     Legal
                                 </h2>
-                                <ul className="text-primary dark:text-primary-400">
+                                <ul className="font-body text-primary dark:text-primary-400">
                                     <li className="mb-4">
                                         <a href="#" className="hover:underline">
                                             Política de Privacidade
@@ -88,13 +64,13 @@ export default function Footer({footerClass}){
                     </Row>
                     <hr className="my-6 border-secondary sm:mx-auto dark:border-primary lg:my-8" />
                     <Row rowClass={"sm:flex sm:items-center sm:justify-between"}>
-                        <Span spanClass={"text-sm text-primary sm:text-center dark:text-defaultW"}>
+                        <Span spanClass={"font-body text-sm text-primary sm:text-center dark:text-defaultW"}>
                             © 2024{" "}
                             <Link
                                 href="https://flowbite.com"
                                 className="hover:underline"
                             >
-                                Agilizando™
+                                Agilizando
                             </Link>
                             . Todos os direitos reservados.
                         </Span>

@@ -11,16 +11,18 @@ export default function Blog({blogClass}){
                         <div className="w-full flex justify-center">
                             <Title
                                 titleClass={
-                                    "mb-4 text-4xl tracking-tight font-extrabold text-secondary dark:text-defaultB"
+                                    "font-body mb-4 text-4xl tracking-tight font-extrabold text-secondary dark:text-defaultB"
                                 }
                                 titleContent={"Blog"}
                             />
                         </div>
                     </div>
-                    <Carousel className={"grid grid-rows-1 mx-4"}>
+                    <Carousel className={"grid grid-cols-3 mx-4"}>
                         {/*Row*/}
                             <CarouselCard
                                 altText={"Bonnie Avatar"}
+                                buttonPath={"#"}
+                                buttonTitle={"Veja mais"}
                                 contentText={
                                     "Bonnie drives the technical strategy of the flowbite platform and brand."
                                 }
@@ -33,6 +35,8 @@ export default function Blog({blogClass}){
                                 titleContent={"Bonnie Green"}
                             />
                             <CarouselCard
+                            buttonPath={"#"}
+                            buttonTitle={"Veja mais"}
                                 altText={"Jese Avatar"}
                                 contentText={
                                     "Jese drives the technical strategy of the flowbite platform and brand."
@@ -47,6 +51,8 @@ export default function Blog({blogClass}){
                             />
                             <CarouselCard
                                 altText={"Michael Avatar"}
+                                buttonPath={"#"}
+                                buttonTitle={"Veja mais"}
                                 contentText={
                                     "Michael drives the technical strategy of the flowbite platform and brand."
                                 }
@@ -60,6 +66,8 @@ export default function Blog({blogClass}){
                             />
                             <CarouselCard
                                 altText={"Helene Avatar"}
+                                buttonPath={"#"}
+                                buttonTitle={"Veja mais"}
                                 contentText={
                                     "Helene drives the technical strategy of the flowbite platform and brand."
                                 }
@@ -73,6 +81,8 @@ export default function Blog({blogClass}){
                             />
                             <CarouselCard
                                 altText={"Joseph Avatar"}
+                                buttonPath={"#"}
+                                buttonTitle={"Veja mais"}
                                 contentText={
                                     "Joseph drives the technical strategy of the flowbite platform and brand."
                                 }
@@ -86,6 +96,8 @@ export default function Blog({blogClass}){
                             />
                             <CarouselCard
                                 altText={"Sofia Avatar"}
+                                buttonPath={"#"}
+                                buttonTitle={"Veja mais"}
                                 contentText={
                                     "Sofia drives the technical strategy of the flowbite platform and brand."
                                 }
@@ -99,6 +111,8 @@ export default function Blog({blogClass}){
                             />
                             <CarouselCard
                                 altText={"Thomas Avatar"}
+                                buttonPath={"#"}
+                                buttonTitle={"Veja mais"}
                                 contentText={
                                     "Thomas drives the technical strategy of the flowbite platform and brand."
                                 }
@@ -111,6 +125,8 @@ export default function Blog({blogClass}){
                                 titleContent={"Thomas Lean"}
                             />
                             <CarouselCard
+                            buttonPath={"#"}
+                            buttonTitle={"Veja mais"}
                                 altText={"Neil Avatar"}
                                 contentText={
                                     "Neil drives the technical strategy of the flowbite platform and brand."
