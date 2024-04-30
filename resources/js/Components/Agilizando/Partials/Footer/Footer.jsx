@@ -16,15 +16,15 @@ export default function Footer({footerClass}){
                                 href="https://agilizando.clubesiga.com.br/"
                                 className="flex items-center"
                             >
-                                <Image imgClass={"ml-3 h-6 sm:h-9"} altText={"Logo"} imgPath={"https://raw.githubusercontent.com/Clube-Siga/agilizando-o-futuro/jean/resources/images/Isologo%20Blue.png"} />
+                                <Image imgClass={"ml-3 h-6 sm:h-9"} altText={"Logo"} imgPath={"https://raw.githubusercontent.com/Clube-Siga/agilizando-o-futuro/jean/resources/images/Isologo%20branco.png"} />
                             </Link>
                         </Content>
                         <Content contentClass={"grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-2"}>
                             <div>
-                                <h3 className="font-body mb-6 text-sm font-semibold text-secondary uppercase dark:text-white">
+                                <h3 className="font-body mb-6 text-sm font-semibold text-defaultW uppercase dark:text-white">
                                     Siga-nos
                                 </h3>
-                                <ul className="font-body text-primary dark:text-primary-400">
+                                <ul className="font-body text-defaultW dark:text-primary-400">
                                     <li className="mb-4">
                                         <a
                                             href="https://github.com/Clube-Siga"
@@ -44,10 +44,10 @@ export default function Footer({footerClass}){
                                 </ul>
                             </div>
                             <div>
-                                <h3 className="font-body mb-6 text-sm font-semibold text-secondary uppercase dark:text-white">
+                                <h3 className="font-body mb-6 text-sm font-semibold text-defaultW uppercase dark:text-white">
                                     Legal
                                 </h3>
-                                <ul className="font-body text-primary dark:text-primary-400">
+                                <ul className="font-body text-defaultW dark:text-primary-400">
                                     <li className="mb-4">
                                         <a href="#" className="hover:underline">
                                             Política de Privacidade
@@ -64,7 +64,7 @@ export default function Footer({footerClass}){
                     </Row>
                     <hr className="my-6 border-secondary sm:mx-auto dark:border-primary lg:my-8" />
                     <Row rowClass={"sm:flex sm:items-center sm:justify-between"}>
-                        <Span spanClass={"font-body text-sm text-primary sm:text-center dark:text-defaultW"}>
+                        <Span spanClass={"font-body text-sm text-defaultW sm:text-center dark:text-defaultW"}>
                             © 2024{" "}
                             <Link
                                 href="https://agilizando.clubesiga.com.br/"
@@ -77,7 +77,7 @@ export default function Footer({footerClass}){
                         <Content contentClass={"flex mt-4 space-x-6 sm:justify-center sm:mt-0"}>
                             <Link
                                 href="https://www.facebook.com/agilizandoofuturo"
-                                className="text-primary hover:text-secondary dark:hover:text-primary"
+                                className="text-defaultW hover:text-defaultW dark:hover:text-primary"
                             >
                                 <svg
                                     className="w-5 h-5"
@@ -94,7 +94,7 @@ export default function Footer({footerClass}){
                             </Link>
                             <Link
                                 href="https://www.instagram.com/agilizandoofuturo"
-                                className="text-primary hover:text-secondary dark:hover:text-primary"
+                                className="text-defaultW hover:text-defaultW dark:hover:text-primary"
                             >
                                 <svg
                                     className="w-5 h-5"
@@ -111,7 +111,7 @@ export default function Footer({footerClass}){
                             </Link>
                             <Link
                                 href="https://github.com/Clube-Siga"
-                                className="text-primary hover:text-secondary dark:hover:text-primary"
+                                className="text-defaultW hover:text-defaultW dark:hover:text-primary"
                             >
                                 <svg
                                     className="w-5 h-5"

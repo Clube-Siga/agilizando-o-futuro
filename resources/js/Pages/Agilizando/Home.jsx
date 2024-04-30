@@ -27,9 +27,9 @@ export default function Home({ error, message }) {
         <>
             <SiteLayout>
                 <Hero heroClass={"flex justify-center bg-defaultW w-full sm:flex-col sm:items-center md:flex-row md:space-around dark:bg-defaultB"} />
-                <About aboutClass={"w-full grid-cols-2 justify-evenly bg-primary dark:bg-secondary"} />
+                <About aboutClass={"w-full grid-cols-2 justify-evenly bg-secondary dark:bg-secondary"} />
                 <Courses coursesClass={"w-full bg-defaultW dark:bg-defaultB"} />
-                <CallToAction ctaClass={"w-full bg-secondary dark:bg-secondary"} />
+                <CallToAction ctaClass={"w-full bg-primary dark:bg-secondary"} />
                 <Blog blogClass={"w-full bg-defaultW dark:bg-defaultB"} />
                 <Contact
                     contactClass={"w-full grid-cols-2 justify-evenly bg-secondary dark:bg-secondary"}
