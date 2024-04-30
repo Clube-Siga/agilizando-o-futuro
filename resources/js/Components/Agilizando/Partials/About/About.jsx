@@ -45,7 +45,7 @@ export default function About({aboutClass}) {
                                 "A missão do Agilizando o Futuro é qualificar jovens e adultos de comunidades carentes e abri-lhes portas para um futuro promissor na área de desenvolvimento de software. Através da educação de qualidade e do treinamento prático, o projeto busca transformar vidas e impulsionar o desenvolvimento social."
                             }
                             imgPath={
-                                "https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/bonnie-green.png"
+                                "https://raw.githubusercontent.com/Clube-Siga/agilizando-o-futuro/1bcf63a5f2a5fbd625f57b6fb40a4c25d0a919c0/resources/images/image-card-mission.jpg"
                             }
                             titleClass={
                                 "text-xl font-bold font-body tracking-tight text-defaultW dark:text-defaultB mb-4 mt-2"
@@ -58,7 +58,7 @@ export default function About({aboutClass}) {
                                 "O objetivo principal do Agilizando o Futuro é capacitar jovens e adultos, oferecendo cursos gratuitos de desenvolvimento de software e treinamentos práticos em tecnologias relevantes para o mercado. O projeto também visa criar uma rede de apoio para seus participantes, conectando-os a oportunidades de emprego e estágios."
                             }
                             imgPath={
-                                "https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/jese-leos.png"
+                                "https://raw.githubusercontent.com/Clube-Siga/agilizando-o-futuro/1bcf63a5f2a5fbd625f57b6fb40a4c25d0a919c0/resources/images/image-card-objective.jpg"
                             }
                             titleClass={
                                 "text-xl font-bold font-body tracking-tight text-defaultW dark:text-defaultB mb-4 mt-2"
@@ -71,7 +71,7 @@ export default function About({aboutClass}) {
                                 "O 'Agilizando o Futuro' é composto por uma equipe dedicada, formada por profissionais experientes em desenvolvimento de software, educação e gestão social. Acreditamos que a educação é a chave para a transformação social e estamos comprometidos em oferecer oportunidades que possibilitem a inclusão e o desenvolvimento profissional de jovens e adultos."
                             }
                             imgPath={
-                                "https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/michael-gouch.png"
+                                "https://raw.githubusercontent.com/Clube-Siga/agilizando-o-futuro/1bcf63a5f2a5fbd625f57b6fb40a4c25d0a919c0/resources/images/image-card-team.jpeg"
                             }
                             titleClass={
                                 "text-xl font-bold font-body tracking-tight text-defaultW dark:text-defaultB mb-4 mt-2"
