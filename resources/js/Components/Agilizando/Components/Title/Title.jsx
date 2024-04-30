@@ -1,10 +1,10 @@
 export default function Title({children, titleClass, titleContent}){
     return (
         <>
-            <h3 className={titleClass}>
+            <h2 className={titleClass}>
                 {children}
                 {titleContent}
-            </h3>
+            </h2>
         </>
     )
 }

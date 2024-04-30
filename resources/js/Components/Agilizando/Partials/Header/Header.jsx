@@ -16,22 +16,22 @@ export default function Header({ headerClass }) {
                 </div>
                 <NavbarToggle />
                 <NavbarCollapse>
-                    <NavbarLink className="ml-2" href="/" active>
+                    <NavbarLink className="ml-2 text-defaultW font-body" href="/">
                         Início
                     </NavbarLink>
-                    <NavbarLink as={Link} href="/#about">
+                    <NavbarLink className="text-defaultW font-body" as={Link} href="/#about">
                         Sobre
                     </NavbarLink>
-                    <NavbarLink as={Link} href="/#courses">
+                    <NavbarLink className="text-defaultW font-body" as={Link} href="/#courses">
                         Cursos
                     </NavbarLink>
-                    <NavbarLink as={Link} href="/#cta">
+                    <NavbarLink className="text-defaultW font-body" as={Link} href="/#cta">
                         Apoie-nos
                     </NavbarLink>
-                    <NavbarLink as={Link} href="/#blog">
+                    <NavbarLink className="text-defaultW font-body" as={Link} href="/#blog">
                         Blog
                     </NavbarLink>
-                    <NavbarLink as={Link} href="/#contact">
+                    <NavbarLink className="text-defaultW font-body" as={Link} href="/#contact">
                         Contato
                     </NavbarLink>
                 </NavbarCollapse>
