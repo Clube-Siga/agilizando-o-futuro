@@ -47,7 +47,7 @@ class ContactController extends Controller
             ]);
         }
 
-        return Inertia::render('Agilizando/Home', [
+        return Inertia::render('Agilizando/Home', [ 
             'error' => 'Sua mensagem nao foi enviada ligue 21-21-98176-0591',
         ]);
     }
