@@ -30,7 +30,7 @@ export default function Courses({coursesClass}){
                                     "https://raw.githubusercontent.com/Clube-Siga/agilizando-o-futuro/4c880ac99acf745d5284351badcebb37818ac844/resources/images/html.jpeg"
                                 }
                                 titleClass={
-                                    "ml-3 mb-3 text-xl font-extrabold tracking-tight text-defaultB sm:mr-2 dark:text-defaultB"
+                                    "ml-5 mb-3 text-xl font-extrabold tracking-tight text-defaultW sm:mr-2 dark:text-defaultW"
                                 }
                                 titleContent={"Domine a linguagem base da web e construa sites incríveis!"}
                             />
@@ -45,7 +45,7 @@ export default function Courses({coursesClass}){
                                     "https://raw.githubusercontent.com/Clube-Siga/agilizando-o-futuro/4c880ac99acf745d5284351badcebb37818ac844/resources/images/css.jpeg"
                                 }
                                 titleClass={
-                                    "ml-3 mb-3 text-xl font-extrabold tracking-tight text-defaultB sm:mr-2 dark:text-defaultB"
+                                    "ml-5 mb-3 text-xl font-extrabold tracking-tight text-defaultW sm:mr-2 dark:text-defaultW"
                                 }
                                 titleContent={"Dê vida aos seus sites com CSS e torne-os visualmente atraentes!"}
                             />
@@ -60,7 +60,7 @@ export default function Courses({coursesClass}){
                                     "https://raw.githubusercontent.com/Clube-Siga/agilizando-o-futuro/4c880ac99acf745d5284351badcebb37818ac844/resources/images/js.jpeg"
                                 }
                                 titleClass={
-                                    "ml-3 mb-3 text-xl font-extrabold tracking-tight text-defaultB sm:mr-2 dark:text-defaultB"
+                                    "ml-5 mb-3 text-xl font-extrabold tracking-tight text-defaultW sm:mr-2 dark:text-defaultW"
                                 }
                                 titleContent={"Interaja com seus sites e torne-os dinâmicos com JavaScript!"}
                             />
@@ -75,7 +75,7 @@ export default function Courses({coursesClass}){
                                     "https://raw.githubusercontent.com/Clube-Siga/agilizando-o-futuro/4c880ac99acf745d5284351badcebb37818ac844/resources/images/php.jpeg"
                                 }
                                 titleClass={
-                                    "ml-3 mb-3 text-xl font-extrabold tracking-tight text-defaultB sm:mr-2 dark:text-defaultB"
+                                    "ml-5 mb-3 text-xl font-extrabold tracking-tight text-defaultW sm:mr-2 dark:text-defaultW"
                                 }
                                 titleContent={"Crie sites dinâmicos e interativos com PHP e MySQL!"}
                             />
@@ -90,7 +90,7 @@ export default function Courses({coursesClass}){
                                     "https://raw.githubusercontent.com/Clube-Siga/agilizando-o-futuro/4c880ac99acf745d5284351badcebb37818ac844/resources/images/mysql.jpeg"
                                 }
                                 titleClass={
-                                    "ml-3 mb-3 text-xl font-extrabold tracking-tight text-defaultB sm:mr-2 dark:text-defaultB"
+                                    "ml-5 mb-3 text-xl font-extrabold tracking-tight text-defaultW sm:mr-2 dark:text-defaultW"
                                 }
                                 titleContent={"Armazene e gerencie dados com eficiência utilizando MySQL!"}
                             />
@@ -105,7 +105,7 @@ export default function Courses({coursesClass}){
                                     "https://raw.githubusercontent.com/Clube-Siga/agilizando-o-futuro/4c880ac99acf745d5284351badcebb37818ac844/resources/images/java.jpeg"
                                 }
                                 titleClass={
-                                    "ml-3 mb-3 text-xl font-extrabold tracking-tight text-defaultB sm:mr-2 dark:text-defaultB"
+                                    "ml-5 mb-3 text-xl font-extrabold tracking-tight text-defaultW sm:mr-2 dark:text-defaultW"
                                 }
                                 titleContent={"Domine a linguagem Java e desenvolva aplicações robustas e escaláveis!"}
                             />
@@ -120,7 +120,7 @@ export default function Courses({coursesClass}){
                                     "https://raw.githubusercontent.com/Clube-Siga/agilizando-o-futuro/4c880ac99acf745d5284351badcebb37818ac844/resources/images/git.jpeg"
                                 }
                                 titleClass={
-                                    "ml-3 mb-3 text-xl font-extrabold tracking-tight text-defaultB sm:mr-2 dark:text-defaultB"
+                                    "ml-5 mb-3 text-xl font-extrabold tracking-tight text-defaultW sm:mr-2 dark:text-defaultW"
                                 }
                                 titleContent={"Versionamento de código e colaboração em equipe com Git e Github!"}
                             />
@@ -135,7 +135,7 @@ export default function Courses({coursesClass}){
                                     "https://raw.githubusercontent.com/Clube-Siga/agilizando-o-futuro/102b784a8297bb5c25ab4b02ad8c94722a05aa1e/resources/images/inicio.jpeg"
                                 }
                                 titleClass={
-                                    "ml-3 mb-3 text-xl font-extrabold tracking-tight text-defaultB sm:mr-2 dark:text-defaultB"
+                                    "ml-5 mb-3 text-xl font-extrabold tracking-tight text-defaultW sm:mr-2 dark:text-defaultW"
                                 }
                                 titleContent={"Dê seus primeiros passos no mundo da programação e desvende seus segredos!"}
                             />
