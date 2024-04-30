@@ -132,7 +132,7 @@ export default function Courses({coursesClass}){
                                     "Aprenda os conceitos básicos da programação, lógica e algoritmos, utilizando uma linguagem de programação de sua preferência."
                                 }
                                 imgPath={
-                                    "https://raw.githubusercontent.com/Clube-Siga/agilizando-o-futuro/4c880ac99acf745d5284351badcebb37818ac844/resources/images/inicio.jpeg"
+                                    "https://raw.githubusercontent.com/Clube-Siga/agilizando-o-futuro/102b784a8297bb5c25ab4b02ad8c94722a05aa1e/resources/images/inicio.jpeg"
                                 }
                                 titleClass={
                                     "ml-3 mb-3 text-xl font-extrabold tracking-tight text-defaultB sm:mr-2 dark:text-defaultB"
