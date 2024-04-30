@@ -11,117 +11,25 @@ export default function Blog({blogClass}){
                         <div className="w-full flex justify-center">
                             <Title
                                 titleClass={
-                                    "mb-4 text-4xl tracking-tight font-extrabold text-primary-900 dark:text-white"
+                                    "font-body mb-4 text-4xl tracking-tight font-extrabold text-secondary dark:text-defaultB"
                                 }
                                 titleContent={"Blog"}
                             />
                         </div>
                     </div>
-                    <Carousel className={"grid grid-rows-1 mx-4"}>
+                    <Carousel className={"grid grid-cols-3 mx-4"}>
                         {/*Row*/}
                             <CarouselCard
                                 altText={"Bonnie Avatar"}
-                                contentText={
-                                    "Bonnie drives the technical strategy of the flowbite platform and brand."
-                                }
+                                buttonPath={"#"}
+                                buttonTitle={"Veja mais"}
                                 imgPath={
-                                    "https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/bonnie-green.png"
+                                    "https://raw.githubusercontent.com/Clube-Siga/agilizando-o-futuro/dae4887685c4aaa76769f3a96c6e54f97af21aa0/resources/images/image-blog.png"
                                 }
                                 titleClass={
-                                    "text-xl font-bold tracking-tight text-primary-900 dark:text-white mb-4 mt-2"
+                                    "text-xl font-bold tracking-tight text-defaultW dark:text-white mb-4 mt-2"
                                 }
-                                titleContent={"Bonnie Green"}
-                            />
-                            <CarouselCard
-                                altText={"Jese Avatar"}
-                                contentText={
-                                    "Jese drives the technical strategy of the flowbite platform and brand."
-                                }
-                                imgPath={
-                                    "https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/jese-leos.png"
-                                }
-                                titleClass={
-                                    "text-xl font-bold tracking-tight text-primary-900 dark:text-white mb-4 mt-2"
-                                }
-                                titleContent={"Jese Leos"}
-                            />
-                            <CarouselCard
-                                altText={"Michael Avatar"}
-                                contentText={
-                                    "Michael drives the technical strategy of the flowbite platform and brand."
-                                }
-                                imgPath={
-                                    "https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/michael-gouch.png"
-                                }
-                                titleClass={
-                                    "text-xl font-bold tracking-tight text-primary-900 dark:text-white mb-4 mt-2"
-                                }
-                                titleContent={"Michael Gough"}
-                            />
-                            <CarouselCard
-                                altText={"Helene Avatar"}
-                                contentText={
-                                    "Helene drives the technical strategy of the flowbite platform and brand."
-                                }
-                                imgPath={
-                                    "https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/helene-engels.png"
-                                }
-                                titleClass={
-                                    "text-xl font-bold tracking-tight text-primary-900 dark:text-white mb-4 mt-2"
-                                }
-                                titleContent={"Helene Engels"}
-                            />
-                            <CarouselCard
-                                altText={"Joseph Avatar"}
-                                contentText={
-                                    "Joseph drives the technical strategy of the flowbite platform and brand."
-                                }
-                                imgPath={
-                                    "https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/joseph-mcfall.png"
-                                }
-                                titleClass={
-                                    "text-xl font-bold tracking-tight text-primary-900 dark:text-white mb-4 mt-2"
-                                }
-                                titleContent={"Joseph McFall"}
-                            />
-                            <CarouselCard
-                                altText={"Sofia Avatar"}
-                                contentText={
-                                    "Sofia drives the technical strategy of the flowbite platform and brand."
-                                }
-                                imgPath={
-                                    "https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/sofia-mcguire.png"
-                                }
-                                titleClass={
-                                    "text-xl font-bold tracking-tight text-primary-900 dark:text-white mb-4 mt-2"
-                                }
-                                titleContent={"Sofia McGuire"}
-                            />
-                            <CarouselCard
-                                altText={"Thomas Avatar"}
-                                contentText={
-                                    "Thomas drives the technical strategy of the flowbite platform and brand."
-                                }
-                                imgPath={
-                                    "https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/thomas-lean.png"
-                                }
-                                titleClass={
-                                    "text-xl font-bold tracking-tight text-primary-900 dark:text-white mb-4 mt-2"
-                                }
-                                titleContent={"Thomas Lean"}
-                            />
-                            <CarouselCard
-                                altText={"Neil Avatar"}
-                                contentText={
-                                    "Neil drives the technical strategy of the flowbite platform and brand."
-                                }
-                                imgPath={
-                                    "https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/neil-sims.png"
-                                }
-                                titleClass={
-                                    "text-xl font-bold tracking-tight text-primary-900 dark:text-white mb-4 mt-2"
-                                }
-                                titleContent={"Neil Sims"}
+                                titleContent={"Conheça a primeira turma do Agilizando o Futuro"}
                             />
                     </Carousel>
                 </div>
