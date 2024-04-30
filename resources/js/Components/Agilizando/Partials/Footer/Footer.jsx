@@ -13,7 +13,7 @@ export default function Footer({footerClass}){
                     <Row rowClass={"md:flex md:justify-between"}>
                         <Content contentClass={"mb-6 md:mb-0"}>
                             <Link
-                                href="https://flowbite.com"
+                                href="https://agilizando.clubesiga.com.br/"
                                 className="flex items-center"
                             >
                                 <Image imgClass={"ml-3 h-6 sm:h-9"} altText={"Logo"} imgPath={"https://raw.githubusercontent.com/Clube-Siga/agilizando-o-futuro/jean/resources/images/Isologo%20Blue.png"} />
