@@ -13,65 +13,64 @@ export default function Footer({footerClass}){
                     <Row rowClass={"md:flex md:justify-between"}>
                         <Content contentClass={"mb-6 md:mb-0"}>
                             <Link
-                                href="https://flowbite.com"
+                                href="https://agilizando.clubesiga.com.br"
                                 className="flex items-center"
                             >
-                                <Image altText={"FlowBite Logo"} imgClass={"mr-3 h-8"} imgPath={"https://flowbite.com/docs/images/logo.svg"}/>
-                                <Span spanClass={"self-center text-2xl text-primary font-semibold whitespace-nowrap dark:text-white"} spanContent={"Agilizando"}/>
+                                <Image imgClass={"ml-3 h-6 sm:h-9"} altText={"Logo"} imgPath={"https://raw.githubusercontent.com/Clube-Siga/agilizando-o-futuro/jean/resources/images/Isologo%20branco.png"} />
                             </Link>
                         </Content>
                         <Content contentClass={"grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3"}>
                             <div>
-                                <h2 className="mb-6 text-sm font-semibold text-secondary uppercase dark:text-white">
-                                    Recursos
+                                <h2 className="mb-6 text-sm font-semibold text-defaultW uppercase dark:text-defaultW">
+                                    Contato
                                 </h2>
-                                <ul className="text-primary dark:text-primary-400">
+                                <ul className="text-defaultW dark:text-defaultW-400">
                                     <li className="mb-4">
                                         <a
-                                            href="https://flowbite.com"
+                                            href="https://wa.me/5521981760591"
                                             className="hover:underline"
                                         >
-                                            Flowbite
+                                            WhatsApp
                                         </a>
                                     </li>
                                     <li>
                                         <a
-                                            href="https://tailwindcss.com/"
+                                            href="mailto:agilizando@clubesiga.com.br/"
                                             className="hover:underline"
                                         >
-                                            Tailwind CSS
+                                            E-mail
                                         </a>
                                     </li>
                                 </ul>
                             </div>
                             <div>
-                                <h2 className="mb-6 text-sm font-semibold text-secondary uppercase dark:text-white">
+                                <h2 className="mb-6 text-sm font-semibold text-defaultW uppercase dark:text-defaultW">
                                     Siga-nos
                                 </h2>
-                                <ul className="text-primary dark:text-primary-400">
+                                <ul className="text-defaultW dark:text-defaultW-400">
                                     <li className="mb-4">
                                         <a
-                                            href="https://github.com/themesberg/flowbite"
+                                            href="https://instagram.com/agilizandoofuturo"
                                             className="hover:underline "
                                         >
-                                            Github
+                                            Instagram
                                         </a>
                                     </li>
                                     <li>
                                         <a
-                                            href="https://discord.gg/4eeurUVvTy"
+                                            href="https://facebook.com/agilizandoofuturo"
                                             className="hover:underline"
                                         >
-                                            Discord
+                                            Facebook
                                         </a>
                                     </li>
                                 </ul>
                             </div>
                             <div>
-                                <h2 className="mb-6 text-sm font-semibold text-secondary uppercase dark:text-white">
+                                <h2 className="mb-6 text-sm font-semibold text-defaultW uppercase dark:text-defaultW">
                                     Legal
                                 </h2>
-                                <ul className="text-primary dark:text-primary-400">
+                                <ul className="text-defaultW dark:text-defaultW-400">
                                     <li className="mb-4">
                                         <a href="#" className="hover:underline">
                                             Política de Privacidade
@@ -86,20 +85,13 @@ export default function Footer({footerClass}){
                             </div>
                         </Content>
                     </Row>
-                    <hr className="my-6 border-secondary sm:mx-auto dark:border-primary lg:my-8" />
+                    <hr className="my-8 border-defaultW sm:mx-auto dark:border-defaultW lg:my-" />
                     <Row rowClass={"sm:flex sm:items-center sm:justify-between"}>
-                        <Span spanClass={"text-sm text-primary sm:text-center dark:text-defaultW"}>
-                            © 2024{" "}
-                            <Link
-                                href="https://flowbite.com"
-                                className="hover:underline"
-                            >
-                                Agilizando™
-                            </Link>
-                            . Todos os direitos reservados.
+                        <Span spanClass={"text-sm text-defaultW sm:text-center dark:text-defaultW"}>
+                            © Agilizando o Futuro - Todos os direitos reservados.
                         </Span>
                         <Content contentClass={"flex mt-4 space-x-6 sm:justify-center sm:mt-0"}>
-                            <Link
+                            {/* <Link
                                 href="#"
                                 className="text-primary hover:text-secondary dark:hover:text-primary"
                             >
@@ -115,8 +107,8 @@ export default function Footer({footerClass}){
                                         clipRule="evenodd"
                                     />
                                 </svg>
-                            </Link>
-                            <Link
+                            </Link> */}
+                            {/* <Link
                                 href="#"
                                 className="text-primary hover:text-secondary dark:hover:text-primary"
                             >
@@ -179,7 +171,7 @@ export default function Footer({footerClass}){
                                         clipRule="evenodd"
                                     />
                                 </svg>
-                            </Link>
+                            </Link> */}
                         </Content>
                     </Row>
                 </div>

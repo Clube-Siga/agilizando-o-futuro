@@ -40,7 +40,7 @@ export default function Home({ error, message }) {
                     contactClass={"w-full grid-cols-2 justify-evenly bg-secondary dark:bg-secondary"}
                     message={message}
                 />
-                <Footer  footerClass={"w-full grid-cols-2 justify-evenly p-4 bg-defaultW sm:p-6 dark:bg-defaultB"} />
+                <Footer  footerClass={"w-full grid-cols-2 justify-evenly p-4 bg-secondary sm:p-6 dark:bg-secondary"} />
             </SiteLayout>
         </>
     );
