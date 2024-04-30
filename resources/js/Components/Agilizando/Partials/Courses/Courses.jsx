@@ -11,7 +11,7 @@ export default function Courses({coursesClass}){
                         <Row rowClass={"w-full flex justify-center"}>
                             <Title
                                 titleClass={
-                                    "mb-4 text-4xl tracking-tight font-extrabold text-secondary dark:text-defaultW"
+                                    "mb-4 text-4xl tracking-tight font-extrabold font-body text-secondary dark:text-defaultW"
                                 }
                                 titleContent={"Nosso Cursos"}
                             />
@@ -20,108 +20,124 @@ export default function Courses({coursesClass}){
                     <Carousel className={"grid grid-rows-1 mx-4"}>
                         {/*Row*/}
                             <CarouselCard
-                                altText={"Bonnie Avatar"}
+                                altText={"Curso HTML"}
+                                buttonPath={"#"}
+                                buttonTitle={"Inscreva-se"}
                                 contentText={
-                                    "Bonnie drives the technical strategy of the flowbite platform and brand."
+                                    "Aprenda HTML do zero e torne-se capaz de criar páginas web completas e estruturadas, utilizando as últimas práticas e recursos."
                                 }
                                 imgPath={
-                                    "https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/bonnie-green.png"
+                                    "https://raw.githubusercontent.com/Clube-Siga/agilizando-o-futuro/4c880ac99acf745d5284351badcebb37818ac844/resources/images/html.jpeg"
                                 }
                                 titleClass={
-                                    "text-xl font-bold tracking-tight text-defaultB dark:text-defaultB mb-4 mt-2"
+                                    "ml-5 mb-3 text-xl font-extrabold tracking-tight text-defaultW sm:mr-2 dark:text-defaultW"
                                 }
-                                titleContent={"Bonnie Green"}
+                                titleContent={"Domine a linguagem base da web e construa sites incríveis!"}
                             />
                             <CarouselCard
-                                altText={"Jese Avatar"}
+                            buttonPath={"#"}
+                            buttonTitle={"Inscreva-se"}
+                                altText={"Curso CSS"}
                                 contentText={
-                                    "Jese drives the technical strategy of the flowbite platform and brand."
+                                    "Domine as técnicas de CSS para estilizar seus sites, criar layouts profissionais e proporcionar uma ótima experiência do usuário."
                                 }
                                 imgPath={
-                                    "https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/jese-leos.png"
+                                    "https://raw.githubusercontent.com/Clube-Siga/agilizando-o-futuro/4c880ac99acf745d5284351badcebb37818ac844/resources/images/css.jpeg"
                                 }
                                 titleClass={
-                                    "text-xl font-bold tracking-tight text-defaultB dark:text-defaultB mb-4 mt-2"
+                                    "ml-5 mb-3 text-xl font-extrabold tracking-tight text-defaultW sm:mr-2 dark:text-defaultW"
                                 }
-                                titleContent={"Jese Leos"}
+                                titleContent={"Dê vida aos seus sites com CSS e torne-os visualmente atraentes!"}
                             />
                             <CarouselCard
-                                altText={"Michael Avatar"}
+                                altText={"Curso JavaScript"}
+                                buttonPath={"#"}
+                                buttonTitle={"Inscreva-se"}
                                 contentText={
-                                    "Michael drives the technical strategy of the flowbite platform and brand."
+                                    "Aprenda JavaScript e adicione funcionalidades interativas aos seus sites, criando efeitos visuais, animações e elementos dinâmicos."
                                 }
                                 imgPath={
-                                    "https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/michael-gouch.png"
+                                    "https://raw.githubusercontent.com/Clube-Siga/agilizando-o-futuro/4c880ac99acf745d5284351badcebb37818ac844/resources/images/js.jpeg"
                                 }
                                 titleClass={
-                                    "text-xl font-bold tracking-tight text-defaultB dark:text-defaultB mb-4 mt-2"
+                                    "ml-5 mb-3 text-xl font-extrabold tracking-tight text-defaultW sm:mr-2 dark:text-defaultW"
                                 }
-                                titleContent={"Michael Gough"}
+                                titleContent={"Interaja com seus sites e torne-os dinâmicos com JavaScript!"}
                             />
                             <CarouselCard
-                                altText={"Helene Avatar"}
+                                altText={"Curso PHP"}
+                                buttonPath={"#"}
+                                buttonTitle={"Inscreva-se"}
                                 contentText={
-                                    "Helene drives the technical strategy of the flowbite platform and brand."
+                                    "Aprenda PHP e conecte seus sites a bancos de dados MySQL para criar páginas dinâmicas, sistemas de login e outras funcionalidades avançadas."
                                 }
                                 imgPath={
-                                    "https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/helene-engels.png"
+                                    "https://raw.githubusercontent.com/Clube-Siga/agilizando-o-futuro/4c880ac99acf745d5284351badcebb37818ac844/resources/images/php.jpeg"
                                 }
                                 titleClass={
-                                    "text-xl font-bold tracking-tight text-defaultB dark:text-defaultB mb-4 mt-2"
+                                    "ml-5 mb-3 text-xl font-extrabold tracking-tight text-defaultW sm:mr-2 dark:text-defaultW"
                                 }
-                                titleContent={"Helene Engels"}
+                                titleContent={"Crie sites dinâmicos e interativos com PHP e MySQL!"}
                             />
                             <CarouselCard
-                                altText={"Joseph Avatar"}
+                                altText={"Curso MySQL"}
+                                buttonPath={"#"}
+                                buttonTitle={"Inscreva-se"}
                                 contentText={
-                                    "Joseph drives the technical strategy of the flowbite platform and brand."
+                                    "Aprenda MySQL, um dos sistemas de gerenciamento de banco de dados mais utilizados, para armazenar, organizar e consultar dados de forma eficiente."
                                 }
                                 imgPath={
-                                    "https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/joseph-mcfall.png"
+                                    "https://raw.githubusercontent.com/Clube-Siga/agilizando-o-futuro/4c880ac99acf745d5284351badcebb37818ac844/resources/images/mysql.jpeg"
                                 }
                                 titleClass={
-                                    "text-xl font-bold tracking-tight text-defaultB dark:text-defaultB mb-4 mt-2"
+                                    "ml-5 mb-3 text-xl font-extrabold tracking-tight text-defaultW sm:mr-2 dark:text-defaultW"
                                 }
-                                titleContent={"Joseph McFall"}
+                                titleContent={"Armazene e gerencie dados com eficiência utilizando MySQL!"}
                             />
                             <CarouselCard
-                                altText={"Sofia Avatar"}
+                                altText={"Curso Java"}
+                                buttonPath={"#"}
+                                buttonTitle={"Inscreva-se"}
                                 contentText={
-                                    "Sofia drives the technical strategy of the flowbite platform and brand."
+                                    "Aprenda Java, uma das linguagens de programação mais populares do mundo, e torne-se capaz de criar aplicações web, desktop e mobile."
                                 }
                                 imgPath={
-                                    "https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/sofia-mcguire.png"
+                                    "https://raw.githubusercontent.com/Clube-Siga/agilizando-o-futuro/4c880ac99acf745d5284351badcebb37818ac844/resources/images/java.jpeg"
                                 }
                                 titleClass={
-                                    "text-xl font-bold tracking-tight text-defaultB dark:text-defaultB mb-4 mt-2"
+                                    "ml-5 mb-3 text-xl font-extrabold tracking-tight text-defaultW sm:mr-2 dark:text-defaultW"
                                 }
-                                titleContent={"Sofia McGuire"}
+                                titleContent={"Domine a linguagem Java e desenvolva aplicações robustas e escaláveis!"}
                             />
                             <CarouselCard
-                                altText={"Thomas Avatar"}
+                                altText={"Curso Git e Github"}
+                                buttonPath={"#"}
+                                buttonTitle={"Inscreva-se"}
                                 contentText={
-                                    "Thomas drives the technical strategy of the flowbite platform and brand."
+                                    "Aprenda a usar Git e Github para versionar seu código, controlar alterações, colaborar com outros desenvolvedores e hospedar seus projetos em nuvem."
                                 }
                                 imgPath={
-                                    "https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/thomas-lean.png"
+                                    "https://raw.githubusercontent.com/Clube-Siga/agilizando-o-futuro/4c880ac99acf745d5284351badcebb37818ac844/resources/images/git.jpeg"
                                 }
                                 titleClass={
-                                    "text-xl font-bold tracking-tight text-defaultB dark:text-defaultB mb-4 mt-2"
+                                    "ml-5 mb-3 text-xl font-extrabold tracking-tight text-defaultW sm:mr-2 dark:text-defaultW"
                                 }
-                                titleContent={"Thomas Lean"}
+                                titleContent={"Versionamento de código e colaboração em equipe com Git e Github!"}
                             />
                             <CarouselCard
-                                altText={"Neil Avatar"}
+                            buttonPath={"#"}
+                            buttonTitle={"Inscreva-se"}
+                                altText={"Curso Primeiros Passos"}
                                 contentText={
-                                    "Neil drives the technical strategy of the flowbite platform and brand."
+                                    "Aprenda os conceitos básicos da programação, lógica e algoritmos, utilizando uma linguagem de programação de sua preferência."
                                 }
                                 imgPath={
-                                    "https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/neil-sims.png"
+                                    "https://raw.githubusercontent.com/Clube-Siga/agilizando-o-futuro/102b784a8297bb5c25ab4b02ad8c94722a05aa1e/resources/images/inicio.jpeg"
                                 }
                                 titleClass={
-                                    "text-xl font-bold tracking-tight text-defaultB dark:text-defaultB mb-4 mt-2"
+                                    "ml-5 mb-3 text-xl font-extrabold tracking-tight text-defaultW sm:mr-2 dark:text-defaultW"
                                 }
-                                titleContent={"Neil Sims"}
+                                titleContent={"Dê seus primeiros passos no mundo da programação e desvende seus segredos!"}
                             />
                     </Carousel>
                 </div>
