@@ -12,15 +12,20 @@ export default function Footer({footerClass}){
                     <Row rowClass={"md:flex md:justify-between"}>
                         <Content contentClass={"mb-6 md:mb-0"}>
                             <Link
-                                href="https://flowbite.com"
+                                href="https://agilizando.clubesiga.com.br/"
                                 className="flex items-center"
                             >
+<<<<<<< HEAD
                                 <Image altText={"FlowBite Logo"} imgClass={"mr-3 h-8"} imgPath={"https://flowbite.com/docs/images/logo.svg"}/>
                                 <Span spanClass={"self-center text-2xl font-semibold whitespace-nowrap dark:text-white"} spanContent={"Agilizando o futuro"}/>
+=======
+                                <Image imgClass={"ml-3 h-6 sm:h-9"} altText={"Logo"} imgPath={"https://raw.githubusercontent.com/Clube-Siga/agilizando-o-futuro/jean/resources/images/Isologo%20branco.png"} />
+>>>>>>> jean
                             </Link>
                         </Content>
-                        <Content contentClass={"grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3"}>
+                        <Content contentClass={"grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-2"}>
                             <div>
+<<<<<<< HEAD
                                 <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
                                     Recursos
                                 </h2>
@@ -48,9 +53,15 @@ export default function Footer({footerClass}){
                                 Siga-nos
                                 </h2>
                                 <ul className="text-gray-600 dark:text-gray-400">
+=======
+                                <h3 className="font-body mb-6 text-sm font-semibold text-defaultW uppercase dark:text-white">
+                                    Siga-nos
+                                </h3>
+                                <ul className="font-body text-defaultW dark:text-primary-400">
+>>>>>>> jean
                                     <li className="mb-4">
                                         <a
-                                            href="https://github.com/themesberg/flowbite"
+                                            href="https://github.com/Clube-Siga"
                                             className="hover:underline "
                                         >
                                             Github
@@ -58,7 +69,7 @@ export default function Footer({footerClass}){
                                     </li>
                                     <li>
                                         <a
-                                            href="https://discord.gg/4eeurUVvTy"
+                                            href="https://discord.gg/Hra9vrqgxJ"
                                             className="hover:underline"
                                         >
                                             Discord
@@ -67,10 +78,17 @@ export default function Footer({footerClass}){
                                 </ul>
                             </div>
                             <div>
+<<<<<<< HEAD
                                 <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
                                     Legal
                                 </h2>
                                 <ul className="text-gray-600 dark:text-gray-400">
+=======
+                                <h3 className="font-body mb-6 text-sm font-semibold text-defaultW uppercase dark:text-white">
+                                    Legal
+                                </h3>
+                                <ul className="font-body text-defaultW dark:text-primary-400">
+>>>>>>> jean
                                     <li className="mb-4">
                                         <a href="#" className="hover:underline">
                                             Privacy Policy
@@ -85,22 +103,38 @@ export default function Footer({footerClass}){
                             </div>
                         </Content>
                     </Row>
+<<<<<<< HEAD
                     <hr className="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
                     <Row rowClass={"sm:flex sm:items-center sm:justify-between"}>
                         <Span spanClass={"text-sm text-gray-500 sm:text-center dark:text-gray-400"}>
                             © 2022{" "}
+=======
+                    <hr className="my-6 border-secondary sm:mx-auto dark:border-primary lg:my-8" />
+                    <Row rowClass={"sm:flex sm:items-center sm:justify-between"}>
+                        <Span spanClass={"font-body text-sm text-defaultW sm:text-center dark:text-defaultW"}>
+                            © 2024{" "}
+>>>>>>> jean
                             <Link
-                                href="https://flowbite.com"
+                                href="https://agilizando.clubesiga.com.br/"
                                 className="hover:underline"
                             >
+<<<<<<< HEAD
                                 Flowbite™
+=======
+                                Agilizando
+>>>>>>> jean
                             </Link>
                             . All Rights Reserved.
                         </Span>
                         <Content contentClass={"flex mt-4 space-x-6 sm:justify-center sm:mt-0"}>
                             <Link
+<<<<<<< HEAD
                                 href="#"
                                 className="text-gray-500 hover:text-gray-900 dark:hover:text-white"
+=======
+                                href="https://www.facebook.com/agilizandoofuturo"
+                                className="text-defaultW hover:text-defaultW dark:hover:text-primary"
+>>>>>>> jean
                             >
                                 <svg
                                     className="w-5 h-5"
@@ -110,14 +144,19 @@ export default function Footer({footerClass}){
                                 >
                                     <path
                                         fillRule="evenodd"
-                                        d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"
+                                        d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h3.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h3.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"
                                         clipRule="evenodd"
                                     />
                                 </svg>
                             </Link>
                             <Link
+<<<<<<< HEAD
                                 href="#"
                                 className="text-gray-500 hover:text-gray-900 dark:hover:text-white"
+=======
+                                href="https://www.instagram.com/agilizandoofuturo"
+                                className="text-defaultW hover:text-defaultW dark:hover:text-primary"
+>>>>>>> jean
                             >
                                 <svg
                                     className="w-5 h-5"
@@ -133,6 +172,7 @@ export default function Footer({footerClass}){
                                 </svg>
                             </Link>
                             <Link
+<<<<<<< HEAD
                                 href="#"
                                 className="text-gray-500 hover:text-gray-900 dark:hover:text-white"
                             >
@@ -148,6 +188,10 @@ export default function Footer({footerClass}){
                             <Link
                                 href="#"
                                 className="text-gray-500 hover:text-gray-900 dark:hover:text-white"
+=======
+                                href="https://github.com/Clube-Siga"
+                                className="text-defaultW hover:text-defaultW dark:hover:text-primary"
+>>>>>>> jean
                             >
                                 <svg
                                     className="w-5 h-5"
@@ -162,6 +206,7 @@ export default function Footer({footerClass}){
                                     />
                                 </svg>
                             </Link>
+<<<<<<< HEAD
                             <Link
                                 href="#"
                                 className="text-gray-500 hover:text-gray-900 dark:hover:text-white"
@@ -179,6 +224,8 @@ export default function Footer({footerClass}){
                                     />
                                 </svg>
                             </Link>
+=======
+>>>>>>> jean
                         </Content>
                     </Row>
                 </div>

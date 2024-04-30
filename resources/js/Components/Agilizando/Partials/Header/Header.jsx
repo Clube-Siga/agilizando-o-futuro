@@ -10,6 +10,7 @@ export default function Header({ headerClass }) {
                 <Logo />
                 <NavbarToggle />
                 <NavbarCollapse>
+<<<<<<< HEAD
                     <NavbarLink className="ml-8" href="/" active>
                         Home
                     </NavbarLink>
@@ -21,6 +22,25 @@ export default function Header({ headerClass }) {
                     <NavbarLink 
                         href="#contact"
                     >Contato
+=======
+                    <NavbarLink className="ml-2 text-defaultW font-body" href="/">
+                        Início
+                    </NavbarLink>
+                    <NavbarLink className="text-defaultW font-body" as={Link} href="/#about">
+                        Sobre
+                    </NavbarLink>
+                    <NavbarLink className="text-defaultW font-body" as={Link} href="/#courses">
+                        Cursos
+                    </NavbarLink>
+                    <NavbarLink className="text-defaultW font-body" as={Link} href="/#cta">
+                        Apoie-nos
+                    </NavbarLink>
+                    <NavbarLink className="text-defaultW font-body" as={Link} href="/#blog">
+                        Blog
+                    </NavbarLink>
+                    <NavbarLink className="text-defaultW font-body" as={Link} href="/#contact">
+                        Contato
+>>>>>>> jean
                     </NavbarLink>
                 </NavbarCollapse>
             </Navbar>

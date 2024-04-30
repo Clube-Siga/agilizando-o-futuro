@@ -19,7 +19,7 @@ export default {
     theme: {
         extend: {
             colors: {
-                primary: {
+                structureReference: {
                     50: "#eff6ff",
                     100: "#dbeafe",
                     200: "#bfdbfe",
@@ -32,38 +32,16 @@ export default {
                     900: "#1e3a8a",
                     950: "#172554",
                 },
-                secondary: {
-                    50: "#eff6ff",
-                    100: "#dbeafe",
-                    200: "#bfdbfe",
-                    300: "#93c5fd",
-                    400: "#60a5fa",
-                    500: "#3b82f6",
-                    600: "#2563eb",
-                    700: "#1d4ed8",
-                    800: "#1e40af",
-                    900: "#1e3a8a",
-                    950: "#283665",
-                },
+                primary: "#055BDA",
+                secondary: "#141324",
+                support: "#20B95D",
+                defaultW: "#FEFEFE",
+                defaultB: "#0E0E10",
             },
         },
         fontFamily: {
             body: [
-                "Inter",
-                "ui-sans-serif",
-                "system-ui",
-                "-apple-system",
-                "system-ui",
-                "Segoe UI",
-                "Roboto",
-                "Helvetica Neue",
-                "Arial",
-                "Noto Sans",
-                "sans-serif",
-                "Apple Color Emoji",
-                "Segoe UI Emoji",
-                "Segoe UI Symbol",
-                "Noto Color Emoji",
+                "Lexend",
             ],
             sans: [
                 "Inter",
