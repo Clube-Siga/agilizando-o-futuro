@@ -94,7 +94,7 @@ export default function Contact({contactClass}){
                                 onChange={(event) => setData('subject', event.target.value)}
                                 type="text"
                                 id="subject"
-                                className=" font-body block p-3 w-full text-sm text-defaultW bg-defaultW rounded-lg border border-secondary shadow-sm focus:ring-primary focus:border-primary dark:bg-secondary dark:border-primary placeholder-primary dark:placeholder-primary dark:text-defaultW dark:focus:ring-primary dark:focus:border-primary dark:shadow-sm-light"
+                                className=" font-body block p-3 w-full text-sm text-secondary bg-defaultW rounded-lg border border-secondary shadow-sm focus:ring-primary focus:border-primary dark:bg-secondary dark:border-primary placeholder-primary dark:placeholder-primary dark:text-defaultW dark:focus:ring-primary dark:focus:border-primary dark:shadow-sm-light"
                                 placeholder="Nos informe o assunto da mensagem"
                                 required
                             />
@@ -109,7 +109,7 @@ export default function Contact({contactClass}){
                                 onChange={(event) => setData('formMessage', event.target.value)}
                                 id="formMessage"
                                 rows="6"
-                                className=" font-body block p-2.5 w-full text-sm text-defaultW bg-defaultW rounded-lg shadow-sm border border-secondary focus:ring-primary focus:border-primary dark:bg-secondary dark:border-primary placeholder-primary dark:placeholder-primary dark:text-defaultW dark:focus:ring-primary dark:focus:border-primary"
+                                className=" font-body block p-2.5 w-full text-sm text-secondary bg-defaultW rounded-lg shadow-sm border border-secondary focus:ring-primary focus:border-primary dark:bg-secondary dark:border-primary placeholder-primary dark:placeholder-primary dark:text-defaultW dark:focus:ring-primary dark:focus:border-primary"
                                 placeholder="Envie sua mensagem em até 500 caracteres"
                             ></textarea>
                         </Content>
