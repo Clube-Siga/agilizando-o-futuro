@@ -18,7 +18,7 @@ export default function Contact({contactClass}){
     });
 
  //const errors = usePage().props.errors;
- console.log('Erros Contact', errors);
+ //console.log('Erros Contact', errors);
 
     function submit(e) {
         e.preventDefault();

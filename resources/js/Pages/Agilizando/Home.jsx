@@ -15,10 +15,10 @@ export default function Home({ message }) {
 
     message = usePage().props.message;
     
-    console.log('messagem', message)
+    //console.log('messagem', message)
 
     const MySwal = withReactContent(Swal)
-    {/*implementar uma verificacao se message foi atribuida, se sim executar o alert*/}
+
     if(message && message == 'Sua mensagem foi enviada com sucesso!'){
         MySwal.fire({
             title: 'Success!',
