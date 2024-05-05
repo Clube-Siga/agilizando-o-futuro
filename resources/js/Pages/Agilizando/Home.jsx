@@ -17,6 +17,17 @@ export default function Home({ message }) {
     
     console.log('messagem', message)
 
+    const MySwal = withReactContent(Swal)
+    {/*implementar uma verificacao se message foi atribuida, se sim executar o alert*/}
+    if(message && message == 'Sua mensagem foi enviada com sucesso!'){
+        MySwal.fire({
+            title: 'Success!',
+            text: message,
+            icon: 'success',
+            confirmButtonColor: '#3085d6',
+        });
+    }
+
 
     return (
         <>
