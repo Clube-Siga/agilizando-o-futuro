@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Log; // criar logs
 use App\Models\Contact; //importa o Model Contact
 
 use Carbon\Carbon; //trabalhar com datas
+
 class ContactService
 {
     /**
