@@ -25,10 +25,10 @@ class ContactController extends Controller
         $newContact = $this->contactService->createContact($request);
         if ($newContact ) {
 
-            return to_route('site.index', '#contact')->with('message', 'Sua mensagem foi enviada com sucesso!');
+            return to_route('site.index')->with('message', 'Sua mensagem foi enviada com sucesso!');
         }
 
-        return to_route('site.index', '#contact')->with('error', 'Sua mensagem nao foi enviada ligue 21-21-98176-0591!');
+        return to_route('site.index')->with('error', 'Sua mensagem nao foi enviada ligue 21-21-98176-0591!');
         // return to_route('site.index', [ //aqui estavamos passando o parametros para url quando queriamos passar via props
         //     'error' => 'Sua mensagem nao foi enviada ligue 21-21-98176-0591',
         // ]);
