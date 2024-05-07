@@ -10,7 +10,7 @@ import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content'
 {/*import {} from 'flowbite-react'*/ }
 
-export default function Home({ error,message }) {
+export default function Home({ message }) {
 
     const MySwal = withReactContent(Swal)
     {/*implementar uma verificacao se message foi atribuida, se sim executar o alert*/}
@@ -22,13 +22,7 @@ export default function Home({ error,message }) {
             confirmButtonColor: '#3085d6',
         });
 
-        }else{
-            MySwal.fire({
-                title: 'Falha no envio!',
-                text:error,
-                icon: 'Error',
-                confirmButtonColor: '#3085d6',
-            });
+    
     }
 
     return (

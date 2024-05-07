@@ -1,4 +1,4 @@
-import {formatPhoneNumber } from '@/Utils/utils';
+import {formatPhoneNumber } from '@/Utilis/utilis';
 import { useForm } from '@inertiajs/react';
 import Content from "../../Components/Content/Content";
 import Label from "../../Components/Label/Label";

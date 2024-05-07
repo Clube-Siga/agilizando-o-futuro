@@ -42,13 +42,10 @@ class ContactController extends Controller
 
         if ($newContact ) {
 
-            return Inertia::render('Agilizando/Home', [
-                'message' => 'Sua mensagem foi enviada com sucesso!',
-            ]);
+            return to_route ('site.index') ->with( 'message', 'Sua mensagem foi enviada com sucesso!');
+                
         }
 
-        return Inertia::render('Agilizando/Home', [ 
-            'error' => 'Sua mensagem nao foi enviada ligue 21-21-98176-0591',
-        ]);
+        return to_route('site.index')->with( 'error', 'Sua mensagem nao foi enviada ligue 21-21-98176-0591');
     }
 }
