@@ -24,13 +24,10 @@ class ContactController extends Controller
        //programacao orientada a objeto passa a responsabilidade de criar um contato para classe de servico
         $newContact = $this->contactService->createContact($request);
         if ($newContact ) {
-
+            //redirecionar para pagina do FORM ou back()->with()
             return to_route('site.index')->with('message', 'Sua mensagem foi enviada com sucesso!');
         }
 
-        return to_route('site.index')->with('error', 'Sua mensagem nao foi enviada ligue 21-21-98176-0591!');
-        // return to_route('site.index', [ //aqui estavamos passando o parametros para url quando queriamos passar via props
-        //     'error' => 'Sua mensagem nao foi enviada ligue 21-21-98176-0591',
-        // ]);
+        return to_route('site.index')->with('error', 'Sua mensagem nao foi enviada ligue 21-21-98176-0591!');   
     }
 }
