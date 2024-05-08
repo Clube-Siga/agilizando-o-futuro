@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import { useForm } from '@inertiajs/react';
 import Content from "../../Components/Content/Content";
 import Label from "../../Components/Label/Label";
@@ -16,9 +15,6 @@ export default function Contact({contactClass}){
         subject: '',
         formMessage: '',
     });
-
- //const errors = usePage().props.errors;
- //console.log('Erros Contact', errors);
 
     function submit(e) {
         e.preventDefault();

@@ -13,12 +13,13 @@ return new class extends Migration
     {
         Schema::create('contacts', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
             $table->string('name');
             $table->string('phone');
             $table->string('email');
             $table->string('subject');
             $table->string('formMessage', 500);
+
+            $table->timestamps();
         });
     }
 
@@ -29,4 +30,5 @@ return new class extends Migration
     {
         Schema::dropIfExists('contacts');
     }
+
 };
