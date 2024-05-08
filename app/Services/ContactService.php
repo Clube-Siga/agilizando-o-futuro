@@ -25,6 +25,9 @@ class ContactService
 
     public function createContact(ContactStoreRequest $request): Contact
     {
+        $validated = $request->validated();//faltava essa linha pegando os dados validados
+       // dd($validated);
+
         // Obter o IP do cliente
         $ip = $request->ip();
        
