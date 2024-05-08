@@ -1,18 +1,15 @@
 <?php
 
-use App\Http\Controllers\PageTestController;
-use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\SiteController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
-
-use App\Http\Controllers\ContactController; //Controlado responsavel pelo form
-
 use Inertia\Inertia;
 
-Route::get('/', [SiteController::class, 'index'])->name('site.index');
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SiteController;
+use App\Http\Controllers\ContactController; //Controlado responsavel pelo form
 
-Route::get('/teste', [PageTestController::class, 'index'])->name('pagetest.index');
+
+Route::get('/', [SiteController::class, 'index'])->name('site.index');
 
 // Formulario de Contato
 Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');

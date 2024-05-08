@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
+
 use Inertia\Inertia;
 use Inertia\Response;
 
@@ -9,7 +11,6 @@ use App\Models\Contact;
 use App\Services\ContactService;
 use Illuminate\Support\Facades\Log; // criar logs
 
-use Illuminate\Http\Request;
 use App\Http\Requests\ContactStoreRequest;
 
 class ContactController extends Controller
