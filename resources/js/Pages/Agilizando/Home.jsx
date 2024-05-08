@@ -13,7 +13,7 @@ import withReactContent from 'sweetalert2-react-content'
 
 export default function Home({ message }) {
 
-    //message = usePage().props.message;
+    message = usePage().props.message;
 
     //console.log('messagem', message)
 
