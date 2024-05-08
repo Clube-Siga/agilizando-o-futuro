@@ -1,6 +1,4 @@
-
-"use client";
-
+// "use client";
 import { Carousel } from "flowbite-react";
 import Row from "../Row/Row";
 
