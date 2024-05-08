@@ -9,6 +9,7 @@ use App\Models\Contact;
 use App\Services\ContactService;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\ContactStoreRequest;
 
 class ContactController extends Controller
 {
@@ -19,7 +20,7 @@ class ContactController extends Controller
         $this->contactService = $contactService;
     }
 
-    public function store (Request $request)
+    public function store (ContactStoreRequest $request)
     { 
        //programacao orientada a objeto passa a responsabilidade de criar um contato para classe de servico
         $newContact = $this->contactService->createContact($request);

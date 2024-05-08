@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Log; // criar logs
 
 use App\Models\Contact; //importa o Model Contact
 
+use App\Http\Requests\ContactStoreRequest;
 use Carbon\Carbon; //trabalhar com datas
 
 class ContactService
@@ -22,20 +23,11 @@ class ContactService
         $this->contact = $contact;
     }
 
-    public function createContact(Request $request): Contact
+    public function createContact(ContactStoreRequest $request): Contact
     {
         // Obter o IP do cliente
         $ip = $request->ip();
-
-        //validar os dados sempre se preferir pode usar um request personalizado, com regras e mensagens personalizadas
-        $validated = $request->validate([
-            'name' => 'required|string|max:255',
-            'phone' => 'required|string|regex:/^\(\d{2}\) \d{5}-\d{4}$/', //nova regra
-            'email' => 'required|string|email|max:255',
-            'subject' => 'required|string',
-            'formMessage' => 'required|string|max:500',
-        ]);
-
+       
         // sempre que for realizar uma acao use try/catch
         // tente fazer isso
         try {
@@ -45,6 +37,7 @@ class ContactService
                 'email' => $validated['email'],
                 'subject' => $validated['subject'],
                 'formMessage' => $validated['formMessage'],
+                'ip_address' => $ip,
             ]);
 
             // Registrar mensagem de log com o IP
