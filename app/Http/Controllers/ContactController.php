@@ -38,15 +38,12 @@ class ContactController extends Controller
 
             Log::info("Executado: ". $response);
 
-            // Redirect with success message
             return to_route('site.index')->with('message', 'Sua mensagem foi enviada com sucesso!');
             
-            // Return with error message
         } catch (\Exception $e) {
 
             Log::error($e->getMessage(), $e);
 
-            // Return generic error message if specific handling not implemented
             return to_route('site.index')->with('error', 'Sua mensagem nao foi enviada ligue 21-21-98176-0591!'); 
         }
     }
