@@ -3,19 +3,21 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Http\Request;
 
 class ContactStoreRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
      */
-    public function authorize(): bool
+    public function authorize(Request $request): bool
     {
-        // $riskScore = $request->input('g-recaptcha-response');
-
-        // if ($riskScore > 0.5) {
-        //     return false;
-        // }
+        $riskScore = $request->get('g-recaptcha-response');
+        $response = $this->recaptcha->verify($riskScore, $request->ip());
+        if ($riskScore > 0.5) {
+            $response->isSucess();
+            return false;
+        }
 
         // Validação adicional do formulário
         return true;
