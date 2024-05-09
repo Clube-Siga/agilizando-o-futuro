@@ -1,8 +1,10 @@
 import Button from "../../Components/Button/Button";
 import Image from "../../Components/Image/Image";
 import Title from "../../Components/Title/Title";
+import Row from "../../Components/Row/Row";
+import Text from "../../Components/Text/Text";
 
-export default function CallToAction(){
+export default function CallToAction({ctaClass}){
     return (
         
 

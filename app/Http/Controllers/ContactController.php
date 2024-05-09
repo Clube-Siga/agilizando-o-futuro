@@ -20,22 +20,7 @@ class ContactController extends Controller
     }
 
     public function store (Request $request)
-    { //remover bloco comentado 
-        /* //validar responsabilidade dos Request
-        $validated = $request->validate([
-            'email' => 'required|string|email|max:255',
-            'subject' => 'required',
-            'formMessage' => 'required|string|max:500',
-        ]);
-        
-        // dados validados salvar no banco de dados
-        // resposabilidade dos model de criar e inforrmar caracteristicas diretas
-        $newContact = Contact::create([
-            'email' => $validated['email'],
-            'subject' =>$validated['subject'],
-            'formMessage' => $validated['formMessage'],
-        ]);
-       */
+    { 
 
        //programacao orientada a objeto passa a responsabilidade de criar um contato para classe de servico
         $newContact = $this->contactService->createContact($request);

@@ -24,16 +24,14 @@ class ContactService
     // cria um contato e retorna o contato criado
     public function createContact(Request $request): Contact
     {
+
+        //validar os dados sempre se preferir pode usar um request personalizado, com regras e mensagens personalizadas
+        $validated = $request->validate();
+
         // Obter o IP do cliente
         $ip = $request->ip();
 
-        //validar os dados sempre se preferir pode usar um request personalizado, com regras e mensagens personalizadas
-        $validated = $request->validate([
-            'email' => 'required|string|email|max:255',
-            'subject' => 'required',
-            'formMessage' => 'required|string|max:500',
-        ]);
-
+        
         // sem que for realizar uma acao use try/catch 
         // tente fazer isso
         try {
@@ -41,6 +39,9 @@ class ContactService
                 'email' => $validated['email'],
                 'subject' => $validated['subject'],
                 'formMessage' => $validated['formMessage'],
+                'name' => $validated['name'],
+                'phone' => $validated['phone'],
+                'ip' => $ip,
             ]);
             
             // Registrar mensagem de log com o IP

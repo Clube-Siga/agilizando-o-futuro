@@ -16,6 +16,8 @@ return new class extends Migration
             $table->string('email');
             $table->string('subject');
             $table->string('formMessage', 500);
+            $table->string('name');
+            $table->string('phone');
 
             $table->timestamps();
         });
