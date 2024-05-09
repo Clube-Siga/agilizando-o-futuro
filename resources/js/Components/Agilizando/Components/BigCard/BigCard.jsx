@@ -4,7 +4,7 @@ import Title from "../Title/Title";
 export default function BigCard({altText, contentText, imgPath, titleClass, titleContent}) {
     return (
         <>
-            <div className="flex flex-col items-center justify-center bg-primary rounded-lg shadow sm:flex dark:bg-secondary">
+            <div className="flex flex-col flex-1 items-center justify-center bg-primary rounded-lg shadow sm:flex dark:bg-secondary">
                 <Title titleClass={titleClass} titleContent={titleContent} />
 
                 <Card
