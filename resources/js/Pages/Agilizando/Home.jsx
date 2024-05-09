@@ -1,4 +1,5 @@
 import React from 'react';
+import { usePage } from '@inertiajs/react';
 import SiteLayout from '@/Layouts/SiteLayout';
 import About from '@/Components/Agilizando/Partials/About/About';
 import Blog from '@/Components/Agilizando/Partials/Blog/Blog';
@@ -10,10 +11,14 @@ import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content'
 {/*import {} from 'flowbite-react'*/ }
 
-export default function Home({ error, message }) {
+export default function Home({ message }) {
+
+    message = usePage().props.message;
+
+    //console.log('messagem', message)
 
     const MySwal = withReactContent(Swal)
-    {/*implementar uma verificacao se message foi atribuida, se sim executar o alert*/}
+
     if(message && message == 'Sua mensagem foi enviada com sucesso!'){
         MySwal.fire({
             title: 'Success!',
@@ -22,6 +27,7 @@ export default function Home({ error, message }) {
             confirmButtonColor: '#3085d6',
         });
     }
+
 
     return (
         <>

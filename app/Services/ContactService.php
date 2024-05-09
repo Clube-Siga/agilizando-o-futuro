@@ -5,9 +5,15 @@ namespace App\Services;
 use Illuminate\Http\Request; //trabalhar com as requisicoes web
 use Illuminate\Support\Facades\Log; // criar logs
 
+
+use Inertia\Inertia;
+use Inertia\Response;
+
 use App\Models\Contact; //importa o Model Contact
 
+use App\Http\Requests\ContactStoreRequest;
 use Carbon\Carbon; //trabalhar com datas
+
 class ContactService
 {
     /**
@@ -21,19 +27,12 @@ class ContactService
         $this->contact = $contact;
     }
 
-    public function createContact(Request $request): Contact
+    public function createContact(ContactStoreRequest $request): bool
     {
         // Obter o IP do cliente
         $ip = $request->ip();
 
-        //validar os dados sempre se preferir pode usar um request personalizado, com regras e mensagens personalizadas
-        $validated = $request->validate([
-            'name' => 'required|string|max:255',
-            'phone' => 'required|string|max:20|regex:/^\([0-9]{2}\)\s?[0-9]{5}\-[0-9]{4}$/',
-            'email' => 'required|string|email|max:255',
-            'subject' => 'required|string',
-            'formMessage' => 'required|string|max:500',
-        ]);
+        $validated = $request->validated();//faltava essa linha pegando os dados validados
 
         // sempre que for realizar uma acao use try/catch
         // tente fazer isso
@@ -44,20 +43,25 @@ class ContactService
                 'email' => $validated['email'],
                 'subject' => $validated['subject'],
                 'formMessage' => $validated['formMessage'],
+                'ip_address' => $ip,
             ]);
 
             // Registrar mensagem de log com o IP
             Log::info("Contato criado com sucesso! IP do cliente: {$ip}");
-            return $newContact;
+            return true;
 
             //se nao conseguir  gera uma excecao, que tambem pode ser personalizada
         } catch (\Exception $e) {
-            // trate o erro, grave um log, envia pro front, so nao deixa ele estourar na tela do usuario
-            // sistema bom nao para de funcionar nunca, e podemos corrigir e controlar suas falhas.
-           //exemplo: criando um log de erro e registrando a data e hora
-           Log::error($e->getMessage() . ' - Falha na criação do contato em: ' . Carbon::now());
+            // Registrar mensagem de log com o erro e data/hora
+            Log::error($e->getMessage() . ' - Falha na criação do contato em: ' . Carbon::now());
 
-            throw $e;
+            // Lidar com o erro de forma apropriada
+            // - Enviar mensagem de erro para o usuário
+            // - Registrar o erro em um sistema de relatórios
+            // - Realizar ações de recuperação (se possível)
+
+            // **Exemplo de mensagem de erro para o usuário:**
+            return response()->json(['error' => 'Falha ao criar o contato. Tente novamente mais tarde.'], 500);
         }
     }
 }

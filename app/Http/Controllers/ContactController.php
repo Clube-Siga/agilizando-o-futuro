@@ -2,13 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
+
 use Inertia\Inertia;
 use Inertia\Response;
 
 use App\Models\Contact;
 use App\Services\ContactService;
+use Illuminate\Support\Facades\Log; // criar logs
 
-use Illuminate\Http\Request;
+use App\Http\Requests\ContactStoreRequest;
 
 class ContactController extends Controller
 {
@@ -19,20 +22,29 @@ class ContactController extends Controller
         $this->contactService = $contactService;
     }
 
-    public function store (Request $request)
+    
+    public function store (ContactStoreRequest $request)
     { 
-       //programacao orientada a objeto passa a responsabilidade de criar um contato para classe de servico
-        $newContact = $this->contactService->createContact($request);
+        //programacao orientada a objeto passa a responsabilidade de criar um contato para classe de servico
+        
+        // sempre que for realizar uma acao use try/catch
+        // tente fazer isso
+        try {
+    
+            Log::info("Recebendo: ", $request->all());
 
-        if ($newContact ) {
+            // Create the contact using the service
+            $response = $this->contactService->createContact($request);
 
-            return Inertia::render('Agilizando/Home', [
-                'message' => 'Sua mensagem foi enviada com sucesso!',
-            ]);
+            Log::info("Executado: ". $response);
+
+            return to_route('site.index')->with('message', 'Sua mensagem foi enviada com sucesso!');
+            
+        } catch (\Exception $e) {
+
+            Log::error($e->getMessage(), $e);
+
+            return to_route('site.index')->with('error', 'Sua mensagem nao foi enviada ligue 21-21-98176-0591!'); 
         }
-
-        return Inertia::render('Agilizando/Home', [
-            'error' => 'Sua mensagem nao foi enviada ligue 21-21-98176-0591',
-        ]);
     }
 }
