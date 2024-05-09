@@ -12,12 +12,12 @@ class ContactStoreRequest extends FormRequest
      */
     public function authorize(Request $request): bool
     {
-        $riskScore = $request->get('g-recaptcha-response');
-        $response = $this->recaptcha->verify($riskScore, $request->ip());
-        if ($riskScore > 0.5) {
-            $response->isSucess();
-            return false;
-        }
+        //$riskScore = $request->get('g-recaptcha-response');
+        //$response = $this->recaptcha->verify($riskScore, $request->ip());
+        //if ($riskScore > 0.5) {
+        //    $response->isSucess();
+        //    return false;
+        //}
 
         // Validação adicional do formulário
         return true;

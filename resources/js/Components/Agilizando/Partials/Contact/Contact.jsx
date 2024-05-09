@@ -32,7 +32,7 @@ export default function Contact({contactClass}){
           }, data);
       }
 
-      const recaptcha = getenv(RECAPTCHA_SITE_KEY);
+      //const recaptcha = getenv(RECAPTCHA_SITE_KEY);
 
 
     return (
@@ -122,7 +122,7 @@ export default function Contact({contactClass}){
                             ></textarea>
                             <InputError message={errors.formMessage} className='mt-2'></InputError>
                         </Content>
-                        <ReCAPTCHA sitekey={recaptcha} onChange={() => {}}/>
+                        {/*<ReCAPTCHA sitekey={recaptcha} onChange={() => {}}/>*/}
                         <button disabled={processing} type="submit" className="font-body text-defaultW bg-primary hover:text-primary hover:bg-defaultW focus:ring-4 focus:ring-secondary font-medium rounded-3xl text-sm px-5 py-2.5 me-2 mb-2 dark:bg-secondary dark:hover:bg-defaultW focus:outline-none dark:focus:ring-secondary">
                             Enviar
                         </button>
