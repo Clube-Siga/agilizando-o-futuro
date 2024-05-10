@@ -51,6 +51,8 @@ Route::get('/teste', [PageTestController::class, 'index'])->name('pagetest.index
 
 // Formulario de Contato
 Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
+Route::post('/contato', [ContactController::class, 'store'])->middleware('recaptcha');
+
 
 
 require __DIR__.'/auth.php';
