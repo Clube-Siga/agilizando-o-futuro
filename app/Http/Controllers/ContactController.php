@@ -2,13 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
+
 use Inertia\Inertia;
 use Inertia\Response;
 
 use App\Models\Contact;
 use App\Services\ContactService;
+use Illuminate\Support\Facades\Log; // criar logs
 
-use Illuminate\Http\Request;
+use App\Http\Requests\ContactStoreRequest;
 
 class ContactController extends Controller
 {
@@ -21,16 +24,19 @@ class ContactController extends Controller
 
     public function store (Request $request)
     { 
+        try{
 
-       //programacao orientada a objeto passa a responsabilidade de criar um contato para classe de servico
-        $newContact = $this->contactService->createContact($request);
+            Log::info("Recebendo: ", $request->all());
 
-        if ($newContact ) {
-
+            $response = $this -> contactService -> createContact($request);
+            
             return to_route ('site.index') ->with( 'message', 'Sua mensagem foi enviada com sucesso!');
-                
-        }
+
+        }catch(\Exception $e){
+
+            Log::error($e->getMessage(), $e);
 
         return to_route('site.index')->with( 'error', 'Sua mensagem nao foi enviada ligue 21-21-98176-0591');
+    }
     }
 }

@@ -4,6 +4,8 @@ import Content from "../../Components/Content/Content";
 import Label from "../../Components/Label/Label";
 import Text from "../../Components/Text/Text";
 import Title from "../../Components/Title/Title";
+import InputError from '@/Components/InputError';
+import ReCAPTCHA from 'react-google-recaptcha';
 
 export default function Contact({contactClass}){
 
@@ -24,11 +26,11 @@ export default function Contact({contactClass}){
                 onSuccess: () => {
                     reset();
                 },
-                onError: () => {
-                    errors();
+                onError: (error) => {
+                    console.log('error' ,error);
                 },
 
-            }
+            },data
         );
     }
 
@@ -53,7 +55,7 @@ export default function Contact({contactClass}){
                                 placeholder="Seu nome aqui"
                                 required
                             />
-                             {errors.name && <div>{errors.name}</div>}
+                              <InputError message={errors.phone} className='mt-2'></InputError>
                         </div>
                         <div>
                             <Label objective={"phone"}>
@@ -68,7 +70,7 @@ export default function Contact({contactClass}){
                                 placeholder="(99) 99999-9999"
                                 required
                             />
-                             {errors.phone && <div>{errors.phone}</div>}
+                             <InputError message={errors.phone} className='mt-2'></InputError>
                         </div>
                         <div>
                             <Label objective={"email"}>
@@ -83,7 +85,8 @@ export default function Contact({contactClass}){
                                 placeholder="agilizando@clubesiga.com"
                                 required
                             />
-                             {errors.email && <div>{errors.email}</div>}
+                              <InputError message={errors.email} className='mt-2'></InputError>
+
                         </div>
                         <div>
                             <Label objective={"subject"}>
@@ -98,7 +101,7 @@ export default function Contact({contactClass}){
                                 placeholder="Nos informe o assunto da mensagem"
                                 required
                             />
-                            {errors.subject && <div>{errors.subject}</div>}
+                             <InputError message={errors.subject} className='mt-2'></InputError>
                         </div>
                         <Content contentClass={"sm:col-span-2"}>
                             <Label objective={"formMessage"}>
@@ -112,10 +115,12 @@ export default function Contact({contactClass}){
                                 className=" font-body block p-2.5 w-full text-sm text-secondary bg-defaultW rounded-lg shadow-sm border border-secondary focus:ring-primary focus:border-primary dark:bg-secondary dark:border-primary placeholder-primary dark:placeholder-primary dark:text-defaultW dark:focus:ring-primary dark:focus:border-primary"
                                 placeholder="Envie sua mensagem em até 500 caracteres"
                             ></textarea>
+                            <InputError message={errors.formMessage} className='mt-2'></InputError>
                         </Content>
 
-                        <button type="submit" className="font-body text-defaultW bg-primary hover:text-primary hover:bg-defaultW focus:ring-4 focus:ring-secondary font-medium rounded-3xl text-sm px-5 py-2.5 me-2 mb-2 dark:bg-secondary dark:hover:bg-defaultW focus:outline-none dark:focus:ring-secondary">
+                        <button disabled={processing} type="submit" className="font-body text-defaultW bg-primary hover:text-primary hover:bg-defaultW focus:ring-4 focus:ring-secondary font-medium rounded-3xl text-sm px-5 py-2.5 me-2 mb-2 dark:bg-secondary dark:hover:bg-defaultW focus:outline-none dark:focus:ring-secondary">
                             Enviar
+                           
                         </button>
                     </form>
 
