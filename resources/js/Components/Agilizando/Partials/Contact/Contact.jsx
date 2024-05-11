@@ -20,22 +20,12 @@ export default function Contact({contactClass, siteKey}){
     //recebe a resposta do usuario
     const handleRecaptchaChange = (token) => {
         setRecaptchaToken(token);
+        console.log('token', token)
+
     };
 
     const onVerify = (token) => {
-        post(route('contact.store'), {
-            ...data,
-            recaptchaToken: token,
-          }, {
-            preserveScroll: true,
-            onSuccess: () => {
-              reset();
-            },
-            onError: (error) => {
-              setRefreshReCaptcha(!refreshReCaptcha);
-              console.log('error', error);
-            },
-        });
+        handleRecaptchaChange(token)
      };
     
     

@@ -11,36 +11,36 @@ class ContactStoreRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        //recuperar o paramento
-        $gRecaptchaResponse = $request->input('g-recaptcha-response');
-        // Verifica o token usando Recaptcha::verify() do pacote 
-        $response = Recaptcha::verify($gRecaptchaResponse); // aqui ta acionando URL: https://www.google.com/recaptcha/api/siteverify MÉTODO: POST
+        // //recuperar o paramento
+        // $gRecaptchaResponse = $request->input('g-recaptcha-response');
+        // // Verifica o token usando Recaptcha::verify() do pacote 
+        // $response = Recaptcha::verify($gRecaptchaResponse); // aqui ta acionando URL: https://www.google.com/recaptcha/api/siteverify MÉTODO: POST
          
-        //  dd($response); // sem pacote
-        // $response = http::asForm()->post(config('services.google_recaptcha.url'), [
-        //     'secret' => config('services.google_recaptcha.secret_key'),
-        //     'response' => $value,
-        //     'remoteip' => \request()->ip()
-        // ]);    
+        // //  dd($response); // sem pacote
+        // // $response = http::asForm()->post(config('services.google_recaptcha.url'), [
+        // //     'secret' => config('services.google_recaptcha.secret_key'),
+        // //     'response' => $value,
+        // //     'remoteip' => \request()->ip()
+        // // ]);    
        
 
-        if ($response->isSuccess()) {
-            // Extract risk analysis data
-            $riskAnalysis = $response->getRiskAnalysis();
-            $score = $riskAnalysis->getScore();
+        // if ($response->isSuccess()) {
+        //     // Extract risk analysis data
+        //     $riskAnalysis = $response->getRiskAnalysis();
+        //     $score = $riskAnalysis->getScore();
 
-            // Apply access control based on score
-            if ($score <= 0.5) {
-                // Allow access
-                return true;
-            } else {
-                // Deny access
-                return false;
-            }
-        } else {
-            return false;
-        }
-
+        //     // Apply access control based on score
+        //     if ($score <= 0.5) {
+        //         // Allow access
+        //         return true;
+        //     } else {
+        //         // Deny access
+        //         return false;
+        //     }
+        // } else {
+        //     return false;
+        // }
+        return true;
     }
 
     /**
@@ -56,6 +56,7 @@ class ContactStoreRequest extends FormRequest
             'email' => 'required|string|email|max:255',
             'subject' => 'required|string',
             'formMessage' => 'required|string|max:500',
+            'g-recaptcha-response' => 'required'
         ];
     }
 
