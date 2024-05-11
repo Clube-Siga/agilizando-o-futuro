@@ -13,9 +13,16 @@ class ContactStoreRequest extends FormRequest
     {
         //recuperar o paramento
         $gRecaptchaResponse = $request->input('g-recaptcha-response');
-        // Verify token using Recaptcha::verify() 
+        // Verifica o token usando Recaptcha::verify() do pacote 
         $response = Recaptcha::verify($gRecaptchaResponse); // aqui ta acionando URL: https://www.google.com/recaptcha/api/siteverify MÉTODO: POST
-            dd($response);
+         
+        //  dd($response); // sem pacote
+        // $response = http::asForm()->post(config('services.google_recaptcha.url'), [
+        //     'secret' => config('services.google_recaptcha.secret_key'),
+        //     'response' => $value,
+        //     'remoteip' => \request()->ip()
+        // ]);    
+       
 
         if ($response->isSuccess()) {
             // Extract risk analysis data

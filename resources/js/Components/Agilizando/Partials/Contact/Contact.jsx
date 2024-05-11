@@ -23,9 +23,19 @@ export default function Contact({contactClass, siteKey}){
     };
 
     const onVerify = (token) => {
-        // Process the reCAPTCHA token (e.g., submit form using Inertia)
-        console.log('Recaptcha token:', token);
-        // ... your form submission logic using Inertia's post method ...
+        post(route('contact.store'), {
+            ...data,
+            recaptchaToken: token,
+          }, {
+            preserveScroll: true,
+            onSuccess: () => {
+              reset();
+            },
+            onError: (error) => {
+              setRefreshReCaptcha(!refreshReCaptcha);
+              console.log('error', error);
+            },
+        });
      };
     
     
