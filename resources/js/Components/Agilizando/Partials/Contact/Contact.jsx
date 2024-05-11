@@ -6,24 +6,9 @@ import Text from "../../Components/Text/Text";
 import Title from "../../Components/Title/Title";
 import InputError from '@/Components/InputError';
 import {formatPhoneNumber } from '@/Utils/utils';
-import { GoogleReCaptchaProvider, GoogleReCaptcha } from "react-google-recaptcha-v3";
 
 //receber as novas props do recapchat
-export default function Contact({contactClass, siteKey}){
-
-    //armazenar a resposta do usuario
-    const [recaptchaToken, setRecaptchaToken] = React.useState('');
-    const [refreshReCaptcha, setRefreshReCaptcha] = React.useState ( false ); 
-
-    siteKey = usePage().props.siteKey
-//    console.log('siteKey', siteKey)
-
-    //recebe a resposta do usuario
-    const handleVerify = (token) => {
-        setRecaptchaToken(token);
-    };
-   
-    
+export default function Contact({contactClass }){
     const { data, setData, post, processing, errors, reset } = useForm({
         name: '',
         phone: '',
@@ -41,10 +26,8 @@ export default function Contact({contactClass, siteKey}){
             preserveScroll: true,
             onSuccess: () => {
               reset()
-              setRefreshReCaptcha(!refreshReCaptcha);
             }, 
             onError: (error) => {
-            setRefreshReCaptcha(!refreshReCaptcha);
               console.log('error',error)
             },
           }, data);
@@ -139,13 +122,6 @@ export default function Contact({contactClass, siteKey}){
                             <InputError message={errors.formMessage} className='mt-2'></InputError>
                         </Content>
 
-                        <GoogleReCaptchaProvider reCaptchaKey={siteKey}>
-                            <GoogleReCaptcha
-                                className="google-recaptcha-custom-class"
-                                onVerify={handleVerify}
-                                refreshReCaptcha={refreshReCaptcha}
-                            />
-                        </GoogleReCaptchaProvider>
                         <button 
                             disabled={processing} 
                             type="submit" 

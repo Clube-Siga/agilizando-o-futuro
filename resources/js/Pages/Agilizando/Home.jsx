@@ -12,7 +12,7 @@ import withReactContent from 'sweetalert2-react-content';
 
 {/*import {} from 'flowbite-react'*/ }
 //declarar siteKey
-export default function Home({ message, siteKey, imageHeroPath }) {
+export default function Home({ message, imageHeroPath }) {
 
     //message = usePage().props.message; // pode ser removido pois já a está usando diretamente na função de renderização.
     // siteKey = usePage().props.siteKey
@@ -42,7 +42,6 @@ export default function Home({ message, siteKey, imageHeroPath }) {
                 <Contact
                     contactClass={"w-full grid-cols-2 justify-evenly bg-secondary dark:bg-secondary"}
                     message={message}
-                    sitekey={siteKey} //passar site key
                 />
             </SiteLayout>
         </>

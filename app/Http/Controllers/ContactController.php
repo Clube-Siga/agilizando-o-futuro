@@ -25,29 +25,31 @@ class ContactController extends Controller
     
     public function store (ContactStoreRequest $request)
     { 
-         // Verificação do reCAPTCHA no lado do servidor com biscolab/laravel-recaptcha
-        $response = Recaptcha::verify($request->input('recaptchaToken'));
-        Log::info("Recebendo: ", $response->json_encode());
-        if ($response->isSuccess()) {
+       
+        // Verificação do reCAPTCHA no lado do servidor com biscolab/laravel-recaptcha
+        // $response = Recaptcha::verify($request->input('recaptchaToken'));
 
-            try {
-        
-                Log::info("Recebendo: ", $request->all());
+        // if ($response->isSuccess()) {
 
-                // Create the contact using the service
-                $response = $this->contactService->createContact($request);
+            
+        // }
 
-                Log::info("Executado: ". $response);
+        try {
+    
+            Log::info("Recebendo: ", $request->all());
 
-                return to_route('site.index')->with('message', 'Sua mensagem foi enviada com sucesso!');
-                
-            } catch (\Exception $e) {
+            // Create the contact using the service
+            $response = $this->contactService->createContact($request);
 
-                Log::error($e->getMessage(), $e);
+            Log::info("Executado: ". $response);
 
-                return to_route('site.index')->with('error', 'Sua mensagem nao foi enviada ligue 21-21-98176-0591!'); 
-            }
+            return to_route('site.index')->with('message', 'Sua mensagem foi enviada com sucesso!');
+            
+        } catch (\Exception $e) {
 
+            Log::error($e->getMessage(), $e);
+
+            return to_route('site.index')->with('error', 'Sua mensagem nao foi enviada ligue 21-21-98176-0591!'); 
         }
     }
 }
