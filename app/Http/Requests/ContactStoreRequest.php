@@ -31,7 +31,7 @@ class ContactStoreRequest extends FormRequest
             'email' => 'required|string|email|max:255',
             'subject' => 'required|string',
             'formMessage' => 'required|string|max:500',
-            'recaptchaToken' => 'required',
+           // 'recaptchaToken' => 'required',
         ];
     }
 
