@@ -6,12 +6,15 @@ import Text from "../../Components/Text/Text";
 import Title from "../../Components/Title/Title";
 import InputError from '@/Components/InputError';
 import {formatPhoneNumber } from '@/Utils/utils';
-import ReCAPTCHA from 'react-google-recaptcha'; 
+import { GoogleReCaptchaProvider, GoogleReCaptcha } from "react-google-recaptcha-v3";
+
 //receber as novas props do recapchat
 export default function Contact({contactClass, siteKey}){
 
     //armazenar a resposta do usuario
     const [recaptchaToken, setRecaptchaToken] = React.useState('');
+    const [refreshReCaptcha, setRefreshReCaptcha] = React.useState ( false ); 
+
     siteKey = usePage().props.siteKey
     console.log('siteKey', siteKey)
     //recebe a resposta do usuario
@@ -38,6 +41,7 @@ export default function Contact({contactClass, siteKey}){
               reset()
             }, 
             onError: (error) => {
+            setRefreshReCaptcha(!refreshReCaptcha);
               console.log('error',error)
             },
           }, data);
@@ -131,11 +135,20 @@ export default function Contact({contactClass, siteKey}){
                             ></textarea>
                             <InputError message={errors.formMessage} className='mt-2'></InputError>
                         </Content>
-                        <ReCAPTCHA
-                            sitekey={siteKey} 
-                            onChange={handleRecaptchaChange}
-                        />
-                        <button disabled={processing} type="submit" className="font-body text-defaultW bg-primary hover:text-primary hover:bg-defaultW focus:ring-4 focus:ring-secondary font-medium rounded-3xl text-sm px-5 py-2.5 me-2 mb-2 dark:bg-secondary dark:hover:bg-defaultW focus:outline-none dark:focus:ring-secondary">
+                        <input type="hidden" id="recaptcha-token" name="g-recaptcha-response" />
+
+                        <GoogleReCaptchaProvider reCaptchaKey={siteKey}>
+                            <GoogleReCaptcha
+                                className="google-recaptcha-custom-class"
+                                onVerify={recaptchaToken}
+                                refreshReCaptcha={refreshReCaptcha}
+                            />
+                        </GoogleReCaptchaProvider>
+                        <button 
+                            data-sitekey={siteKey}
+                            disabled={processing} 
+                            type="submit" 
+                            className="g-recaptcha font-body text-defaultW bg-primary hover:text-primary hover:bg-defaultW focus:ring-4 focus:ring-secondary font-medium rounded-3xl text-sm px-5 py-2.5 me-2 mb-2 dark:bg-secondary dark:hover:bg-defaultW focus:outline-none dark:focus:ring-secondary">
                             Enviar
                         </button>
                     </form>
