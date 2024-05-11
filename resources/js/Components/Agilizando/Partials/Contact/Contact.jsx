@@ -20,14 +20,9 @@ export default function Contact({contactClass, siteKey}){
     //recebe a resposta do usuario
     const handleRecaptchaChange = (token) => {
         setRecaptchaToken(token);
-        console.log('token', token)
 
     };
-
-    const onVerify = (token) => {
-        handleRecaptchaChange(token)
-     };
-    
+   
     
     const { data, setData, post, processing, errors, reset } = useForm({
         name: '',
