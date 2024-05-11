@@ -139,7 +139,7 @@ export default function Contact({contactClass, siteKey}){
                         <GoogleReCaptchaProvider reCaptchaKey={siteKey}>
                             <GoogleReCaptcha
                                 className="google-recaptcha-custom-class"
-                                onVerify={recaptchaToken}
+                                onVerify={handleRecaptchaChange}
                                 refreshReCaptcha={refreshReCaptcha}
                             />
                         </GoogleReCaptchaProvider>
