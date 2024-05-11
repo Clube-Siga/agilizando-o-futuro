@@ -13,7 +13,7 @@ Route::get('/', [SiteController::class, 'index'])->name('site.index');
 
 // Formulario de Contato
 Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
-Route::post('/contato', [ContactController::class, 'store'])->middleware('recaptcha');
+//Route::post('/contato', [ContactController::class, 'store'])->middleware('recaptcha');
 
 
 Route::get('/dashboard', function () {

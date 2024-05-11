@@ -1,5 +1,4 @@
 import { useForm } from '@inertiajs/react';
-import ReCAPTCHA from 'react-google-recaptcha';
 import Content from "../../Components/Content/Content";
 import Label from "../../Components/Label/Label";
 import Text from "../../Components/Text/Text";
@@ -17,7 +16,7 @@ export default function Contact({contactClass}){
         formMessage: '',
     });
 
-    function submit(e) {
+    function submit(e, token) {
         e.preventDefault();
 
         // enviar o form usando inertia useForm (url, options)
@@ -30,6 +29,8 @@ export default function Contact({contactClass}){
               console.log('error',error)
             },
           }, data);
+
+          document.getElementById("contact-form").submit();
       }
 
 
@@ -40,7 +41,7 @@ export default function Contact({contactClass}){
                     <Title titleClass={"font-body mb-4 text-4xl tracking-tight font-extrabold text-center text-defaultW dark:text-defaultW"} titleContent={"Entre em Contanto"}/>
                     <Text textClass={"font-body mb-8 font-light text-center text-defaultW lg:mb-16 sm:text-xl dark:text-primary"} textContent={"Está com algum problema técnico? Gostaria de enviar um feedback sobre a plataforma? Gostaria de mais detalhes sobre o projeto? Fale conosco"}/>
 
-                    <form onSubmit={submit} className="space-y-3">
+                    <form id="contact-form" onSubmit={submit} className="space-y-3">
                         <div>
                             <Label objective={"name"}>
                                 Seu nome
@@ -120,8 +121,7 @@ export default function Contact({contactClass}){
                             ></textarea>
                             <InputError message={errors.formMessage} className='mt-2'></InputError>
                         </Content>
-                        <ReCAPTCHA sitekey="6LdXPtUpAAAAAKU2klAvdl-Cpof-ficcscCvL7SD" onChange={() => {}}/>
-                        <button disabled={processing} type="submit" className="g-recaptcha font-body text-defaultW bg-primary hover:text-primary hover:bg-defaultW focus:ring-4 focus:ring-secondary font-medium rounded-3xl text-sm px-5 py-2.5 me-2 mb-2 dark:bg-secondary dark:hover:bg-defaultW focus:outline-none dark:focus:ring-secondary">
+                        <button disabled={processing} type="submit" className="g-recaptcha font-body text-defaultW bg-primary hover:text-primary hover:bg-defaultW focus:ring-4 focus:ring-secondary font-medium rounded-3xl text-sm px-5 py-2.5 me-2 mb-2 dark:bg-secondary dark:hover:bg-defaultW focus:outline-none dark:focus:ring-secondary" data-sitekey="6LdXPtUpAAAAAKU2klAvdl-Cpof-ficcscCvL7SD" data-callback='submit' data-action='submit'>
                             Enviar
                         </button>
                     </form>
