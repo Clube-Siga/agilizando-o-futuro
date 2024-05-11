@@ -16,8 +16,8 @@ export default function Contact({contactClass, siteKey}){
     const [refreshReCaptcha, setRefreshReCaptcha] = React.useState ( false ); 
 
     siteKey = usePage().props.siteKey
-    console.log('siteKey', siteKey)
-    
+//    console.log('siteKey', siteKey)
+
     //recebe a resposta do usuario
     const handleVerify = (token) => {
         setRecaptchaToken(token);
