@@ -6,7 +6,7 @@ import Text from "../../Components/Text/Text";
 import Title from "../../Components/Title/Title";
 import InputError from '@/Components/InputError';
 import {formatPhoneNumber } from '@/Utils/utils';
-//import { GoogleReCaptchaProvider, GoogleReCaptcha } from "react-google-recaptcha-v3";
+import { GoogleReCaptchaProvider, GoogleReCaptcha } from "react-google-recaptcha-v3";
 
 //receber as novas props do recapchat
 export default function Contact({contactClass, siteKey}){
@@ -139,7 +139,13 @@ export default function Contact({contactClass, siteKey}){
                             <InputError message={errors.formMessage} className='mt-2'></InputError>
                         </Content>
 
-                        
+                        <GoogleReCaptchaProvider reCaptchaKey={siteKey}>
+                            <GoogleReCaptcha
+                                className="google-recaptcha-custom-class"
+                                onVerify={handleVerify}
+                                refreshReCaptcha={refreshReCaptcha}
+                            />
+                        </GoogleReCaptchaProvider>
                         <button 
                             disabled={processing} 
                             type="submit" 
