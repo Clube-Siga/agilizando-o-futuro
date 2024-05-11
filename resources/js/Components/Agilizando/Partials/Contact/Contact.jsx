@@ -146,8 +146,6 @@ export default function Contact({contactClass, siteKey}){
                             />
                         </GoogleReCaptchaProvider>
                         <button 
-                            data-sitekey={siteKey}
-                            data-callback={onVerify}
                             disabled={processing} 
                             type="submit" 
                             className="g-recaptcha font-body text-defaultW bg-primary hover:text-primary hover:bg-defaultW focus:ring-4 focus:ring-secondary font-medium rounded-3xl text-sm px-5 py-2.5 me-2 mb-2 dark:bg-secondary dark:hover:bg-defaultW focus:outline-none dark:focus:ring-secondary">
