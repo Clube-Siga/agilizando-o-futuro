@@ -4,8 +4,6 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-use Illuminate\Support\Facades\Http;
-use Illuminate\Contracts\Validation\Rule;
 
 class ContactStoreRequest extends FormRequest
 {
@@ -14,18 +12,9 @@ class ContactStoreRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        $endpoint = config('services.google_recaptcha');
+        
 
-        $response = Http::asForm()->post($endpoint['url'], [
-            'secret' => $endpoint['secret_key'],
-            'response' => $value,
-        ])->json();
-
-        if(  $response['success'] && $response['score'] > 0.5) {
-            return true;
-        }
-
-        return false;
+        return true;
         
     }
 
@@ -42,7 +31,7 @@ class ContactStoreRequest extends FormRequest
             'email' => 'required|string|email|max:255',
             'subject' => 'required|string',
             'formMessage' => 'required|string|max:500',
-            'g-recaptcha-response' => 'required'
+            'recaptchaToken' => 'required',
         ];
     }
 

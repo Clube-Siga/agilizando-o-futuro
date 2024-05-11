@@ -41,6 +41,7 @@ export default function Contact({contactClass, siteKey}){
             preserveScroll: true,
             onSuccess: () => {
               reset()
+              setRefreshReCaptcha(!refreshReCaptcha);
             }, 
             onError: (error) => {
             setRefreshReCaptcha(!refreshReCaptcha);
