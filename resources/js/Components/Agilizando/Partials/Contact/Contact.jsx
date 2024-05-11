@@ -15,7 +15,6 @@ export default function Contact({contactClass }){
         email: '',
         subject: '',
         formMessage: '',
-        recaptchaToken: recaptchaToken
     });
 
     function submit(e) {
