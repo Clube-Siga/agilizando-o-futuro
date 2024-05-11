@@ -135,7 +135,6 @@ export default function Contact({contactClass, siteKey}){
                             ></textarea>
                             <InputError message={errors.formMessage} className='mt-2'></InputError>
                         </Content>
-                        <input type="hidden" id="recaptcha-token" name="g-recaptcha-response" />
 
                         <GoogleReCaptchaProvider reCaptchaKey={siteKey}>
                             <GoogleReCaptcha
