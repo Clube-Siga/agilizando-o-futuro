@@ -21,6 +21,13 @@ export default function Contact({contactClass, siteKey}){
     const handleRecaptchaChange = (token) => {
         setRecaptchaToken(token);
     };
+
+    const onVerify = (token) => {
+        // Process the reCAPTCHA token (e.g., submit form using Inertia)
+        console.log('Recaptcha token:', token);
+        // ... your form submission logic using Inertia's post method ...
+     };
+    
     
     const { data, setData, post, processing, errors, reset } = useForm({
         name: '',
@@ -139,12 +146,13 @@ export default function Contact({contactClass, siteKey}){
                         <GoogleReCaptchaProvider reCaptchaKey={siteKey}>
                             <GoogleReCaptcha
                                 className="google-recaptcha-custom-class"
-                                onVerify={handleRecaptchaChange}
+                                onVerify={onVerify}
                                 refreshReCaptcha={refreshReCaptcha}
                             />
                         </GoogleReCaptchaProvider>
                         <button 
                             data-sitekey={siteKey}
+                            data-callback={onVerify}
                             disabled={processing} 
                             type="submit" 
                             className="g-recaptcha font-body text-defaultW bg-primary hover:text-primary hover:bg-defaultW focus:ring-4 focus:ring-secondary font-medium rounded-3xl text-sm px-5 py-2.5 me-2 mb-2 dark:bg-secondary dark:hover:bg-defaultW focus:outline-none dark:focus:ring-secondary">
