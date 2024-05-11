@@ -11,14 +11,29 @@ class ContactStoreRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        // $riskScore = $request->input('g-recaptcha-response');
+        //recuperar o paramento
+        $gRecaptchaResponse = $request->input('g-recaptcha-response');
+        // Verify token using Recaptcha::verify() 
+        $response = Recaptcha::verify($gRecaptchaResponse); // aqui ta acionando URL: https://www.google.com/recaptcha/api/siteverify MÉTODO: POST
+            dd($response);
 
-        // if ($riskScore > 0.5) {
-        //     return false;
-        // }
+        if ($response->isSuccess()) {
+            // Extract risk analysis data
+            $riskAnalysis = $response->getRiskAnalysis();
+            $score = $riskAnalysis->getScore();
 
-        // Validação adicional do formulário
-        return true;
+            // Apply access control based on score
+            if ($score <= 0.5) {
+                // Allow access
+                return true;
+            } else {
+                // Deny access
+                return false;
+            }
+        } else {
+            return false;
+        }
+
     }
 
     /**
