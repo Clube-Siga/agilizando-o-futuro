@@ -1,19 +1,31 @@
-import { useForm } from '@inertiajs/react';
+import React from 'react';
+import { useForm, usePage } from '@inertiajs/react';
 import Content from "../../Components/Content/Content";
 import Label from "../../Components/Label/Label";
 import Text from "../../Components/Text/Text";
 import Title from "../../Components/Title/Title";
 import InputError from '@/Components/InputError';
 import {formatPhoneNumber } from '@/Utils/utils';
+import ReCAPTCHA from 'react-google-recaptcha'; 
+//receber as novas props do recapchat
+export default function Contact({contactClass, siteKey}){
 
-export default function Contact({contactClass}){
-
+    //armazenar a resposta do usuario
+    const [recaptchaToken, setRecaptchaToken] = React.useState('');
+    siteKey = usePage().props.siteKey
+    console.log('siteKey', siteKey)
+    //recebe a resposta do usuario
+    const handleRecaptchaChange = (token) => {
+        setRecaptchaToken(token);
+    };
+    
     const { data, setData, post, processing, errors, reset } = useForm({
         name: '',
         phone: '',
         email: '',
         subject: '',
         formMessage: '',
+        recaptchaToken: recaptchaToken
     });
 
     function submit(e) {
@@ -119,7 +131,10 @@ export default function Contact({contactClass}){
                             ></textarea>
                             <InputError message={errors.formMessage} className='mt-2'></InputError>
                         </Content>
-
+                        <ReCAPTCHA
+                            sitekey={siteKey} 
+                            onChange={handleRecaptchaChange}
+                        />
                         <button disabled={processing} type="submit" className="font-body text-defaultW bg-primary hover:text-primary hover:bg-defaultW focus:ring-4 focus:ring-secondary font-medium rounded-3xl text-sm px-5 py-2.5 me-2 mb-2 dark:bg-secondary dark:hover:bg-defaultW focus:outline-none dark:focus:ring-secondary">
                             Enviar
                         </button>

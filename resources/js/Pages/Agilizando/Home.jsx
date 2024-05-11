@@ -1,5 +1,4 @@
 import React from 'react';
-import { usePage } from '@inertiajs/react';
 import SiteLayout from '@/Layouts/SiteLayout';
 import About from '@/Components/Agilizando/Partials/About/About';
 import Blog from '@/Components/Agilizando/Partials/Blog/Blog';
@@ -8,15 +7,16 @@ import Contact from '@/Components/Agilizando/Partials/Contact/Contact';
 import Courses from '@/Components/Agilizando/Partials/Courses/Courses';
 import Hero from '@/Components/Agilizando/Partials/Hero/Hero';
 import Swal from 'sweetalert2';
-import withReactContent from 'sweetalert2-react-content'
+import withReactContent from 'sweetalert2-react-content';
+
+
 {/*import {} from 'flowbite-react'*/ }
+//declarar siteKey
+export default function Home({ message, siteKey }) {
 
-export default function Home({ message }) {
-
-    message = usePage().props.message;
-
-    //console.log('messagem', message)
-
+    //message = usePage().props.message; // pode ser removido pois já a está usando diretamente na função de renderização.
+    // siteKey = usePage().props.siteKey
+    // console.log('siteKey', siteKey)
     const MySwal = withReactContent(Swal)
 
     if(message && message == 'Sua mensagem foi enviada com sucesso!'){
@@ -40,6 +40,7 @@ export default function Home({ message }) {
                 <Contact
                     contactClass={"w-full grid-cols-2 justify-evenly bg-secondary dark:bg-secondary"}
                     message={message}
+                    sitekey={siteKey} //passar site key
                 />
             </SiteLayout>
         </>

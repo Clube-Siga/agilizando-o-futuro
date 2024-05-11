@@ -16,8 +16,11 @@ class SiteController extends Controller
             $message = null;
         }
 
+        $sitekey = config('services.google_recaptcha.site_key'); //recuperando configuracao
+
         return Inertia::render('Agilizando/Home', [
             'message' => $message,
+            'siteKey' => $sitekey,
         ]);
     }
 }
