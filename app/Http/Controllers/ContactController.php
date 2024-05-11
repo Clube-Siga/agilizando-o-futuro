@@ -25,12 +25,9 @@ class ContactController extends Controller
     
     public function store (ContactStoreRequest $request)
     { 
-        // Validar outros campos do formulário usando o objeto de solicitação
-        $validated = $request->validated(); // Use dados validados
-
-        // Verificação do reCAPTCHA no lado do servidor com biscolab/laravel-recaptcha
+         // Verificação do reCAPTCHA no lado do servidor com biscolab/laravel-recaptcha
         $response = Recaptcha::verify($request->input('recaptchaToken'));
-
+        Log::info("Recebendo: ", $response->json_encode());
         if ($response->isSuccess()) {
 
             try {
