@@ -11,36 +11,19 @@ class ContactStoreRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        // //recuperar o paramento
-        // $gRecaptchaResponse = $request->input('g-recaptcha-response');
-        // // Verifica o token usando Recaptcha::verify() do pacote 
-        // $response = Recaptcha::verify($gRecaptchaResponse); // aqui ta acionando URL: https://www.google.com/recaptcha/api/siteverify MÉTODO: POST
-         
-        // //  dd($response); // sem pacote
-        // // $response = http::asForm()->post(config('services.google_recaptcha.url'), [
-        // //     'secret' => config('services.google_recaptcha.secret_key'),
-        // //     'response' => $value,
-        // //     'remoteip' => \request()->ip()
-        // // ]);    
-       
+        $endpoint = config('services.google_recaptcha');
 
-        // if ($response->isSuccess()) {
-        //     // Extract risk analysis data
-        //     $riskAnalysis = $response->getRiskAnalysis();
-        //     $score = $riskAnalysis->getScore();
+        $response = Http::asForm()->post($endpoint['url'], [
+            'secret' => $endpoint['secret_key'],
+            'response' => $value,
+        ])->json();
 
-        //     // Apply access control based on score
-        //     if ($score <= 0.5) {
-        //         // Allow access
-        //         return true;
-        //     } else {
-        //         // Deny access
-        //         return false;
-        //     }
-        // } else {
-        //     return false;
-        // }
-        return true;
+        if(  $response['success'] && $response['score'] > 0.5) {
+            return true;
+        }
+
+        return false;
+        
     }
 
     /**

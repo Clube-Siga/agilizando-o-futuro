@@ -17,10 +17,10 @@ export default function Contact({contactClass, siteKey}){
 
     siteKey = usePage().props.siteKey
     console.log('siteKey', siteKey)
+    
     //recebe a resposta do usuario
-    const handleRecaptchaChange = (token) => {
+    const handleVerify = (token) => {
         setRecaptchaToken(token);
-
     };
    
     
@@ -141,7 +141,7 @@ export default function Contact({contactClass, siteKey}){
                         <GoogleReCaptchaProvider reCaptchaKey={siteKey}>
                             <GoogleReCaptcha
                                 className="google-recaptcha-custom-class"
-                                onVerify={handleRecaptchaChange}
+                                onVerify={handleVerify}
                                 refreshReCaptcha={refreshReCaptcha}
                             />
                         </GoogleReCaptchaProvider>
