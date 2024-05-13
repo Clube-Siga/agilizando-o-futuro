@@ -22,21 +22,34 @@ class ContactController extends Controller
         $this->contactService = $contactService;
     }
 
-    public function store (Request $request)
+    
+    public function store (ContactStoreRequest $request)
     { 
-        try{
+       
+        // Verificação do reCAPTCHA no lado do servidor com biscolab/laravel-recaptcha
+        $response = Recaptcha::verify($request->input('recaptchaToken'));
 
+         if ($response->isSuccess()) {
+
+            
+         }
+
+        try {
+    
             Log::info("Recebendo: ", $request->all());
 
-            $response = $this -> contactService -> createContact($request);
-            
-            return to_route ('site.index') ->with( 'message', 'Sua mensagem foi enviada com sucesso!');
+            // Create the contact using the service
+            $response = $this->contactService->createContact($request);
 
-        }catch(\Exception $e){
+            Log::info("Executado: ". $response);
+
+            return to_route('site.index')->with('message', 'Sua mensagem foi enviada com sucesso!');
+            
+        } catch (\Exception $e) {
 
             Log::error($e->getMessage(), $e);
 
-        return to_route('site.index')->with( 'error', 'Sua mensagem nao foi enviada ligue 21-21-98176-0591');
-    }
+            return to_route('site.index')->with('error', 'Sua mensagem nao foi enviada ligue 21-21-98176-0591!'); 
+        }
     }
 }
