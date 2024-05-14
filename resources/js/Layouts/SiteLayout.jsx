@@ -7,7 +7,12 @@ export default function SiteLayout({ children }) {
 
     return (
         <div className='min-h-screen flex flex-col items-center'>
-            <Head title="Agilizando o Futuro" />
+            <Head title="Agilizando o Futuro" >
+            <meta charset="UTF-8"/>
+            <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+            <meta name="description" content="O Agilizando o Futuro é um projeto social criado para preparar jovens e adultos para o mercado de trabalho na área da tecnologia"></meta>
+            <meta name="keywords" content="programação, curso online, projeto social"></meta>
+            </Head>
             <Header headerClass={"w-full border-b-2 border-secondary fixed z-50 bg-primary text-defaultW grid-cols-2 py-2.5 flex-wrap justify-evenly sm:w-full lg:px-6 dark:bg-secondary"} />
             {children}
             <Footer  footerClass={"w-full grid-cols-2 border-t-2 border-defaultW justify-evenly p-4 bg-secondary sm:p-6 dark:bg-defaultB"} />
