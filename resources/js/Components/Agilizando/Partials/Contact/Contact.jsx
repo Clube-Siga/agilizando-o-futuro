@@ -16,7 +16,7 @@ export default function Contact({contactClass}){
         formMessage: '',
     });
 
-    function submit(e, token) {
+    function submit(e) {
         e.preventDefault();
 
         // enviar o form usando inertia useForm (url, options)
@@ -29,8 +29,10 @@ export default function Contact({contactClass}){
               console.log('error',error)
             },
           }, data);
+      }
 
-          document.getElementById("contact-form").submit();
+      function onSubmit(token) {
+        document.getElementById("contact-form").submit();
       }
 
 
@@ -121,7 +123,7 @@ export default function Contact({contactClass}){
                             ></textarea>
                             <InputError message={errors.formMessage} className='mt-2'></InputError>
                         </Content>
-                        <button disabled={processing} type="submit" className="g-recaptcha font-body text-defaultW bg-primary hover:text-primary hover:bg-defaultW focus:ring-4 focus:ring-secondary font-medium rounded-3xl text-sm px-5 py-2.5 me-2 mb-2 dark:bg-secondary dark:hover:bg-defaultW focus:outline-none dark:focus:ring-secondary" data-sitekey="6LdXPtUpAAAAAKU2klAvdl-Cpof-ficcscCvL7SD" data-callback='submit' data-action='submit'>
+                        <button disabled={processing} type="submit" className="g-recaptcha font-body text-defaultW bg-primary hover:text-primary hover:bg-defaultW focus:ring-4 focus:ring-secondary font-medium rounded-3xl text-sm px-5 py-2.5 me-2 mb-2 dark:bg-secondary dark:hover:bg-defaultW focus:outline-none dark:focus:ring-secondary" data-sitekey="6LdXPtUpAAAAAKU2klAvdl-Cpof-ficcscCvL7SD" data-callback='onSubmit' data-action='submit'>
                             Enviar
                         </button>
                     </form>
