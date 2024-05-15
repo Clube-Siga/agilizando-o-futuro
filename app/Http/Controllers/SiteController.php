@@ -6,7 +6,7 @@ use Inertia\Inertia;
 
 class SiteController extends Controller
 {
-    
+
     public function index ()
     {
         //faltava passar a props na rendeizacao
@@ -19,5 +19,10 @@ class SiteController extends Controller
         return Inertia::render('Agilizando/Home', [
             'message' => $message,
         ]);
+    }
+
+    public function donate ()
+    {
+        return Inertia::render('Agilizando/Donation');
     }
 }

@@ -11,6 +11,8 @@ use App\Http\Controllers\ContactController; //Controlado responsavel pelo form
 
 Route::get('/', [SiteController::class, 'index'])->name('site.index');
 
+Route::get('/donation', [SiteController::class, 'donate'])->name('site.donate');
+
 // Formulario de Contato
 Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
 //Route::post('/contato', [ContactController::class, 'store'])->middleware('recaptcha');
