@@ -4,18 +4,30 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Request;
+use App\Services\RecaptchaService;
 
 class ContactStoreRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
      */
+    private $recaptchaService;
+
+    public function __construct(RecaptchaService $recaptchaService)
+    {
+        $this->recaptchaService = $recaptchaService;
+    }
     public function authorize(Request $request): bool
     {
         //$riskScore = $request->get('g-recaptcha-response');
         //if ($riskScore > 0.5) {
         //    return false;
         //}
+        $score = $this->recaptchaService->getScore('formulario', $request->ip());
+
+        if ($score < 0.5) {
+            return response()->json(['error' => 'Ação suspeita detectada. Por favor, tente novamente.'], 400);
+        }
 
         // Validação adicional do formulário
         return true;

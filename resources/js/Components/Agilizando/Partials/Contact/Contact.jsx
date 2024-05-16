@@ -1,11 +1,12 @@
 import { useForm } from '@inertiajs/react';
+import React from 'react';
 import Content from "../../Components/Content/Content";
 import Label from "../../Components/Label/Label";
 import Text from "../../Components/Text/Text";
 import Title from "../../Components/Title/Title";
 import InputError from '@/Components/InputError';
 import {formatPhoneNumber } from '@/Utils/utils';
-
+import ReCAPTCHA from 'react-google-recaptcha';
 export default function Contact({contactClass}){
 
     const { data, setData, post, processing, errors, reset } = useForm({
@@ -16,19 +17,29 @@ export default function Contact({contactClass}){
         formMessage: '',
     });
 
-    //Função onClick para gerar o token da execução do g-recaptcha
-    function onClick(e) {
-        e.preventDefault();
-        grecaptcha.ready(function() {
-          grecaptcha.execute('6LdXPtUpAAAAAKU2klAvdl-Cpof-ficcscCvL7SD', {action: 'submit'}).then(function(token) {
-              // Add your logic to submit to your backend server here.
-          });
-        });
-      }
+    //Função onClick para gerar o token da execução do g-recaptcha'
+    //function onClick(e) {
+    //    e.preventDefault();
+    //    grecaptcha.ready(function() {
+    //      grecaptcha.execute('6LdXPtUpAAAAAKU2klAvdl-Cpof-ficcscCvL7SD', {action: 'submit'}).then(function(token) {
+    //          // Add your logic to submit to your backend server here.
+    //      });
+    //    });
+    //  }
+
+    const [token, setToken] = React.useState(null);
+
+    const handleRecaptchaChange = (event) => {
+        setToken(event.target.value);
+    };
 
     function submit(e) {
         e.preventDefault();
 
+        const isValid = RecaptchaService.validate(token);
+
+        if (isValid) {
+        // Enviar formulário para o servidor
         // enviar o form usando inertia useForm (url, options)
         post(route('contact.store'), {
             preserveScroll: true,
@@ -39,6 +50,10 @@ export default function Contact({contactClass}){
               console.log('error',error)
             },
           }, data);
+        } else {
+        // Exibir mensagem de erro
+        }
+
       }
 
     return (
@@ -128,7 +143,11 @@ export default function Contact({contactClass}){
                             ></textarea>
                             <InputError message={errors.formMessage} className='mt-2'></InputError>
                         </Content>
-                        <button onClick={onClick} disabled={processing} type="submit" className="g-recaptcha font-body text-defaultW bg-primary hover:text-primary hover:bg-defaultW focus:ring-4 focus:ring-secondary font-medium rounded-3xl text-sm px-5 py-2.5 me-2 mb-2 dark:bg-secondary dark:hover:bg-defaultW focus:outline-none dark:focus:ring-secondary">
+                        <ReCAPTCHA
+                            sitekey="6LdXPtUpAAAAAKU2klAvdl-Cpof-ficcscCvL7SD"
+                            onChange={handleRecaptchaChange}
+                        />
+                        <button disabled={processing} type="submit" className="g-recaptcha font-body text-defaultW bg-primary hover:text-primary hover:bg-defaultW focus:ring-4 focus:ring-secondary font-medium rounded-3xl text-sm px-5 py-2.5 me-2 mb-2 dark:bg-secondary dark:hover:bg-defaultW focus:outline-none dark:focus:ring-secondary">
                             Enviar
                         </button>
                     </form>
