@@ -16,11 +16,19 @@ export default function Contact({contactClass}){
         formMessage: '',
     });
 
+    //Função onClick para gerar o token da execução do g-recaptcha
+    function onClick(e) {
+        e.preventDefault();
+        grecaptcha.ready(function() {
+          grecaptcha.execute('6LdXPtUpAAAAAKU2klAvdl-Cpof-ficcscCvL7SD', {action: 'submit'}).then(function(token) {
+              // Add your logic to submit to your backend server here.
+          });
+        });
+      }
+
     function submit(e) {
         e.preventDefault();
-        grecaptcha.enterprise.ready(async () => {
-            const token = await grecaptcha.enterprise.execute('6LdXPtUpAAAAAKU2klAvdl-Cpof-ficcscCvL7SD', {action: 'SUBMIT'});
-          });
+
         // enviar o form usando inertia useForm (url, options)
         post(route('contact.store'), {
             preserveScroll: true,
@@ -120,7 +128,7 @@ export default function Contact({contactClass}){
                             ></textarea>
                             <InputError message={errors.formMessage} className='mt-2'></InputError>
                         </Content>
-                        <button disabled={processing} type="submit" className="g-recaptcha font-body text-defaultW bg-primary hover:text-primary hover:bg-defaultW focus:ring-4 focus:ring-secondary font-medium rounded-3xl text-sm px-5 py-2.5 me-2 mb-2 dark:bg-secondary dark:hover:bg-defaultW focus:outline-none dark:focus:ring-secondary">
+                        <button onClick={onClick} disabled={processing} type="submit" className="g-recaptcha font-body text-defaultW bg-primary hover:text-primary hover:bg-defaultW focus:ring-4 focus:ring-secondary font-medium rounded-3xl text-sm px-5 py-2.5 me-2 mb-2 dark:bg-secondary dark:hover:bg-defaultW focus:outline-none dark:focus:ring-secondary">
                             Enviar
                         </button>
                     </form>

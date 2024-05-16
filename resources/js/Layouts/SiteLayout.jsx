@@ -9,7 +9,7 @@ export default function SiteLayout({ children }) {
         <div className='min-h-screen flex flex-col items-center'>
             <Head title="Agilizando o Futuro">
                 <link rel="icon" type="image/png" sizes="16x16" href="/iconB.png"/>
-                <script src="https://www.google.com/recaptcha/enterprise.js?render=6LdXPtUpAAAAAKU2klAvdl-Cpof-ficcscCvL7SD"></script>
+                <script src="https://www.google.com/recaptcha/api.js?render=6LdXPtUpAAAAAKU2klAvdl-Cpof-ficcscCvL7SD"></script>
             </Head>
             <Header headerClass={"w-full border-b-2 border-secondary fixed z-50 bg-primary text-defaultW grid-cols-2 py-2.5 flex-wrap justify-evenly sm:w-full lg:px-6 dark:bg-secondary"} />
             {children}
