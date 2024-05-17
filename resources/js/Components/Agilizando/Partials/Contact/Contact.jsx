@@ -1,5 +1,5 @@
 import React from 'react';
-import { useForm, usePage } from '@inertiajs/react';
+import { useForm, usePage} from '@inertiajs/react';
 import Content from "../../Components/Content/Content";
 import Label from "../../Components/Label/Label";
 import Text from "../../Components/Text/Text";
@@ -32,12 +32,6 @@ export default function Contact({contactClass }){
             },
           }, data);
       }
-
-        setState = {
-            reCaptchaToken: null
-        }
-
-
 
     return (
         <>
