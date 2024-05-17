@@ -10,7 +10,7 @@ use Inertia\Response;
 use App\Models\Contact;
 use App\Services\ContactService;
 use Illuminate\Support\Facades\Log; // criar logs
-
+use Biscolab\ReCaptcha\Facades\ReCaptcha;
 use App\Http\Requests\ContactStoreRequest;
 
 class ContactController extends Controller
@@ -22,20 +22,20 @@ class ContactController extends Controller
         $this->contactService = $contactService;
     }
 
-    
+
     public function store (ContactStoreRequest $request)
-    { 
-       
+    {
+
         // Verificação do reCAPTCHA no lado do servidor com biscolab/laravel-recaptcha
-        // $response = Recaptcha::verify($request->input('recaptchaToken'));
+        $response = ReCaptcha::verify($request->input('reCaptchaToken'));
 
         // if ($response->isSuccess()) {
 
-            
+
         // }
 
         try {
-    
+
             Log::info("Recebendo: ", $request->all());
 
             // Create the contact using the service
@@ -44,12 +44,12 @@ class ContactController extends Controller
             Log::info("Executado: ". $response);
 
             return to_route('site.index')->with('message', 'Sua mensagem foi enviada com sucesso!');
-            
+
         } catch (\Exception $e) {
 
             Log::error($e->getMessage(), $e);
 
-            return to_route('site.index')->with('error', 'Sua mensagem nao foi enviada ligue 21-21-98176-0591!'); 
+            return to_route('site.index')->with('error', 'Sua mensagem nao foi enviada ligue 21-21-98176-0591!');
         }
     }
 }
