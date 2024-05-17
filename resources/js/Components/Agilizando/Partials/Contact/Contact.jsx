@@ -33,6 +33,11 @@ export default function Contact({contactClass }){
           }, data);
       }
 
+        setState = {
+            reCaptchaToken: null
+        }
+
+
 
     return (
         <>
@@ -121,11 +126,15 @@ export default function Contact({contactClass }){
                                 ></textarea>
                                 <InputError message={errors.formMessage} className='mt-2'></InputError>
                             </Content>
-                            <GoogleReCaptcha
-                                onVerify={(reCaptchaToken) => {
-                                    this.setState({reCaptchaToken:reCaptchaToken})
-                                }}
-                            />
+                            { this.state.reCaptchaToken===null ?
+                                 <GoogleReCaptcha
+                                     onVerify={(reCaptchaToken) => {
+                                         this.setState({reCaptchaToken:reCaptchaToken})
+                                     }}
+                                 />
+                             :
+                                 ''
+                             }
                             <button
                                 disabled={processing}
                                 type="submit"
