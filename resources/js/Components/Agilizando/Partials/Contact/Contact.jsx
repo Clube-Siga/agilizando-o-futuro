@@ -1,5 +1,5 @@
 import React from 'react';
-import { useForm, usePage} from '@inertiajs/react';
+import { useForm, useState} from '@inertiajs/react';
 import Content from "../../Components/Content/Content";
 import Label from "../../Components/Label/Label";
 import Text from "../../Components/Text/Text";
@@ -120,15 +120,11 @@ export default function Contact({contactClass }){
                                 ></textarea>
                                 <InputError message={errors.formMessage} className='mt-2'></InputError>
                             </Content>
-                            { this.state.reCaptchaToken===null ?
                                  <GoogleReCaptcha
                                      onVerify={(reCaptchaToken) => {
                                          this.setState({reCaptchaToken:reCaptchaToken})
                                      }}
                                  />
-                             :
-                                 ''
-                             }
                             <button
                                 disabled={processing}
                                 type="submit"
