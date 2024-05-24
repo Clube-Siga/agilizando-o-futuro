@@ -6,7 +6,7 @@ import Text from "../../Components/Text/Text";
 import Title from "../../Components/Title/Title";
 import InputError from '@/Components/InputError';
 import { formatPhoneNumber } from '@/Utils/utils';
-import { GoogleReCaptchaProvider, GoogleReCaptcha } from "react-google-recaptcha-v3";
+//import { GoogleReCaptchaProvider, GoogleReCaptcha } from "react-google-recaptcha-v3";
 
 export default function Contact({ contactClass, siteKey }) {
 
@@ -22,9 +22,20 @@ export default function Contact({ contactClass, siteKey }) {
     });
 
     useEffect(() => {
-        // Atualiza o recaptchaToken no data apenas quando ele muda
-        setData('recaptchaToken', recaptchaToken);
-    }, [recaptchaToken]);
+        const handleRender = () => {
+          window.grecaptcha.render('recaptcha-container', {
+            'sitekey': siteKey ,
+            'callback': (token) => setRecaptchaToken(token),
+          });
+        };
+    
+        
+        if (typeof window.grecaptcha !== 'undefined') {
+          handleRender();
+        } else {
+          // Handle script loading if necessary (e.g., using a loading indicator)
+        }
+      }, []);
 
     const submit = (e) => {
         e.preventDefault();
@@ -124,12 +135,7 @@ export default function Contact({ contactClass, siteKey }) {
                         <InputError message={errors.formMessage} className='mt-2' />
                     </Content>
                     <input type="hidden" id="recaptcha-token" name="g-recaptcha-response" value={data.recaptchaToken} />
-
-                    <GoogleReCaptchaProvider reCaptchaKey={siteKey}>
-                        <GoogleReCaptcha
-                            onVerify={(token) => setRecaptchaToken(token)}
-                        />
-                    </GoogleReCaptchaProvider>
+                    <div id="recaptcha-container"></div>
                     <button
                         data-sitekey={siteKey}
                         disabled={processing}
