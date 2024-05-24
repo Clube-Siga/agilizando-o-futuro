@@ -16,7 +16,7 @@ export default function Contact({contactClass, siteKey}){
     const [refreshReCaptcha, setRefreshReCaptcha] = React.useState ( false ); 
 
     siteKey = usePage().props.siteKey
-    console.log('siteKey em contact', siteKey)
+    //console.log('siteKey em contact', siteKey)
   
     
     const { data, setData, post, processing, errors, reset } = useForm({
@@ -30,7 +30,7 @@ export default function Contact({contactClass, siteKey}){
 
     function submit(e) {
         e.preventDefault();
-       
+       console.log('data no post', data.recaptchaToken)
         // enviar o form usando inertia useForm (url, options)
         post(route('contact.store'), {
             preserveScroll: true,
