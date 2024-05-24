@@ -18,7 +18,7 @@ export default function Home({ message, siteKey }) {
     // siteKey = usePage().props.siteKey
     // console.log('siteKey', siteKey)
     const MySwal = withReactContent(Swal)
-
+console.log('Site Key', siteKey)
     if(message && message == 'Sua mensagem foi enviada com sucesso!'){
         MySwal.fire({
             title: 'Success!',
