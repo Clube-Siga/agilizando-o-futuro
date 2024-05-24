@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useForm, usePage } from '@inertiajs/react';
 import Content from "../../Components/Content/Content";
 import Label from "../../Components/Label/Label";
@@ -8,14 +8,9 @@ import InputError from '@/Components/InputError';
 import { formatPhoneNumber } from '@/Utils/utils';
 import { GoogleReCaptchaProvider, GoogleReCaptcha } from "react-google-recaptcha-v3";
 
-// Receber as novas props do reCAPTCHA
 export default function Contact({ contactClass, siteKey }) {
-    //key nao chegava nome da variavel errada K minusculo e deveria ser maiusculo
-   
-    // Armazenar a resposta do usuário
-    const [recaptchaToken, setRecaptchaToken] = React.useState('');
-    const [refreshReCaptcha, setRefreshReCaptcha] = React.useState(false);
 
+    const [recaptchaToken, setRecaptchaToken] = useState('');
 
     const { data, setData, post, processing, errors, reset } = useForm({
         name: '',
@@ -23,33 +18,26 @@ export default function Contact({ contactClass, siteKey }) {
         email: '',
         subject: '',
         formMessage: '',
-        recaptchaToken: ''
+        recaptchaToken: recaptchaToken
     });
 
-    // Atualizar o token do reCAPTCHA no formulário
     useEffect(() => {
-        console.log('Site Key in Contact:', siteKey);
-        if (recaptchaToken) {
-            setData('recaptchaToken', recaptchaToken);
-        }
-    }, [recaptchaToken, setData]);
+        // Atualiza o recaptchaToken no data apenas quando ele muda
+        setData('recaptchaToken', recaptchaToken);
+    }, [recaptchaToken]);
 
-    function submit(e) {
+    const submit = (e) => {
         e.preventDefault();
-        console.log('data no post', data);
-        // Enviar o formulário usando Inertia
         post(route('contact.store'), {
             preserveScroll: true,
             onSuccess: () => {
                 reset();
-                setRefreshReCaptcha(!refreshReCaptcha);
             },
             onError: (error) => {
-                setRefreshReCaptcha(!refreshReCaptcha);
                 console.log('error', error);
-            }
+            },
         });
-    }
+    };
 
     return (
         <section id="contact" className={contactClass}>
