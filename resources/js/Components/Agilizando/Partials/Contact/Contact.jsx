@@ -135,7 +135,7 @@ export default function Contact({ contactClass, siteKey }) {
                         <InputError message={errors.formMessage} className='mt-2' />
                     </Content>
                     <input type="hidden" id="recaptcha-token" name="g-recaptcha-response" value={data.recaptchaToken} />
-                    <div id="recaptcha-container"></div>
+                    
                     <button
                         data-sitekey={siteKey}
                         disabled={processing}
