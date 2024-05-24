@@ -18,7 +18,7 @@ export default function Contact({ contactClass, siteKey }) {
         email: '',
         subject: '',
         formMessage: '',
-        recaptchaToken: recaptchaToken
+        recaptchaToken: ''
     });
 
     useEffect(() => {
@@ -123,7 +123,7 @@ export default function Contact({ contactClass, siteKey }) {
                         ></textarea>
                         <InputError message={errors.formMessage} className='mt-2' />
                     </Content>
-                    <input type="hidden" id="recaptcha-token" name="g-recaptcha-response" value={recaptchaToken} />
+                    <input type="hidden" id="recaptcha-token" name="g-recaptcha-response" value={data.recaptchaToken} />
 
                     <GoogleReCaptchaProvider reCaptchaKey={siteKey}>
                         <GoogleReCaptcha
@@ -131,10 +131,10 @@ export default function Contact({ contactClass, siteKey }) {
                         />
                     </GoogleReCaptchaProvider>
                     <button
+                        data-sitekey={siteKey}
                         disabled={processing}
                         type="submit"
-                        className="g-recaptcha font-body text-defaultW bg-primary hover:text-primary hover:bg-defaultW focus:ring-4 focus:ring-secondary font-medium rounded-3xl text-sm px-5 py-2.5 me-2 mb-2 dark:bg-secondary dark:hover:bg-defaultW focus:outline-none dark:focus:ring-secondary"
-                    >
+                        className="g-recaptcha font-body text-defaultW bg-primary hover:text-primary hover:bg-defaultW focus:ring-4 focus:ring-secondary font-medium rounded-3xl text-sm px-5 py-2.5 me-2 mb-2 dark:bg-secondary dark:hover:bg-defaultW focus:outline-none dark:focus:ring-secondary">
                         Enviar
                     </button>
                 </form>
