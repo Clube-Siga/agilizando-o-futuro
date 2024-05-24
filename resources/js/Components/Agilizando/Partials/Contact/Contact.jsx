@@ -9,54 +9,65 @@ import { formatPhoneNumber } from '@/Utils/utils';
 //import { GoogleReCaptchaProvider, GoogleReCaptcha } from "react-google-recaptcha-v3";
 
 export default function Contact({ contactClass, siteKey }) {
-
-    const [recaptchaToken, setRecaptchaToken] = useState('');
-
     const { data, setData, post, processing, errors, reset } = useForm({
         name: '',
         phone: '',
         email: '',
         subject: '',
-        formMessage: '',
-        recaptchaToken: ''
+        formMessage: ''
     });
 
-    useEffect(() => {
-        const handleRender = () => {
-          window.grecaptcha.render('recaptcha-container', {
-            'sitekey': siteKey ,
-            'callback': (token) => setRecaptchaToken(token),
-          });
-        };
-    
-        
-        if (typeof window.grecaptcha !== 'undefined') {
-          handleRender();
-        } else {
-          // Handle script loading if necessary (e.g., using a loading indicator)
-        }
-      }, []);
-
-    const submit = (e) => {
+    const submit = async (e) => {
         e.preventDefault();
-        post(route('contact.store'), {
-            preserveScroll: true,
-            onSuccess: () => {
-                reset();
-            },
-            onError: (error) => {
-                console.log('error', error);
-            },
-        });
+
+        if (!grecaptcha.enterprise) {
+            console.error("reCAPTCHA Enterprise library not loaded");
+            return; // Handle error if library is not loaded
+        }
+
+        try {
+            const token = await grecaptcha.enterprise.execute(siteKey, {
+                action: 'SUBMIT_FORM'
+            });
+
+            if (token) {
+                post(route('contact.store'), {
+                    data: {
+                        name: data.name,
+                        phone: data.phone,
+                        email: data.email,
+                        subject: data.subject,
+                        formMessage: data.formMessage,
+                        recaptchaToken: token
+                    },
+                    preserveScroll: true,
+                    onSuccess: () => {
+                        reset();
+                    },
+                    onError: (error) => {
+                        console.log('error', error);
+                    },
+                });
+            } else {
+                console.error("Failed to get reCAPTCHA token");
+            }
+        } catch (error) {
+            console.error("Error during reCAPTCHA verification:", error);
+        }
     };
 
+    useEffect(() => {
+        // Atualiza o token reCAPTCHA no data apenas quando ele muda
+        setData('recaptchaToken', token);
+    }, [token]);
+    
     return (
         <section id="contact" className={contactClass}>
             <div className="py-8 px-4 mx-auto max-w-screen-md lg:py-16">
                 <Title titleClass={"font-body mb-4 text-4xl tracking-tight font-extrabold text-center text-defaultW dark:text-defaultW"} titleContent={"Entre em Contanto"} />
                 <Text textClass={"font-body mb-8 font-light text-center text-defaultW lg:mb-16 sm:text-xl dark:text-primary"} textContent={"Está com algum problema técnico? Gostaria de enviar um feedback sobre a plataforma? Gostaria de mais detalhes sobre o projeto? Fale conosco"} />
 
-                <form onSubmit={submit} className="space-y-3">
+                <form onSubmit={submit} id="contact-form" className="space-y-3">
                     <div>
                         <Label objective={"name"}>
                             Seu nome
@@ -134,11 +145,13 @@ export default function Contact({ contactClass, siteKey }) {
                         ></textarea>
                         <InputError message={errors.formMessage} className='mt-2' />
                     </Content>
+
                     <input type="hidden" id="recaptcha-token" name="g-recaptcha-response" value={data.recaptchaToken} />
-                    
+
                     <button
                         data-sitekey={siteKey}
                         disabled={processing}
+                        data-callback='onSubmit'
                         type="submit"
                         className="g-recaptcha font-body text-defaultW bg-primary hover:text-primary hover:bg-defaultW focus:ring-4 focus:ring-secondary font-medium rounded-3xl text-sm px-5 py-2.5 me-2 mb-2 dark:bg-secondary dark:hover:bg-defaultW focus:outline-none dark:focus:ring-secondary">
                         Enviar
