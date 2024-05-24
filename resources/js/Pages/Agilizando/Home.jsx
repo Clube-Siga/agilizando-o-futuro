@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import SiteLayout from '@/Layouts/SiteLayout';
 import About from '@/Components/Agilizando/Partials/About/About';
 import Blog from '@/Components/Agilizando/Partials/Blog/Blog';
@@ -14,18 +14,20 @@ import withReactContent from 'sweetalert2-react-content';
 //declarar siteKey
 export default function Home({ message, siteKey }) {
 
-    //message = usePage().props.message; // pode ser removido pois já a está usando diretamente na função de renderização.
-    // siteKey = usePage().props.siteKey
-    // console.log('siteKey', siteKey)
-    const MySwal = withReactContent(Swal)
-    if(message && message == 'Sua mensagem foi enviada com sucesso!'){
-        MySwal.fire({
-            title: 'Success!',
-            text: message,
-            icon: 'success',
-            confirmButtonColor: '#3085d6',
-        });
-    }
+    const MySwal = withReactContent(Swal);
+    const [hasShownMessage, setHasShownMessage] = useState(false);
+
+    useEffect(() => {
+        if (message && message === 'Sua mensagem foi enviada com sucesso!' && !hasShownMessage) {
+            MySwal.fire({
+                title: 'Success!',
+                text: message,
+                icon: 'success',
+                confirmButtonColor: '#3085d6',
+            });
+            setHasShownMessage(true);
+        }
+    }, [message, hasShownMessage, MySwal]);
 
 
     return (
