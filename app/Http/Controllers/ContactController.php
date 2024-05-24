@@ -25,12 +25,11 @@ class ContactController extends Controller
     
     public function store (ContactStoreRequest $request)
     { 
-        //programacao orientada a objeto passa a responsabilidade de criar um contato para classe de servico
         
-        // sempre que for realizar uma acao use try/catch
-        // tente fazer isso
         try {
-    
+
+            $dataValidated = $request->validated();
+            dd($dataValidated);
             Log::info("Recebendo: ", $request->all());
 
             // Create the contact using the service

@@ -11,12 +11,7 @@ class ContactStoreRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        // $riskScore = $request->input('g-recaptcha-response');
-
-        // if ($riskScore > 0.5) {
-        //     return false;
-        // }
-
+        
         // Validação adicional do formulário
         return true;
     }
@@ -34,6 +29,7 @@ class ContactStoreRequest extends FormRequest
             'email' => 'required|string|email|max:255',
             'subject' => 'required|string',
             'formMessage' => 'required|string|max:500',
+            'recaptchaToken' => 'required|string',
         ];
     }
 
