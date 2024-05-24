@@ -16,7 +16,10 @@ export default function Home({ message, siteKey }) {
 
     const MySwal = withReactContent(Swal);
     const [hasShownMessage, setHasShownMessage] = useState(false);
-
+    const siteKeyhome = siteKey
+    //console.log('Site Key in Home:', siteKey);
+    
+    // garantir que so chama o swal quando receber uma mensagem, corrigindo o loop infinito
     useEffect(() => {
         if (message && message === 'Sua mensagem foi enviada com sucesso!' && !hasShownMessage) {
             MySwal.fire({
@@ -41,7 +44,7 @@ export default function Home({ message, siteKey }) {
                 <Contact
                     contactClass={"w-full grid-cols-2 justify-evenly bg-secondary dark:bg-secondary"}
                     message={message}
-                    sitekey={siteKey} //passar site key
+                    siteKey={siteKeyhome} //passar site key
                 />
             </SiteLayout>
         </>

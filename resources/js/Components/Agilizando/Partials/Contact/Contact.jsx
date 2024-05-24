@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { useForm } from '@inertiajs/react';
+import { useForm, usePage } from '@inertiajs/react';
 import Content from "../../Components/Content/Content";
 import Label from "../../Components/Label/Label";
 import Text from "../../Components/Text/Text";
@@ -10,10 +10,12 @@ import { GoogleReCaptchaProvider, GoogleReCaptcha } from "react-google-recaptcha
 
 // Receber as novas props do reCAPTCHA
 export default function Contact({ contactClass, siteKey }) {
-
+    //key nao chegava nome da variavel errada K minusculo e deveria ser maiusculo
+   
     // Armazenar a resposta do usuário
     const [recaptchaToken, setRecaptchaToken] = React.useState('');
     const [refreshReCaptcha, setRefreshReCaptcha] = React.useState(false);
+
 
     const { data, setData, post, processing, errors, reset } = useForm({
         name: '',
@@ -26,7 +28,10 @@ export default function Contact({ contactClass, siteKey }) {
 
     // Atualizar o token do reCAPTCHA no formulário
     useEffect(() => {
-        setData('recaptchaToken', recaptchaToken);
+        console.log('Site Key in Contact:', siteKey);
+        if (recaptchaToken) {
+            setData('recaptchaToken', recaptchaToken);
+        }
     }, [recaptchaToken, setData]);
 
     function submit(e) {
