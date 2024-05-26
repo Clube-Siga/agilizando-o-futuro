@@ -17,7 +17,7 @@ export default function Home({ message, siteKey }) {
     const MySwal = withReactContent(Swal);
     const [hasShownMessage, setHasShownMessage] = useState(false);
     const siteKeyhome = siteKey
-    //console.log('Site Key in Home:', siteKey);
+    console.log('Site Key in Home:', siteKeyhome);
     
     // garantir que so chama o swal quando receber uma mensagem, corrigindo o loop infinito
     useEffect(() => {

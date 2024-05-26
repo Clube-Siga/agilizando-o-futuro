@@ -11,7 +11,7 @@ import { formatPhoneNumber } from '@/Utils/utils';
 export default function Contact({ contactClass, siteKey, grecaptcha }) {
 
     // const [recaptchaRef, setRecaptchaRef] = useState(null); usa pra desafios
- 
+
     console.log('Site Key', siteKey)
     const { data, setData, post, processing, errors, reset } = useForm({
         name: '',
@@ -31,11 +31,10 @@ export default function Contact({ contactClass, siteKey, grecaptcha }) {
         document.body.appendChild(script);
 
         // Initialize reCAPTCHA apos carregar o script opcional
-       
-    
+
         return () => {
-          // remover e desmontar o componente atual
-          document.body.removeChild(script);
+            // remover e desmontar o componente atual
+            document.body.removeChild(script);
 
             // window.grecaptcha.ready(() => {
             //         const recaptchaRef = window.grecaptcha.render('recaptcha-container', {
@@ -50,40 +49,40 @@ export default function Contact({ contactClass, siteKey, grecaptcha }) {
 
     const submit = async (e) => {
         e.preventDefault();
-      
+
         if (!grecaptcha) {
-          console.error("reCAPTCHA");
-          return;
+            console.error("reCAPTCHA");
+            return;
         }
-      
+
         try {
-          const token = await grecaptcha.execute(siteKey, { action: 'submit' });
-          setData('recaptchaToken', token); // Update form data with token
-      
-          post(route('contact.store'), {
-            data: {
-              name: data.name,
-              phone: data.phone,
-              email: data.email,
-              subject: data.subject,
-              formMessage: data.formMessage,
-              recaptchaToken: data.token
-            },
-            preserveScroll: true,
-            onSuccess: () => {
-              reset();
-            },
-            onError: (error) => {
-              console.log('error', error);
-            },
-          });
+            const token = await grecaptcha.execute(siteKey, { action: 'submit' });
+            setData('recaptchaToken', token); // Update form data with token
+
+            post(route('contact.store'), {
+                data: {
+                    name: data.name,
+                    phone: data.phone,
+                    email: data.email,
+                    subject: data.subject,
+                    formMessage: data.formMessage,
+                    recaptchaToken: data.token
+                },
+                preserveScroll: true,
+                onSuccess: () => {
+                    reset();
+                },
+                onError: (error) => {
+                    console.log('error', error);
+                },
+            });
         } catch (error) {
-          console.error("Error during reCAPTCHA verification:", error);
+            console.error("Error during reCAPTCHA verification:", error);
         }
-      };
-      
-   
-    
+    };
+
+
+
     return (
         <section id="contact" className={contactClass}>
             <div className="py-8 px-4 mx-auto max-w-screen-md lg:py-16">
@@ -168,11 +167,9 @@ export default function Contact({ contactClass, siteKey, grecaptcha }) {
                         ></textarea>
                         <InputError message={errors.formMessage} className='mt-2' />
                     </Content>
-                 
+
                     <button
-                        data-sitekey={siteKey}
                         disabled={processing}
-                        data-callback='onSubmit'
                         type="submit"
                         className="g-recaptcha font-body text-defaultW bg-primary hover:text-primary hover:bg-defaultW focus:ring-4 focus:ring-secondary font-medium rounded-3xl text-sm px-5 py-2.5 me-2 mb-2 dark:bg-secondary dark:hover:bg-defaultW focus:outline-none dark:focus:ring-secondary">
                         Enviar
