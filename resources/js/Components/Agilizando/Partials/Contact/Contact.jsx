@@ -48,49 +48,48 @@ export default function Contact({ contactClass, siteKey, grecaptcha }) {
 
     }, []);
 
-    function onClick(e) {
-        e.preventDefault();
+    function submit(event) {
+        event.preventDefault();
+        // ... (Load reCAPTCHA script if needed)
+      
         grecaptcha.ready(function() {
-            grecaptcha.execute(siteKey, {action: 'submit'}).then(function(token) {
-              // Add your logic to submit to your backend server here.
-              setData('recaptchaToken', token);
-              handleSubmit();
+          grecaptcha.execute(siteKey, { action: 'submit' }).then(function(token) {
+            if (token) {
+              // Perform your action here
+              // ...
+              // Send token to backend for verification (if needed)
+              //foi acionado
+                console.log('apos clicar enviar')
+            
+                try {
+                
+                    post(route('contact.store'), {
+                        data: {
+                            name: data.name,
+                            phone: data.phone,
+                            email: data.email,
+                            subject: data.subject,
+                            formMessage: data.formMessage,
+                            recaptchaToken: data.token
+                        },
+                        preserveScroll: true,
+                        onSuccess: () => {
+                            reset();
+                        },
+                        onError: (error) => {
+                            console.log('error', error);
+                        },
+                    });
+                } catch (error) {
+                    console.error("Error during reCAPTCHA verification:", error);
+                }
+            } else {
+              console.error('Failed to retrieve reCAPTCHA token');
+            }
           });
         });
-         //foi carregado
-         console.log('grecaptha token recebido a ser enviado pro back', token)
-    }
-
-    const handleSubmit = async (e) => {
-       // e.preventDefault();
-        //foi acionado
-        console.log('apos clicar enviar')
-       
-        try {
-           
-            post(route('contact.store'), {
-                data: {
-                    name: data.name,
-                    phone: data.phone,
-                    email: data.email,
-                    subject: data.subject,
-                    formMessage: data.formMessage,
-                    recaptchaToken: data.token
-                },
-                preserveScroll: true,
-                onSuccess: () => {
-                    reset();
-                },
-                onError: (error) => {
-                    console.log('error', error);
-                },
-            });
-        } catch (error) {
-            console.error("Error during reCAPTCHA verification:", error);
-        }
-    };
-
-
+      }
+      
 
     return (
         <section id="contact" className={contactClass}>
@@ -98,7 +97,7 @@ export default function Contact({ contactClass, siteKey, grecaptcha }) {
                 <Title titleClass={"font-body mb-4 text-4xl tracking-tight font-extrabold text-center text-defaultW dark:text-defaultW"} titleContent={"Entre em Contanto"} />
                 <Text textClass={"font-body mb-8 font-light text-center text-defaultW lg:mb-16 sm:text-xl dark:text-primary"} textContent={"Está com algum problema técnico? Gostaria de enviar um feedback sobre a plataforma? Gostaria de mais detalhes sobre o projeto? Fale conosco"} />
 
-                <form onSubmit={submit} id="contact-form" className="space-y-3">
+                <form onSubmit={handleSubmit} id="contact-form" className="space-y-3">
                     <div>
                         <Label objective={"name"}>
                             Seu nome
@@ -179,8 +178,6 @@ export default function Contact({ contactClass, siteKey, grecaptcha }) {
 
                     <button
                         disabled={processing}
-                        data-sitekey={siteKey} 
-                        data-callback={onClick}
                         type="submit"
                         className="g-recaptcha font-body text-defaultW bg-primary hover:text-primary hover:bg-defaultW focus:ring-4 focus:ring-secondary font-medium rounded-3xl text-sm px-5 py-2.5 me-2 mb-2 dark:bg-secondary dark:hover:bg-defaultW focus:outline-none dark:focus:ring-secondary">
                         Enviar
