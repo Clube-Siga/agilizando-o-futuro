@@ -11,7 +11,6 @@ class ContactStoreRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        dd('aqui');
         // Validação adicional do formulário
         return true;
     }

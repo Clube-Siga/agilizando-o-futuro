@@ -61,7 +61,7 @@ export default function Contact({ contactClass, siteKey, grecaptcha }) {
                 
                     post(route('contact.store'), {
                        data,
-                       
+
                         preserveScroll: true,
                         onSuccess: () => {
                             reset();
@@ -165,6 +165,7 @@ export default function Contact({ contactClass, siteKey, grecaptcha }) {
                         ></textarea>
                         <InputError message={errors.formMessage} className='mt-2' />
                     </Content>
+                    <input type="hidden" name="recaptchaToken" value={data.recaptchaToken} />
 
                     <button
                         disabled={processing}
