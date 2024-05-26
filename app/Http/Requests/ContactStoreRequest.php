@@ -11,7 +11,7 @@ class ContactStoreRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        
+        dd('aqui');
         // Validação adicional do formulário
         return true;
     }
@@ -25,7 +25,7 @@ class ContactStoreRequest extends FormRequest
     {
         return [
             'name' => 'required|string|max:255',
-            'phone' => 'required|string|regex:/^\(\d{2}\) \d{5}-\d{4}$/',
+            'phone' => 'required|string|max:20',
             'email' => 'required|string|email|max:255',
             'subject' => 'required|string',
             'formMessage' => 'required|string|max:500',

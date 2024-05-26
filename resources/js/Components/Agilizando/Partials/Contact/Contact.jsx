@@ -44,7 +44,6 @@ export default function Contact({ contactClass, siteKey, grecaptcha }) {
 
     function submit(event) {
         event.preventDefault();
-        // ... (Load reCAPTCHA script if needed)
        //foi acionado
        console.log('apos clicar enviar')
             
@@ -55,18 +54,14 @@ export default function Contact({ contactClass, siteKey, grecaptcha }) {
               console.log('window.grecaptcha.execute', token) //carregando
               setData('recaptchaToken', token)
 
+                //foi adiciondo o token no form
+                console.log('token no form', data.recaptchaToken)
               // Send token to backend for verification (if needed)             
                 try {
                 
                     post(route('contact.store'), {
-                        data: {
-                            name: data.name,
-                            phone: data.phone,
-                            email: data.email,
-                            subject: data.subject,
-                            formMessage: data.formMessage,
-                            recaptchaToken: data.token
-                        },
+                       data,
+                       
                         preserveScroll: true,
                         onSuccess: () => {
                             reset();
