@@ -28,9 +28,9 @@ class ContactController extends Controller
         
         try {
 
-            $dataValidated = $request->validated();
-            dd($dataValidated);
-            Log::info("Recebendo: ", $request->all());
+            $dataValidated = $request->validated();// ok recebendo o token
+           // dd($dataValidated);
+            Log::info("Recebendo: ", json_encode($dataValidated));
 
             // Create the contact using the service
             $response = $this->contactService->createContact($request);
