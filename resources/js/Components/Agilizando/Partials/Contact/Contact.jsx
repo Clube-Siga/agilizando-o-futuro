@@ -52,6 +52,8 @@ export default function Contact({ contactClass, siteKey, grecaptcha }) {
             window.grecaptcha.execute(siteKey, { action: 'submit' }).then(function(token) {
             if (token) {
               // Perform your action here
+              console.log('window.grecaptcha.execute', token)
+
               // ...
               // Send token to backend for verification (if needed)
              
