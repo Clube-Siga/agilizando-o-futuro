@@ -52,7 +52,7 @@ export default function Contact({ contactClass, siteKey, grecaptcha }) {
             if (token) {
               // Perform your action here
               console.log('window.grecaptcha.execute', token) //carregando
-              setData('recaptchaToken', token)
+              
 
                 //foi adiciondo o token no form
                 console.log('token no form', data.recaptchaToken)
@@ -165,7 +165,11 @@ export default function Contact({ contactClass, siteKey, grecaptcha }) {
                         ></textarea>
                         <InputError message={errors.formMessage} className='mt-2' />
                     </Content>
-                    <input type="hidden" name="recaptchaToken" value={data.recaptchaToken} />
+                    <input type="hidden" 
+                        name="recaptchaToken" 
+                        value={data.recaptchaToken} 
+                        onChange={(token) => setData('recaptchaToken', token)}
+                    />
 
                     <button
                         disabled={processing}
