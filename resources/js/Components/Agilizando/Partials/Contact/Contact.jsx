@@ -29,7 +29,9 @@ export default function Contact({ contactClass, siteKey, grecaptcha }) {
         script.async = true;
         script.defer = true;
         document.body.appendChild(script);
-
+        //foi carregado
+        console.log('grecaptha carregado')
+           
         // Initialize reCAPTCHA apos carregar o script opcional
 
         return () => {
@@ -46,21 +48,26 @@ export default function Contact({ contactClass, siteKey, grecaptcha }) {
 
     }, []);
 
-
-    const submit = async (e) => {
+    function onClick(e) {
         e.preventDefault();
+        grecaptcha.ready(function() {
+            grecaptcha.execute(siteKey, {action: 'submit'}).then(function(token) {
+              // Add your logic to submit to your backend server here.
+              setData('recaptchaToken', token);
+              handleSubmit();
+          });
+        });
+         //foi carregado
+         console.log('grecaptha token recebido a ser enviado pro back', token)
+    }
+
+    const handleSubmit = async (e) => {
+       // e.preventDefault();
         //foi acionado
         console.log('apos clicar enviar')
        
         try {
-            //foi carregado
-            console.log('grecaptha executado solicitando token')
-            const token = await grecaptcha.execute(siteKey, { action: 'submit' });
-            setData('recaptchaToken', token); // Update form data with token
-
-            //foi carregado
-            console.log('grecaptha token recebido a ser enviado pro back', token)
-
+           
             post(route('contact.store'), {
                 data: {
                     name: data.name,
@@ -68,7 +75,7 @@ export default function Contact({ contactClass, siteKey, grecaptcha }) {
                     email: data.email,
                     subject: data.subject,
                     formMessage: data.formMessage,
-                    recaptchaToken: token
+                    recaptchaToken: data.token
                 },
                 preserveScroll: true,
                 onSuccess: () => {
@@ -172,6 +179,8 @@ export default function Contact({ contactClass, siteKey, grecaptcha }) {
 
                     <button
                         disabled={processing}
+                        data-sitekey={siteKey} 
+                        data-callback={onClick}
                         type="submit"
                         className="g-recaptcha font-body text-defaultW bg-primary hover:text-primary hover:bg-defaultW focus:ring-4 focus:ring-secondary font-medium rounded-3xl text-sm px-5 py-2.5 me-2 mb-2 dark:bg-secondary dark:hover:bg-defaultW focus:outline-none dark:focus:ring-secondary">
                         Enviar
