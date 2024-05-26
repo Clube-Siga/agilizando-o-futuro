@@ -52,11 +52,10 @@ export default function Contact({ contactClass, siteKey, grecaptcha }) {
             window.grecaptcha.execute(siteKey, { action: 'submit' }).then(function(token) {
             if (token) {
               // Perform your action here
-              console.log('window.grecaptcha.execute', token)
+              console.log('window.grecaptcha.execute', token) //carregando
+              setData('recaptchaToken', token)
 
-              // ...
-              // Send token to backend for verification (if needed)
-             
+              // Send token to backend for verification (if needed)             
                 try {
                 
                     post(route('contact.store'), {
