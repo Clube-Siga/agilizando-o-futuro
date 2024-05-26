@@ -54,12 +54,12 @@ export default function Contact({ contactClass, siteKey, grecaptcha }) {
        
         try {
             //foi carregado
-            console.log('grecaptha executado')
+            console.log('grecaptha executado solicitando token')
             const token = await grecaptcha.execute(siteKey, { action: 'submit' });
             setData('recaptchaToken', token); // Update form data with token
 
             //foi carregado
-            console.log('grecaptha toke', token)
+            console.log('grecaptha token recebido a ser enviado pro back', token)
 
             post(route('contact.store'), {
                 data: {
@@ -68,7 +68,7 @@ export default function Contact({ contactClass, siteKey, grecaptcha }) {
                     email: data.email,
                     subject: data.subject,
                     formMessage: data.formMessage,
-                    recaptchaToken: data.token
+                    recaptchaToken: token
                 },
                 preserveScroll: true,
                 onSuccess: () => {
