@@ -42,6 +42,7 @@ export default function Contact({ contactClass, siteKey, grecaptcha }) {
 
     }, []);
 
+    //passo 2
     function submit(event) {
         event.preventDefault(); //esta linha impede o comportamento padrão de envio de formulário, que normalmente causaria o recarregamento completo da página.
         //foi acionado
@@ -57,9 +58,9 @@ export default function Contact({ contactClass, siteKey, grecaptcha }) {
                     console.log('window.grecaptcha.execute', token) //carregando
                     //foi adiciondo o token no form
                     console.log('token no form', data.recaptchaToken)
-                    // passar o token pro back verificar
+                    // passo 3 - passar o token pro back verificar
                     try {
-
+                        //chama a rota e passa os dados data, para o back usando post
                         post(route('contact.store'), {
                             data,
 
