@@ -51,15 +51,10 @@ export default function Contact({ contactClass, siteKey, grecaptcha }) {
         e.preventDefault();
         //foi acionado
         console.log('apos clicar enviar')
-        
-        if (!grecaptcha) {
-            console.error("reCAPTCHA");
-            return;
-        }
-
-        //foi carregado
-        console.log('grecaptha carregado')
+       
         try {
+            //foi carregado
+            console.log('grecaptha executado')
             const token = await grecaptcha.execute(siteKey, { action: 'submit' });
             setData('recaptchaToken', token); // Update form data with token
 
