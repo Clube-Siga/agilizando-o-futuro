@@ -37,13 +37,7 @@ export default function Contact({ contactClass, siteKey, grecaptcha }) {
         return () => {
             // remover e desmontar o componente atual
             document.body.removeChild(script);
-
-            // window.grecaptcha.ready(() => {
-            //         const recaptchaRef = window.grecaptcha.render('recaptcha-container', {
-            //         'sitekey': siteKey
-            //         });
-            //         setRecaptchaRef(recaptchaRef);
-            //     });    
+ 
         };
 
     }, []);
@@ -51,16 +45,16 @@ export default function Contact({ contactClass, siteKey, grecaptcha }) {
     function submit(event) {
         event.preventDefault();
         // ... (Load reCAPTCHA script if needed)
-      
-        grecaptcha.ready(function() {
-          grecaptcha.execute(siteKey, { action: 'submit' }).then(function(token) {
+       //foi acionado
+       console.log('apos clicar enviar')
+            
+        window.grecaptcha.ready(function() {
+            window.grecaptcha.execute(siteKey, { action: 'submit' }).then(function(token) {
             if (token) {
               // Perform your action here
               // ...
               // Send token to backend for verification (if needed)
-              //foi acionado
-                console.log('apos clicar enviar')
-            
+             
                 try {
                 
                     post(route('contact.store'), {
