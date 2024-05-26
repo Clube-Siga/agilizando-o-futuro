@@ -66,7 +66,7 @@ export default function Contact({ contactClass, siteKey, grecaptcha }) {
               email: data.email,
               subject: data.subject,
               formMessage: data.formMessage,
-              recaptchaToken: token
+              recaptchaToken: data.token
             },
             preserveScroll: true,
             onSuccess: () => {
@@ -89,7 +89,7 @@ export default function Contact({ contactClass, siteKey, grecaptcha }) {
                 <Title titleClass={"font-body mb-4 text-4xl tracking-tight font-extrabold text-center text-defaultW dark:text-defaultW"} titleContent={"Entre em Contanto"} />
                 <Text textClass={"font-body mb-8 font-light text-center text-defaultW lg:mb-16 sm:text-xl dark:text-primary"} textContent={"Está com algum problema técnico? Gostaria de enviar um feedback sobre a plataforma? Gostaria de mais detalhes sobre o projeto? Fale conosco"} />
 
-                <form onSubmit={handleVerify} id="contact-form" className="space-y-3">
+                <form onSubmit={submit} id="contact-form" className="space-y-3">
                     <div>
                         <Label objective={"name"}>
                             Seu nome
