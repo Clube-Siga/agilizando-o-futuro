@@ -167,9 +167,7 @@ export default function Contact({ contactClass, siteKey, grecaptcha }) {
                         ></textarea>
                         <InputError message={errors.formMessage} className='mt-2' />
                     </Content>
-                    <div className="recaptcha-container">
-                        <div ref={setRecaptchaRef} className="g-recaptcha" data-sitekey="YOUR_SITE_KEY"></div>
-                    </div>
+                 
                     <button
                         data-sitekey={siteKey}
                         disabled={processing}
