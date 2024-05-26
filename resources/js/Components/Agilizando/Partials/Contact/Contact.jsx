@@ -8,58 +8,80 @@ import InputError from '@/Components/InputError';
 import { formatPhoneNumber } from '@/Utils/utils';
 //import { GoogleReCaptchaProvider, GoogleReCaptcha } from "react-google-recaptcha-v3";
 
-export default function Contact({ contactClass, siteKey }) {
+export default function Contact({ contactClass, siteKey, grecaptcha }) {
+
+    // const [recaptchaRef, setRecaptchaRef] = useState(null); usa pra desafios
+
     const { data, setData, post, processing, errors, reset } = useForm({
         name: '',
         phone: '',
         email: '',
         subject: '',
-        formMessage: ''
+        formMessage: '',
+        recaptchaToken: ''
     });
+
+    useEffect(() => {
+        // Passo 1 - Carregue a API JavaScript. // somente na pagina do site ou contato
+        const script = document.createElement('script'); // este é um método integrado fornecido pela API Document Object Model (DOM) do navegador. Ele permite criar novos elementos HTML dinamicamente usando JavaScript.
+        script.src = "https://www.google.com/recaptcha/api.js?render=" + siteKey; // passando a url pra props src
+        script.async = true;
+        script.defer = true;
+        document.body.appendChild(script);
+
+        // Initialize reCAPTCHA apos carregar o script opcional
+       
+    
+        return () => {
+          // remover e desmontar o componente atual
+          document.body.removeChild(script);
+
+            // window.grecaptcha.ready(() => {
+            //         const recaptchaRef = window.grecaptcha.render('recaptcha-container', {
+            //         'sitekey': siteKey
+            //         });
+            //         setRecaptchaRef(recaptchaRef);
+            //     });    
+        };
+
+    }, []);
+
 
     const submit = async (e) => {
         e.preventDefault();
-
-        if (!grecaptcha.enterprise) {
-            console.error("reCAPTCHA Enterprise library not loaded");
-            return; // Handle error if library is not loaded
+      
+        if (!grecaptcha) {
+          console.error("reCAPTCHA");
+          return;
         }
-
+      
         try {
-            const token = await grecaptcha.enterprise.execute(siteKey, {
-                action: 'SUBMIT_FORM'
-            });
-
-            if (token) {
-                post(route('contact.store'), {
-                    data: {
-                        name: data.name,
-                        phone: data.phone,
-                        email: data.email,
-                        subject: data.subject,
-                        formMessage: data.formMessage,
-                        recaptchaToken: token
-                    },
-                    preserveScroll: true,
-                    onSuccess: () => {
-                        reset();
-                    },
-                    onError: (error) => {
-                        console.log('error', error);
-                    },
-                });
-            } else {
-                console.error("Failed to get reCAPTCHA token");
-            }
+          const token = await grecaptcha.execute(siteKey, { action: 'submit' });
+          setData('recaptchaToken', token); // Update form data with token
+      
+          post(route('contact.store'), {
+            data: {
+              name: data.name,
+              phone: data.phone,
+              email: data.email,
+              subject: data.subject,
+              formMessage: data.formMessage,
+              recaptchaToken: token
+            },
+            preserveScroll: true,
+            onSuccess: () => {
+              reset();
+            },
+            onError: (error) => {
+              console.log('error', error);
+            },
+          });
         } catch (error) {
-            console.error("Error during reCAPTCHA verification:", error);
+          console.error("Error during reCAPTCHA verification:", error);
         }
-    };
-
-    useEffect(() => {
-        // Atualiza o token reCAPTCHA no data apenas quando ele muda
-        setData('recaptchaToken', token);
-    }, [token]);
+      };
+      
+   
     
     return (
         <section id="contact" className={contactClass}>
@@ -67,7 +89,7 @@ export default function Contact({ contactClass, siteKey }) {
                 <Title titleClass={"font-body mb-4 text-4xl tracking-tight font-extrabold text-center text-defaultW dark:text-defaultW"} titleContent={"Entre em Contanto"} />
                 <Text textClass={"font-body mb-8 font-light text-center text-defaultW lg:mb-16 sm:text-xl dark:text-primary"} textContent={"Está com algum problema técnico? Gostaria de enviar um feedback sobre a plataforma? Gostaria de mais detalhes sobre o projeto? Fale conosco"} />
 
-                <form onSubmit={submit} id="contact-form" className="space-y-3">
+                <form onSubmit={handleVerify} id="contact-form" className="space-y-3">
                     <div>
                         <Label objective={"name"}>
                             Seu nome
@@ -145,9 +167,9 @@ export default function Contact({ contactClass, siteKey }) {
                         ></textarea>
                         <InputError message={errors.formMessage} className='mt-2' />
                     </Content>
-
-                    <input type="hidden" id="recaptcha-token" name="g-recaptcha-response" value={data.recaptchaToken} />
-
+                    <div className="recaptcha-container">
+                        <div ref={setRecaptchaRef} className="g-recaptcha" data-sitekey="YOUR_SITE_KEY"></div>
+                    </div>
                     <button
                         data-sitekey={siteKey}
                         disabled={processing}
