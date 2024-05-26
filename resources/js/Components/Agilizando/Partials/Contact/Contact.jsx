@@ -11,7 +11,8 @@ import { formatPhoneNumber } from '@/Utils/utils';
 export default function Contact({ contactClass, siteKey, grecaptcha }) {
 
     // const [recaptchaRef, setRecaptchaRef] = useState(null); usa pra desafios
-
+ 
+    console.log('Site Key', siteKey)
     const { data, setData, post, processing, errors, reset } = useForm({
         name: '',
         phone: '',
