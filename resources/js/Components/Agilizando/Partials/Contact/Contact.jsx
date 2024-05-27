@@ -12,14 +12,13 @@ export default function Contact({ contactClass, siteKey, grecaptcha }) {
 
     // const [recaptchaRef, setRecaptchaRef] = useState(null); usa pra desafios
 
-    console.log('Site Key', siteKey)
     const { data, setData, post, processing, errors, reset } = useForm({
         name: '',
         phone: '',
         email: '',
         subject: '',
         formMessage: '',
-        recaptchaToken: ''
+        //recaptchaToken: ''
     });
 
     useEffect(() => {
@@ -51,9 +50,8 @@ export default function Contact({ contactClass, siteKey, grecaptcha }) {
             if (token) {
                 console.log('Token recebido ', token);
 
-                // Atualizar o estado com o token reCAPTCHA
-                setData('recaptchaToken', token);
-
+                // Atualizar o form adicionando  com token reCAPTCHA
+               
                 // Fazer a requisição POST após garantir que o estado foi atualizado
                 setTimeout(() => {
                     console.log('Token adicionado ao form', data.recaptchaToken);
