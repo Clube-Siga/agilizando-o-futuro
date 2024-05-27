@@ -45,8 +45,8 @@ export default function Contact({ contactClass, siteKey, grecaptcha }) {
     const submit = async (event) => {
         event.preventDefault();
 
-        grecaptcha.ready( () => {
-            const token =  grecaptcha.execute(siteKey, { action: 'submit' });
+        window.grecaptcha.ready( () => {
+            const token =  window.grecaptcha.execute(siteKey, { action: 'submit' });
             if (token) {
                 console.log('Token recebido ', token);
 
