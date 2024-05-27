@@ -21,25 +21,25 @@ export default function Contact({ contactClass, siteKey, grecaptcha }) {
         recaptchaToken: '',
     });
 
-    useEffect(() => {
-        // Passo 1 - Carregue a API JavaScript. // somente na pagina do site ou contato
-        const script = document.createElement('script'); // este é um método integrado fornecido pela API Document Object Model (DOM) do navegador. Ele permite criar novos elementos HTML dinamicamente usando JavaScript.
-        script.src = "https://www.google.com/recaptcha/api.js?render=" + siteKey; //  esta linha define o src atributo do elemento de script para a URL do endpoint da API reCAPTCHA. Inclui o siteKey fornecido como adereço, essencial para identificar o seu site reCAPTCHA. 
-        script.async = true; // Esta linha define o asyncatributo como true, indicando que o script não deve bloquear o carregamento de outros recursos na página. Isso garante que a página permaneça responsiva enquanto o script reCAPTCHA está sendo carregado.
-        script.defer = true; // Esta linha define o defer atribuir a true, dizendo ao navegador para adiar a execução do script até que o conteúdo HTML tenha sido analisado e exibido.Isso pode melhorar o desempenho do carregamento da página.
-        document.body.appendChild(script); // Esta linha anexa o script elemento criado para o <body> do documento HTML. Isso efetivamente adiciona o script à página, desencadeando seu carregamento.
-        //foi carregado
-        console.log('grecaptha carregado')
+    // useEffect(() => {
+    //     // Passo 1 - Carregue a API JavaScript. // somente na pagina do site ou contato
+    //     const script = document.createElement('script'); // este é um método integrado fornecido pela API Document Object Model (DOM) do navegador. Ele permite criar novos elementos HTML dinamicamente usando JavaScript.
+    //     script.src = "https://www.google.com/recaptcha/api.js?render=" + siteKey; //  esta linha define o src atributo do elemento de script para a URL do endpoint da API reCAPTCHA. Inclui o siteKey fornecido como adereço, essencial para identificar o seu site reCAPTCHA. 
+    //     script.async = true; // Esta linha define o asyncatributo como true, indicando que o script não deve bloquear o carregamento de outros recursos na página. Isso garante que a página permaneça responsiva enquanto o script reCAPTCHA está sendo carregado.
+    //     script.defer = true; // Esta linha define o defer atribuir a true, dizendo ao navegador para adiar a execução do script até que o conteúdo HTML tenha sido analisado e exibido.Isso pode melhorar o desempenho do carregamento da página.
+    //     document.body.appendChild(script); // Esta linha anexa o script elemento criado para o <body> do documento HTML. Isso efetivamente adiciona o script à página, desencadeando seu carregamento.
+    //     //foi carregado
+    //     console.log('grecaptha carregado')
 
-        // Initialize reCAPTCHA apos carregar o script opcional (um desafio)
+    //     // Initialize reCAPTCHA apos carregar o script opcional (um desafio)
 
-        return () => {
-            // remover e desmontar o componente atual
-            document.body.removeChild(script); // Esta função é chamada quando o componente é desmontado ou descartado.Ele remove o adicionado dinamicamente script elemento do<body>para evitar vazamentos de memória e execução desnecessária de scripts.
+    //     return () => {
+    //         // remover e desmontar o componente atual
+    //         document.body.removeChild(script); // Esta função é chamada quando o componente é desmontado ou descartado.Ele remove o adicionado dinamicamente script elemento do<body>para evitar vazamentos de memória e execução desnecessária de scripts.
 
-        };
+    //     };
 
-    }, []);
+    // }, []);
 
     //passo 2
     const submit = async (event) => {
@@ -164,7 +164,7 @@ export default function Contact({ contactClass, siteKey, grecaptcha }) {
                     <input type="hidden"
                         id='g-recaptcha-response'
                         name="g-recaptcha-response"
-                       // value={data.recaptchaToken}
+                       value={data.recaptchaToken}
                         //onChange={(token) => setData('recaptchaToken', token)}
                     />
 
