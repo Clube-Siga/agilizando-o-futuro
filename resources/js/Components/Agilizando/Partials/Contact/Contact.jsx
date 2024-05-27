@@ -62,7 +62,10 @@ export default function Contact({ contactClass, siteKey, grecaptcha }) {
                     try {
                         //chama a rota e passa os dados data, para o back usando post
                         post(route('contact.store'), {
-                            data,
+                            data: {
+                                ...data,
+                                recaptchaToken: token
+                            },
 
                             preserveScroll: true,
                             onSuccess: () => {
@@ -170,11 +173,7 @@ export default function Contact({ contactClass, siteKey, grecaptcha }) {
                         <InputError message={errors.formMessage} className='mt-2' />
                     </Content>
                     {/* Garntir que  token seja adicionado ao FORM, uma função para atualizar o estado dos dados do formulário toda vez que o token mudar*/}
-                    <input type="hidden"
-                        name="recaptchaToken"
-                        value={data.recaptchaToken}
-                        onChange={(token) => setData('recaptchaToken', token)}
-                    />
+                    <input type="hidden" name="recaptchaToken" value={data.recaptchaToken} />
 
                     <button
                         disabled={processing}
