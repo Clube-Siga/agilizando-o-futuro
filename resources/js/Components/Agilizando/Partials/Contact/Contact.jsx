@@ -18,7 +18,7 @@ export default function Contact({ contactClass, siteKey, grecaptcha }) {
         email: '',
         subject: '',
         formMessage: '',
-        //recaptchaToken: ''
+        recaptchaToken: '',
     });
 
     useEffect(() => {
@@ -58,10 +58,7 @@ export default function Contact({ contactClass, siteKey, grecaptcha }) {
                     console.log('Token adicionado ao form', data);
 
                     post(route('contact.store'), {
-                        data: {
-                            ...data,
-                            recaptchaToken: token, // Certifique-se de que o token está sendo passado
-                        },
+                        data,
                         preserveScroll: true,
                         onSuccess: () => {
                             reset();
