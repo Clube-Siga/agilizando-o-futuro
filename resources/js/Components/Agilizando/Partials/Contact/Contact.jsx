@@ -56,6 +56,7 @@ export default function Contact({ contactClass, siteKey, grecaptcha }) {
                 // Isto verifica se um token válido foi retornado.   
                 if (token) {
                     console.log('window.grecaptcha.execute', token) //carregando
+                    setData('recaptchaToken', token);
                     //foi adiciondo o token no form
                     console.log('token no form', data.recaptchaToken)
                     // passo 3 - passar o token pro back verificar
