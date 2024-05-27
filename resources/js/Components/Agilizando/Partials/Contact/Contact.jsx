@@ -50,11 +50,12 @@ export default function Contact({ contactClass, siteKey, grecaptcha }) {
             if (token) {
                 console.log('Token recebido ', token);
 
-                // Atualizar o form adicionando  com token reCAPTCHA
-               
+                // Atualizar o form adicionando o token reCAPTCHA
+                setData('recaptchaToken', token); // **Linha adicionada para atualizar o estado com o token**
+
                 // Fazer a requisição POST após garantir que o estado foi atualizado
                 setTimeout(() => {
-                    console.log('Token adicionado ao form', data.recaptchaToken);
+                    console.log('Token adicionado ao form', data);
 
                     post(route('contact.store'), {
                         data: {
