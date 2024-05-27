@@ -43,46 +43,40 @@ export default function Contact({ contactClass, siteKey, grecaptcha }) {
     }, []);
 
     //passo 2
-    function submit(event) {
-        event.preventDefault(); //esta linha impede o comportamento padrão de envio de formulário, que normalmente causaria o recarregamento completo da página.
-        //foi acionado
-        console.log('apos clicar enviar')
-        //para garantir que a API reCAPTCHA esteja carregada e pronta antes de continuar. A função passada como argumento é executada somente quando o reCAPTCHA está pronto.    
-        window.grecaptcha.ready(function () {
+    const submit = async (event) => {
+        event.preventDefault();
 
-            // Isso aciona o desafio reCAPTCHA e recupera um token se for bem-sucedido.
-            window.grecaptcha.execute(siteKey, { action: 'submit' }).then(function (token) {
+        window.grecaptcha.ready(async () => {
+            const token = await window.grecaptcha.execute(siteKey, { action: 'submit' });
+            if (token) {
+                console.log('Token recebido ', token);
 
-                // Isto verifica se um token válido foi retornado.   
-                if (token) {
-                    setData('recaptchaToken', token)
-                    console.log('Token recebido ', token) //carregando
+                // Atualizar o estado com o token reCAPTCHA
+                setData('recaptchaToken', token);
 
-                    //foi adiciondo o token no form
-                    console.log('token add form', data.recaptchaToken)
-                    // passo3 passar o token pro back verificar
-                    try {
-                        //chama a rota e passa os dados data, para o back usando post
-                        post(route('contact.store'), {
-                            data,
+                // Fazer a requisição POST após um pequeno atraso para garantir que o estado foi atualizado
+                setTimeout(() => {
+                    console.log('Token adicionado ao form', data.recaptchaToken);
 
-                            preserveScroll: true,
-                            onSuccess: () => {
-                                reset();
-                            },
-                            onError: (error) => {
-                                console.log('error', error);
-                            },
-                        });
-                    } catch (error) {
-                        console.error("Error during reCAPTCHA verification:", error);
-                    }
-                } else {
-                    console.error('Failed to retrieve reCAPTCHA token');
-                }
-            });
+                    post(route('contact.store'), {
+                        data: {
+                            ...data,
+                            recaptchaToken: token,
+                        },
+                        preserveScroll: true,
+                        onSuccess: () => {
+                            reset();
+                        },
+                        onError: (error) => {
+                            console.log('Erro', error);
+                        },
+                    });
+                }, 100);
+            } else {
+                console.error('Failed to retrieve reCAPTCHA token');
+            }
         });
-    }
+    };
 
 
     return (
