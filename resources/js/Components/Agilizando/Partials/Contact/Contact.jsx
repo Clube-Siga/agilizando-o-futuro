@@ -8,11 +8,10 @@ import InputError from '@/Components/InputError';
 import { formatPhoneNumber } from '@/Utils/utils';
 //import { GoogleReCaptchaProvider, GoogleReCaptcha } from "react-google-recaptcha-v3";
 
-export default function Contact({ contactClass, siteKey, grecaptcha }) {
+export default function Contact({ contactClass, siteKey }) {
 
     // const [recaptchaRef, setRecaptchaRef] = useState(null); usa pra desafios
 
-    console.log('Site Key', siteKey)
     const { data, setData, post, processing, errors, reset } = useForm({
         name: '',
         phone: '',
@@ -43,50 +42,41 @@ export default function Contact({ contactClass, siteKey, grecaptcha }) {
     }, []);
 
     //passo 2
-    function submit(event) {
-        event.preventDefault(); //esta linha impede o comportamento padrão de envio de formulário, que normalmente causaria o recarregamento completo da página.
-        //foi acionado
-        console.log('apos clicar enviar')
-        //para garantir que a API reCAPTCHA esteja carregada e pronta antes de continuar. A função passada como argumento é executada somente quando o reCAPTCHA está pronto.    
-        window.grecaptcha.ready(function () {
+    const submit = (event) => {
+        event.preventDefault();
 
-            // Isso aciona o desafio reCAPTCHA e recupera um token se for bem-sucedido.
-            window.grecaptcha.execute(siteKey, { action: 'submit' }).then(function (token) {
-
-                // Isto verifica se um token válido foi retornado.   
+        window.grecaptcha.ready(() => {
+            window.grecaptcha.execute(siteKey, { action: 'submit' }).then((token) => {
                 if (token) {
-                    console.log('window.grecaptcha.execute', token) //carregando
-                    //foi adiciondo o token no form
-                    // passo 3 - passar o token pro back verificar
-                    try {
-                        //chama a rota e passa os dados data, para o back usando post
-                        if (data.recaptchaToken) {
-                            console.log('token no form', data.recaptchaToken)
+                    console.log('window.grecaptcha.execute', token);
 
-                            post(route('contact.store'), {
-                                data,
-    
-                                preserveScroll: true,
-                                onSuccess: () => {
-                                  
-                                    reset();
-                                },
-                                onError: (error) => {
-                                    console.log('data enviado no form', data)
-                                    console.log('error', error);
-                                },
-                            });
-                        }
-                       
-                    } catch (error) {
-                        console.error("Error during reCAPTCHA verification:", error);
-                    }
+                    // Atualizar o estado com o token reCAPTCHA antes de fazer o POST
+                    setData(prevData => ({
+                        ...prevData,
+                        recaptchaToken: token
+                    }));
+
+                    // Fazer a requisição POST após o token ser atualizado no estado
+                    setTimeout(() => {
+                        post(route('contact.store'), {
+                            ...data,
+                            recaptchaToken: token, // Garantir que o token está incluído
+                            preserveScroll: true,
+                            onSuccess: () => {
+                                reset();
+                            },
+                            onError: (error) => {
+                                console.log('Dados enviados no formulário', data);
+                                console.log('Erro', error);
+                            },
+                        });
+                    }, 100); // Pequeno atraso para garantir que o estado seja atualizado
                 } else {
-                    console.error('Failed to retrieve reCAPTCHA token');
+                    console.error('Falha ao obter o token reCAPTCHA');
                 }
             });
         });
-    }
+    };
 
 
     return (
