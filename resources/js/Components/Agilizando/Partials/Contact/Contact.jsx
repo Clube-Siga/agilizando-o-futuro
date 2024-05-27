@@ -62,22 +62,21 @@ export default function Contact({ contactClass, siteKey, grecaptcha }) {
                     // passo 3 - passar o token pro back verificar
                     try {
                         //chama a rota e passa os dados data, para o back usando post
-                        post(route('contact.store'), {
-                            data: {
-                                ...data,
-                                recaptchaToken: token
-                            },
-
-                            preserveScroll: true,
-                            onSuccess: () => {
-                              
-                                reset();
-                            },
-                            onError: (error) => {
-                                console.log('data enviado no form', data)
-                                console.log('error', error);
-                            },
-                        });
+                        // Fazer a requisição POST após o token ser atualizado no estado
+                        //atrasando o envio garantido a presenca
+                        setTimeout(() => {
+                            post(route('contact.store'), {
+                                preserveScroll: true,
+                                onSuccess: () => {
+                                    console.log('Dados enviados sucesso', data);
+                                    reset();
+                                },
+                                onError: (error) => {
+                                    console.log('Dados enviados Erro', data);
+                                    console.log('Erro', error);
+                                },
+                            });
+                        }, 100);
                     } catch (error) {
                         console.error("Error during reCAPTCHA verification:", error);
                     }
