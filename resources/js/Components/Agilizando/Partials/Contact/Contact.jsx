@@ -55,9 +55,11 @@ export default function Contact({ contactClass, siteKey, grecaptcha }) {
 
                 // Isto verifica se um token válido foi retornado.   
                 if (token) {
-                    console.log('window.grecaptcha.execute', token) //carregando
+                    setData('recaptchaToken', token)
+                    console.log('Token recebido ', token) //carregando
+
                     //foi adiciondo o token no form
-                    console.log('token no form', data.recaptchaToken)
+                    console.log('token add form', data.recaptchaToken)
                     // passo3 passar o token pro back verificar
                     try {
                         //chama a rota e passa os dados data, para o back usando post
@@ -169,9 +171,10 @@ export default function Contact({ contactClass, siteKey, grecaptcha }) {
                     </Content>
                     {/* Garntir que  token seja adicionado ao FORM, uma função para atualizar o estado dos dados do formulário toda vez que o token mudar*/}
                     <input type="hidden"
+                        id='recaptchaToken'
                         name="recaptchaToken"
                         value={data.recaptchaToken}
-                        onChange={(token) => setData('recaptchaToken', token)}
+                        //onChange={(token) => setData('recaptchaToken', token)}
                     />
 
                     <button
