@@ -33,7 +33,7 @@ class ContactController extends Controller
         try {
 
             $dataValidated = $request->validated();// ok recebendo o token
-            // dd($dataValidated);            
+             dd($dataValidated);            
             $token = $dataValidated['recaptchaToken']; //acessando token validado
           
             $remoteIp = $request->ip(); //pegar o ip do usuario 
