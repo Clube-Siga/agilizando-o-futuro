@@ -51,11 +51,7 @@ export default function Contact({ contactClass, siteKey }) {
                     console.log('window.grecaptcha.execute', token);
 
                     // Atualizar o estado com o token reCAPTCHA antes de fazer o POST
-                    setData(prevData => ({
-                        ...prevData,
-                        recaptchaToken: token
-                    }));
-
+                   // setData('recaptchaToken', token);
                     // Fazer a requisição POST após o token ser atualizado no estado
                     setTimeout(() => {
                         post(route('contact.store'), {
@@ -63,6 +59,7 @@ export default function Contact({ contactClass, siteKey }) {
                             recaptchaToken: token, // Garantir que o token está incluído
                             preserveScroll: true,
                             onSuccess: () => {
+                                console.log('Dados enviados no formulário', data);
                                 reset();
                             },
                             onError: (error) => {
@@ -167,7 +164,6 @@ export default function Contact({ contactClass, siteKey }) {
                     <input type="hidden"
                         name="recaptchaToken"
                         value={data.recaptchaToken}
-                        onChange={(token) => setData('recaptchaToken', token)}
                     />
 
                     <button
