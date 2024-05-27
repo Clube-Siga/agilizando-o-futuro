@@ -26,6 +26,11 @@ class ContactController extends Controller
         $this->recaptchaService = $recaptchaService;
     }
 
+    public function verifyToken(Request $request, string $token)
+    {
+        dd($token);
+    }
+
     //falta testar
     public function store (ContactStoreRequest $request)
     { 

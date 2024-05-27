@@ -50,6 +50,17 @@ export default function Contact({ contactClass, siteKey, grecaptcha }) {
             if (token) {
                 console.log('Token recebido ', token);
 
+                const response = await post(route('contact.verify.token'), {
+                    token,
+                    preserveScroll: true,
+                    onSuccess: () => {
+                        console.log('response', response);
+                        reset();
+                    },
+                    onError: (error) => {
+                        console.log('Erro', error);
+                    },
+                });
                 // Atualizar o form adicionando o token reCAPTCHA
                 setData('recaptchaToken', token); // **Linha adicionada para atualizar o estado com o token**
 
