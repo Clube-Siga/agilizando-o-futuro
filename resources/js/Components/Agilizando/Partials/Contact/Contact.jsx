@@ -55,7 +55,7 @@ export default function Contact({ contactClass, siteKey, grecaptcha }) {
                     preserveScroll: true,
                     onSuccess: () => {
                         console.log('response', response);
-                        reset();
+                       // reset();
                     },
                     onError: (error) => {
                         console.log('Erro', error);
