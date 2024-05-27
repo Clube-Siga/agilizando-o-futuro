@@ -12,7 +12,6 @@ use App\Http\Controllers\ContactController; //Controlado responsavel pelo form
 Route::get('/', [SiteController::class, 'index'])->name('site.index');
 
 // Formulario de Contato
-Route::post('/verify-token', [ContactController::class, 'verifyToken'])->name('contact.verify.token');
 Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
 
 Route::get('/dashboard', function () {

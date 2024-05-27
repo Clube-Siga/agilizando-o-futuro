@@ -38,7 +38,7 @@ return [
      * get more info @ https://developers.google.com/recaptcha/docs/versions
      *
      */
-    'version'                      => 'v2',
+    'version'                      => 'v3',
 
     /**
      *

@@ -26,50 +26,6 @@ class ContactController extends Controller
         $this->recaptchaService = $recaptchaService;
     }
 
-    public function verifyToken(Request $request, string $token)
-    {
-        $remoteIp = $request->ip(); //pegar o ip do usuario 
-
-        // Prepara os dados para a requisição à API reCAPTCHA
-        $data = [
-            'secret' => $this->recaptchaService->getSecretKey(), // Sua chave secreta do Google reCAPTCHA
-            'response' => $token, // O token reCAPTCHA do formulário
-            'remoteip' => $remoteIp, // O endereço IP do usuário
-        ];
-
-        //Faz uma requisição POST para a API de verificação 
-        $response = $this->recaptchaService->verify($token, $data);
-
-        // Verifica se a requisição foi bem-sucedida
-        if ($response->successful()) {
-                           
-            // Decodifica a resposta JSON da API
-            $responseData = $response->json();
-
-            // Verifica se a verificação foi bem-sucedida
-            if (!$responseData['success']) {
-                return false; // A verificação falhou
-            }
-
-            // Recupera e retorna a pontuação (opcional)
-            if (isset($responseData['score']) && $responseData['score'] > 0.5) { //1.0 muito bom // 0.0 um bot
-                // cria um contato se for maior que 0.5
-                $contact = $this->contactService->createContact($request);
-            }
-           
-        } else {
-            // reCAPTCHA verification failed, handle the error
-            return back()->with('error', 'Erro na verificação reCAPTCHA. Tente novamente.');
-        }
-
-        Log::error($e->getMessage(), $e);
-
-        return to_route('site.index')->with('error', 'Sua mensagem nao foi enviada ligue 21-21-98176-0591!'); 
-    }
-
-    
-    
-
     //falta testar
     public function store (ContactStoreRequest $request)
     { 
@@ -77,15 +33,15 @@ class ContactController extends Controller
         try {
 
             $dataValidated = $request->validated();// ok recebendo o token
-             dd($dataValidated);            
-            $token = $dataValidated['recaptchaToken']; //acessando token validado
+           // dd($dataValidated);            
+            $response = $dataValidated['recaptchaToken']; //acessando token validado
           
             $remoteIp = $request->ip(); //pegar o ip do usuario 
 
             // Prepara os dados para a requisição à API reCAPTCHA
             $data = [
                 'secret' => $this->recaptchaService->getSecretKey(), // Sua chave secreta do Google reCAPTCHA
-                'response' => $token, // O token reCAPTCHA do formulário
+                'response' => $response, // O token reCAPTCHA do formulário
                 'remoteip' => $remoteIp, // O endereço IP do usuário
             ];
 
