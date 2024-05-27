@@ -19,7 +19,7 @@ export default function Contact({ contactClass, siteKey, grecaptcha }) {
         email: '',
         subject: '',
         formMessage: '',
-        recaptchaToken: ''
+        recaptchaToken: '',
     });
 
     useEffect(() => {
@@ -56,27 +56,28 @@ export default function Contact({ contactClass, siteKey, grecaptcha }) {
                 // Isto verifica se um token válido foi retornado.   
                 if (token) {
                     console.log('window.grecaptcha.execute', token) //carregando
-                    setData('recaptchaToken', token);
                     //foi adiciondo o token no form
-                    console.log('token no form', data.recaptchaToken)
                     // passo 3 - passar o token pro back verificar
                     try {
                         //chama a rota e passa os dados data, para o back usando post
-                        // Fazer a requisição POST após o token ser atualizado no estado
-                        //atrasando o envio garantido a presenca
-                        setTimeout(() => {
+                        if (data.recaptchaToken) {
+                            console.log('token no form', data.recaptchaToken)
+
                             post(route('contact.store'), {
+                                data,
+    
                                 preserveScroll: true,
                                 onSuccess: () => {
-                                    console.log('Dados enviados sucesso', data);
+                                  
                                     reset();
                                 },
                                 onError: (error) => {
-                                    console.log('Dados enviados Erro', data);
-                                    console.log('Erro', error);
+                                    console.log('data enviado no form', data)
+                                    console.log('error', error);
                                 },
                             });
-                        }, 100);
+                        }
+                       
                     } catch (error) {
                         console.error("Error during reCAPTCHA verification:", error);
                     }
@@ -173,7 +174,11 @@ export default function Contact({ contactClass, siteKey, grecaptcha }) {
                         <InputError message={errors.formMessage} className='mt-2' />
                     </Content>
                     {/* Garntir que  token seja adicionado ao FORM, uma função para atualizar o estado dos dados do formulário toda vez que o token mudar*/}
-                    <input type="hidden" name="recaptchaToken" value={data.recaptchaToken} />
+                    <input type="hidden"
+                        name="recaptchaToken"
+                        value={data.recaptchaToken}
+                        onChange={(token) => setData('recaptchaToken', token)}
+                    />
 
                     <button
                         disabled={processing}
