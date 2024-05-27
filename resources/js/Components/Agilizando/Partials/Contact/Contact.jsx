@@ -8,17 +8,18 @@ import InputError from '@/Components/InputError';
 import { formatPhoneNumber } from '@/Utils/utils';
 //import { GoogleReCaptchaProvider, GoogleReCaptcha } from "react-google-recaptcha-v3";
 
-export default function Contact({ contactClass, siteKey }) {
+export default function Contact({ contactClass, siteKey, grecaptcha }) {
 
     // const [recaptchaRef, setRecaptchaRef] = useState(null); usa pra desafios
 
+    console.log('Site Key', siteKey)
     const { data, setData, post, processing, errors, reset } = useForm({
         name: '',
         phone: '',
         email: '',
         subject: '',
         formMessage: '',
-        recaptchaToken: '',
+        recaptchaToken: ''
     });
 
     useEffect(() => {
@@ -42,38 +43,44 @@ export default function Contact({ contactClass, siteKey }) {
     }, []);
 
     //passo 2
-    const submit = (event) => {
-        event.preventDefault();
+    function submit(event) {
+        event.preventDefault(); //esta linha impede o comportamento padrão de envio de formulário, que normalmente causaria o recarregamento completo da página.
+        //foi acionado
+        console.log('apos clicar enviar')
+        //para garantir que a API reCAPTCHA esteja carregada e pronta antes de continuar. A função passada como argumento é executada somente quando o reCAPTCHA está pronto.    
+        window.grecaptcha.ready(function () {
 
-        window.grecaptcha.ready(() => {
-            window.grecaptcha.execute(siteKey, { action: 'submit' }).then((token) => {
+            // Isso aciona o desafio reCAPTCHA e recupera um token se for bem-sucedido.
+            window.grecaptcha.execute(siteKey, { action: 'submit' }).then(function (token) {
+
+                // Isto verifica se um token válido foi retornado.   
                 if (token) {
-                    console.log('window.grecaptcha.execute', token);
-
-                    // Atualizar o estado com o token reCAPTCHA antes de fazer o POST
-                   // setData('recaptchaToken', token);
-                    // Fazer a requisição POST após o token ser atualizado no estado
-                    setTimeout(() => {
+                    console.log('window.grecaptcha.execute', token) //carregando
+                    //foi adiciondo o token no form
+                    console.log('token no form', data.recaptchaToken)
+                    // passo3 passar o token pro back verificar
+                    try {
+                        //chama a rota e passa os dados data, para o back usando post
                         post(route('contact.store'), {
-                            ...data,
-                            recaptchaToken: token, // Garantir que o token está incluído
+                            data,
+
                             preserveScroll: true,
                             onSuccess: () => {
-                                console.log('Dados enviados no formulário', data);
                                 reset();
                             },
                             onError: (error) => {
-                                console.log('Dados enviados no formulário', data);
-                                console.log('Erro', error);
+                                console.log('error', error);
                             },
                         });
-                    }, 100); // Pequeno atraso para garantir que o estado seja atualizado
+                    } catch (error) {
+                        console.error("Error during reCAPTCHA verification:", error);
+                    }
                 } else {
-                    console.error('Falha ao obter o token reCAPTCHA');
+                    console.error('Failed to retrieve reCAPTCHA token');
                 }
             });
         });
-    };
+    }
 
 
     return (
@@ -164,6 +171,7 @@ export default function Contact({ contactClass, siteKey }) {
                     <input type="hidden"
                         name="recaptchaToken"
                         value={data.recaptchaToken}
+                        onChange={(token) => setData('recaptchaToken', token)}
                     />
 
                     <button
