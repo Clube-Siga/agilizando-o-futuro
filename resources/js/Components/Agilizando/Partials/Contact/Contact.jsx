@@ -66,6 +66,7 @@ export default function Contact({ contactClass, siteKey, grecaptcha }) {
 
                             preserveScroll: true,
                             onSuccess: () => {
+                                console.log('data enviado no form', data)
                                 reset();
                             },
                             onError: (error) => {
