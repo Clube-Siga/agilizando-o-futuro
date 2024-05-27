@@ -7,6 +7,8 @@
     "require": {
         "php": "^8.2",
         "biscolab/laravel-recaptcha": "^6.1",
+        "google/cloud-recaptcha-enterprise": "^1.12",
+        "google/recaptcha": "1.3",
         "inertiajs/inertia-laravel": "^1.0",
         "laravel/breeze": "^2.0",
         "laravel/framework": "^11.0",
