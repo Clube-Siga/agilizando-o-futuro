@@ -45,14 +45,14 @@ export default function Contact({ contactClass, siteKey, grecaptcha }) {
     const submit = async (event) => {
         event.preventDefault();
 
-        window.grecaptcha.ready( () => {
-            const token =  window.grecaptcha.execute(siteKey, { action: 'submit' });
+        window.grecaptcha.ready(async () => {
+            const token = await window.grecaptcha.execute(siteKey, { action: 'submit' });
             if (token) {
                 console.log('Token recebido ', token);
 
                 // Atualizar o form adicionando o token reCAPTCHA
-                //setData('recaptchaToken', token); // **Linha adicionada para atualizar o estado com o token**
-                document.getElementById('g-recaptcha-response').value = token;
+               // setData('recaptchaToken', token); // **Linha adicionada para atualizar o estado com o token**
+
                 // Fazer a requisição POST após garantir que o estado foi atualizado
                 setTimeout(() => {
                     console.log('Token adicionado ao form', data);
@@ -164,8 +164,8 @@ export default function Contact({ contactClass, siteKey, grecaptcha }) {
                     <input type="hidden"
                         id='g-recaptcha-response'
                         name="g-recaptcha-response"
-                       value={data.recaptchaToken}
-                        //onChange={(token) => setData('recaptchaToken', token)}
+                        value={data.recaptchaToken}
+                        onChange={(token) => setData('recaptchaToken', token)}
                     />
 
                     <button
