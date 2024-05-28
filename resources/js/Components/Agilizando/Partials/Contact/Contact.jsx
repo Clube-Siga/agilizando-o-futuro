@@ -51,7 +51,7 @@ export default function Contact({ contactClass, siteKey, grecaptcha }) {
                 console.log('Token recebido ', token);
 
                 // Atualizar o form adicionando o token reCAPTCHA
-               // setData('recaptchaToken', token); // **Linha adicionada para atualizar o estado com o token**
+                setData('recaptchaToken', token); // **Linha adicionada para atualizar o estado com o token**
 
                 // Fazer a requisição POST após garantir que o estado foi atualizado
                 setTimeout(() => {
@@ -82,7 +82,7 @@ export default function Contact({ contactClass, siteKey, grecaptcha }) {
                 <Title titleClass={"font-body mb-4 text-4xl tracking-tight font-extrabold text-center text-defaultW dark:text-defaultW"} titleContent={"Entre em Contanto"} />
                 <Text textClass={"font-body mb-8 font-light text-center text-defaultW lg:mb-16 sm:text-xl dark:text-primary"} textContent={"Está com algum problema técnico? Gostaria de enviar um feedback sobre a plataforma? Gostaria de mais detalhes sobre o projeto? Fale conosco"} />
 
-                <form onSubmit={submit} id="default_form_id" className="space-y-3">
+                <form onSubmit={submit} id="contact-form" className="space-y-3">
                     <div>
                         <Label objective={"name"}>
                             Seu nome
@@ -165,7 +165,7 @@ export default function Contact({ contactClass, siteKey, grecaptcha }) {
                         id='g-recaptcha-response'
                         name="g-recaptcha-response"
                         value={data.recaptchaToken}
-                        onChange={(token) => setData('recaptchaToken', token)}
+                        //onChange={(token) => setData('recaptchaToken', token)}
                     />
 
                     <button
