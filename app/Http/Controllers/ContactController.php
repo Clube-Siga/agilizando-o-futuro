@@ -47,7 +47,7 @@ class ContactController extends Controller
 
             //Faz uma requisição POST para a API de verificação 
             $response = $this->recaptchaService->verify($token, $data);
-
+            dd($response );
             // Verifica se a requisição foi bem-sucedida
             if ($response->successful()) {
                                
@@ -72,7 +72,7 @@ class ContactController extends Controller
             
         } catch (\Exception $e) {
 
-            Log::error($e->getMessage(), $e);
+            Log::error($e->getMessage(), $e->getTrace());
 
             return to_route('site.index')->with('error', 'Sua mensagem nao foi enviada ligue 21-21-98176-0591!'); 
         }
