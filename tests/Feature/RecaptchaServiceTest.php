@@ -34,7 +34,7 @@ class RecaptchaServiceTest extends TestCase
         $recaptchaService = new RecaptchaService();
 
         // Defina a chave do site esperada
-        $expectedSiteKey = '6LdgH-gpAAAAADaTUQKIUJd-YZ7-0ZdJT0VjocTG';
+        $expectedSiteKey = env('SITE_KEY_RECAPTCHA');
 
         // Verifique se a chave secreta retornada corresponde à esperada usando o assertEquals retorna verdadeiro se for igual
         $this->assertEquals($expectedSiteKey, $recaptchaService->getSiteKey());
