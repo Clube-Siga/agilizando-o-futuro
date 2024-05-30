@@ -45,29 +45,28 @@ export default function Contact({ contactClass, siteKey, grecaptcha }) {
     const submit = async (event) => {
         event.preventDefault();
 
+        // carrega o reCAPTCHA script se ele nao estiver carregado
+        if (!window.grecaptcha) {
+            const script = document.createElement('script');
+            script.src = "https://www.google.com/recaptcha/api.js?render=" + siteKey;
+            script.async = true;
+            script.defer = true;
+            document.body.appendChild(script);
+
+            await new Promise((resolve) => {
+                window.onload = resolve; // espera o script ser carregado
+            });
+        }
+
         window.grecaptcha.ready(async () => {
             const token = await window.grecaptcha.execute(siteKey, { action: 'submit' });
             if (token) {
                 console.log('Token recebido ', token);
 
-                // Atualizar o form adicionando o token reCAPTCHA
-                setData('recaptchaToken', token); // **Linha adicionada para atualizar o estado com o token**
+                // Update the form with the token
+                setData('recaptchaToken', token);
 
-                // Fazer a requisição POST após garantir que o estado foi atualizado
-                setTimeout(() => {
-                    console.log('Token adicionado ao form', data);
-
-                    post(route('contact.store'), {
-                        data,
-                        preserveScroll: true,
-                        onSuccess: () => {
-                            reset();
-                        },
-                        onError: (error) => {
-                            console.log('Erro', error);
-                        },
-                    });
-                }, 100); // Espera 100ms para garantir que o estado foi atualizado
+                // ... Rest of your submit logic (POST request, etc.)
             } else {
                 console.error('Failed to retrieve reCAPTCHA token');
             }
@@ -165,7 +164,7 @@ export default function Contact({ contactClass, siteKey, grecaptcha }) {
                         id='g-recaptcha-response'
                         name="g-recaptcha-response"
                         value={data.recaptchaToken}
-                        //onChange={(token) => setData('recaptchaToken', token)}
+                    //onChange={(token) => setData('recaptchaToken', token)}
                     />
 
                     <button
