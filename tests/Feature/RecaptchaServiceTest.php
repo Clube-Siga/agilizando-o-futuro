@@ -67,7 +67,7 @@ class RecaptchaServiceTest extends TestCase
 
         $recaptchaService = new RecaptchaService();
 
-        // Defina o token e os dados de teste vem do post no form
+        // Defina o token e os dados de teste vem do post no form teste
         $token = '03AFcWeA58d3i07YPEbpfphsETanydY6okp86lwVoOvfY_ZsE4cD2SA--CCR5FGwFzDVl8KJLNyB-5SPTP7a_PFYF9jHS1Ywl3dnT_iD25_JOV5ciXJtp3bb9vL2VDzbpIl-3nOtepzTp6tOV21LQLi8C6nKLuqlDVNiL4aE5kRnLIp_V_bpdY0TV81-4-bugoIngpTAYnm3HFvnNHiTLD2F06iCo24VbQXkXfb6y60Y3vjbRVHeTqmz09j6KzZGaKvyn8c2ZEUgMoHRGtggcH-6lIwuP75vM0jIFfVs7J7P0PfUgEFyJ-z0P6V3JOHKVq-gCl9CbRdUeJJ3c0m9pZLedTi6zxerWHqRho20_La33hCZbVKunLRCj3DMWRhZI0IGjDR2OHZId0EDpTjB3srz6o7iqSHspJ0KJBiXwSuekizBrrILU3OqKlIAVrQIQPmc6So4b2I-1T_2YeE3VYHN_6cf8i5wcSkgvgCoanvtMEjmnyLuCdRwUk7WvxKb1_dMsJc3I-XpyVjF4UwqeD3DS4qTALMrWMrAmKu_BblzXWN401lrQenof0bsG5ynuhyodVNwL85YWDiUhQZ4qxre61AhItXf4W55mYrSNV2d0xYpRWQxenxRDaeVy-AHJw_bvY0T_MCycxhE60WZlhHAMhHX_Bl3H59AGd6UB833AeJOAH6mfd3Oc';
         
         
