@@ -22,73 +22,65 @@ export default function Contact({ contactClass, siteKey, grecaptcha }) {
     });
 
     useEffect(() => {
-        // Passo 1 - Carregue a API JavaScript. // somente na pagina do site ou contato
-        const script = document.createElement('script'); // este é um método integrado fornecido pela API Document Object Model (DOM) do navegador. Ele permite criar novos elementos HTML dinamicamente usando JavaScript.
-        script.src = "https://www.google.com/recaptcha/api.js?render=" + siteKey; //  esta linha define o src atributo do elemento de script para a URL do endpoint da API reCAPTCHA. Inclui o siteKey fornecido como adereço, essencial para identificar o seu site reCAPTCHA. 
-        script.async = true; // Esta linha define o asyncatributo como true, indicando que o script não deve bloquear o carregamento de outros recursos na página. Isso garante que a página permaneça responsiva enquanto o script reCAPTCHA está sendo carregado.
-        script.defer = true; // Esta linha define o defer atribuir a true, dizendo ao navegador para adiar a execução do script até que o conteúdo HTML tenha sido analisado e exibido.Isso pode melhorar o desempenho do carregamento da página.
-        document.body.appendChild(script); // Esta linha anexa o script elemento criado para o <body> do documento HTML. Isso efetivamente adiciona o script à página, desencadeando seu carregamento.
-        //foi carregado
-        console.log('grecaptha carregado')
+        const loadReCaptcha = () => {
+            const script = document.createElement('script');
+            script.src = `https://www.google.com/recaptcha/api.js?render=${siteKey}`;
+            script.async = true;
+            script.defer = true;
+            document.body.appendChild(script);
 
-        // Initialize reCAPTCHA apos carregar o script opcional (um desafio)
-
-        return () => {
-            // remover e desmontar o componente atual
-            document.body.removeChild(script); // Esta função é chamada quando o componente é desmontado ou descartado.Ele remove o adicionado dinamicamente script elemento do<body>para evitar vazamentos de memória e execução desnecessária de scripts.
-
+            return () => {
+                document.body.removeChild(script);
+            };
         };
 
-    }, []);
+        const scriptCleanup = loadReCaptcha();
 
-    //passo 2
+        return () => {
+            scriptCleanup();
+        };
+    }, [siteKey]);
+
     const submit = async (event) => {
         event.preventDefault();
 
-        // carrega o reCAPTCHA script se ele nao estiver carregado
         if (!window.grecaptcha) {
-            console.log('grecaptcha nao carregado ', token);
             const script = document.createElement('script');
-            script.src = "https://www.google.com/recaptcha/api.js?render=" + siteKey;
+            script.src = `https://www.google.com/recaptcha/api.js?render=${siteKey}`;
             script.async = true;
             script.defer = true;
             document.body.appendChild(script);
 
             await new Promise((resolve) => {
-                window.onload = resolve; // espera o script ser carregado
+                script.onload = resolve;
             });
         }
 
         window.grecaptcha.ready(async () => {
             const token = await window.grecaptcha.execute(siteKey, { action: 'submit' });
             if (token) {
-                console.log('Token recebido ', token); //ok
+                console.log('Token recebido ', token);
 
                 // Atualizar o form com token
                 setData('recaptchaToken', token);
-                console.log('Token adicionado no Data ', data.recaptchaToken); 
+                console.log('Token adicionado no Data ', data.recaptchaToken);
 
                 try {
-                    //chama a rota e passa os dados data, para o back usando post se token existir no data
-                   if (data.recaptchaToken) {
-                        post(route('contact.store'), {
-                            data,
-
-                            preserveScroll: true,
-                            onSuccess: () => {
-                                reset();
-                            },
-                            onError: (error) => {
-                                console.log('error', error);
-                            },
-                        });
-                   }
-
+                    // O post deve ser chamado dentro do callback do setData para garantir que os dados sejam atualizados
+                    post(route('contact.store'), {
+                        data: { ...data, recaptchaToken: token }, // Certifique-se de enviar o token atualizado
+                        preserveScroll: true,
+                        onSuccess: () => {
+                            reset();
+                        },
+                        onError: (error) => {
+                            console.log('error', error);
+                        },
+                    });
                 } catch (error) {
                     console.error("Error during reCAPTCHA verification:", error);
                 }
 
-            
             } else {
                 console.error('Failed to retrieve reCAPTCHA token');
             }
@@ -181,14 +173,13 @@ export default function Contact({ contactClass, siteKey, grecaptcha }) {
                         ></textarea>
                         <InputError message={errors.formMessage} className='mt-2' />
                     </Content>
-                    {/* Garntir que  token seja adicionado ao FORM, uma função para atualizar o estado dos dados do formulário toda vez que o token mudar*/}
+                    {/* Garantir que  token seja adicionado ao FORM, uma função para atualizar o estado dos dados do formulário toda vez que o token mudar*/}
                     <input type="hidden"
                         id='g-recaptcha-response'
                         name="g-recaptcha-response"
                         value={data.recaptchaToken}
-                    //onChange={(token) => setData('recaptchaToken', token)}
                     />
-
+                    <InputError message={errors.recaptchaToken} />
                     <button
                         disabled={processing}
                         type="submit"
