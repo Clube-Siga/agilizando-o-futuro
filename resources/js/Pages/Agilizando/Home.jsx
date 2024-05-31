@@ -7,14 +7,11 @@ import Contact from '@/Components/Agilizando/Partials/Contact/Contact';
 import Courses from '@/Components/Agilizando/Partials/Courses/Courses';
 import Hero from '@/Components/Agilizando/Partials/Hero/Hero';
 
-
-{/*import {} from 'flowbite-react'*/ }
 //declarar siteKey
 export default function Home({ message, siteKey }) {
 
     const siteKeyhome = siteKey
    
-
     return (
         <>
             <SiteLayout>

@@ -18,6 +18,7 @@ export default function Contact({ contactClass, siteKey, grecaptcha }) {
         formMessage: '',
     });
 
+    // Passo 1 - Carregue a API JavaScript. // somente na pagina do site ou contato
     useEffect(() => {
         const loadReCaptcha = () => {
             const script = document.createElement('script');
@@ -38,9 +39,10 @@ export default function Contact({ contactClass, siteKey, grecaptcha }) {
         };
     }, [siteKey]);
 
+    //Passo 2 - Chame grecaptcha.execute em cada ação que você quer proteger.
     const submit = async (event) => {
         event.preventDefault();
-
+        //se nao tiver carregado, carregue o grecaptcha para garantir o funcionamento das funcoes
         if (!window.grecaptcha) {
             const script = document.createElement('script');
             script.src = `https://www.google.com/recaptcha/api.js?render=${siteKey}`;
@@ -56,7 +58,7 @@ export default function Contact({ contactClass, siteKey, grecaptcha }) {
         window.grecaptcha.ready(async () => {
             const token = await window.grecaptcha.execute(siteKey, { action: 'submit' });
             if (token) {
-              
+              //Passo 3 - Envie o token imediatamente para o back-end com a solicitação para verificar.
                 try {
                      // Atualizar o form com token e fazer a submissão
                      // Enviar os dados usando router.post
