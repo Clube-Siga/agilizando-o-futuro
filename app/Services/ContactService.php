@@ -27,25 +27,20 @@ class ContactService
         $this->contact = $contact;
     }
 
-    public function createContact(ContactStoreRequest $request): bool
+    public function createContact(array $validated): bool
     {
-        // Obter o IP do cliente
-        $ip = $request->ip();
-
-        $validated = $request->validated();//faltava essa linha pegando os dados validados
-
-        // sempre que for realizar uma acao use try/catch
-        // tente fazer isso
         try {
-            $newContact = $this->contact->create([
+
+            $this->contact->create([
                 'name' => $validated['name'],
                 'phone' => $validated['phone'],
                 'email' => $validated['email'],
                 'subject' => $validated['subject'],
                 'formMessage' => $validated['formMessage'],
-                'ip_address' => $ip,
+                'ip_address' => $validated['remoteIp'],
             ]);
-
+            
+            $ip = $validated['remoteIp'];
             // Registrar mensagem de log com o IP
             Log::info("Contato criado com sucesso! IP do cliente: {$ip}");
             return true;
