@@ -6,8 +6,6 @@ import CallToAction from '@/Components/Agilizando/Partials/CallToAction/CallToAc
 import Contact from '@/Components/Agilizando/Partials/Contact/Contact';
 import Courses from '@/Components/Agilizando/Partials/Courses/Courses';
 import Hero from '@/Components/Agilizando/Partials/Hero/Hero';
-import Swal from 'sweetalert2';
-import withReactContent from 'sweetalert2-react-content';
 
 
 {/*import {} from 'flowbite-react'*/ }
@@ -15,22 +13,8 @@ import withReactContent from 'sweetalert2-react-content';
 export default function Home({ message, siteKey }) {
 
     const MySwal = withReactContent(Swal);
-    const [hasShownMessage, setHasShownMessage] = useState(false);
     const siteKeyhome = siteKey
-    console.log('Message:',     message);
-    // garantir que so chama o swal quando receber uma mensagem, corrigindo o loop infinito
-    useEffect(() => {
-        if (message && message === 'Sua mensagem foi enviada com sucesso!' && !hasShownMessage) {
-            MySwal.fire({
-                title: 'Success!',
-                text: message,
-                icon: 'success',
-                confirmButtonColor: '#3085d6',
-            });
-            setHasShownMessage(true);
-        }
-    }, [message, hasShownMessage, MySwal]);
-
+   
 
     return (
         <>
