@@ -12,6 +12,7 @@ use App\Services\ContactService;
 use App\Services\RecaptchaService;
 
 use Illuminate\Support\Facades\Log; // criar logs
+use Illuminate\Support\Facades\Http; // metodos prontos
 
 use App\Http\Requests\ContactStoreRequest;
 
