@@ -34,21 +34,21 @@ class ContactController extends Controller
 
             $dataValidated = $request->validated();// ok recebendo o token
            // dd($dataValidated);            
-            $response = $dataValidated['recaptchaToken']; //acessando token validado
+           $token = $dataValidated['recaptchaToken']; //acessando token validado
           
             $remoteIp = $request->ip(); //pegar o ip do usuario 
 
             // Prepara os dados para a requisição à API reCAPTCHA
             $data = [
                 'secret' => $this->recaptchaService->getSecretKey(), // Sua chave secreta do Google reCAPTCHA
-                'response' => $response, // O token reCAPTCHA do formulário
+                'response' => $token, // O token reCAPTCHA do formulário
                 'remoteip' => $remoteIp, // O endereço IP do usuário
             ];
             
-            dd($data);
+            //dd($data);
             //Faz uma requisição POST para a API de verificação 
             $response = $this->recaptchaService->verify($token, $data);
-            //dd($response );
+            dd($response );
             // Verifica se a requisição foi bem-sucedida
             if ($response->successful()) {
                                
