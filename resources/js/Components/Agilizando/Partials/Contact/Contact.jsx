@@ -66,20 +66,24 @@ export default function Contact({ contactClass, siteKey, grecaptcha }) {
 
                 // Atualizar o form com token
                 setData('recaptchaToken', token);
+                console.log('Token adicionado no Data ', data.recaptchaToken); 
 
                 try {
-                    //chama a rota e passa os dados data, para o back usando post
-                    post(route('contact.store'), {
-                        data,
+                    //chama a rota e passa os dados data, para o back usando post se token existir no data
+                   if (data.recaptchaToken) {
+                        post(route('contact.store'), {
+                            data,
 
-                        preserveScroll: true,
-                        onSuccess: () => {
-                            reset();
-                        },
-                        onError: (error) => {
-                            console.log('error', error);
-                        },
-                    });
+                            preserveScroll: true,
+                            onSuccess: () => {
+                                reset();
+                            },
+                            onError: (error) => {
+                                console.log('error', error);
+                            },
+                        });
+                   }
+
                 } catch (error) {
                     console.error("Error during reCAPTCHA verification:", error);
                 }
