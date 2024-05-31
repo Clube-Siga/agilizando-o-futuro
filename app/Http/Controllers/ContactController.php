@@ -27,7 +27,7 @@ class ContactController extends Controller
         $this->recaptchaService = $recaptchaService;
     }
 
-    //falta testar
+
     public function store(ContactStoreRequest $request)
     { 
         try {
@@ -65,7 +65,7 @@ class ContactController extends Controller
                    
                         return to_route('site.index')->with('error', 'A verificação reCAPTCHA falhou. Por favor, tente novamente.');
                     }
-                    
+
                 } else {
                     return to_route('site.index')->with('error', 'A verificação reCAPTCHA falhou. Por favor, tente novamente.');
                 }

@@ -87,8 +87,6 @@ class RecaptchaService
     public function verify($data)
     {
         return Http::asForm()->post($this->baseUrl, $data);
-         // Faz uma requisição POST para a API de verificação do reCAPTCHA
         // $response = Http::asForm()->post('https://www.google.com/recaptcha/api/siteverify', $recaptchaData);
-
     }
 }
