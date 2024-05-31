@@ -59,15 +59,15 @@ class ContactController extends Controller
                         // Cria um contato se a pontuação for maior que 0.5
                         $contact = $this->contactService->createContact($dataValidated);
     
-                        return back()->with('success', 'Sua mensagem foi enviada com sucesso!');
+                        return to_route('site.index')->with('success', 'Sua mensagem foi enviada com sucesso!');
                     } else {
-                        return back()->with('error', 'A verificação reCAPTCHA falhou. Por favor, tente novamente.');
+                        return to_route('site.index')->with('error', 'A verificação reCAPTCHA falhou. Por favor, tente novamente.');
                     }
                 } else {
-                    return back()->with('error', 'A verificação reCAPTCHA falhou. Por favor, tente novamente.');
+                    return to_route('site.index')->with('error', 'A verificação reCAPTCHA falhou. Por favor, tente novamente.');
                 }
             } else {
-                return back()->with('error', 'Erro na verificação reCAPTCHA. Tente novamente.');
+                return to_route('site.index')->with('error', 'Erro na verificação reCAPTCHA. Tente novamente.');
             }
         } catch (\Exception $e) {
             Log::error($e->getMessage(), $e->getTrace());
