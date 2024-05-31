@@ -47,6 +47,7 @@ export default function Contact({ contactClass, siteKey, grecaptcha }) {
 
         // carrega o reCAPTCHA script se ele nao estiver carregado
         if (!window.grecaptcha) {
+            console.log('grecaptcha nao carregado ', token);
             const script = document.createElement('script');
             script.src = "https://www.google.com/recaptcha/api.js?render=" + siteKey;
             script.async = true;
