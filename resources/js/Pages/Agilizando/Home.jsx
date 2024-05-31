@@ -12,7 +12,6 @@ import Hero from '@/Components/Agilizando/Partials/Hero/Hero';
 //declarar siteKey
 export default function Home({ message, siteKey }) {
 
-    const MySwal = withReactContent(Swal);
     const siteKeyhome = siteKey
    
 
