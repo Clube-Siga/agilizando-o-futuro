@@ -87,8 +87,8 @@ class RecaptchaService
     public function verify($token, $data)
     {
         //dd($data)
-        return Http::withToken($token)->post($this->baseUrl, $data);
-        //return Http::asForm()->post($this->baseUrl, $data);
+        //return Http::withToken($token)->post($this->baseUrl, $data);
+        return Http::asForm()->post($this->baseUrl, $data);
         
     }
 }
