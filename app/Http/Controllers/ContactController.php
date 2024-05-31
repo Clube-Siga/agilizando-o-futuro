@@ -60,9 +60,12 @@ class ContactController extends Controller
                         $contact = $this->contactService->createContact($dataValidated);
     
                         return to_route('site.index')->with('success', 'Sua mensagem foi enviada com sucesso!');
+                   
                     } else {
+                   
                         return to_route('site.index')->with('error', 'A verificação reCAPTCHA falhou. Por favor, tente novamente.');
                     }
+                    
                 } else {
                     return to_route('site.index')->with('error', 'A verificação reCAPTCHA falhou. Por favor, tente novamente.');
                 }

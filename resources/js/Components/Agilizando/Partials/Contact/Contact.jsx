@@ -67,6 +67,12 @@ export default function Contact({ contactClass, siteKey, grecaptcha }) {
                         preserveScroll: true,
                         onSuccess: () => {       
                             reset();
+                            Swal.fire({
+                                title: 'Sucesso!',
+                                text: 'Sua mensagem foi enviada com sucesso.',
+                                icon: 'success',
+                                confirmButtonText: 'OK'
+                            });
                         },
                         onError: (error) => {
                             console.log('error', error);
