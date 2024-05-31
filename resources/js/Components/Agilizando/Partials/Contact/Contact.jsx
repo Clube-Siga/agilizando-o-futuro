@@ -56,13 +56,14 @@ export default function Contact({ contactClass, siteKey, grecaptcha }) {
         window.grecaptcha.ready(async () => {
             const token = await window.grecaptcha.execute(siteKey, { action: 'submit' });
             if (token) {
-                console.log('Token recebido ', token);
-
+              
                 try {
                      // Atualizar o form com token e fazer a submissão
-                     await post(route('contact.store'), {
-                        data: { ...data, recaptchaToken: token },
-                        preserveScroll: true,
+                     // Enviar os dados usando router.post
+                     router.post(route('contact.store'), {
+                        ...data,
+                        recaptchaToken: token,
+                    }, {
                         onSuccess: () => {
                             reset();
                         },
@@ -70,7 +71,7 @@ export default function Contact({ contactClass, siteKey, grecaptcha }) {
                             console.log('error', error);
                         },
                     });
-                    
+
                 } catch (error) {
                     console.error("Error during reCAPTCHA verification:", error);
                 }
