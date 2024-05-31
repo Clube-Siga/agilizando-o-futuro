@@ -37,7 +37,7 @@ class ContactController extends Controller
     
             // Prepara os dados para a requisição à API reCAPTCHA
             $recaptchaData = [
-                'secret' => config('services.recaptcha.secret'), // Sua chave secreta do Google reCAPTCHA
+                'secret' => config('services.google_recaptcha.secret_key'), // Sua chave secreta do Google reCAPTCHA
                 'response' => $responseToken, // O token reCAPTCHA do formulário
                 'remoteip' => $remoteIp, // O endereço IP do usuário
             ];
