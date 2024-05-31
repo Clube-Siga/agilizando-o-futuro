@@ -43,12 +43,12 @@ class ContactController extends Controller
             ];
     
             // Faz uma requisição POST para a API de verificação do reCAPTCHA
-            $response = Http::asForm()->post('https://www.google.com/recaptcha/api/siteverify', $recaptchaData);
-    
+            $response = $this->recaptchaService->verify($recaptchaData);
+           
             // Verifica se a requisição foi bem-sucedida
             if ($response->successful()) {
                 $responseData = $response->json(); // Decodifica a resposta JSON da API
-                dd( $responseData );
+               dd( $responseData ); 
                 if (isset($responseData['success']) && $responseData['success']) {
                     // A verificação do reCAPTCHA foi bem-sucedida
                     
