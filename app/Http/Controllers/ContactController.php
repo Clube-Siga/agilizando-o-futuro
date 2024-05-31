@@ -48,7 +48,7 @@ class ContactController extends Controller
             // Verifica se a requisição foi bem-sucedida
             if ($response->successful()) {
                 $responseData = $response->json(); // Decodifica a resposta JSON da API
-               dd( $responseData ); 
+               //dd( $responseData ); 
                 if (isset($responseData['success']) && $responseData['success']) {
                     // A verificação do reCAPTCHA foi bem-sucedida
                     
