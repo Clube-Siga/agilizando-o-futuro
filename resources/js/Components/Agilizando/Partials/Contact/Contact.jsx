@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useForm, usePage } from '@inertiajs/react';
+import { useForm, router } from '@inertiajs/react';
 import Content from "../../Components/Content/Content";
 import Label from "../../Components/Label/Label";
 import Text from "../../Components/Text/Text";
@@ -10,15 +10,12 @@ import { formatPhoneNumber } from '@/Utils/utils';
 
 export default function Contact({ contactClass, siteKey, grecaptcha }) {
 
-    // const [recaptchaRef, setRecaptchaRef] = useState(null); usa pra desafios
-
     const { data, setData, post, processing, errors, reset } = useForm({
         name: '',
         phone: '',
         email: '',
         subject: '',
         formMessage: '',
-        recaptchaToken: '',
     });
 
     useEffect(() => {
@@ -61,16 +58,10 @@ export default function Contact({ contactClass, siteKey, grecaptcha }) {
             if (token) {
                 console.log('Token recebido ', token);
 
-                // Atualizar o form com token
-                await setData('recaptchaToken', token);
-                console.log('Token adicionado no Data ', data.recaptchaToken);
-
-                // Verifique se o token está presente no estado antes de enviar
-                console.log('Dados do formulário antes de enviar:', data);
-
                 try {
-                    post(route('contact.store'), {
-                        data,
+                     // Atualizar o form com token e fazer a submissão
+                     await post(route('contact.store'), {
+                        data: { ...data, recaptchaToken: token },
                         preserveScroll: true,
                         onSuccess: () => {
                             reset();
@@ -79,6 +70,7 @@ export default function Contact({ contactClass, siteKey, grecaptcha }) {
                             console.log('error', error);
                         },
                     });
+                    
                 } catch (error) {
                     console.error("Error during reCAPTCHA verification:", error);
                 }
