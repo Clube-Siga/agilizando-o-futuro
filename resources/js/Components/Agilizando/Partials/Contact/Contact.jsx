@@ -6,7 +6,7 @@ import Text from "../../Components/Text/Text";
 import Title from "../../Components/Title/Title";
 import InputError from '@/Components/InputError';
 import { formatPhoneNumber } from '@/Utils/utils';
-//import { GoogleReCaptchaProvider, GoogleReCaptcha } from "react-google-recaptcha-v3";
+import Swal from 'sweetalert2';
 
 export default function Contact({ contactClass, siteKey, grecaptcha }) {
 
@@ -64,7 +64,9 @@ export default function Contact({ contactClass, siteKey, grecaptcha }) {
                         ...data,
                         recaptchaToken: token,
                     }, {
+                        preserveScroll: true,
                         onSuccess: () => {
+                            
                             reset();
                         },
                         onError: (error) => {

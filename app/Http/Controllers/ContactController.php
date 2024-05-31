@@ -59,7 +59,7 @@ class ContactController extends Controller
                         // Cria um contato se a pontuação for maior que 0.5
                         $contact = $this->contactService->createContact($dataValidated);
     
-                        return back()->with('success', 'Contato enviado com sucesso.');
+                        return back()->with('success', 'Sua mensagem foi enviada com sucesso!');
                     } else {
                         return back()->with('error', 'A verificação reCAPTCHA falhou. Por favor, tente novamente.');
                     }
