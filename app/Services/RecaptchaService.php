@@ -84,11 +84,13 @@ class RecaptchaService
      * @param array $data Os dados a serem enviados no corpo da requisição.
      * @return \Illuminate\Http\Client\Response O objeto de resposta da API.
      */
-    public function verify($token, $data)
+    public function verify($data)
     {
         //dd($data)
         //return Http::withToken($token)->post($this->baseUrl, $data);
         return Http::asForm()->post($this->baseUrl, $data);
-        
+         // Faz uma requisição POST para a API de verificação do reCAPTCHA
+        // $response = Http::asForm()->post('https://www.google.com/recaptcha/api/siteverify', $recaptchaData);
+    
     }
 }
