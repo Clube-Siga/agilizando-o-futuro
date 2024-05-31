@@ -48,7 +48,7 @@ class ContactController extends Controller
             //dd($data);
             //Faz uma requisição POST para a API de verificação 
             $response = $this->recaptchaService->verify($token, $data);
-            dd($response );
+           // dd($response );
             // Verifica se a requisição foi bem-sucedida
             if ($response->successful()) {
                                
