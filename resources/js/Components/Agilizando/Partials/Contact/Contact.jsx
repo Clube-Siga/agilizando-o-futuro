@@ -62,12 +62,29 @@ export default function Contact({ contactClass, siteKey, grecaptcha }) {
         window.grecaptcha.ready(async () => {
             const token = await window.grecaptcha.execute(siteKey, { action: 'submit' });
             if (token) {
-                console.log('Token recebido ', token);
+                console.log('Token recebido ', token); //ok
 
-                // Update the form with the token
+                // Atualizar o form com token
                 setData('recaptchaToken', token);
 
-                // ... Rest of your submit logic (POST request, etc.)
+                try {
+                    //chama a rota e passa os dados data, para o back usando post
+                    post(route('contact.store'), {
+                        data,
+
+                        preserveScroll: true,
+                        onSuccess: () => {
+                            reset();
+                        },
+                        onError: (error) => {
+                            console.log('error', error);
+                        },
+                    });
+                } catch (error) {
+                    console.error("Error during reCAPTCHA verification:", error);
+                }
+
+            
             } else {
                 console.error('Failed to retrieve reCAPTCHA token');
             }
