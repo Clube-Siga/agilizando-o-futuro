@@ -45,10 +45,10 @@ class ContactController extends Controller
                 'remoteip' => $remoteIp, // O endereço IP do usuário
             ];
             
-            dd($data);
+           // dd($data);
             //Faz uma requisição POST para a API de verificação 
             $response = $this->recaptchaService->verify($response, $data);
-            //dd($response );
+            dd($response );
             // Verifica se a requisição foi bem-sucedida
             if ($response->successful()) {
                                
