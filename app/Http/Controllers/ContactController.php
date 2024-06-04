@@ -10,6 +10,7 @@ use Inertia\Response;
 use App\Models\Contact;
 use App\Services\ContactService;
 use App\Services\RecaptchaService;
+use App\Events\ContactCreatedEvent;
 
 use Illuminate\Support\Facades\Log; // criar logs
 use Illuminate\Support\Facades\Http; // metodos prontos
