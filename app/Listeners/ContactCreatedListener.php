@@ -22,7 +22,8 @@ class ContactCreatedListener implements ShouldQueue
      */
     public function handle(ContactCreatedEvent $event): void
     {
+        Log::info('Listener: Recebendo ContactCreatedEvent: Contato Criado');
         $newContact = $event->contact;
-        Log::info('Listener: ContactCreatedEvent: Contato Criado');
+       // Log::info('Listener: ContactCreatedEvent: Contato Criado');
     }
 }

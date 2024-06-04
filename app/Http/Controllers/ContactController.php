@@ -61,8 +61,8 @@ class ContactController extends Controller
                         $contact = $this->contactService->createContact($dataValidated);
     
                         // Disparar um evento Contato Criado
-                        ContactCreatedEvent::dispatch($contact);
-                        //event(new ContactCreatedEvent($newContact));
+                        //ContactCreatedEvent::dispatch($contact);
+                        event(new ContactCreatedEvent($contact));
                         return to_route('site.index')->with('success', 'Sua mensagem foi enviada com sucesso!');
                    
                     } else {
