@@ -4,6 +4,7 @@ namespace App\Services;
 
 use Illuminate\Http\Request; //trabalhar com as requisicoes web
 use Illuminate\Support\Facades\Log; // criar logs
+use App\Events\ContactCreatedEvent;
 
 
 use Inertia\Inertia;
@@ -31,7 +32,7 @@ class ContactService
     {
         try {
 
-            $this->contact->create([
+            $newContact = $this->contact->create([
                 'name' => $validated['name'],
                 'phone' => $validated['phone'],
                 'email' => $validated['email'],
@@ -41,6 +42,11 @@ class ContactService
             ]);
             
             $ip = $validated['remoteIp'];
+
+            // Disparar um evento Contato Criado
+            ContactCreatedEvent::dispatch($newContact);
+            //event(new ContactCreatedEvent($newContact));
+
             // Registrar mensagem de log com o IP
             Log::info("Contato criado com sucesso! IP do cliente: {$ip}");
             return true;
