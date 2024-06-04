@@ -28,7 +28,7 @@ class ContactService
         $this->contact = $contact;
     }
 
-    public function createContact(array $validated): bool
+    public function createContact(array $validated): Contact
     {
         try {
 
@@ -38,18 +38,18 @@ class ContactService
                 'email' => $validated['email'],
                 'subject' => $validated['subject'],
                 'formMessage' => $validated['formMessage'],
-                'ip_address' => $validated['remoteIp'],
+               // 'ip_address' => $validated['remoteIp'],
             ]);
             
             $ip = $validated['remoteIp'];
 
             // Disparar um evento Contato Criado
-            ContactCreatedEvent::dispatch($newContact);
+            //ContactCreatedEvent::dispatch($newContact);
             //event(new ContactCreatedEvent($newContact));
 
             // Registrar mensagem de log com o IP
             Log::info("Contato criado com sucesso! IP do cliente: {$ip}");
-            return true;
+            return $newContact;
 
             //se nao conseguir  gera uma excecao, que tambem pode ser personalizada
         } catch (\Exception $e) {
