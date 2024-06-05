@@ -5,7 +5,7 @@ namespace App\Listeners;
 use Illuminate\Contracts\Queue\ShouldQueue; //Esta interface informa ao Laravel que este ouvinte deve ser colocado na fila para execução assíncrona, o que é uma boa prática para tarefas como envio de emails.
 use Illuminate\Queue\InteractsWithQueue; // esta característica fornece funcionalidade para interagir com o sistema de filas (se você estiver usando um).
 use App\Events\ContactCreatedEvent; // classe que você criou, que define o evento ao qual esse listener responderá.
-use App\Mail\ContactReceveidMail; // importar a classe de email a ser usado
+use App\Mail\ContactReceiveidMail; // importar a classe de email a ser usado
 use Illuminate\Support\Facades\Mail; // importar a facades 
 use Illuminate\Support\Facades\Log;
 
@@ -35,7 +35,7 @@ class ContactCreatedListener implements ShouldQueue //implementar a interface
             'subject' => $contact->subject,
             'formMessage' => $contact->formMessage,
         ];
-        
+
         // enviar o email para o sac
         Mail::to('agilizando@clubesiga.com.br')->send(new ContactReceiveidMail($emailData));
     }
