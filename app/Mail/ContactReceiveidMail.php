@@ -19,6 +19,7 @@ class ContactReceiveidMail extends Mailable
      */
     public function __construct(array $emailData) //recebe os dados extraido no listener
     {
+        dd( $emailData);
         $this->emailData = $emailData; 
     }
 
