@@ -16,9 +16,9 @@ class ContactReceiveidMail extends Mailable
     /**
      * Create a new message instance. 
      */
-    public function __construct(array $contactData) //recebe os dados extraido no listener
+    public function __construct(array $emailData) //recebe os dados extraido no listener
     {
-        $this->contactData = $contactData; 
+        $this->emailData = $emailData; 
     }
 
     /**
@@ -27,7 +27,7 @@ class ContactReceiveidMail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Novo Contato do Site Agilizando - ' . $this->contactData['name'], // personaliza seu objeto
+            subject: 'Novo Contato do Site Agilizando - ' . $this->emailData['name'], // personaliza seu objeto
             from: new Address('noreply@clubesiga.com.br', 'Clube Siga'), // Remetente aqui email do sistema
         );
     }
@@ -39,7 +39,7 @@ class ContactReceiveidMail extends Mailable
     {   //passa o endereco do modelo de template da view do email
         return new Content(
             view: 'view.emails.contact-receveid',
-            data: $this->contactData, // passar os dados do contato para o template
+            data: $this->emailData, // passar os dados do contato para o template
         );
     }
 
