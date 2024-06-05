@@ -4,6 +4,7 @@ namespace App\Services;
 
 use Illuminate\Http\Request; //trabalhar com as requisicoes web
 use Illuminate\Support\Facades\Log; // criar logs
+use App\Events\ContactCreatedEvent;
 
 
 use Inertia\Inertia;
@@ -27,28 +28,28 @@ class ContactService
         $this->contact = $contact;
     }
 
-    public function createContact(ContactStoreRequest $request): bool
+    public function createContact(array $validated): Contact
     {
-        // Obter o IP do cliente
-        $ip = $request->ip();
-
-        $validated = $request->validated();//faltava essa linha pegando os dados validados
-
-        // sempre que for realizar uma acao use try/catch
-        // tente fazer isso
         try {
+
             $newContact = $this->contact->create([
                 'name' => $validated['name'],
                 'phone' => $validated['phone'],
                 'email' => $validated['email'],
                 'subject' => $validated['subject'],
                 'formMessage' => $validated['formMessage'],
-                'ip_address' => $ip,
+               // 'ip_address' => $validated['remoteIp'],
             ]);
+            
+            $ip = $validated['remoteIp'];
+
+            // Disparar um evento Contato Criado
+            //ContactCreatedEvent::dispatch($newContact);
+            //event(new ContactCreatedEvent($newContact));
 
             // Registrar mensagem de log com o IP
             Log::info("Contato criado com sucesso! IP do cliente: {$ip}");
-            return true;
+            return $newContact;
 
             //se nao conseguir  gera uma excecao, que tambem pode ser personalizada
         } catch (\Exception $e) {
