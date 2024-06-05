@@ -26,7 +26,7 @@ class ContactCreatedListener implements ShouldQueue //implementar a interface
     {
         Log::info('Listener: Recebendo ContactCreatedEvent: Contato Criado');
         $contact = $event->contact;
-        dd($contact);
+
         // extrair os dados do contato
         $emailData = [
             'name' => $contact->name,
