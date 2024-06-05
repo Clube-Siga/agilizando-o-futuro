@@ -8,7 +8,7 @@ import Courses from '@/Components/Agilizando/Partials/Courses/Courses';
 import Hero from '@/Components/Agilizando/Partials/Hero/Hero';
 
 //declarar siteKey
-export default function Home({ message, siteKey }) {
+export default function Home({ message, siteKey, imageHeroPath }) {
 
     const siteKeyhome = siteKey
 
