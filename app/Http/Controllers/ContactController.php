@@ -60,9 +60,11 @@ class ContactController extends Controller
                         // Cria um contato se a pontuação for maior que 0.5
                         $contact = $this->contactService->createContact($dataValidated);
     
-                        // Disparar um evento Contato Criado
-                        //ContactCreatedEvent::dispatch($contact);
-                        event(new ContactCreatedEvent($contact));
+                        // Disparar um evento Contato Criado (assíncrono)
+                        //ContactCreatedEvent::dispatch($contact); //precisa configurar o cron, agendador de tarefas e o job de execucao da fila
+                      
+                        // Disparar um evento Contato Criado (síncrono)
+                        event(new ContactCreatedEvent($contact)); 
                         return to_route('site.index')->with('success', 'Sua mensagem foi enviada com sucesso!');
                    
                     } else {
