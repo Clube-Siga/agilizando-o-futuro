@@ -14,12 +14,14 @@ class ContactReceiveidMail extends Mailable
 {
     use Queueable, SerializesModels;
 
+    public $emailData;
+
     /**
      * Create a new message instance. 
      */
     public function __construct(array $emailData) //recebe os dados extraido no listener
     {
-        dd( $emailData);
+
         $this->emailData = $emailData; 
     }
 
@@ -41,7 +43,7 @@ class ContactReceiveidMail extends Mailable
     {   //passa o endereco do modelo de template da view do email
         return new Content(
             view: 'view.emails.contact-receveid',
-           // data: $this->emailData, // passar os dados do contato para o template
+            data: $this->emailData, // passar os dados do contato para o template
         );
     }
 
