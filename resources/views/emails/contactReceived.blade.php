@@ -15,7 +15,7 @@
             <th style="text-align: left; padding: 8px; border: 1px solid #ddd;">Email</th>
         </tr>
         <tr>
-            <td style="text-align: left; padding: 8px; border: 1px solid #ddd;">{{ $emailData['nome'] }}</td>
+            <td style="text-align: left; padding: 8px; border: 1px solid #ddd;">{{ $emailData['name'] }}</td>
             <td style="text-align: left; padding: 8px; border: 1px solid #ddd;">{{ $emailData['phone'] }}</td>
             <td style="text-align: left; padding: 8px; border: 1px solid #ddd;">{{ $emailData['email'] }}</td>
         </tr>
