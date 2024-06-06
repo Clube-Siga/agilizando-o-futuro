@@ -43,7 +43,6 @@ class ContactReceiveidMail extends Mailable
     {   //passa o endereco do modelo de template da view do email
         return new Content(
             view: 'emails/contactReceived',
-            data: $this->emailData, // passar os dados do contato para o template
         );
     }
 
