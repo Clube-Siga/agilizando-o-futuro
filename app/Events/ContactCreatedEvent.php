@@ -15,8 +15,9 @@ class ContactCreatedEvent
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
+    public $contact; // definir como public para facilitar o acesso do ouvinte.
     /**
-     * Create a new event instance.
+     * Cria uma nova instância do evento..
      */
     public function __construct(Contact $contact)
     {
@@ -25,13 +26,14 @@ class ContactCreatedEvent
 
     /**
      * Get the channels the event should broadcast on.
-     *
+     * Obtém os canais nos quais o evento deve ser transmitido.
      * @return array<int, \Illuminate\Broadcasting\Channel>
      */
     public function broadcastOn(): array
     {
+        // A transmissão não é necessária para envio de email, então removi
         return [
-            new PrivateChannel('contacts' . $this->contact->id),
+            //new PrivateChannel('contacts' . $this->contact->id),
         ];
     }
 }

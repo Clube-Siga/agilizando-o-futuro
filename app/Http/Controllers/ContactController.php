@@ -59,7 +59,7 @@ class ContactController extends Controller
                     if (isset($responseData['score']) && $responseData['score'] > 0.5) {
                         // Cria um contato se a pontuação for maior que 0.5
                         $contact = $this->contactService->createContact($dataValidated);
-
+    
                         // Disparar um evento Contato Criado
                         //ContactCreatedEvent::dispatch($contact);
                         event(new ContactCreatedEvent($contact));
