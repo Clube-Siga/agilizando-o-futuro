@@ -4,8 +4,57 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6b35c04e5775a28e2b5f274417700a63",
+    "content-hash": "cf67970db4078d33a42865de5408f153",
     "packages": [
+        {
+            "name": "axios/tools",
+            "version": "2.1.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/AxiosLeo/php-tools.git",
+                "reference": "cd576f058db7b633750d62bb6d7d1840f0ab8d5e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/AxiosLeo/php-tools/zipball/cd576f058db7b633750d62bb6d7d1840f0ab8d5e",
+                "reference": "cd576f058db7b633750d62bb6d7d1840f0ab8d5e",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.4"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^3.52.1",
+                "phpunit/phpunit": "^9.5",
+                "symfony/var-dumper": "*"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "functions.php"
+                ],
+                "psr-4": {
+                    "axios\\tools\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "axios",
+                    "email": "axiosleo@foxmail.com"
+                }
+            ],
+            "description": "some tools",
+            "homepage": "https://github.com/AxiosCros/php-tools",
+            "support": {
+                "issues": "https://github.com/AxiosCros/php-tools/issues",
+                "source": "https://github.com/AxiosLeo/php-tools/tree/2.1.2"
+            },
+            "time": "2024-04-02T07:47:52+00:00"
+        },
         {
             "name": "biscolab/laravel-recaptcha",
             "version": "v6.1.0",

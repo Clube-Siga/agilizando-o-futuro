@@ -25,4 +25,9 @@ class SiteController extends Controller
     {
         return Inertia::render('Agilizando/Donation');
     }
+
+    public function content ()
+    {
+        return Inertia::render('Agilizando/Content');
+    }
 }

@@ -6,6 +6,7 @@
     "license": "MIT",
     "require": {
         "php": "^8.2",
+        "axios/tools": "^2.1",
         "biscolab/laravel-recaptcha": "^6.1",
         "google/cloud-recaptcha-enterprise": "^1.12",
         "google/recaptcha": "1.3",

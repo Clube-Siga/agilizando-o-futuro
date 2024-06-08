@@ -26,6 +26,7 @@ export default function Courses({coursesClass}){
                                 contentText={
                                     "Aprenda HTML do zero e torne-se capaz de criar páginas web completas e estruturadas, utilizando as últimas práticas e recursos."
                                 }
+                                id={"1"}
                                 imgPath={
                                     "https://raw.githubusercontent.com/Clube-Siga/agilizando-o-futuro/4c880ac99acf745d5284351badcebb37818ac844/resources/images/html.jpeg"
                                 }
@@ -41,6 +42,7 @@ export default function Courses({coursesClass}){
                                 contentText={
                                     "Domine as técnicas de CSS para estilizar seus sites, criar layouts profissionais e proporcionar uma ótima experiência do usuário."
                                 }
+                                id={"2"}
                                 imgPath={
                                     "https://raw.githubusercontent.com/Clube-Siga/agilizando-o-futuro/4c880ac99acf745d5284351badcebb37818ac844/resources/images/css.jpeg"
                                 }
@@ -56,6 +58,7 @@ export default function Courses({coursesClass}){
                                 contentText={
                                     "Aprenda JavaScript e adicione funcionalidades interativas aos seus sites, criando efeitos visuais, animações e elementos dinâmicos."
                                 }
+                                id={"3"}
                                 imgPath={
                                     "https://raw.githubusercontent.com/Clube-Siga/agilizando-o-futuro/4c880ac99acf745d5284351badcebb37818ac844/resources/images/js.jpeg"
                                 }
@@ -71,6 +74,7 @@ export default function Courses({coursesClass}){
                                 contentText={
                                     "Aprenda PHP e conecte seus sites a bancos de dados MySQL para criar páginas dinâmicas, sistemas de login e outras funcionalidades avançadas."
                                 }
+                                id={"4"}
                                 imgPath={
                                     "https://raw.githubusercontent.com/Clube-Siga/agilizando-o-futuro/4c880ac99acf745d5284351badcebb37818ac844/resources/images/php.jpeg"
                                 }
@@ -86,6 +90,7 @@ export default function Courses({coursesClass}){
                                 contentText={
                                     "Aprenda MySQL, um dos sistemas de gerenciamento de banco de dados mais utilizados, para armazenar, organizar e consultar dados de forma eficiente."
                                 }
+                                id={"5"}
                                 imgPath={
                                     "https://raw.githubusercontent.com/Clube-Siga/agilizando-o-futuro/4c880ac99acf745d5284351badcebb37818ac844/resources/images/mysql.jpeg"
                                 }
@@ -101,6 +106,7 @@ export default function Courses({coursesClass}){
                                 contentText={
                                     "Aprenda Java, uma das linguagens de programação mais populares do mundo, e torne-se capaz de criar aplicações web, desktop e mobile."
                                 }
+                                id={"6"}
                                 imgPath={
                                     "https://raw.githubusercontent.com/Clube-Siga/agilizando-o-futuro/4c880ac99acf745d5284351badcebb37818ac844/resources/images/java.jpeg"
                                 }
@@ -116,6 +122,7 @@ export default function Courses({coursesClass}){
                                 contentText={
                                     "Aprenda a usar Git e Github para versionar seu código, controlar alterações, colaborar com outros desenvolvedores e hospedar seus projetos em nuvem."
                                 }
+                                id={"7"}
                                 imgPath={
                                     "https://raw.githubusercontent.com/Clube-Siga/agilizando-o-futuro/4c880ac99acf745d5284351badcebb37818ac844/resources/images/git.jpeg"
                                 }
@@ -131,6 +138,7 @@ export default function Courses({coursesClass}){
                                 contentText={
                                     "Aprenda os conceitos básicos da programação, lógica e algoritmos, utilizando uma linguagem de programação de sua preferência."
                                 }
+                                id={"8"}
                                 imgPath={
                                     "https://raw.githubusercontent.com/Clube-Siga/agilizando-o-futuro/102b784a8297bb5c25ab4b02ad8c94722a05aa1e/resources/images/inicio.jpeg"
                                 }
