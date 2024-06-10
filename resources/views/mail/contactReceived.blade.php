@@ -20,4 +20,4 @@ Atenciosamente,
 
 Equipe Agilizando
 
-@endcomponent
+@endcomponent('mail::message')
