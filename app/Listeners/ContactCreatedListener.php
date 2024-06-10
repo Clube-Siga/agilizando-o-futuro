@@ -38,5 +38,6 @@ class ContactCreatedListener implements ShouldQueue //implementar a interface
 
         // enviar o email para o sac
         Mail::to('agilizando@clubesiga.com.br')->send(new ContactReceiveidMail($emailData));
+        Log::info('Listener: Enviado: ContactReceiveidMail');
     }
 }
