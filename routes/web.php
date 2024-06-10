@@ -11,14 +11,9 @@ use Illuminate\Mail\Mailables\Content;
 
 Route::get('/', [SiteController::class, 'index'])->name('site.index');
 
-Route::get('/couses/:id', function(){
-    return Inertia::render('Agilizando/Content');
-}
-);
-
 Route::get('/donation', [SiteController::class, 'donate'])->name('site.donate');
 
-Route::get('/content/{id}', [SiteController::class, 'content'])->name('site.content');
+Route::get('/courses/{id}', [SiteController::class, 'content'])->name('site.content');
 
 // Formulario de Contato
 Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');

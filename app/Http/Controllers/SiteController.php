@@ -26,7 +26,7 @@ class SiteController extends Controller
         return Inertia::render('Agilizando/Donation');
     }
 
-    public function content ()
+    public function content ($id)
     {
         return Inertia::render('Agilizando/Content');
     }
