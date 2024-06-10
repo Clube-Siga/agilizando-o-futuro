@@ -116,5 +116,11 @@ return [
         ],
     
     ],
+
+    'views' => [
+        'paths' => [
+             resource_path('views/mail'),
+        ],
+    ],
    
 ];
