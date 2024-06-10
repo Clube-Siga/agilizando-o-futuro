@@ -42,7 +42,7 @@ class ContactReceiveidMail extends Mailable
     public function content(): Content
     {   //passa o endereco do modelo de template da view do email explicitando o uso do markdown
         return new Content(
-            view: 'contactReceived', // Utilize "view" para templates Markdown
+            markdown: 'contactReceived', // Utilize "view" para templates html
             with: [ // Mantenha os dados do emailData aqui
                 'emailData' => $this->emailData, // Utilize "emailData" como chave para os dados
             ],
