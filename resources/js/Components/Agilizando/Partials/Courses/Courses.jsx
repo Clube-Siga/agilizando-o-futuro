@@ -21,7 +21,7 @@ export default function Courses({coursesClass}){
                         {/*Row*/}
                             <CarouselCard
                                 altText={"Curso HTML"}
-                                buttonPath={"https://forms.gle/82h2pCcFeoBM3fVi7"}
+                                buttonPath={'/courses/1'}
                                 buttonTitle={"Inscreva-se"}
                                 contentText={
                                     "Aprenda HTML do zero e torne-se capaz de criar páginas web completas e estruturadas, utilizando as últimas práticas e recursos."
@@ -36,7 +36,7 @@ export default function Courses({coursesClass}){
                                 titleContent={"Domine a linguagem base da web e construa sites incríveis!"}
                             />
                             <CarouselCard
-                            buttonPath={"https://forms.gle/82h2pCcFeoBM3fVi7"}
+                            buttonPath={'/courses/2'}
                             buttonTitle={"Inscreva-se"}
                                 altText={"Curso CSS"}
                                 contentText={
@@ -53,7 +53,7 @@ export default function Courses({coursesClass}){
                             />
                             <CarouselCard
                                 altText={"Curso JavaScript"}
-                                buttonPath={"https://forms.gle/82h2pCcFeoBM3fVi7"}
+                                buttonPath={'/courses/3'}
                                 buttonTitle={"Inscreva-se"}
                                 contentText={
                                     "Aprenda JavaScript e adicione funcionalidades interativas aos seus sites, criando efeitos visuais, animações e elementos dinâmicos."
@@ -69,7 +69,7 @@ export default function Courses({coursesClass}){
                             />
                             <CarouselCard
                                 altText={"Curso PHP"}
-                                buttonPath={"https://forms.gle/82h2pCcFeoBM3fVi7"}
+                                buttonPath={'/courses/4'}
                                 buttonTitle={"Inscreva-se"}
                                 contentText={
                                     "Aprenda PHP e conecte seus sites a bancos de dados MySQL para criar páginas dinâmicas, sistemas de login e outras funcionalidades avançadas."
@@ -85,7 +85,7 @@ export default function Courses({coursesClass}){
                             />
                             <CarouselCard
                                 altText={"Curso MySQL"}
-                                buttonPath={"https://forms.gle/82h2pCcFeoBM3fVi7"}
+                                buttonPath={'/courses/5'}
                                 buttonTitle={"Inscreva-se"}
                                 contentText={
                                     "Aprenda MySQL, um dos sistemas de gerenciamento de banco de dados mais utilizados, para armazenar, organizar e consultar dados de forma eficiente."
@@ -101,7 +101,7 @@ export default function Courses({coursesClass}){
                             />
                             <CarouselCard
                                 altText={"Curso Java"}
-                                buttonPath={"https://forms.gle/82h2pCcFeoBM3fVi7"}
+                                buttonPath={'/courses/6'}
                                 buttonTitle={"Inscreva-se"}
                                 contentText={
                                     "Aprenda Java, uma das linguagens de programação mais populares do mundo, e torne-se capaz de criar aplicações web, desktop e mobile."
@@ -117,7 +117,7 @@ export default function Courses({coursesClass}){
                             />
                             <CarouselCard
                                 altText={"Curso Git e Github"}
-                                buttonPath={"https://forms.gle/82h2pCcFeoBM3fVi7"}
+                                buttonPath={'/courses/7'}
                                 buttonTitle={"Inscreva-se"}
                                 contentText={
                                     "Aprenda a usar Git e Github para versionar seu código, controlar alterações, colaborar com outros desenvolvedores e hospedar seus projetos em nuvem."
@@ -132,7 +132,7 @@ export default function Courses({coursesClass}){
                                 titleContent={"Versionamento de código e colaboração em equipe com Git e Github!"}
                             />
                             <CarouselCard
-                            buttonPath={"https://forms.gle/82h2pCcFeoBM3fVi7"}
+                            buttonPath={'/courses/8'}
                             buttonTitle={"Inscreva-se"}
                                 altText={"Curso Primeiros Passos"}
                                 contentText={
