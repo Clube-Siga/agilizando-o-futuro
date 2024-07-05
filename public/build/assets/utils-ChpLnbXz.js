@@ -1,0 +1,1 @@
+function n(e){if(!e)return"";const r=e.replace(/\D/g,"");return r.length<10?r:`(${r.substring(0,2)}) ${r.substring(2,7)}-${r.substring(7,11)}`}function t(e){const r=e.replace(/\D/g,"");return r.length===11?r.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/,"$1.$2.$3-$4"):r}export{t as a,n as f};

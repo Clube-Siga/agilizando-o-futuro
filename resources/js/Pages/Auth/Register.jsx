@@ -4,7 +4,9 @@ import InputError from '@/Components/InputError';
 import InputLabel from '@/Components/InputLabel';
 import PrimaryButton from '@/Components/PrimaryButton';
 import TextInput from '@/Components/TextInput';
+import Checkbox from '@/Components/Checkbox';
 import { Head, Link, useForm } from '@inertiajs/react';
+import { formatPhoneNumber, formatCPF } from '@/Utils/utils';
 
 export default function Register() {
     const { data, setData, post, processing, errors, reset } = useForm({
@@ -12,6 +14,9 @@ export default function Register() {
         email: '',
         password: '',
         password_confirmation: '',
+        mobile: '',
+        cpf: '',
+        terms: false,
     });
 
     useEffect(() => {
@@ -28,11 +33,11 @@ export default function Register() {
 
     return (
         <GuestLayout>
-            <Head title="Register" />
+            <Head title="Cadastre-se no Projeto Agilizando" />
 
             <form onSubmit={submit}>
                 <div>
-                    <InputLabel htmlFor="name" value="Name" />
+                    <InputLabel htmlFor="name" value="Nome" />
 
                     <TextInput
                         id="name"
@@ -66,7 +71,7 @@ export default function Register() {
                 </div>
 
                 <div className="mt-4">
-                    <InputLabel htmlFor="password" value="Password" />
+                    <InputLabel htmlFor="password" value="Senha" />
 
                     <TextInput
                         id="password"
@@ -83,7 +88,7 @@ export default function Register() {
                 </div>
 
                 <div className="mt-4">
-                    <InputLabel htmlFor="password_confirmation" value="Confirm Password" />
+                    <InputLabel htmlFor="password_confirmation" value="Confirmar Senha" />
 
                     <TextInput
                         id="password_confirmation"
@@ -99,16 +104,63 @@ export default function Register() {
                     <InputError message={errors.password_confirmation} className="mt-2" />
                 </div>
 
+                <div className="mt-4">
+                    <InputLabel htmlFor="mobile" value="Telefone Celular - Digite somente os números" />
+
+                    <TextInput
+                        id="mobile"
+                        name="mobile"
+                        value={formatPhoneNumber(data.mobile)}
+                        className="mt-1 block w-full"
+                        autoComplete="mobile"
+                        isFocused={true}
+                        onChange={(e) => setData('mobile', e.target.value)}
+                        required
+                    />
+
+                    <InputError message={errors.mobile} className="mt-2" />
+                </div>
+
+                <div className="mt-4">
+                    <InputLabel htmlFor="cpf" value="CPF - Digite somente os números" />
+
+                    <TextInput
+                        id="cpf"
+                        name="cpf"
+                        value={formatCPF(data.cpf)}
+                        className="mt-1 block w-full"
+                        autoComplete="cpf"
+                        isFocused={true}
+                        onChange={(e) => setData('cpf', e.target.value)}
+                        required
+                    />
+
+                    <InputError message={errors.mobile} className="mt-2" />
+                </div>
+
+                <div className="block mt-4">
+                        <label className="flex items-center">
+                            <Checkbox
+                                name="terms"
+                                checked={data.terms}
+                                onChange={(e) => setData('terms', e.target.checked)}
+                            />
+                            <span className="ms-2 text-sm text-gray-600 dark:text-gray-400">Eu Concordo com os <a target="_blank" href={route('terms.show')} className="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-lime-500">Termos dos Serviço </a> e <a target="_blank" href={route('policy.show')} className="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-lime-500">Políticas de Privacidade</a></span>
+                        </label>
+                    </div>
+
                 <div className="flex items-center justify-end mt-4">
+
+                   
                     <Link
                         href={route('login')}
                         className="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800"
                     >
-                        Already registered?
+                        Já é cadastrado?
                     </Link>
 
                     <PrimaryButton className="ms-4" disabled={processing}>
-                        Register
+                        Cadastre-se
                     </PrimaryButton>
                 </div>
             </form>
