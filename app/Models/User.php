@@ -20,6 +20,10 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'cpf',
+        'mobile',
+        'is_low_income',
+        'terms_accepted',
     ];
 
     /**
