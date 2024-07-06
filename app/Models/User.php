@@ -21,6 +21,7 @@ class User extends Authenticatable
         'email',
         'password',
         'cpf',
+        'date_of_birth',
         'mobile',
         'is_low_income',
         'terms_accepted',

@@ -36,6 +36,7 @@ class RegisteredUserController extends Controller
             'email' => 'required|string|lowercase|email|max:255|unique:'.User::class,
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
             'cpf' => 'required|cpf|unique:users',
+            'date_of_birth' => 'required',
             'mobile' => 'required|celular_com_ddd|unique:users',
             'terms' => 'required|boolean',
         ]);

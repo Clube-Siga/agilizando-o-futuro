@@ -18,6 +18,7 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->string('cpf')->unique();
+            $table->date('date_of_birth');
             $table->string('mobile')->unique(); 
             $table->boolean('is_low_income')->default(false);
             $table->boolean('terms_accepted')->default(false);

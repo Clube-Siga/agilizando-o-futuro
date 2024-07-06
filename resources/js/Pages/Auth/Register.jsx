@@ -9,6 +9,7 @@ import { Head, Link, useForm} from '@inertiajs/react';
 import { formatPhoneNumber, formatCPF } from '@/Utils/utils';
 
 export default function Register() {
+    //config do form
     const { data, setData, post, processing, errors, reset } = useForm({
         name: '',
         email: '',
@@ -16,6 +17,7 @@ export default function Register() {
         password_confirmation: '',
         mobile: '',
         cpf: '',
+        date_of_birth: '',
         terms: false,
     });
 
@@ -137,6 +139,25 @@ export default function Register() {
 
                     <InputError message={errors.mobile} className="mt-2" />
                 </div>
+
+                <div className="mt-4">
+                    <InputLabel htmlFor="date_of_birth" value="Data de Nascimento" />
+
+                    <TextInput
+                        id="date_of_birth"
+                        name="date_of_birth"
+                        type="date"
+                        value={data.date_of_birth}
+                        className="mt-1 block w-full"
+                        autoComplete="date_of_birth"
+                        isFocused={true}
+                        onChange={(e) => setData('date_of_birth', e.target.value)}
+                        required
+                    />
+
+                    <InputError message={errors.mobile} className="mt-2" />
+                </div>
+
 
                 <div className="block mt-4">
                         <label className="flex items-center">
