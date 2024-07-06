@@ -20,7 +20,7 @@ class SiteController extends Controller
 
         $sitekey = config('services.google_recaptcha.site_key'); //recuperando configuracao
 
-        $imgCtaUrl = Storage::url('images/cta-agile-developers.png');
+        $imgCtaUrl = asset('images/cta-agile-developers.png');
 
         //dd($imgCtaUrl);
         return Inertia::render('Agilizando/Home', [
