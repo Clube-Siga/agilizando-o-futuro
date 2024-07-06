@@ -22,7 +22,7 @@ export default function Header({ headerClass }) {
                     <NavbarLink className="text-defaultW font-body" as={Link} href="/#about">
                         Sobre
                     </NavbarLink>
-                    <NavbarLink className="text-defaultW font-body" as={Link} href="/#courses">
+                    <NavbarLink className="text-defaultW font-body" as={Link} href="/#register">
                         Cursos
                     </NavbarLink>
                     <NavbarLink className="text-defaultW font-body" as={Link} href="/#cta">
@@ -33,6 +33,9 @@ export default function Header({ headerClass }) {
                     </NavbarLink>
                     <NavbarLink className="text-defaultW font-body" as={Link} href="/#contact">
                         Contato
+                    </NavbarLink>
+                    <NavbarLink className="text-defaultW font-body" as={Link} href="/login">
+                        Login
                     </NavbarLink>
                 </NavbarCollapse>
             </Navbar>
