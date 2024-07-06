@@ -17,8 +17,8 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->string('cpf')->unique(); // Assuming CPF is optional
-            $table->string('mobile')->unique(); // Assuming mobile number is optional
+            $table->string('cpf')->unique();
+            $table->string('mobile')->unique(); 
             $table->boolean('is_low_income')->default(false);
             $table->boolean('terms_accepted')->default(false);
             $table->rememberToken();
