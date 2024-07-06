@@ -27,7 +27,7 @@ export default function Register() {
 
     const submit = (e) => {
         e.preventDefault();
-
+        console.log('form', data)
         post(route('register'));
     };
 
@@ -35,7 +35,7 @@ export default function Register() {
         <GuestLayout>
             <Head title="Cadastre-se no Projeto Agilizando" />
 
-            <form onSubmit={submit}>
+            <form onSubmit={submit} id="register">
                 <div>
                     <InputLabel htmlFor="name" value="Nome" />
 
