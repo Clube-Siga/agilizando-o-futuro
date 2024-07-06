@@ -5,7 +5,7 @@ import InputLabel from '@/Components/InputLabel';
 import PrimaryButton from '@/Components/PrimaryButton';
 import TextInput from '@/Components/TextInput';
 import Checkbox from '@/Components/Checkbox';
-import { Head, Link, useForm } from '@inertiajs/react';
+import { Head, Link, useForm} from '@inertiajs/react';
 import { formatPhoneNumber, formatCPF } from '@/Utils/utils';
 
 export default function Register() {
