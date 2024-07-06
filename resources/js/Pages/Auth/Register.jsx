@@ -137,7 +137,7 @@ export default function Register() {
                         required
                     />
 
-                    <InputError message={errors.mobile} className="mt-2" />
+                    <InputError message={errors.cpf} className="mt-2" />
                 </div>
 
                 <div className="mt-4">
@@ -155,7 +155,7 @@ export default function Register() {
                         required
                     />
 
-                    <InputError message={errors.mobile} className="mt-2" />
+                    <InputError message={errors.date_of_birth} className="mt-2" />
                 </div>
 
 
