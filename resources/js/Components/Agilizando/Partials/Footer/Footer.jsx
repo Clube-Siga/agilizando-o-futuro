@@ -20,6 +20,50 @@ export default function Footer({footerClass}){
                             </a>
                         </Content>
                         <Content contentClass={"grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-2"}>
+                            
+                            <div>
+                                <h3 className="font-body mb-6 text-sm font-semibold text-defaultW uppercase dark:text-white">
+                                Transparência
+                                </h3>
+                                <ul className="font-body text-defaultW dark:text-primary-400">
+                                    <li className="mb-4">
+                                        <a
+                                            href="#"
+                                            className="hover:underline "
+                                        >
+                                            Estatuto
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a
+                                            href="#"
+                                            className="hover:underline"
+                                        >
+                                            Financeiro
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h3 className="font-body mb-6 text-sm font-semibold text-defaultW uppercase dark:text-white">
+                                    Apoiadores em Destaques
+                                </h3>
+                                <ul className="font-body text-defaultW dark:text-primary-400">
+                                    <li className="mb-4">
+                                        <a href="https://clubesiga.com.br" className="hover:underline">
+                                            Clube Siga
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://igrejacem.com.br" className="hover:underline">
+                                            Igreja Centro Evangelístico de Missões
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </Content>
+                        <Content contentClass={"grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-2"}>
+                            
                             <div>
                                 <h3 className="font-body mb-6 text-sm font-semibold text-defaultW uppercase dark:text-white">
                                     Siga-nos
@@ -49,12 +93,12 @@ export default function Footer({footerClass}){
                                 </h3>
                                 <ul className="font-body text-defaultW dark:text-primary-400">
                                     <li className="mb-4">
-                                        <a href="#" className="hover:underline">
+                                        <a href="https://docs.google.com/document/d/1p6ZS__VYMmps5Wc2wBCsXWh-D1aKa6Z2X5MlRZXGr58/edit?usp=sharing" className="hover:underline">
                                             Política de Privacidade
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#" className="hover:underline">
+                                        <a href="https://docs.google.com/document/d/1e2FGszR5LdM8hNgoZH9bxhLY6aRDeFJsfrW7J1-xJeY/edit?usp=sharing" className="hover:underline">
                                             Termos &amp; Condições
                                         </a>
                                     </li>
