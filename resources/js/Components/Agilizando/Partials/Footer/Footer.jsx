@@ -64,17 +64,7 @@ export default function Footer({footerClass}){
                     </Row>
                     <hr className="my-6 border-secondary sm:mx-auto dark:border-primary lg:my-8" />
                     <Row rowClass={"sm:flex sm:items-center sm:justify-between"}>
-                        <Span spanClass={"font-body text-sm text-defaultW sm:text-center dark:text-defaultW"}>
-                            © 2024{" "}
-                            <Link
-                                href="https://agilizando.clubesiga.com.br/"
-                                className="hover:underline"
-                            >
-                                Agilizando
-                            </Link>
-                            . Todos os direitos reservados.
-                        </Span>
-                        <Content contentClass={"flex mt-4 space-x-6 sm:justify-center sm:mt-0"}>
+                    <Content contentClass={"flex mt-4 space-x-6 sm:justify-center sm:mt-0"}>
                             <Link
                                 href="https://www.facebook.com/agilizandoofuturo"
                                 className="text-defaultW hover:text-defaultW dark:hover:text-primary"
@@ -127,6 +117,17 @@ export default function Footer({footerClass}){
                                 </svg>
                             </Link>
                         </Content>
+                        <Span spanClass={"font-body text-sm text-defaultW sm:text-center dark:text-defaultW"}>
+                            © 2024{" "}
+                            <Link
+                                href="https://agilizando.clubesiga.com.br/"
+                                className="hover:underline"
+                            >
+                                Agilizando
+                            </Link>
+                            . Todos os direitos reservados.
+                        </Span>
+                        
                     </Row>
                 </div>
             </footer>

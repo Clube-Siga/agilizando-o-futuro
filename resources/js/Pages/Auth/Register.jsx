@@ -107,7 +107,7 @@ export default function Register() {
                 </div>
 
                 <div className="mt-4">
-                    <InputLabel htmlFor="mobile" value="Telefone Celular - Digite somente os números" />
+                    <InputLabel htmlFor="mobile" value="DDD + Celular - Digite somente os números" />
 
                     <TextInput
                         id="mobile"
