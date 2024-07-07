@@ -166,7 +166,7 @@ export default function Register() {
                                 checked={data.terms}
                                 onChange={(e) => setData('terms', e.target.checked)}
                             />
-                            <span className="ms-2 text-sm text-gray-600 dark:text-gray-400">Eu Concordo com os <a target="_blank" href={route('terms.show')} className="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-lime-500">Termos dos Serviço </a> e <a target="_blank" href={route('policy.show')} className="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-lime-500">Políticas de Privacidade</a></span>
+                            <span className="ms-2 text-sm text-gray-600 dark:text-gray-400">Eu Concordo com os <a target="_blank" href="https://docs.google.com/document/d/1e2FGszR5LdM8hNgoZH9bxhLY6aRDeFJsfrW7J1-xJeY/edit?usp=sharing" className="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-lime-500">Termos dos Serviço </a> e <a target="_blank" href="https://docs.google.com/document/d/1p6ZS__VYMmps5Wc2wBCsXWh-D1aKa6Z2X5MlRZXGr58/edit?usp=sharing" className="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-lime-500">Políticas de Privacidade</a></span>
                         </label>
                     </div>
 
