@@ -12,12 +12,12 @@ export default function Footer({footerClass}){
                 <div className="mx-auto max-w-screen-xl">
                     <Row rowClass={"md:flex md:justify-between"}>
                         <Content contentClass={"mb-6 md:mb-0"}>
-                            <Link
+                            <a
                                 href="https://agilizando.clubesiga.com.br/"
                                 className="flex items-center"
                             >
                                 <Image imgClass={"ml-3 h-6 sm:h-9"} altText={"Logo"} imgPath={"https://raw.githubusercontent.com/Clube-Siga/agilizando-o-futuro/jean/resources/images/Isologo%20branco.png"} />
-                            </Link>
+                            </a>
                         </Content>
                         <Content contentClass={"grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-2"}>
                             <div>
@@ -65,7 +65,7 @@ export default function Footer({footerClass}){
                     <hr className="my-6 border-secondary sm:mx-auto dark:border-primary lg:my-8" />
                     <Row rowClass={"sm:flex sm:items-center sm:justify-between"}>
                     <Content contentClass={"flex mt-4 space-x-6 sm:justify-center sm:mt-0"}>
-                            <Link
+                            <a
                                 href="https://www.facebook.com/agilizandoofuturo"
                                 className="text-defaultW hover:text-defaultW dark:hover:text-primary"
                             >
@@ -81,8 +81,8 @@ export default function Footer({footerClass}){
                                         clipRule="evenodd"
                                     />
                                 </svg>
-                            </Link>
-                            <Link
+                            </a>
+                            <a
                                 href="https://www.instagram.com/agilizandoofuturo"
                                 className="text-defaultW hover:text-defaultW dark:hover:text-primary"
                             >
@@ -98,8 +98,8 @@ export default function Footer({footerClass}){
                                         clipRule="evenodd"
                                     />
                                 </svg>
-                            </Link>
-                            <Link
+                            </a>
+                            <a
                                 href="https://github.com/Clube-Siga"
                                 className="text-defaultW hover:text-defaultW dark:hover:text-primary"
                             >
@@ -115,12 +115,12 @@ export default function Footer({footerClass}){
                                         clipRule="evenodd"
                                     />
                                 </svg>
-                            </Link>
+                            </a>
                         </Content>
                         <Span spanClass={"font-body text-sm text-defaultW sm:text-center dark:text-defaultW"}>
                             © 2024{" "}
                             <Link
-                                href="https://agilizando.clubesiga.com.br/"
+                                href="/"
                                 className="hover:underline"
                             >
                                 Agilizando
