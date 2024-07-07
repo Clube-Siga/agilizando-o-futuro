@@ -68,6 +68,7 @@ export default function Footer({footerClass}){
                             <a
                                 href="https://www.facebook.com/agilizandoofuturo"
                                 className="text-defaultW hover:text-defaultW dark:hover:text-primary"
+                                target="_blank" rel="noopener noreferrer"
                             >
                                 <svg
                                     className="w-5 h-5"
@@ -85,6 +86,7 @@ export default function Footer({footerClass}){
                             <a
                                 href="https://www.instagram.com/agilizandoofuturo"
                                 className="text-defaultW hover:text-defaultW dark:hover:text-primary"
+                                target="_blank" rel="noopener noreferrer"
                             >
                                 <svg
                                     className="w-5 h-5"
@@ -102,6 +104,7 @@ export default function Footer({footerClass}){
                             <a
                                 href="https://github.com/Clube-Siga"
                                 className="text-defaultW hover:text-defaultW dark:hover:text-primary"
+                                target="_blank" rel="noopener noreferrer"
                             >
                                 <svg
                                     className="w-5 h-5"
