@@ -17,11 +17,14 @@ class SiteController extends Controller
         }
 
         $sitekey = config('services.google_recaptcha.site_key'); //recuperando configuracao
-        $imageHeroPath = asset('images/image-hero.png');
+
+        $imgCtaUrl = asset('images/cta-agile-developers.png');
+
+        //dd($imgCtaUrl);
         return Inertia::render('Agilizando/Home', [
             'message' => $message,
             'siteKey' => $sitekey,
-            'imageHeroPath' => $imageHeroPath,
+            'imgCtaUrl' =>  $imgCtaUrl,
         ]);
     }
 }
