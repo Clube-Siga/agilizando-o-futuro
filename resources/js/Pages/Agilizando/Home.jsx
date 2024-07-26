@@ -4,11 +4,12 @@ import About from '@/Components/Agilizando/Partials/About/About';
 import Blog from '@/Components/Agilizando/Partials/Blog/Blog';
 import CallToAction from '@/Components/Agilizando/Partials/CallToAction/CallToAction';
 import Contact from '@/Components/Agilizando/Partials/Contact/Contact';
-import Courses from '@/Components/Agilizando/Partials/Courses/Courses';
+//import Courses from '@/Components/Agilizando/Partials/Courses/Courses';
 import Hero from '@/Components/Agilizando/Partials/Hero/Hero';
+import Register from '@/Components/Agilizando/Partials/Register/Register';
 
-//declarar siteKey
-export default function Home({ message, siteKey, imageHeroPath }) {
+//declarar siteKey  <Courses coursesClass={"w-full bg-defaultW dark:bg-defaultB"} />
+export default function Home({ message, siteKey,  imgCtaUrl }) {
 
     const siteKeyhome = siteKey
 
@@ -19,7 +20,10 @@ export default function Home({ message, siteKey, imageHeroPath }) {
                     imageHeroPath = {imageHeroPath}
                 />
                 <About aboutClass={"w-full grid-cols-2 justify-evenly bg-secondary dark:bg-secondary"} />
-                <Courses coursesClass={"w-full bg-defaultW dark:bg-defaultB"} />
+                <Register 
+                    registerClass={"w-full bg-defaultW dark:bg-defaultB"}
+                    imgCtaUrl={imgCtaUrl} 
+                />
                 <CallToAction ctaClass={"w-full bg-primary dark:bg-secondary"} />
                 <Blog blogClass={"w-full bg-defaultW dark:bg-defaultB"} />
                 <Contact

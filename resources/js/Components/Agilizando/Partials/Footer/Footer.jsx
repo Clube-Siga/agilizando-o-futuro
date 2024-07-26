@@ -12,14 +12,58 @@ export default function Footer({footerClass}){
                 <div className="mx-auto max-w-screen-xl">
                     <Row rowClass={"md:flex md:justify-between"}>
                         <Content contentClass={"mb-6 md:mb-0"}>
-                            <Link
+                            <a
                                 href="https://agilizando.clubesiga.com.br/"
                                 className="flex items-center"
                             >
                                 <Image imgClass={"ml-3 h-6 sm:h-9"} altText={"Logo"} imgPath={"https://raw.githubusercontent.com/Clube-Siga/agilizando-o-futuro/jean/resources/images/Isologo%20branco.png"} />
-                            </Link>
+                            </a>
                         </Content>
                         <Content contentClass={"grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-2"}>
+                            
+                            <div>
+                                <h3 className="font-body mb-6 text-sm font-semibold text-defaultW uppercase dark:text-white">
+                                Transparência
+                                </h3>
+                                <ul className="font-body text-defaultW dark:text-primary-400">
+                                    <li className="mb-4">
+                                        <a
+                                            href="#"
+                                            className="hover:underline "
+                                        >
+                                            Estatuto
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a
+                                            href="#"
+                                            className="hover:underline"
+                                        >
+                                            Financeiro
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h3 className="font-body mb-6 text-sm font-semibold text-defaultW uppercase dark:text-white">
+                                    Apoiadores em Destaques
+                                </h3>
+                                <ul className="font-body text-defaultW dark:text-primary-400">
+                                    <li className="mb-4">
+                                        <a href="https://clubesiga.com.br" className="hover:underline">
+                                            Clube Siga
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://igrejacem.com.br" className="hover:underline">
+                                            Igreja Centro Evangelístico de Missões
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </Content>
+                        <Content contentClass={"grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-2"}>
+                            
                             <div>
                                 <h3 className="font-body mb-6 text-sm font-semibold text-defaultW uppercase dark:text-white">
                                     Siga-nos
@@ -49,12 +93,12 @@ export default function Footer({footerClass}){
                                 </h3>
                                 <ul className="font-body text-defaultW dark:text-primary-400">
                                     <li className="mb-4">
-                                        <a href="#" className="hover:underline">
+                                        <a href="https://docs.google.com/document/d/1p6ZS__VYMmps5Wc2wBCsXWh-D1aKa6Z2X5MlRZXGr58/edit?usp=sharing" className="hover:underline">
                                             Política de Privacidade
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#" className="hover:underline">
+                                        <a href="https://docs.google.com/document/d/1e2FGszR5LdM8hNgoZH9bxhLY6aRDeFJsfrW7J1-xJeY/edit?usp=sharing" className="hover:underline">
                                             Termos &amp; Condições
                                         </a>
                                     </li>
@@ -64,20 +108,11 @@ export default function Footer({footerClass}){
                     </Row>
                     <hr className="my-6 border-secondary sm:mx-auto dark:border-primary lg:my-8" />
                     <Row rowClass={"sm:flex sm:items-center sm:justify-between"}>
-                        <Span spanClass={"font-body text-sm text-defaultW sm:text-center dark:text-defaultW"}>
-                            © 2024{" "}
-                            <Link
-                                href="https://agilizando.clubesiga.com.br/"
-                                className="hover:underline"
-                            >
-                                Agilizando
-                            </Link>
-                            . Todos os direitos reservados.
-                        </Span>
-                        <Content contentClass={"flex mt-4 space-x-6 sm:justify-center sm:mt-0"}>
-                            <Link
+                    <Content contentClass={"flex mt-4 space-x-6 sm:justify-center sm:mt-0"}>
+                            <a
                                 href="https://www.facebook.com/agilizandoofuturo"
                                 className="text-defaultW hover:text-defaultW dark:hover:text-primary"
+                                target="_blank" rel="noopener noreferrer"
                             >
                                 <svg
                                     className="w-5 h-5"
@@ -91,10 +126,11 @@ export default function Footer({footerClass}){
                                         clipRule="evenodd"
                                     />
                                 </svg>
-                            </Link>
-                            <Link
+                            </a>
+                            <a
                                 href="https://www.instagram.com/agilizandoofuturo"
                                 className="text-defaultW hover:text-defaultW dark:hover:text-primary"
+                                target="_blank" rel="noopener noreferrer"
                             >
                                 <svg
                                     className="w-5 h-5"
@@ -108,10 +144,11 @@ export default function Footer({footerClass}){
                                         clipRule="evenodd"
                                     />
                                 </svg>
-                            </Link>
-                            <Link
+                            </a>
+                            <a
                                 href="https://github.com/Clube-Siga"
                                 className="text-defaultW hover:text-defaultW dark:hover:text-primary"
+                                target="_blank" rel="noopener noreferrer"
                             >
                                 <svg
                                     className="w-5 h-5"
@@ -125,8 +162,19 @@ export default function Footer({footerClass}){
                                         clipRule="evenodd"
                                     />
                                 </svg>
-                            </Link>
+                            </a>
                         </Content>
+                        <Span spanClass={"font-body text-sm text-defaultW sm:text-center dark:text-defaultW"}>
+                            © 2024{" "}
+                            <Link
+                                href="/"
+                                className="hover:underline"
+                            >
+                                Agilizando
+                            </Link>
+                            . Todos os direitos reservados.
+                        </Span>
+                        
                     </Row>
                 </div>
             </footer>
