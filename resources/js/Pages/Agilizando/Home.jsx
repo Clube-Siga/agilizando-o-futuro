@@ -9,7 +9,7 @@ import Hero from '@/Components/Agilizando/Partials/Hero/Hero';
 import Register from '@/Components/Agilizando/Partials/Register/Register';
 
 //declarar siteKey  <Courses coursesClass={"w-full bg-defaultW dark:bg-defaultB"} />
-export default function Home({ message, siteKey,  imgCtaUrl, imageHeroPath }) {
+export default function Home({ message, siteKey,  imgCtaUrl }) {
 
     const siteKeyhome = siteKey
 
@@ -17,7 +17,6 @@ export default function Home({ message, siteKey,  imgCtaUrl, imageHeroPath }) {
         <>
             <SiteLayout>
                 <Hero heroClass={"flex justify-center bg-defaultW w-full sm:flex-col sm:items-center md:flex-row md:space-around dark:bg-defaultB"}
-                    imageHeroPath = {imageHeroPath}
                 />
                 <About aboutClass={"w-full grid-cols-2 justify-evenly bg-secondary dark:bg-secondary"} />
                 <Register 
