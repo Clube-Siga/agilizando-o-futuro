@@ -31,11 +31,13 @@ return new class () extends Migration {
      */
     public function down(): void
     {
-        Schema::table('contacts', function (Blueprint $table) {
-            $table->dropColumn('approved'); // Remover campo `approved` (opcional)
+        Schema::table('contacts', function (Blueprint $table)
+        {
+            $table->dropForeign('contacts_user_id_foreign'); 
+            // Remover restrição de chave estrangeira (opcional)
             $table->dropColumn('user_id'); // Remover campo `user_id` (opcional)
-            $table->dropForeign('contacts_user_id_foreign'); // Remover restrição de chave estrangeira (opcional)
             $table->dropColumn('ip_address'); // Remover campo `ip_address`
+            $table->dropColumn('approved'); // Remover campo `approved` (opcional)
         });
     }
 };
