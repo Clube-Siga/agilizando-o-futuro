@@ -9,7 +9,7 @@ import Hero from '@/Components/Agilizando/Partials/Hero/Hero';
 import Register from '@/Components/Agilizando/Partials/Register/Register';
 
 //declarar siteKey  <Courses coursesClass={"w-full bg-defaultW dark:bg-defaultB"} />
-export default function Home({ message, siteKey,  imgCtaUrl }) {
+export default function Home({ message, siteKey,  imgCtaUrl, imageHeroPath }) {
 
     const siteKeyhome = siteKey
 
