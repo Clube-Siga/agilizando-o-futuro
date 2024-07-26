@@ -12,11 +12,12 @@ import Register from '@/Components/Agilizando/Partials/Register/Register';
 export default function Home({ message, siteKey,  imgCtaUrl }) {
 
     const siteKeyhome = siteKey
-   
+
     return (
         <>
             <SiteLayout>
-                <Hero heroClass={"flex justify-center bg-defaultW w-full sm:flex-col sm:items-center md:flex-row md:space-around dark:bg-defaultB"} />
+                <Hero heroClass={"flex justify-center bg-defaultW w-full sm:flex-col sm:items-center md:flex-row md:space-around dark:bg-defaultB"}
+                />
                 <About aboutClass={"w-full grid-cols-2 justify-evenly bg-secondary dark:bg-secondary"} />
                 <Register 
                     registerClass={"w-full bg-defaultW dark:bg-defaultB"}
