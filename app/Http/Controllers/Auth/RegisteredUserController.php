@@ -33,8 +33,10 @@ class RegisteredUserController extends Controller
     public function store(Request $request): RedirectResponse
     {
         //verificar o tipo de usuario sendo cadastrado Teacher, Student
-        $userType = $request->userType;
-        dd($userType);
+        if (isset($request->userType)) {
+            $userType = $request->userType;
+        }
+
         $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|string|lowercase|email|max:255|unique:'.User::class,
@@ -54,7 +56,13 @@ class RegisteredUserController extends Controller
             'mobile' => $request->mobile,
             'terms_accepted' => $request->terms,
         ]);
-
+        //busca a funcao de acordo com o tipo do usuario
+        $role = Role::where('name', $userType)->first();
+            // se existir a funcao
+            if ($role) {
+                $user->assignRole($role); //atribuir ao usuario
+            }
+            
         event(new Registered($user));
 
         Auth::login($user);
