@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState  } from 'react';
 import GuestLayout from '@/Layouts/GuestLayout';
 import InputError from '@/Components/InputError';
 import InputLabel from '@/Components/InputLabel';
@@ -22,6 +22,20 @@ export default function Register() {
         terms: false,
     });
 
+    const userTypeMapping = {
+        Aluno: 'Student',
+        Apoiador: 'Supporter',
+        Professor: 'Teacher',
+    };
+
+    const [selectedUserType, setSelectedUserType] = useState('');
+    
+    const handleUserTypeChange = (event) => {
+        const selectedValue = event.target.value;
+        setSelectedUserType(selectedValue);
+        setData('userType', userTypeMapping[selectedValue]);
+    };
+
     useEffect(() => {
         return () => {
             reset('password', 'password_confirmation');
@@ -42,19 +56,21 @@ export default function Register() {
             <div>
                     <InputLabel htmlFor="userType" value="Escolha um tipo de conta?" />
 
-                <select
-                  id="userType"
-                  name="userType"
-                  value={data.userType}
-                  autoComplete="user-type"
-                  className="mb-4 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
-                >
-                  <option>Aluno</option>
-                  <option>Apoiador</option>
-                  <option>Professor</option>
-                </select>
+                    
+                    <select
+                        id="userType"
+                        name="userType"
+                        value={selectedUserType} // Use local state for display
+                        onChange={handleUserTypeChange}
+                        autoComplete="user-type"
+                        className="mb-4 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
+                    >
+                        <option value="Aluno">Aluno</option>
+                        <option value="Apoiador">Apoiador</option>
+                        <option value="Professor">Professor</option>
+                    </select>
 
-                    <InputError message={errors.name} className="mt-2" />
+                    <InputError message={errors.userType} className="mt-2" />
                 </div>
                 <div>
                     <InputLabel htmlFor="name" value="Nome" />
