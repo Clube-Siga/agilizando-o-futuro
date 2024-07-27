@@ -14,7 +14,6 @@ Route::get('/termos-de-acordo', [SiteController::class, 'terms'])->name('terms.s
 Route::get('/politicas-de-privacidade', [SiteController::class, 'policies'])->name('policy.show');
 
 
-
 // Formulario de Contato
 Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
 

@@ -11,6 +11,7 @@ import { formatPhoneNumber, formatCPF } from '@/Utils/utils';
 export default function Register() {
     //config do form
     const { data, setData, post, processing, errors, reset } = useForm({
+        userType: '',
         name: '',
         email: '',
         password: '',
@@ -38,6 +39,23 @@ export default function Register() {
             <Head title="Cadastre-se no Projeto Agilizando" />
 
             <form onSubmit={submit} id="register">
+            <div>
+                    <InputLabel htmlFor="userType" value="Escolha um tipo de conta?" />
+
+                <select
+                  id="userType"
+                  name="userType"
+                  value={data.userType}
+                  autoComplete="user-type"
+                  className="mb-4 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
+                >
+                  <option>Aluno</option>
+                  <option>Apoiador</option>
+                  <option>Professor</option>
+                </select>
+
+                    <InputError message={errors.name} className="mt-2" />
+                </div>
                 <div>
                     <InputLabel htmlFor="name" value="Nome" />
 
