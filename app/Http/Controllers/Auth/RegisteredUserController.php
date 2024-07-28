@@ -12,6 +12,8 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
 use Inertia\Inertia;
 use Inertia\Response;
+use Spatie\Permission\Models\Role;
+
 
 class RegisteredUserController extends Controller
 {
@@ -30,7 +32,11 @@ class RegisteredUserController extends Controller
      */
     public function store(Request $request): RedirectResponse
     {
-        //dd($request);
+        //verificar o tipo de usuario sendo cadastrado Teacher, Student
+        if (isset($request->userType)) {
+            $userType = $request->userType;
+        }
+
         $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|string|lowercase|email|max:255|unique:'.User::class,
@@ -50,11 +56,19 @@ class RegisteredUserController extends Controller
             'mobile' => $request->mobile,
             'terms_accepted' => $request->terms,
         ]);
-
+        //busca a funcao de acordo com o tipo do usuario
+        $role = Role::where('name', $userType)->first();
+            // se existir a funcao
+            if ($role) {
+                $user->assignRole($role); //atribuir ao usuario
+            }
+            
         event(new Registered($user));
 
         Auth::login($user);
 
         return redirect(route('dashboard', absolute: false));
     }
+
+    //criar meto de adicao de funcao de acordo com a funcao escolhida na hora do cadastro
 }

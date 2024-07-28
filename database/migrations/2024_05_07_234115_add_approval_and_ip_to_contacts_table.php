@@ -18,7 +18,7 @@ return new class () extends Migration {
             $table->unsignedBigInteger('user_id')->nullable();
             // Adicionar a restrição de chave estrangeira para o campo `user_id` (opcional)
             
-            $table->foreign('user_id')->references('id')->on('users');
+            //$table->foreign('user_id')->references('id')->on('users');
           
             // Adicionar o campo `ip_address` do tipo ipAddress (obrigatório)
             $table->ipAddress('ip_address')->nullable();
