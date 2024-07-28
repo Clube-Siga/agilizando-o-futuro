@@ -13,7 +13,8 @@ class DashboardController extends Controller
 {
     public function index()
     {
-        $user = Auth::user();
+        $user = Auth::user(); //pega o usuario autenticado
+        // verifica qual funcao ele tem e chama o metodo de acordo com a funcao.
         if ($user->hasRole('Admin')) {
             return $this->dashAdmin();
         } elseif ($user->hasRole('Student')) {
@@ -23,17 +24,20 @@ class DashboardController extends Controller
         }  
         return abort(403, 'Acesso proibido');
     }
-
+    
+    // Falta Criar a Dash do Admin
     private function dashAdmin() {
     
-        return Inertia::render('Dashboard');
+        return Inertia::render('Dashboard/DashAdmin');
     }
-
+    
+    // Falta Criar a Dash do Aluno
     private function dashStudent() {
-        return Inertia::render('Dashboard');
+        return Inertia::render('Dashboard/DashStudent');
     }
-
+    
+    // Falta Criar a Dash do Professor
     private function dashTeacher() {
-        return Inertia::render('Dashboard');
+        return Inertia::render('Dashboard/DashTeacher');
     }
 }

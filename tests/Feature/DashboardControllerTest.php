@@ -35,8 +35,9 @@ class DashboardControllerTest extends TestCase
 
         // Verifica se a resposta está correta
         $response->assertStatus(200);
+
         // verifica se o componente foi renderizado corretamente
-        $response->assertInertia(fn (Assert $page) => $page->component('Dashboard'));
+        $response->assertInertia(fn (Assert $page) => $page->component('Dashboard/DashAdmin'));
     }
 
     /**
@@ -55,7 +56,7 @@ class DashboardControllerTest extends TestCase
 
         // Verifica se a resposta está correta
         $response->assertStatus(200);
-        $response->assertInertia(fn (Assert $page) => $page->component('Dashboard'));
+        $response->assertInertia(fn (Assert $page) => $page->component('Dashboard/DashStudent'));
     }
 
     /**
@@ -74,7 +75,7 @@ class DashboardControllerTest extends TestCase
 
         // Verifica se a resposta está correta
         $response->assertStatus(200);
-        $response->assertInertia(fn (Assert $page) => $page->component('Dashboard'));
+        $response->assertInertia(fn (Assert $page) => $page->component('Dashboard/DashTeacher'));
     }
 
     /**
