@@ -15,7 +15,7 @@ export default function Dashboard({ auth }) {
                         <div className="p-6 text-gray-900 dark:text-gray-100">
 
                             <p>Seja bem-vindo(a)! A plataforma de ensino à distância está em desenvolvimento, mas você já pode acessar os cursos disponíveis na Plataforma de EAD do Clube Siga:</p>
-                            <a href="ead.clubesiga.com.br" target="_blank" rel="noreferrer noopener" className="text-indigo-600 underline hover:text-indigo-700">
+                            <a href="https://ead.clubesiga.com.br" target="_blank" rel="noreferrer noopener" className="text-indigo-600 underline hover:text-indigo-700">
                                 Plataforma de EAD do Clube Siga
                             </a>
                         </div>                    
