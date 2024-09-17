@@ -1,0 +1,77 @@
+services:
+    laravel.test:
+        build:
+            context: './docker/8.3'
+            dockerfile: Dockerfile
+            args:
+                WWWGROUP: '${WWWGROUP}'
+        image: 'sail-8.3/app'
+        extra_hosts:
+            - 'host.docker.internal:host-gateway'
+        ports:
+            #- '${APP_PORT:-80}:80'
+            - '${VITE_PORT:-5173}:${VITE_PORT:-5173}'
+        environment:
+            WWWUSER: '${WWWUSER}'
+            LARAVEL_SAIL: 1
+            XDEBUG_MODE: '${SAIL_XDEBUG_MODE:-off}'
+            XDEBUG_CONFIG: '${SAIL_XDEBUG_CONFIG:-client_host=host.docker.internal}'
+            IGNITION_LOCAL_SITES_PATH: '${PWD}'
+
+        volumes:
+            - '.:/var/www/html'
+        labels:
+            # Habilitar o serviço para ser gerenciado pelo Traefik
+            - 'traefik.enable=true'
+            # Definir a URL do domínio virtual
+            - 'traefik.http.routers.agilizando-o-futuro.rule=Host(`agilizando.local.dev`)'
+            # Definir o entrypoint que será usado pelos clientes para acessar o serviço
+            - 'traefik.http.routers.agilizando-o-futuro.entrypoints=websecure'
+            # Habilitar o TLS para a comunicação segura
+            - 'traefik.http.routers.agilizando-o-futuro.tls=true'
+            # Definir o serviço que será utilizado pelo router
+            - 'traefik.http.routers.agilizando-o-futuro.service=agilizando_o_futuro@docker'  # Certifique-se que "laravel_test" é o nome correto do seu serviço
+            # Definir a rede onde o Traefik pode encontrar este serviço
+            - 'traefik.docker.network=local-dev'
+            # Definir a porta do container que o Traefik deve direcionar o tráfego
+            - 'traefik.http.services.agilizando_o_futuro.loadbalancer.server.port=80'
+            
+        networks:
+            - sail
+            - local-dev # adicionar a rede do traefik
+        depends_on:
+            - mysql
+    mysql:
+        image: 'mysql/mysql-server:8.0'
+        ports:
+            - '${FORWARD_DB_PORT:-3306}:3306'
+        environment:
+            MYSQL_ROOT_PASSWORD: '${DB_PASSWORD}'
+            MYSQL_ROOT_HOST: '%'
+            MYSQL_DATABASE: '${DB_DATABASE}'
+            MYSQL_USER: '${DB_USERNAME}'
+            MYSQL_PASSWORD: '${DB_PASSWORD}'
+            MYSQL_ALLOW_EMPTY_PASSWORD: 1
+        volumes:
+            - 'sail-mysql:/var/lib/mysql'
+            - './docker/mysql/create-testing-database.sh:/docker-entrypoint-initdb.d/10-create-testing-database.sh'
+        networks:
+            - sail
+        healthcheck:
+            test:
+                - CMD
+                - mysqladmin
+                - ping
+                - '-p${DB_PASSWORD}'
+            retries: 3
+            timeout: 5s
+networks:
+    sail:
+        driver: bridge
+    #adiciona rede do traefik 
+    local-dev:
+        external: true
+
+volumes:
+    sail-mysql:
+        driver: local
