@@ -25,7 +25,6 @@ jobs:
       run: |
         rsync -avz -e "ssh -i ~/.ssh/github_clubesiga_vps -p 6781" \
         --exclude '*.env*'  ./ webert@92.112.178.183:/home/webert/agilizando.clubesiga.com.br/
-        EOF
     # - name: login no Docker Hub 
     #   uses: docker/login-action@v3
     #   with:
