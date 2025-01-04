@@ -1,22 +1,41 @@
-on: push
-name: 🚀 Deploy Agilizando on push 
+name: Deploy Site Agilizando  SSH
+
+on:
+  push:
+    branches:
+      - main
+
 jobs:
-  web-deploy:
-    name: 🎉 Deploy 
+  deploy:
     runs-on: ubuntu-latest
+
     steps:
-    - name: 🚚 Get latest code
-      uses: actions/checkout@v3
-    
-    - name: 📂 Sync files
-      uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Install SSH key
+      uses: shimataro/ssh-key-action@v2
       with:
-          server: ${{ secrets.ftp_host }}
-          username: ${{ secrets.ftp_user }}
-          password: ${{ secrets.ftp_password }}
-          server-dir: public_html/
-          exclude: |
-            **/.git*
-            **/.git*/**
-            **/node_modules/**
-            **/.htaccess
+        key: ${{ secrets.SSH_KEY }}
+        name: github_clubesiga_vps
+        known_hosts: ${{ secrets.KNOWN_HOSTS }}
+        if_key_exists: overwrite
+
+    - name: Sync files with rsync
+      run: |
+        rsync -avz -e "ssh -i ~/.ssh/github_clubesiga_vps -p 6781" \
+        --exclude '*.env*'  ./ webert@92.112.178.183:/home/webert/agilizando.clubesiga.com.br/
+        EOF
+    # - name: login no Docker Hub 
+    #   uses: docker/login-action@v3
+    #   with:
+    #     username: ${{ secrets.DOCKER_LOGIN }}
+    #     password: ${{ secrets.DOCKER_ACCESS_TOKEN }}
+
+    # - name: SSH to VPS and deploy
+    #   run: |
+    #     ssh -t -i ~/.ssh/github_clubesiga_vps -o StrictHostKeyChecking=no -p 6781 webert@92.112.178.183 << 'EOF'
+    #       cd /home/webert/agilizando.clubesiga.com.br
+    #       docker pull webertmaximiano/agilizando-o-futuro:latest  # Puxa a imagem mais recente
+    #       docker stack deploy -c docker-swarm-prod.yml clubesiga
+    #     EOF
