@@ -1,0 +1,89 @@
+services:
+  # Application service
+  agilizando:
+    image: "webertmaximiano/agilizando-o-futuro:latest"
+    environment:
+      - TZ=America/Sao_Paulo
+    deploy:
+      resources:
+        limits:
+          cpus: "1"
+          memory: 2G
+        reservations:
+          cpus: "1"
+          memory: 1G
+      replicas: 1
+    volumes:
+       - ./src:/var/www/src
+       - app_storage:/var/www/src/storage
+       - app_bootstrap:/var/www/src/bootstrap
+    networks:
+      - web
+
+  # Web server (Nginx)
+  nginx:
+    image: nginx:latest
+    deploy:
+      resources:
+        limits:
+          cpus: "0.5"
+          memory: 512M
+        reservations:
+          cpus: "0.25"
+          memory: 256M
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+    
+    volumes:
+    - ./src:/var/www/src:ro # Código como somente leitura
+    - ./docker/nginx/agilizando-dev.conf:/etc/nginx/conf.d/default.conf  # Arquivo de configuração customizado do Nginx
+    - app_logs:/var/log/nginx  # Logs persistentes do Nginx
+
+    labels:
+    - "traefik.enable=true"
+    - "traefik.http.routers.nginx.rule=Host(`agilizando.local.dev`)"
+    - "traefik.http.routers.nginx.entrypoints=websecure"
+    - "traefik.http.routers.nginx.tls.certresolver=leresolver"
+    - "traefik.http.services.nginx.loadbalancer.server.port=80"
+
+    networks:
+      - web
+    depends_on:
+      - agilizando
+
+  node:
+    image: node:latest
+    deploy:
+      resources:
+        limits:
+          cpus: "0.5"
+          memory: 512M
+        reservations:
+          cpus: "0.25"
+          memory: 256M
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+
+    working_dir: /app
+    volumes:
+      - ./src:/app
+    command: npm run dev
+    ports:
+      - 5173:5173
+    depends_on:
+      - agilizando
+
+
+volumes:
+  app_logs:
+    driver: local
+  app_storage:
+    driver: local
+  app_bootstrap:
+    driver: local
+
+networks:
+  web:
+    external: true
