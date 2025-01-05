@@ -66,9 +66,9 @@ services:
       restart_policy:
         condition: on-failure
 
-    working_dir: /app
+    working_dir: /src
     volumes:
-      - ./src:/app
+      - ./src:/src
     command: npm run dev
     
     depends_on:
