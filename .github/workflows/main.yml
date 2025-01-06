@@ -36,6 +36,5 @@ jobs:
       run: |
         ssh -t -i ~/.ssh/github_clubesiga_vps -o StrictHostKeyChecking=no -p 6781 webert@92.112.178.183 << 'EOF'
           cd /home/webert/agilizando.clubesiga.com.br
-          docker pull webertmaximiano/agilizando-o-futuro:latest  # Puxa a imagem mais recente
           docker stack deploy -c docker-swarm-prod.yml agilizando
         EOF
