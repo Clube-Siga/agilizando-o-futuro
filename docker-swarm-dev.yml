@@ -65,15 +65,23 @@ services:
       replicas: 1
       restart_policy:
         condition: on-failure
-
     working_dir: /src
     volumes:
       - ./src:/src
-    command: npm run dev
-    
+      - ./docker/certs/cert.pem:/certs/cert.pem
+      - ./docker/certs/privkey.pem:/certs/privkey.pem
+    command: npm run dev  --vite --host 0.0.0.0 --cert /certs/cert.pem --key /certs/privkey.pem
+
     depends_on:
       - agilizando
-
+    networks:
+      - web
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.node.rule=Host(`agilizando.local.dev`) && PathPrefix(`/@vite`)"
+      - "traefik.http.routers.node.entrypoints=websecure"
+      - "traefik.http.routers.node.tls=true"
+      - "traefik.http.services.node.loadbalancer.server.port=5173"
 
 volumes:
   app_logs:
