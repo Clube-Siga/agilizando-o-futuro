@@ -1,0 +1,23 @@
+# Ignorar arquivos de configuração sensíveis
+src/.env
+src/.env.*
+
+# Ignorar caches e logs
+src/storage/logs
+src/storage/framework/cache
+src/storage/framework/sessions
+src/storage/framework/views
+
+# Ignorar dependências locais e arquivos de desenvolvimento
+src/node_modules
+src/vendor
+
+# Ignorar arquivos e pastas do Git
+src/.git
+src/.gitignore
+
+# Ignorar IDE e arquivos temporários
+src/.idea
+src/*.swp
+src/*~
+src/*.bak

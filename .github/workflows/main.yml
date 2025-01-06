@@ -26,12 +26,6 @@ jobs:
         rsync -avz -e "ssh -i ~/.ssh/github_clubesiga_vps -p 6781" \
         --exclude '*.env*'  ./ webert@92.112.178.183:/home/webert/agilizando.clubesiga.com.br/
 
-    - name: login no Docker Hub 
-      uses: docker/login-action@v3
-      with:
-        username: ${{ secrets.DOCKER_LOGIN }}
-        password: ${{ secrets.DOCKER_ACCESS_TOKEN }}
-
     - name: SSH to VPS and deploy
       run: |
         ssh -t -i ~/.ssh/github_clubesiga_vps -o StrictHostKeyChecking=no -p 6781 webert@92.112.178.183 << 'EOF'
