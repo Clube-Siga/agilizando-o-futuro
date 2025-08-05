@@ -23,12 +23,12 @@ jobs:
 
     - name: Sync files with rsync
       run: |
-        rsync -avz -e "ssh -i ~/.ssh/github_clubesiga_vps -p 6781" \
-        --exclude '*.env*'  ./ webert@92.112.178.183:/home/webert/agilizando.clubesiga.com.br/
+        rsync -avz -e "ssh -i ~/.ssh/github_actions_deploy_key -o StrictHostKeyChecking=no -p 6781" \
+        --exclude '*.env*'  ./ webert@31.97.90.215:/home/webert/agilizando.clubesiga.com.br/
 
     - name: SSH to VPS and deploy
       run: |
-        ssh -t -i ~/.ssh/github_clubesiga_vps -o StrictHostKeyChecking=no -p 6781 webert@92.112.178.183 << 'EOF'
+        ssh -t -i -i ~/.ssh/github_actions_deploy_key -o StrictHostKeyChecking=no -p 6781 webert@31.97.90.215 << 'EOF'
           cd /home/webert/agilizando.clubesiga.com.br
           docker stack deploy -c docker-swarm-prod.yml agilizando
         EOF
