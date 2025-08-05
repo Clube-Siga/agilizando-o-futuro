@@ -17,7 +17,7 @@ jobs:
       uses: shimataro/ssh-key-action@v2
       with:
         key: ${{ secrets.SSH_KEY }}
-        name: github_clubesiga_vps
+        name: github_actions_deploy_key
         known_hosts: ${{ secrets.KNOWN_HOSTS }}
         if_key_exists: overwrite
 
