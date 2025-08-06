@@ -1,4 +1,4 @@
-# staging.yml
+# main.yml
 
 name: CI/CD - Build e Deploy para Agilizando - Main
 
@@ -85,26 +85,29 @@ jobs:
         ./docker-swarm-prod.yml webert@31.97.90.215:/home/webert/agilizando.clubesiga.com.br/docker-swarm-prod.yml
 
     - name: Deploy to Agilizando - Main 
-      run: |
-        export APP_IMAGE_TAG="${{ env.IMAGE_NAME_APP }}:${{ github.sha }}"
-        export NGINX_IMAGE_TAG="${{ env.IMAGE_NAME_NGINX }}:${{ github.sha }}"
-        
-        echo "Deploying App Image: $APP_IMAGE_TAG"
-        echo "Deploying Nginx Image: $NGINX_IMAGE_TAG"
+  run: |
+    export APP_IMAGE_TAG="${{ env.IMAGE_NAME_APP }}:${{ github.sha }}"
+    export NGINX_IMAGE_TAG="${{ env.IMAGE_NAME_NGINX }}:${{ github.sha }}"
+    
+    echo "Deploying App Image: $APP_IMAGE_TAG"
+    echo "Deploying Nginx Image: $NGINX_IMAGE_TAG"
 
-        ssh -i ~/.ssh/github_actions_deploy_key -o StrictHostKeyChecking=no -p 6781 webert@31.97.90.215 "
-          set -e
-          echo '--> Logging in to GitHub Container Registry...'
-          echo '${{ secrets.GHCR_PAT }}' | docker login ghcr.io -u '${{ github.actor }}' --password-stdin
-          
-          cd /home/webert/agilizando.clubesiga.com.br
-          
-          echo '--> Deploying Docker stack with updated images...'
-          
-          # A variável do secret FOI REMOVIDA daqui. Não é mais necessária.
-          APP_IMAGE_TAG=${APP_IMAGE_TAG} \
-          APP_IMAGE_NGINX_TAG=${NGINX_IMAGE_TAG} \
-          docker stack deploy -c docker-swarm-prod.yml agilizando --with-registry-auth
+    ssh -i ~/.ssh/github_actions_deploy_key -o StrictHostKeyChecking=no -p 6781 webert@31.97.90.215 "
+      set -e
+      echo '--> Logging in to GitHub Container Registry...'
+      echo '${{ secrets.GHCR_PAT }}' | docker login ghcr.io -u '${{ github.actor }}' --password-stdin
+      
+      cd /home/webert/agilizando.clubesiga.com.br
+      
+      echo '--> Pulling latest configuration...'
+      git pull origin main # Adicionado para garantir que o nginx.conf está atualizado
 
-          echo '--> Deploy finished successfully!'
-        "
+      echo '--> Deploying Docker stack with updated images...'
+      
+      # ✅ CORREÇÃO: Usando a variável correta NGINX_IMAGE_TAG
+      APP_IMAGE_TAG=${APP_IMAGE_TAG} \
+      NGINX_IMAGE_TAG=${NGINX_IMAGE_TAG} \
+      docker stack deploy -c docker-swarm-prod.yml agilizando --with-registry-auth
+
+      echo '--> Deploy finished successfully!'
+    "
