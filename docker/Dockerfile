@@ -67,13 +67,18 @@ EXPOSE 9000
 CMD ["php-fpm"]
 
 # --- Stage 4: The Final Nginx Image ---
+# ESTE É O NOSSO SEGUNDO PRODUTO FINAL
 FROM nginx:alpine AS nginx_production
+
 WORKDIR /var/www/html
+
+# Remove a configuração padrão e copia a nossa
 RUN rm /etc/nginx/conf.d/default.conf
 COPY docker/nginx/agilizando-production.conf /etc/nginx/conf.d/default.conf
-# CORREÇÃO: O diretório de trabalho no estágio 'final' é /var/www/html
+
+# A MÁGICA: Copia apenas os ficheiros estáticos do estágio 'final'
 COPY --from=final /var/www/html/public .
 
-# ✅ SOLUÇÃO: Remove a pasta 'storage' vazia (se existir) e cria o link simbólico correto
+# Cria o link simbólico para o storage, que funcionará em tempo de execução
 RUN rm -rf ./storage && \
     ln -s ../storage/app/public ./storage
