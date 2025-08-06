@@ -5,13 +5,6 @@ services:
     environment:
       - TZ=America/Sao_Paulo
     deploy:
-      resources:
-        limits:
-          cpus: "1"
-          memory: 2G
-        reservations:
-          cpus: "1"
-          memory: 1G
       replicas: 1
     volumes:
        - ./src:/var/www/src
@@ -24,13 +17,6 @@ services:
   nginx:
     image: nginx:latest
     deploy:
-      resources:
-        limits:
-          cpus: "0.5"
-          memory: 512M
-        reservations:
-          cpus: "0.25"
-          memory: 256M
       replicas: 1
       restart_policy:
         condition: on-failure
@@ -55,14 +41,6 @@ services:
   node:
     image: node:latest
     deploy:
-      resources:
-        limits:
-          cpus: "0.5"
-          memory: 512M
-        reservations:
-          cpus: "0.25"
-          memory: 256M
-      replicas: 1
       restart_policy:
         condition: on-failure
     working_dir: /src

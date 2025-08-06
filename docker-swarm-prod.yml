@@ -1,69 +1,62 @@
+version: "3.8"
+
 services:
-  # Application service
-  agilizando:
-    image: "webertmaximiano/agilizando-o-futuro:latest"
+  # --- Serviço da Aplicação (PHP-FPM) ---
+  agilizando-app: # Nome mais específico para evitar conflitos
+    # ✅ IMAGEM DINÂMICA: Usa a variável do CI/CD ou um valor padrão.
+    image: ${APP_IMAGE_TAG:-ghcr.io/webertmaximiano/agilizando-app:latest}
     environment:
       - TZ=America/Sao_Paulo
+    env_file:
+      - .env.production # Garanta que este arquivo exista na VPS
     deploy:
-      resources:
-        limits:
-          cpus: "1"
-          memory: 2G
-        reservations:
-          cpus: "1"
-          memory: 1G
-      replicas: 1
-    volumes:
-      - ./src:/var/www/src
-      - agilizando_storage:/var/www/src/storage
-      - agilizando_bootstrap:/var/www/src/bootstrap
-    networks:
-      - agilizando
-
-  # Web server (Nginx)
-  nginx:
-    image: nginx:latest
-    deploy:
-      resources:
-        limits:
-          cpus: "0.5"
-          memory: 512M
-        reservations:
-          cpus: "0.25"
-          memory: 256M
       replicas: 1
       restart_policy:
         condition: on-failure
-    
     volumes:
-      - ./src:/var/www/src:ro # Código como somente leitura
-      - ./docker/nginx/agilizando-production.conf:/etc/nginx/conf.d/default.conf  # Arquivo de configuração customizado do Nginx
-      - agilizando_logs:/var/log/nginx  # Logs persistentes do Nginx
+      # Apenas o storage e o .env são montados. O código vive na imagem.
+      - agilizando_storage:/var/www/html/storage
+      - ./.env.production:/var/www/html/.env
+    networks:
+      # Adicionar a rede dos serviços de banco de dados e redis compartlhados db-staging e redis-staging para economizar recursos da vps
+      - agilizando-net
+      - staging 
 
+  # --- Servidor Web (Nginx) ---
+  agilizando-nginx: # Nome mais específico
+    # ✅ IMAGEM DINÂMICA: Usa a imagem Nginx que o CI/CD constrói.
+    image: ${NGINX_IMAGE_TAG:-ghcr.io/webertmaximiano/agilizando-nginx:latest}
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+    volumes:
+      # O Nginx não precisa mais do código-fonte.
+      - ./docker/nginx/agilizando-production.conf:/etc/nginx/conf.d/default.conf
+      - agilizando_logs:/var/log/nginx
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.nginx.rule=Host(`agilizando.clubesiga.com.br`)"
-      - "traefik.http.routers.nginx.entrypoints=websecure"
-      - "traefik.http.routers.nginx.tls.certresolver=leresolver"
-      - "traefik.http.services.nginx.loadbalancer.server.port=80"
-
+      - "traefik.http.routers.agilizando-prod.rule=Host(`agilizando.clubesiga.com.br`)"
+      - "traefik.http.routers.agilizando-prod.entrypoints=websecure"
+      - "traefik.http.routers.agilizando-prod.tls.certresolver=leresolver"
+      # Aponta para o serviço e a porta corretos.
+      - "traefik.http.services.agilizando-prod.loadbalancer.server.port=80"
     networks:
-      - web
-      - agilizando
+      - web # Rede do Traefik
+      - agilizando-net # Rede interna para falar com o PHP-FPM
 
     depends_on:
-      - agilizando
+      - agilizando-app
 
+# --- Definição dos Volumes e Redes Externas ---
 volumes:
   agilizando_logs:
-    driver: local
+    external: true
   agilizando_storage:
-    driver: local
-  agilizando_bootstrap:
-    driver: local
+    external: true
 
 networks:
   web:
     external: true
-  agilizando:
-    driver: overlay
+  agilizando-net: # Renomeado para clareza
+    external: true
