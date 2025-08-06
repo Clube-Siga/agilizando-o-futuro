@@ -3,7 +3,8 @@ version: "3.8"
 services:
   # --- Serviço da Aplicação (PHP-FPM) ---
   agilizando-app:
-    image: ${APP_IMAGE_TAG:-ghcr.io/webertmaximiano/agilizando-app:latest}
+    # ✅ IMAGEM CORRETA E DINÂMICA
+    image: ${APP_IMAGE_TAG:-ghcr.io/clube-siga/agilizando-app:latest}
     environment:
       - TZ=America/Sao_Paulo
     env_file:
@@ -16,33 +17,29 @@ services:
       - agilizando_storage:/var/www/html/storage
       - ./.env.production:/var/www/html/.env
     networks:
-      # ✅ CONECTADO À REDE COMPARTILHADA
       - staging
 
   # --- Servidor Web (Nginx) ---
   agilizando-nginx:
-    image: ${NGINX_IMAGE_TAG:-ghcr.io/webertmaximiano/agilizando-nginx:latest}
+    # ✅ IMAGEM CORRETA E DINÂMICA
+    image: ${NGINX_IMAGE_TAG:-ghcr.io/clube-siga/agilizando-nginx:latest}
     deploy:
       replicas: 1
       restart_policy:
         condition: on-failure
     volumes:
       - ./docker/nginx/agilizando-production.conf:/etc/nginx/conf.d/default.conf
-      - agilizando_storage:/var/www/html/storage/app/public #precisamos ajustar o arquivo de configuração com a nova estrutura dos diretórios da imagem
+      - agilizando_storage:/var/www/html/storage/app/public 
       - agilizando_logs:/var/log/nginx
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.agilizando-prod.rule=Host(`agilizando.clubesiga.com.br`)"
       - "traefik.http.routers.agilizando-prod.entrypoints=websecure"
       - "traefik.http.routers.agilizando-prod.tls.certresolver=leresolver"
-      # Aponta para o nome correto do serviço Nginx
-      - "traefik.http.routers.agilizando-prod.service=agilizando-nginx"
-      - "traefik.http.services.agilizando-nginx.loadbalancer.server.port=80"
+      - "traefik.http.services.agilizando-prod.loadbalancer.server.port=80"
     networks:
-      - web # Rede do Traefik
-      # ✅ CONECTADO À REDE COMPARTILHADA para falar com o PHP-FPM
+      - web
       - staging
-
     depends_on:
       - agilizando-app
 
@@ -56,6 +53,5 @@ volumes:
 networks:
   web:
     external: true
-  # Apenas a rede 'staging' precisa ser declarada, pois a 'agilizando-net' foi removida.
   staging:
     external: true
