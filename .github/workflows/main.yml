@@ -1,16 +1,18 @@
-# main.yml
-
+# Nome do Workflow
 name: CI/CD - Build e Deploy para Agilizando - Main
 
+# Gatilho: Executa sempre que houver um push na branch 'main'
 on:
   push:
     branches:
       - main
 
+# Variáveis de ambiente globais para o workflow
 env:
   IMAGE_NAME_APP: ghcr.io/clube-siga/agilizando-app
   IMAGE_NAME_NGINX: ghcr.io/clube-siga/agilizando-nginx
 
+# Definição dos Jobs (tarefas)
 jobs:
   build-and-push:
     name: Build and Push Docker Images
@@ -33,81 +35,72 @@ jobs:
         username: ${{ github.actor }}
         password: ${{ secrets.GITHUB_TOKEN }}
 
-    # Passo para construir e publicar a imagem da APLICAÇÃO
     - name: Build and Push App Image
       uses: docker/build-push-action@v5
       with:
         context: .
         file: ./docker/Dockerfile
         push: true
-        # Constrói apenas o estágio "final" (PHP-FPM)
         target: final
         tags: |
-          ${{ env.IMAGE_NAME_APP }}:agilizando
+          ${{ env.IMAGE_NAME_APP }}:latest
           ${{ env.IMAGE_NAME_APP }}:${{ github.sha }}
         cache-from: type=gha
         cache-to: type=gha,mode=max
 
-    # Passo para construir e publicar a imagem do NGINX
     - name: Build and Push Nginx Image
       uses: docker/build-push-action@v5
       with:
         context: .
         file: ./docker/Dockerfile
         push: true
-        # Constrói apenas o estágio "nginx_production"
         target: nginx_production
         tags: |
-          ${{ env.IMAGE_NAME_NGINX }}:agilizando
+          ${{ env.IMAGE_NAME_NGINX }}:latest
           ${{ env.IMAGE_NAME_NGINX }}:${{ github.sha }}
         cache-from: type=gha
         cache-to: type=gha,mode=max
 
   deploy:
-    name: Deploy to Staging VPS
+    name: Deploy to Production VPS
     runs-on: ubuntu-latest
     needs: build-and-push
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v3
-
     - name: Install SSH key
       uses: shimataro/ssh-key-action@v2
       with:
-        key: ${{ secrets.SSH_KEY}}
+        # Usa a chave de deploy dedicada e sem senha
+        key: ${{ secrets.SSH_PRIVATE_KEY_FOR_DEPLOY }}
+        # ✅ CORREÇÃO: Usando o nome da chave que você já tinha definido
         name: github_actions_deploy_key
         known_hosts: ${{ secrets.KNOWN_HOSTS }}
 
-    - name: Sync Swarm file to VPS
+    - name: Deploy to Agilizando VPS
       run: |
-        rsync -avz -e "ssh -i ~/.ssh/github_actions_deploy_key -o StrictHostKeyChecking=no -p 6781" \
-        ./docker-swarm-prod.yml webert@31.97.90.215:/home/webert/agilizando.clubesiga.com.br/docker-swarm-prod.yml
+        export APP_IMAGE_TAG="${{ env.IMAGE_NAME_APP }}:${{ github.sha }}"
+        export NGINX_IMAGE_TAG="${{ env.IMAGE_NAME_NGINX }}:${{ github.sha }}"
+        
+        echo "--> Deploying App Image: $APP_IMAGE_TAG"
+        echo "--> Deploying Nginx Image: $NGINX_IMAGE_TAG"
 
-    - name: Deploy to Agilizando - Main 
-  run: |
-    export APP_IMAGE_TAG="${{ env.IMAGE_NAME_APP }}:${{ github.sha }}"
-    export NGINX_IMAGE_TAG="${{ env.IMAGE_NAME_NGINX }}:${{ github.sha }}"
-    
-    echo "Deploying App Image: $APP_IMAGE_TAG"
-    echo "Deploying Nginx Image: $NGINX_IMAGE_TAG"
+        # ✅ CORREÇÃO: Usa o nome de ficheiro da chave correto no comando ssh
+        ssh -i ~/.ssh/github_actions_deploy_key -o StrictHostKeyChecking=no -p 6781 webert@31.97.90.215 "
+          set -e
 
-    ssh -i ~/.ssh/github_actions_deploy_key -o StrictHostKeyChecking=no -p 6781 webert@31.97.90.215 "
-      set -e
-      echo '--> Logging in to GitHub Container Registry...'
-      echo '${{ secrets.GHCR_PAT }}' | docker login ghcr.io -u '${{ github.actor }}' --password-stdin
-      
-      cd /home/webert/agilizando.clubesiga.com.br
-      
-      echo '--> Pulling latest configuration...'
-      git pull origin main # Adicionado para garantir que o nginx.conf está atualizado
+          echo '--> Logging in to GitHub Container Registry...'
+          echo '${{ secrets.GHCR_PAT }}' | docker login ghcr.io -u '${{ github.actor }}' --password-stdin
+          
+          cd /home/webert/agilizando.clubesiga.com.br
+          
+          echo '--> Pulling latest configuration from Git...'
+          git pull origin main
+          
+          echo '--> Deploying Docker stack...'
+          
+          APP_IMAGE_TAG=${APP_IMAGE_TAG} \
+          NGINX_IMAGE_TAG=${NGINX_IMAGE_TAG} \
+          docker stack deploy -c docker-swarm-prod.yml agilizando --with-registry-auth
 
-      echo '--> Deploying Docker stack with updated images...'
-      
-      # ✅ CORREÇÃO: Usando a variável correta NGINX_IMAGE_TAG
-      APP_IMAGE_TAG=${APP_IMAGE_TAG} \
-      NGINX_IMAGE_TAG=${NGINX_IMAGE_TAG} \
-      docker stack deploy -c docker-swarm-prod.yml agilizando --with-registry-auth
-
-      echo '--> Deploy finished successfully!'
-    "
+          echo '--> Deploy finished successfully!'
+        "
