@@ -103,7 +103,7 @@ jobs:
           
           # A variável do secret FOI REMOVIDA daqui. Não é mais necessária.
           APP_IMAGE_TAG=${APP_IMAGE_TAG} \
-          APP_IMAGE_NGINX_TAG=${NGINX_IMAGE_TAG} \
+          NGINX_IMAGE_TAG=${NGINX_IMAGE_TAG} \
           docker stack deploy -c docker-swarm-prod.yml agilizando --with-registry-auth
 
           echo '--> Deploy finished successfully!'
