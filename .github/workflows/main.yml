@@ -8,10 +8,8 @@ on:
       - main
 
 env:
-  # Nome da imagem da aplicação PHP-FPM
-  IMAGE_NAME_APP: ghcr.io/${{ github.repository_owner }}/agilizando-app
-  # Nome da imagem do Nginx
-  IMAGE_NAME_NGINX: ghcr.io/${{ github.repository_owner }}/agilizando-nginx
+  IMAGE_NAME_APP: ghcr.io/clube-siga/agilizando-app
+  IMAGE_NAME_NGINX: ghcr.io/clube-siga/agilizando-nginx
 
 jobs:
   build-and-push:
