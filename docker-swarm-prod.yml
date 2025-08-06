@@ -1,4 +1,10 @@
 version: "3.8"
+# --- ✅ PASSO 1: Declaração de que os segredos já existem no Swarm ---
+secrets:
+  db_username:
+    external: true
+  db_password:
+    external: true
 
 services:
   # --- Serviço da Aplicação (PHP-FPM) ---
@@ -18,6 +24,10 @@ services:
       - ./.env.production:/var/www/html/.env
     networks:
       - staging
+    # --- ✅ PASSO 2: Adiciona os segredos ---
+    secrets:
+      - db_username
+      - db_password
 
   # --- Servidor Web (Nginx) ---
   agilizando-nginx:

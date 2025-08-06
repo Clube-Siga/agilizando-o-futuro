@@ -19,12 +19,9 @@ Implementar um fluxo de trabalho e regras de proteção no repositório GitHub p
 ## 3. Status Atual
 - A configuração inicial do repositório no GitHub foi concluída.
 - A chave SSH para acesso ao servidor de produção está configurada.
-- O `rsync` para sincronização de arquivos está funcional.
+- O `git pull` para sincronização de arquivos está funcional.
 
 ## 4. Itens Pendentes (Ações Imediatas)
 - Configurar a aplicaçao para rodar localmente usando o sail, de forma que possa usar o traefik, mysql, redis, ja   rodando `docker ps`para verificar os serviços
 - Ambiente local não tá funcionando o projeto reside na pasta /src
-- Ajustar a action de deploy (workflow do GitHub Actions) para o novo modelo.
-a action do main antigo foi renomeada e a da nova vps sendo atualizada.
-- Adaptar o arquivo `docker-swarm-dev.yml` para a configuração do ambiente de staging .
 - Revisar e configurar o `docker-swarm-prod.yml` para utilizar Docker Secrets e volumes nomeados.
