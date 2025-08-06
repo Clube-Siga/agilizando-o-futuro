@@ -2,36 +2,31 @@ version: "3.8"
 
 services:
   # --- Serviço da Aplicação (PHP-FPM) ---
-  agilizando-app: # Nome mais específico para evitar conflitos
-    # ✅ IMAGEM DINÂMICA: Usa a variável do CI/CD ou um valor padrão.
+  agilizando-app:
     image: ${APP_IMAGE_TAG:-ghcr.io/webertmaximiano/agilizando-app:latest}
     environment:
       - TZ=America/Sao_Paulo
     env_file:
-      - .env.production # Garanta que este arquivo exista na VPS
+      - .env.production
     deploy:
       replicas: 1
       restart_policy:
         condition: on-failure
     volumes:
-      # Apenas o storage e o .env são montados. O código vive na imagem.
       - agilizando_storage:/var/www/html/storage
       - ./.env.production:/var/www/html/.env
     networks:
-      # Adicionar a rede dos serviços de banco de dados e redis compartlhados db-staging e redis-staging para economizar recursos da vps
-      - agilizando-net
-      - staging 
+      # ✅ CONECTADO À REDE COMPARTILHADA
+      - staging
 
   # --- Servidor Web (Nginx) ---
-  agilizando-nginx: # Nome mais específico
-    # ✅ IMAGEM DINÂMICA: Usa a imagem Nginx que o CI/CD constrói.
+  agilizando-nginx:
     image: ${NGINX_IMAGE_TAG:-ghcr.io/webertmaximiano/agilizando-nginx:latest}
     deploy:
       replicas: 1
       restart_policy:
         condition: on-failure
     volumes:
-      # O Nginx não precisa mais do código-fonte.
       - ./docker/nginx/agilizando-production.conf:/etc/nginx/conf.d/default.conf
       - agilizando_logs:/var/log/nginx
     labels:
@@ -39,11 +34,13 @@ services:
       - "traefik.http.routers.agilizando-prod.rule=Host(`agilizando.clubesiga.com.br`)"
       - "traefik.http.routers.agilizando-prod.entrypoints=websecure"
       - "traefik.http.routers.agilizando-prod.tls.certresolver=leresolver"
-      # Aponta para o serviço e a porta corretos.
-      - "traefik.http.services.agilizando-prod.loadbalancer.server.port=80"
+      # Aponta para o nome correto do serviço Nginx
+      - "traefik.http.routers.agilizando-prod.service=agilizando-nginx"
+      - "traefik.http.services.agilizando-nginx.loadbalancer.server.port=80"
     networks:
       - web # Rede do Traefik
-      - agilizando-net # Rede interna para falar com o PHP-FPM
+      # ✅ CONECTADO À REDE COMPARTILHADA para falar com o PHP-FPM
+      - staging
 
     depends_on:
       - agilizando-app
@@ -58,5 +55,6 @@ volumes:
 networks:
   web:
     external: true
-  agilizando-net: # Renomeado para clareza
+  # Apenas a rede 'staging' precisa ser declarada, pois a 'agilizando-net' foi removida.
+  staging:
     external: true
