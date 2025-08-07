@@ -20,95 +20,87 @@ jobs:
       packages: write
 
     steps:
-    - name: Checkout code
+    - name: Checkout do código
       uses: actions/checkout@v3
 
-    - name: Set up Docker Buildx
+    - name: Configurar Docker Buildx
       uses: docker/setup-buildx-action@v3
 
-    - name: Login to GitHub Container Registry
+    - name: Login no GitHub Container Registry
       uses: docker/login-action@v3
       with:
         registry: ghcr.io
         username: ${{ github.actor }}
         password: ${{ secrets.GITHUB_TOKEN }}
 
-    # Passo para construir e publicar a imagem da APLICAÇÃO
-    - name: Build and Push App Image
+    - name: Build and Push App (PHP-FPM) Image
       uses: docker/build-push-action@v5
       with:
         context: .
         file: ./docker/Dockerfile
         push: true
-        # Constrói apenas o estágio "final" (PHP-FPM)
         target: final
         tags: |
-          ${{ env.IMAGE_NAME_APP }}:agilizando
+          ${{ env.IMAGE_NAME_APP }}:latest
           ${{ env.IMAGE_NAME_APP }}:${{ github.sha }}
         cache-from: type=gha
         cache-to: type=gha,mode=max
 
-    # Passo para construir e publicar a imagem do NGINX
     - name: Build and Push Nginx Image
       uses: docker/build-push-action@v5
       with:
         context: .
         file: ./docker/Dockerfile
         push: true
-        # Constrói apenas o estágio "nginx_production"
         target: nginx_production
         tags: |
-          ${{ env.IMAGE_NAME_NGINX }}:agilizando
+          ${{ env.IMAGE_NAME_NGINX }}:latest
           ${{ env.IMAGE_NAME_NGINX }}:${{ github.sha }}
         cache-from: type=gha
         cache-to: type=gha,mode=max
 
   deploy:
-    name: Deploy to Staging VPS
+    name: Deploy para o Servidor
     runs-on: ubuntu-latest
     needs: build-and-push
 
     steps:
-    - name: Checkout code
+    - name: Checkout do código
       uses: actions/checkout@v3
 
-    - name: Install SSH key
+    - name: Instalar chave SSH para acesso ao servidor
       uses: shimataro/ssh-key-action@v2
       with:
-        key: ${{ secrets.SSH_KEY}}
+        key: ${{ secrets.SSH_KEY }}
         name: github_actions_deploy_key
         known_hosts: ${{ secrets.KNOWN_HOSTS }}
         
-
-    - name: Sync Swarm file to VPS
-      run: |
-        # rsync -avz -e "ssh -i ~/.ssh/github_actions_deploy_key -o StrictHostKeyChecking=no -p 6781" \
-        # ./docker-swarm-prod.yml webert@31.97.90.215:/home/webert/agilizando.clubesiga.com.br/docker-swarm-prod.yml
-        # ✅ CORREÇÃO: Puxa a versão mais recente de TODOS os ficheiros de configuração
-          echo '--> Pulling latest configuration from Git...'
-          git pull origin main
-          
-    - name: Deploy to Agilizando - Main 
+    - name: Fazer Deploy da Stack no Servidor
       run: |
         export APP_IMAGE_TAG="${{ env.IMAGE_NAME_APP }}:${{ github.sha }}"
         export NGINX_IMAGE_TAG="${{ env.IMAGE_NAME_NGINX }}:${{ github.sha }}"
         
-        echo "Deploying App Image: $APP_IMAGE_TAG"
-        echo "Deploying Nginx Image: $NGINX_IMAGE_TAG"
+        echo "Deploy da imagem da App: $APP_IMAGE_TAG"
+        echo "Deploy da imagem do Nginx: $NGINX_IMAGE_TAG"
 
         ssh -i ~/.ssh/github_actions_deploy_key -o StrictHostKeyChecking=no -p 6781 webert@31.97.90.215 "
           set -e
-          echo '--> Logging in to GitHub Container Registry...'
+          echo '--> Sincronizando arquivos de configuração via Git...'
+          cd /home/webert/agilizando.clubesiga.com.br
+          git fetch origin main
+          git reset --hard origin/main
+          
+          # ✅ CORREÇÃO DE SEGURANÇA: Removemos o 'x' para não apagar arquivos em .gitignore,
+          # como o seu essencial .env.production.
+          git clean -df
+
+          echo '--> Fazendo login no GitHub Container Registry...'
           echo '${{ secrets.GHCR_PAT }}' | docker login ghcr.io -u '${{ github.actor }}' --password-stdin
           
-          cd /home/webert/agilizando.clubesiga.com.br
-          
-          echo '--> Deploying Docker stack with updated images...'
-          
-          # A variável do secret FOI REMOVIDA daqui. Não é mais necessária.
+          echo '--> Fazendo deploy da stack Docker com as imagens atualizadas...'
           APP_IMAGE_TAG=${APP_IMAGE_TAG} \
           NGINX_IMAGE_TAG=${NGINX_IMAGE_TAG} \
           docker stack deploy -c docker-swarm-prod.yml agilizando --with-registry-auth
 
-          echo '--> Deploy finished successfully!'
+          echo '--> Deploy finalizado com sucesso!'
         "
