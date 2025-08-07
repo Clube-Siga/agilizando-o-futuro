@@ -78,7 +78,7 @@ WORKDIR /var/www/html
 RUN rm /etc/nginx/conf.d/default.conf
 COPY docker/nginx/agilizando-production.conf /etc/nginx/conf.d/default.conf
 # Copia a pasta 'public' inteira do estágio 'final'
-COPY --from=final /var/www/html/public/ .
+COPY --from=final /var/www/html/public ./public
 RUN chown -R nginx:nginx /var/www/html && \
     chmod -R 755 /var/www/html
 
