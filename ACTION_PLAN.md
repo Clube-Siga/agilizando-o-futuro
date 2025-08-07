@@ -1,34 +1,37 @@
 # Plano de Ação: Migração e Modernização de Deploy
 
-## Fase 1: Configuração do Ambiente de Desenvolvimento Local
+Este plano de ação detalha as tarefas necessárias para atingir os objetivos descritos no `CONTEXT.md`.
 
-- [ ] **1.1.** Revisar e ajustar o arquivo `docker-swarm-dev.yml` para operar localmente.
-  - [ ] Remover dependências da VPS.
-  - [ ] Configurar volumes para desenvolvimento.
-  - [ ] Garantir que a aplicação suba localmente com `docker stack deploy`.
-- [ ] **1.2.** Documentar o processo de setup do ambiente de desenvolvimento no `README.md`.
+## Fase 1: Ambiente de Desenvolvimento Local
 
-## Fase 2: Segurança e Configuração de Produção
+- [x] **1.1. Configurar a aplicação para rodar localmente.**
+  - Utilizar Laravel Sail.
+  - Integrar com a infraestrutura existente (Traefik, MySQL, Redis) via rede Docker externa.
+  - Corrigir configurações do Nginx e `docker-compose.yml` para o ambiente local.
 
-- [ ] **2.1.** Implementar Docker Secrets para todas as credenciais.
-  - [ ] Identificar todas as variáveis de ambiente e arquivos sensíveis.
-  - [ ] Criar os secrets no Docker Swarm de produção.
-- [ ] **2.2.** Ajustar o `docker-swarm-prod.yml`.
-  - [ ] Substituir variáveis de ambiente por referências aos Docker Secrets.
-  - [ ] Configurar volumes nomeados para persistência de dados (banco de dados, uploads, etc.).
-- [ ] **2.3.** Validar o deploy em produção com as novas configurações.
+- [x] **1.2. Atualizar a aplicação Laravel.**
+  - Fazer o upgrade do framework da versão 11 para a 12.
+  - Rodar migrações e verificar a compatibilidade de dependências.
 
-## Fase 3: Automação de Deploy (CI/CD)
+- [x] **1.3. Atualizar o frontend.**
+  - Atualizar as dependências do `package.json`.
+  - Compilar os assets e garantir que a interface funcione como esperado.
 
-- [ ] **3.1.** Modificar o workflow do GitHub Actions (`.github/workflows/main.yml`).
-  - [ ] Criar um job para build e push da imagem Docker para um registry (Docker Hub, GitHub Packages, etc.).
-  - [ ] Criar um job para deploy em produção que se conecta ao servidor via SSH e executa `docker stack deploy`.
-  - [ ] Garantir que os secrets do GitHub Actions (como a chave SSH e tokens) estejam sendo usados corretamente.
+## Fase 2: Configuração de Produção e Deploy (CI/CD)
 
-## Fase 4: Controle de Acesso ao Repositório
+- [ ] **2.1. Preparar o `docker-swarm-prod.yml` para produção.**
+  - Implementar o uso de **Docker Secrets** para todas as credenciais (banco de dados, APIs, etc.).
+  - Configurar **volumes nomeados** para a persistência de dados (banco de dados, arquivos de upload).
 
-- [ ] **4.1.** Configurar regras de proteção (branch protection rules) para a branch `main`.
-  - [ ] Exigir Pull Requests para merges em `main`.
-  - [ ] Exigir pelo menos uma aprovação de um revisor.
-  - [ ] (Opcional) Exigir que os checks de status (CI) passem antes do merge.
-- [ ] **4.2.** Documentar o fluxo de contribuição para os alunos no `README.md`.
+- [ ] **2.2. Implementar o pipeline de CI/CD com GitHub Actions.**
+  - Criar um workflow para buildar a imagem Docker da aplicação.
+  - Fazer o push da imagem para o GitHub Container Registry (`ghcr.io`).
+  - Criar um job de deploy que acessa a VPS via SSH e executa o `docker stack deploy` para atualizar a aplicação.
+
+## Fase 3: Governança e Boas Práticas
+
+- [ ] **3.1. Implementar controle de acesso ao repositório.**
+  - Configurar regras de proteção na branch `main` para exigir Pull Requests e revisões.
+
+- [ ] **3.2. Manter a documentação e o plano de ação atualizados.**
+  - O `ACTION_PLAN.md` deve ser o reflexo fiel do andamento do projeto.

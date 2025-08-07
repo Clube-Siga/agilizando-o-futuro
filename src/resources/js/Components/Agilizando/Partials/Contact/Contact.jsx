@@ -40,8 +40,10 @@ export default function Contact({ contactClass, siteKey, grecaptcha }) {
     }, [siteKey]);
 
     //Passo 2 - Chame grecaptcha.execute em cada ação que você quer proteger.
-    const submit = async (event) => {
-        event.preventDefault();
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        //Passo 2 - Chame grecaptcha.execute em cada ação que você quer proteger.
+
         //se nao tiver carregado, carregue o grecaptcha para garantir o funcionamento das funcoes
         if (!window.grecaptcha) {
             const script = document.createElement('script');
@@ -55,39 +57,29 @@ export default function Contact({ contactClass, siteKey, grecaptcha }) {
             });
         }
 
-        window.grecaptcha.ready(async () => {
-            const token = await window.grecaptcha.execute(siteKey, { action: 'submit' });
-            if (token) {
-              //Passo 3 - Envie o token imediatamente para o back-end com a solicitação para verificar.
-                try {
-                     // Atualizar o form com token e fazer a submissão
-                     // Enviar os dados usando router.post
-                     router.post(route('contact.store'), {
+        try {
+            // Aguarde o reCAPTCHA estar pronto
+            window.grecaptcha.ready(async () => {
+                const token = await window.grecaptcha.execute(siteKey, { action: 'submit' });
+
+                // Envie o formulário com o token
+                post(route('contact.store'), {
+                    data: {
                         ...data,
                         recaptchaToken: token,
-                    }, {
-                        preserveScroll: true,
-                        onSuccess: () => {
-                            reset();
-                            Swal.fire({
-                                title: 'Sucesso!',
-                                text: 'Sua mensagem foi enviada com sucesso.',
-                                icon: 'success',
-                                confirmButtonText: 'OK'
-                            });
-                        },
-                        onError: (error) => {
-                            console.log('error', error);
-                        },
-                    });
-
-                } catch (error) {
-                    console.error("Error during reCAPTCHA verification:", error);
-                }
-            } else {
-                console.error('Failed to retrieve reCAPTCHA token');
-            }
-        });
+                    },
+                    onSuccess: () => {
+                        // Limpar o formulário após o envio bem-sucedido
+                        reset();
+                    },
+                });
+            });
+        } catch (error) {
+            console.error("Error during reCAPTCHA verification:", error);
+            // Lidar com o erro, por exemplo, exibindo uma mensagem para o usuário
+            // setData('recaptchaToken', null);
+            console.error('Failed to retrieve reCAPTCHA token');
+        }
     };
 
 

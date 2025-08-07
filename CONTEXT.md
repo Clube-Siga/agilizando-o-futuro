@@ -1,7 +1,7 @@
 # Contexto do Projeto: Migração e Modernização de Deploy
 
 ## 1. Objetivo Principal
-Migrar a aplicação de uma VPS (Virtual Private Server) para uma nova infraestrutura, adotando práticas de deploy mais modernas, seguras e eficientes com Docker Swarm.
+Migrar a aplicação de uma VPS (Virtual Private Server) para uma nova infraestrutura, adotando práticas de deploy mais modernas, seguras e eficientes com Docker Swarm. e colocar a aplicação rodando no ambiente local de desenvolvimento
 
 ## 2. Requisitos e Desafios
 
@@ -10,8 +10,8 @@ O repositório do projeto será público para fins educacionais (compartilhado c
 
 ### Infraestrutura com Docker
 - A arquitetura deverá utilizar **Docker Swarm**.
-- O ambiente de desenvolvimento (`dev`) será executado **localmente**, e não mais na VPS.
-- O uso de **volumes nomeados** é necessário para persistência de dados de forma desacoplada dos contêineres.
+- O ambiente de desenvolvimento (`dev`) será executado **localmente**, e não mais na VPS usar o sail.
+- O uso de **volumes nomeados** é necessário para persistência de dados de forma desacoplada dos contêineres e bind mount localmente.
 
 ### Controle de Acesso ao Repositório
 Implementar um fluxo de trabalho e regras de proteção no repositório GitHub para impedir que colaboradores (alunos) enviem commits ou merges diretamente para a branch `main`. O fluxo ideal será via **Pull Requests com revisão obrigatória**.
@@ -24,4 +24,7 @@ Implementar um fluxo de trabalho e regras de proteção no repositório GitHub p
 ## 4. Itens Pendentes (Ações Imediatas)
 - Configurar a aplicaçao para rodar localmente usando o sail, de forma que possa usar o traefik, mysql, redis, ja   rodando `docker ps`para verificar os serviços
 - Ambiente local não tá funcionando o projeto reside na pasta /src
-- Revisar e configurar o `docker-swarm-prod.yml` para utilizar Docker Secrets e volumes nomeados.
+- atualizar o laravel de 11 para 12 
+- atualizar o front 
+- Revisar e configuração o `docker-swarm-prod.yml` para utilizar Docker Secrets e volumes nomeados.
+- elaborar um plano de ação detalhado para cada tarefa desse contexto. `ACTION_PLAN.md` mantenha o checklist atualizado
