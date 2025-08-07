@@ -1,14 +1,19 @@
+# Dockerfile adaptado para o projeto 'agilizando' com a estrutura src/
+
 # --- Stage 1: Backend Dependencies ---
 FROM composer:2.8.10 AS vendor
 WORKDIR /app
+# CORREÇÃO: Aponta para a pasta 'src'
 COPY src/composer.json src/composer.lock ./
 RUN composer install --ignore-platform-reqs --no-interaction --no-dev --no-plugins --no-scripts --prefer-dist --optimize-autoloader
 
 # --- Stage 2: Frontend Assets ---
 FROM node:24-alpine3.21 AS frontend
 WORKDIR /app
+# CORREÇÃO: Aponta para a pasta 'src'
 COPY src/package.json src/package-lock.json ./
 RUN npm ci
+# CORREÇÃO: Aponta para a pasta 'src'
 COPY src/ .
 COPY --from=vendor /app/vendor/ ./vendor/
 RUN npm run build
@@ -20,7 +25,7 @@ ARG user=www-data
 ARG group=www-data
 ARG APP_DIR=/var/www/app
 
-# Instala dependências do sistema e extensões PHP (sem alterações)
+# Instala dependências do sistema e extensões PHP (Lógica mantida do modelo)
 RUN apk update && apk add --no-cache \
     libpq libzip libpng libjpeg-turbo libwebp freetype oniguruma icu-libs bash curl redis \
     && apk add --no-cache --virtual .build-deps $PHPIZE_DEPS linux-headers \
@@ -37,14 +42,11 @@ COPY docker/php/fpm-pool.conf /usr/local/etc/php-fpm.d/zz-fpm.conf
 
 WORKDIR ${APP_DIR}
 
-# --- A CORREÇÃO FINAL ESTÁ AQUI (MODELADO A PARTIR DO SEU DOCKERFILE DO CLUBE SIGA) ---
-
-# 1. Copia os artefatos dos estágios anteriores.
+# Copia o código-fonte e os artefatos
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 COPY --from=vendor /app/vendor/ ./vendor/
-COPY --from=frontend /app/public/ ${APP_DIR}/public/
-
-# 2. Copia explicitamente cada pasta e ficheiro da sua aplicação a partir de 'src/'.
+COPY --from=frontend /app/public/ ./public/
+# CORREÇÃO: Copia explicitamente cada pasta e ficheiro a partir de 'src/'
 COPY src/app ./app
 COPY src/bootstrap ./bootstrap
 COPY src/config ./config
@@ -55,18 +57,17 @@ COPY src/artisan .
 COPY src/composer.json . 
 COPY src/composer.lock .
 
-# 3. Cria a estrutura de diretórios do storage.
+# Cria a estrutura de diretórios do storage
 RUN mkdir -p ${APP_DIR}/storage/app/public \
              ${APP_DIR}/storage/framework/sessions \
              ${APP_DIR}/storage/framework/views \
              ${APP_DIR}/storage/framework/cache \
              ${APP_DIR}/storage/logs
 
-# 4. Define as permissões corretas para TODA a aplicação DEPOIS de tudo copiado.
+# Define as permissões corretas DURANTE O BUILD
 RUN chown -R ${user}:${group} ${APP_DIR} && \
     chmod -R 775 ${APP_DIR}/storage ${APP_DIR}/bootstrap/cache
 
-# A imagem será executada como 'www-data' por padrão
 USER ${user}
 
 EXPOSE 9000
@@ -76,12 +77,9 @@ CMD ["php-fpm"]
 FROM nginx:alpine AS nginx_production
 WORKDIR /var/www/app/public
 RUN rm /etc/nginx/conf.d/default.conf
-COPY docker/nginx/agilizando-production.conf /etc/nginx/conf.d/default.conf
-# Copia a pasta 'public' inteira do estágio 'final'
-COPY --from=final /var/www/app/public/ .
-RUN chown -R nginx:nginx . && \
-    chmod -R 755 .
+COPY docker/nginx/agilizando-production.conf /etc/nginx/conf.d/default.conf 
+COPY --from=final /var/www/app/public .
 
 # Cria o link simbólico para o storage
-RUN rm -rf ./storage && \
-    ln -s ../storage/app/public ./storage
+RUN rm -rf /var/www/app/public/storage && \
+    ln -s /var/www/app/storage/app/public /var/www/app/public/storage
