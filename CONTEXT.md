@@ -1,12 +1,13 @@
 # Contexto do Projeto: Migração e Modernização de Deploy
 
 ## 1. Objetivo Principal
-Mrodar a aplicação em produção
+Rodar a aplicação em produção
 ## 2. Requisitos e Desafios
 não alterar o Dorckerfile, pois ele já foi testado e roda com outra aplicação laravel em produção
 usar os serviços existentes e rodando na rede staging da vps, mysql e redis
 avaliar a necessidade de serviços como queue e schedule para aplicação em produção e configurar com image e volume certo do agilizando-app
 mantenha o `ACTION_PLAN` atualizado elabore seu plano de ação e adicione os checklist para se guia e não se perder
+fazer uma anlise das montagens dos volumes, se os arquivos foram copiados, se as permissões estão de acordo com o usuario. 
 
 ### Segurança de Credenciais
 O repositório do projeto será público para fins educacionais (compartilhado com alunos). É crucial que nenhuma credencial (banco de dados, APIs, etc.) seja exposta. A implementação de **Docker Secrets** é mandatória para gerenciar informações sensíveis.
@@ -27,8 +28,42 @@ Implementar um fluxo de trabalho e regras de proteção no repositório GitHub p
 ## 4. Itens Pendentes (Ações Imediatas)
 - resolver a renderização em produção, usar curl verboso para identificar erros 
 https://agilizando.clubesiga.com.br/ 
+403 forbinden nginx
 
 pra rodar comandos na vps use ssh vps-clubesiga-webert se precisar 
+
+- Dentro do container agilizando-app
+
+
+2e93b6ab78f6:/var/www/app# php artisan migrate
+
+                                                                                                               
+                                          APPLICATION IN PRODUCTION.                                           
+                                                                                                               
+
+ ┌ Are you sure you want to run this command? ──────────────────┐
+ │ Yes                                                          │
+ └──────────────────────────────────────────────────────────────┘
+
+
+In Connection.php line 824:
+                                                                                                              
+  SQLSTATE[HY000] [2002] php_network_getaddresses: getaddrinfo for db-staging  failed: Name does not resolve  
+   (Connection: mysql, SQL: select exists (select 1 from information_schema.tables where table_schema = sche  
+  ma() and table_name = 'migrations' and table_type in ('BASE TABLE', 'SYSTEM VERSIONED')) as `exists`)       
+                                                                                                              
+
+In Connector.php line 67:
+                                                                                                              
+  SQLSTATE[HY000] [2002] php_network_getaddresses: getaddrinfo for db-staging  failed: Name does not resolve  
+                                                                                                              
+
+In Connector.php line 67:
+                                                                                                       
+  PDO::connect(): php_network_getaddresses: getaddrinfo for db-staging  failed: Name does not resolve  
+                                                                                                       
+
+2e93b6ab78f6:/var/www/app# 
 
 # Dockerfile (Versão Otimizada e Final que funciona em produção )
 `docker/Dockerfile`

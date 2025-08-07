@@ -80,6 +80,9 @@ RUN rm /etc/nginx/conf.d/default.conf
 COPY docker/nginx/agilizando-production.conf /etc/nginx/conf.d/default.conf 
 COPY --from=final /var/www/app/public .
 
+#ajuste de permissões
+RUN chmod -R 755 /var/www/app
+
 # Cria o link simbólico para o storage
 RUN rm -rf /var/www/app/public/storage && \
     ln -s /var/www/app/storage/app/public /var/www/app/public/storage
