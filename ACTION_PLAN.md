@@ -19,14 +19,18 @@ Este plano de ação detalha as tarefas necessárias para atingir os objetivos d
 
 ## Fase 2: Configuração de Produção e Deploy (CI/CD)
 
-- [ ] **2.1. Preparar o `docker-swarm-prod.yml` para produção.**
+- [x] **2.1. Preparar o `docker-swarm-prod.yml` para produção.**
   - Implementar o uso de **Docker Secrets** para todas as credenciais (banco de dados, APIs, etc.).
   - Configurar **volumes nomeados** para a persistência de dados (banco de dados, arquivos de upload).
 
-- [ ] **2.2. Implementar o pipeline de CI/CD com GitHub Actions.**
+- [x] **2.2. Implementar o pipeline de CI/CD com GitHub Actions.**
   - Criar um workflow para buildar a imagem Docker da aplicação.
   - Fazer o push da imagem para o GitHub Container Registry (`ghcr.io`).
   - Criar um job de deploy que acessa a VPS via SSH e executa o `docker stack deploy` para atualizar a aplicação.
+- [] **2.3. resolver erros impedindo a renderização**
+  - analisar permisoes no volume e o usuario da imagem estão certos.
+  - 
+
 
 ## Fase 3: Governança e Boas Práticas
 

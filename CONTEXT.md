@@ -22,9 +22,7 @@ Implementar um fluxo de trabalho e regras de proteção no repositório GitHub p
 - O `git pull` para sincronização de arquivos está funcional.
 
 ## 4. Itens Pendentes (Ações Imediatas)
-- Configurar a aplicaçao para rodar localmente usando o sail, de forma que possa usar o traefik, mysql, redis, ja   rodando `docker ps`para verificar os serviços
-- Ambiente local não tá funcionando o projeto reside na pasta /src
-- atualizar o laravel de 11 para 12 
-- atualizar o front 
-- Revisar e configuração o `docker-swarm-prod.yml` para utilizar Docker Secrets e volumes nomeados.
-- elaborar um plano de ação detalhado para cada tarefa desse contexto. `ACTION_PLAN.md` mantenha o checklist atualizado
+- resolver a renderização em produção, usar curl verboso para identificar erros 
+https://agilizando.clubesiga.com.br/ 
+
+pra rodar comandos na vps use ssh vps-clubesiga-webert se precisar 
