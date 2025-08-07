@@ -87,6 +87,7 @@ jobs:
         # ✅ CORREÇÃO: Puxa a versão mais recente de TODOS os ficheiros de configuração
           echo '--> Pulling latest configuration from Git...'
           git pull origin main
+          
     - name: Deploy to Agilizando - Main 
       run: |
         export APP_IMAGE_TAG="${{ env.IMAGE_NAME_APP }}:${{ github.sha }}"

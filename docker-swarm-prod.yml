@@ -9,7 +9,6 @@ secrets:
 services:
   # --- Serviço da Aplicação (PHP-FPM) ---
   agilizando-app:
-    # ✅ IMAGEM CORRETA E DINÂMICA
     image: ${APP_IMAGE_TAG:-ghcr.io/clube-siga/agilizando-app:latest}
     environment:
       - TZ=America/Sao_Paulo
