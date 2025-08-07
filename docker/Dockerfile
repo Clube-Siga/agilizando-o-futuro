@@ -79,8 +79,8 @@ RUN rm /etc/nginx/conf.d/default.conf
 COPY docker/nginx/agilizando-production.conf /etc/nginx/conf.d/default.conf
 # Copia a pasta 'public' inteira do estágio 'final'
 COPY --from=final /var/www/html/public/ .
-RUN chown -R nginx:nginx /var/www/html/public && \
-    chmod -R 755 /var/www/html/public
+RUN chown -R nginx:nginx /var/www/html && \
+    chmod -R 755 /var/www/html
 
 # Cria o link simbólico para o storage
 RUN rm -rf ./storage && \
