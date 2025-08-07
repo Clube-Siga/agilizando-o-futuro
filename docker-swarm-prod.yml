@@ -38,7 +38,7 @@ services:
         condition: on-failure
     volumes:
       - ./docker/nginx/agilizando-production.conf:/etc/nginx/conf.d/default.conf
-      - agilizando_storage:/var/www/html/storage/app/public 
+      - agilizando_storage:/var/www/html/storage
       - agilizando_logs:/var/log/nginx
     labels:
       - "traefik.enable=true"
