@@ -33,7 +33,8 @@ services:
       - app_agilizando_db
       - db_username
       - db_password
-    command: php-fpm
+
+    #command: php-fpm
 
   # --- Servidor Web (Nginx) ---
   agilizando-nginx:
