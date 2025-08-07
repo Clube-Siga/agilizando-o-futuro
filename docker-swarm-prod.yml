@@ -1,6 +1,8 @@
 version: "3.8"
 # --- ✅ PASSO 1: Declaração de que os segredos já existem no Swarm ---
 secrets:
+  app_key_agilizando:
+    external: true
   app_agilizando_db: 
     external: true
   db_username:
@@ -27,6 +29,7 @@ services:
       - staging
     # --- ✅ PASSO 2: Adiciona os segredos ---
     secrets:
+      - app_key_agilizando
       - app_agilizando_db
       - db_username
       - db_password
