@@ -18,7 +18,7 @@ FROM php:8.4-fpm-alpine AS final
 
 ARG user=www-data
 ARG group=www-data
-ARG APP_DIR=/var/www/html
+ARG APP_DIR=/var/www/app
 
 # Instala dependências do sistema e extensões PHP (sem alterações)
 RUN apk update && apk add --no-cache \
@@ -42,7 +42,7 @@ WORKDIR ${APP_DIR}
 # 1. Copia os artefatos dos estágios anteriores.
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 COPY --from=vendor /app/vendor/ ./vendor/
-COPY --from=frontend /app/public/ ./public/
+COPY --from=frontend /app/public/ ${APP_DIR}/public/
 
 # 2. Copia explicitamente cada pasta e ficheiro da sua aplicação a partir de 'src/'.
 COPY src/app ./app
@@ -74,13 +74,13 @@ CMD ["php-fpm"]
 
 # --- Stage 4: The Final Nginx Image ---
 FROM nginx:alpine AS nginx_production
-WORKDIR /var/www/html
+WORKDIR /var/www/app/public
 RUN rm /etc/nginx/conf.d/default.conf
 COPY docker/nginx/agilizando-production.conf /etc/nginx/conf.d/default.conf
 # Copia a pasta 'public' inteira do estágio 'final'
-COPY --from=final /var/www/html/public ./public
-RUN chown -R nginx:nginx /var/www/html && \
-    chmod -R 755 /var/www/html
+COPY --from=final /var/www/app/public/ .
+RUN chown -R nginx:nginx . && \
+    chmod -R 755 .
 
 # Cria o link simbólico para o storage
 RUN rm -rf ./storage && \
