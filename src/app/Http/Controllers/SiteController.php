@@ -32,12 +32,12 @@ class SiteController extends Controller
 
     public function terms()
     {
-        dd('aqui');
+        return Inertia::render('Agilizando/Terms');
     }
 
     public function policies()
     {
-        dd('aqui');
+        return Inertia::render('Agilizando/Policies');
     }
 
 }

@@ -1,14 +1,14 @@
 # Contexto do Projeto: Migração e Modernização de Deploy
 
 ## 1. Objetivo Principal
-Rodar a aplicação em produção e transformá-la em um guia prático de formação para desenvolvedores ágeis, com uma documentação que reflita a metodologia ágil do projeto.
+Rodar a aplicação em produção e transformá-la em um guia prático de formação para desenvolvedores ágeis, com uma documentação que reflita a metodologia ágil na estrutura do projeto.
 
 ## 2. Requisitos e Desafios
 - Não alterar o Dockerfile existente, pois ele já foi testado e roda com outra aplicação Laravel em produção.
 - Usar os serviços existentes e rodando na rede `staging` da VPS (MySQL e Redis).
-- Avaliar a necessidade de serviços como `queue` e `schedule` para a aplicação em produção.
+- Criar um padrão de estrutura para seguir no desenvolvimento do curso, planejamento de aulas como se fosse o backlog e as turmas com os baclogs referentes e sprints das aulas executando, a base é o projeto contruido ate o ponto atual que não foi documentado
 - Manter o `ACTION_PLAN` atualizado com checklists para guiar o processo.
-- Fazer uma análise das montagens dos volumes em produção: se os arquivos foram copiados e se as permissões estão de acordo com o usuário.
+
 
 ### Segurança de Credenciais
 O repositório do projeto será público para fins educacionais. É crucial que nenhuma credencial (banco de dados, APIs, etc.) seja exposta. A implementação de **Docker Secrets** é mandatória para gerenciar informações sensíveis.
@@ -22,7 +22,7 @@ O repositório do projeto será público para fins educacionais. É crucial que 
 Implementar um fluxo de trabalho e regras de proteção no repositório GitHub para impedir que colaboradores (alunos) enviem commits ou merges diretamente para a branch `main`. O fluxo ideal será via **Pull Requests com revisão obrigatória**.
 
 ### Documentação Ágil e Abrangente
-- Organizar a documentação utilizando princípios ágeis (backlog, sprints).
+- Organizar a documentação utilizando princípios ágeis (backlog,sprint backlog, sprints).
 - Garantir que todo o trabalho do projeto, especialmente as partes anteriormente não documentadas da Turma 01, seja exaustivamente documentado.
 - Manter a consistência e clareza em toda a documentação, servindo como um guia prático e um exemplo de gestão de projeto.
 
@@ -41,15 +41,17 @@ Implementar um fluxo de trabalho e regras de proteção no repositório GitHub p
     - **Sprint 04:** TDD e Mocking - Testando Serviços Externos (RecaptchaService).
     - **Sprint 05:** TDD e Integração com IA (Gemini CLI).
     - **Sprint 06:** Gerenciamento Seguro de Credenciais com Docker Secrets.
+    - **Sprint 07:** Possíveis Problemas e Soluções Encontradas pelos Alunos
 - **Ambiente de Desenvolvimento Local Estabilizado:** Problemas de roteamento do Traefik, extensões PHP, credenciais MySQL e setup do banco de dados foram resolvidos. O login e a criação de usuários estão funcionando.
 - **`README.md` Atualizado:** O `README.md` principal foi atualizado para refletir a nova estrutura de sprints e direcionar os alunos.
 - **Acessibilidade:** O link de clone do repositório na documentação foi alterado de SSH para HTTPS.
 
 ## 4. Próximos Passos e Itens Pendentes
-- **Documentação:** Reestruturar a documentação para seguir os princípios ágeis, criando um backlog de aulas e sprints para cobrir todo o trabalho do projeto, incluindo as partes não documentadas da Turma 01.
-- **Segurança:** Implementar a correção das vulnerabilidades de segurança do NPM (conforme Sprint 03) e outras que possam surgir.
+- **Documentação:** Reestruturar a documentação para seguir os princípios ágeis, criando um backlog de aulas e sprints para cobrir todo o trabalho do projeto, incluindo as partes não documentadas da Turma 01 e 02.
+- analise o projeto o que já foi feito pelos alunos, rotas, controllers, models, request, pacotes componentes, vamos distrinchar o site, o sistema de cadastro, e tudo mais analise os testes, o que faltou ser documentado e ensinado.
 - **Infraestrutura:**
     - Avaliar e implementar Docker Secrets para gerenciamento seguro de credenciais em produção.
     - Analisar e otimizar a montagem de volumes e permissões em produção.
     - Implementar o fluxo de Pull Requests com revisão obrigatória no GitHub.
     - Avaliar a necessidade e implementar serviços de `queue` e `schedule` em produção.
+adicionar no ACTION_PLAN.md as tarefas que não foram concluidas, as que precisam ser criadas, de acordo com o que combinarmos, depois de tudo planejado ai iniciamos cada uma atualizando o contexto 

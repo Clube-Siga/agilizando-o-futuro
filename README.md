@@ -21,7 +21,7 @@ A primeira turma teve a missão de construir a fundação do nosso site. Eles ap
 *   **Tecnologias:** Laravel, React, Inertia.js, MySQL, Docker, Docker Swarm, CI/CD com GitHub Actions.
 *   **Metodologia:** Scrum, com foco em planejamento, sprints e entrega de valor.
 
-> **[Clique aqui para acessar o Guia de Formação completo da Turma 01](./docs/overview-agile-team-one.md)**
+> **[Clique aqui para acessar o Guia de Formação completo da Turma 01](./docs/turma-01/overview-agile-team-one.md)**
 
 ### 🤖 Turma 02: A Evolução - Testes e Inteligência Artificial
 
@@ -37,12 +37,14 @@ Nesta fase, o aprendizado será organizado em **Sprints**, simulando o ambiente 
 
 ### 🏃‍♂️ Sprints da Turma 02:
 
-*   **[Sprint 01: Fundamentos de Testes e TDD - Autenticação](./docs/sprints/sprint-01-tdd-autenticacao.md)**
-*   **[Sprint 02: TDD na Prática - Funcionalidade de Registro](./docs/sprints/sprint-02-tdd-registro.md)**
-*   **[Sprint 03: TDD e Segurança - Corrigindo Vulnerabilidades NPM](./docs/sprints/sprint-03-tdd-npm-audit.md)**
-*   **[Sprint 04: TDD e Mocking - Testando Serviços Externos (RecaptchaService)](./docs/sprints/sprint-04-tdd-recaptcha-service.md)**
-*   **[Sprint 05: TDD e Integração com IA (Gemini CLI)](./docs/sprints/sprint-05-tdd-ai-integration.md)**
-*   **[Sprint 06: Gerenciamento Seguro de Credenciais com Docker Secrets](./docs/sprints/sprint-06-docker-secrets.md)**
+> **[Clique aqui para acessar o Backlog de Sprints da Turma 02](./docs/turma-02/backlog.md)**
+
+*   **[Sprint 01: Fundamentos de Testes e TDD - Autenticação](./docs/turma-02/sprints/sprint-01-tdd-autenticacao.md)**
+*   **[Sprint 02: TDD na Prática - Funcionalidade de Registro](./docs/turma-02/sprints/sprint-02-tdd-registro.md)**
+*   **[Sprint 03: TDD e Segurança - Corrigindo Vulnerabilidades NPM](./docs/turma-02/sprints/sprint-03-tdd-npm-audit.md)**
+*   **[Sprint 04: TDD e Mocking - Testando Serviços Externos (RecaptchaService)](./docs/turma-02/sprints/sprint-04-tdd-recaptcha-service.md)**
+*   **[Sprint 05: TDD e Integração com IA (Gemini CLI)](./docs/turma-02/sprints/sprint-05-tdd-ai-integration.md)**
+*   **[Sprint 06: Gerenciamento Seguro de Credenciais com Docker Secrets](./docs/turma-02/sprints/sprint-06-docker-secrets.md)**
 
 > **Novas Sprints serão adicionadas em breve! Fique ligado.**
 

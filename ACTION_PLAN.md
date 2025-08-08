@@ -62,3 +62,16 @@ Este plano de ação detalha as tarefas necessárias para atingir os objetivos d
 
 - [ ] **3.6. Avaliar a necessidade e implementar serviços de `queue` e `schedule` em produção.**
   - Verificar se a aplicação utiliza esses serviços e configurá-los no Docker Swarm, se necessário.
+
+## Fase 4: Análise e Documentação do Legado (Turma 01 e 02) - Concluída
+
+- [x] **4.1. Análise do Código Fonte.**
+  - [x] Mapear todas as rotas existentes em `src/routes/web.php`.
+  - [x] Listar os `Controllers` e seus respectivos métodos em `src/app/Http/Controllers`.
+  - [x] Listar os `Models` em `src/app/Models` e identificar seus relacionamentos.
+  - [x] Analisar os `Requests` em `src/app/Http/Requests` para entender as regras de validação.
+  - [x] Revisar os testes em `src/tests/` para verificar a cobertura das funcionalidades existentes.
+
+- [x] **4.2. Criação do Backlog de Documentação.**
+  - [x] Com base na análise, criar um arquivo `docs/turma-02/00-analise-tecnica-overview.md` com o resumo da análise.
+  - [x] Criar um arquivo `docs/turma-02/backlog.md` com a lista de funcionalidades a serem documentadas como aulas.

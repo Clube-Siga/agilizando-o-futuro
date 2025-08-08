@@ -1,41 +1,51 @@
-# Plano de Aula: Próximas Sprints da Turma 02
+# Backlog de Aulas e Funcionalidades - Turma 02
 
-Este arquivo serve como nosso roteiro de ensino e planejamento para as próximas Sprints. Ele é um documento vivo e será atualizado conforme progredimos e identificamos novas necessidades de aprendizado baseadas nos desafios reais do projeto.
+Este documento representa o backlog do nosso produto educacional. Cada item aqui é uma potencial aula ou uma série de aulas, combinando teoria e prática. A ordem representa a prioridade sugerida para o desenvolvimento do curso.
 
----
+## Épico 1: Fundamentos e Funcionalidades Essenciais
 
-### Módulo 1: Turbinando o Ambiente de Desenvolvimento Local
+*Este épico foca em completar as funcionalidades básicas da aplicação que foram identificadas como pendentes na análise técnica.*
 
-**Objetivo:** Criar uma base de infraestrutura local sólida, compartilhada e fácil de usar, resolvendo problemas de configuração e permitindo que os alunos foquem no desenvolvimento da aplicação.
+- **[ ] Aula: Implementando Páginas de Conteúdo Estático**
+  - **Tarefa:** Desenvolver a view para a página "Termos de Acordo".
+  - **Tarefa:** Desenvolver a view para a página "Políticas de Privacidade".
+  - **Conceitos:** Roteamento, Views com Inertia.js, Componentes de UI.
 
-*   **Sprint 07: Possíveis Problemas e Soluções Encontradas pelos Alunos**
-    *   **Problema:** Dificuldades na configuração e depuração do ambiente de desenvolvimento local, incluindo problemas de roteamento, extensões PHP, credenciais de banco de dados e permissões.
-    *   **Objetivos:**
-        *   Diagnosticar e resolver problemas comuns de ambiente Docker e Laravel Sail.
-        *   Entender a interação entre Traefik, Laravel Sail e MySQL.
-        *   Documentar soluções para problemas como "Page Not Found", "could not find driver", "Access denied" e "Table not found".
+- **[ ] Aula: O Fluxo Completo do Formulário de Contato**
+  - **Tarefa:** Documentar passo a passo o que acontece quando um usuário envia o formulário.
+  - **Conceitos:** Validação com Form Requests, Arquitetura com Services, Desacoplamento com Events & Listeners, Envio de E-mails.
 
----
+- **[ ] Aula: Integração Segura com APIs Externas (Google reCAPTCHA)**
+  - **Tarefa:** Explicar como o `RecaptchaService` funciona.
+  - **Tarefa:** Demonstrar o teste da integração usando Mocking (`Http::fake()`).
+  - **Conceitos:** Consumo de APIs, Variáveis de ambiente, Testes de Integração.
 
-### Módulo 2: Otimização e Escalabilidade em Produção
+## Épico 2: Sistema de Usuários e Controle de Acesso
 
-**Objetivo:** Aplicar padrões de arquitetura avançados para melhorar a performance, segurança e resiliência da aplicação em produção.
+*Este épico aprofunda no sistema de autenticação e na poderosa biblioteca `spatie/laravel-permission`.*
 
-*   **Sprint 08: Gerenciando Sessões com Redis**
-    *   **Problema:** Perda de autenticação do usuário a cada deploy.
-    *   **Objetivo:** Migrar o `SESSION_DRIVER` do Laravel para Redis.
+- **[ ] Aula: Roles & Permissions - O Guia Definitivo com Spatie**
+  - **Tarefa:** Explicar a estrutura de tabelas criada pelo pacote Spatie.
+  - **Tarefa:** Demonstrar como criar e atribuir Roles e Permissions.
+  - **Tarefa:** Refatorar o `DashboardController` para usar o middleware do Spatie (ex: `middleware('role:Admin')`).
+  - **Conceitos:** Controle de Acesso Baseado em Funções (RBAC), Middlewares.
 
-*   **Sprint 09: Otimizando Filas com Redis e Workers**
-    *   **Problema:** Sobrecarga do banco de dados com o processamento de filas.
-    *   **Objetivo:** Implementar um serviço `worker` dedicado e usar Redis para filas.
+- **[ ] Aula: Construindo Dashboards por Perfil de Usuário**
+  - **Tarefa:** Desenvolver a view da `Dashboard/DashAdmin`.
+  - **Tarefa:** Desenvolver a view da `Dashboard/DashStudent`.
+  - **Tarefa:** Desenvolver a view da `Dashboard/DashTeacher`.
+  - **Conceitos:** Componentes de frontend (Vue/React), Roteamento de frontend, Consumo de dados da API.
 
-*   **Sprint 10: Segurança Máxima - Produção 100% "Secretless"**
-    *   **Problema:** Uso de arquivos `.env` em produção.
-    *   **Objetivo:** Migrar todas as configurações para Docker Secrets e remover o `env_file`.
+## Épico 3: Tópicos Avançados e Boas Práticas
 
-*   **Sprint 11: A Base Sólida - Volumes, Persistência e Permissões**
-    *   **Problema:** Erros de permissão que surgem da interação entre diferentes usuários em diferentes imagens Docker.
-    *   **Objetivos:**
-        *   Dominar a diretiva `user:` e o mapeamento de `UID`/`GID`.
-        *   Entender a diferença entre **bind mounts** e **volumes nomeados**.
-        *   Garantir consistência de permissões entre o ambiente local e de produção.
+*Este épico aborda conceitos que elevam a qualidade e a manutenibilidade do projeto.*
+
+- **[ ] Aula: Refatoração e Código Limpo**
+  - **Tarefa:** Analisar o `ContactController` e discutir possíveis melhorias.
+  - **Tarefa:** Corrigir a inconsistência entre `ip_address` e `remoteIp` no `Contact`.
+  - **Conceitos:** Code Smells, Princípios SOLID, Refatoração segura.
+
+- **[ ] Aula: Tarefas em Segundo Plano com Queues**
+  - **Tarefa:** Avaliar a necessidade de mover o envio de e-mail do contato para uma Queue.
+  - **Tarefa:** Implementar um driver de Queue (ex: database ou Redis).
+  - **Conceitos:** Processamento assíncrono, Workers, Jobs.
