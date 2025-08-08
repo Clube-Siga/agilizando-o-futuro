@@ -52,3 +52,4 @@ total 36
 -rwxr-xr-x    1 www-data www-data     21602 Aug  8 20:59 services.php
 f1e50c427d8c:/var/www/app$ 
 
+Apos pesquisa rigorasa foi encontrado espaços em bracos na linha das const no env de banco de dados o que impede o funcionamento
