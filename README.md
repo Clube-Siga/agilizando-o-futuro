@@ -40,6 +40,7 @@ Nesta fase, o aprendizado será organizado em **Sprints**, simulando o ambiente 
 *   **[Sprint 01: Fundamentos de Testes e TDD - Autenticação](./docs/sprints/sprint-01-tdd-autenticacao.md)**
 *   **[Sprint 02: TDD na Prática - Funcionalidade de Registro](./docs/sprints/sprint-02-tdd-registro.md)**
 *   **[Sprint 03: TDD e Segurança - Corrigindo Vulnerabilidades NPM](./docs/sprints/sprint-03-tdd-npm-audit.md)**
+*   **[Sprint 04: TDD e Mocking - Testando Serviços Externos (RecaptchaService)](./docs/sprints/sprint-04-tdd-recaptcha-service.md)**
 
 > **Novas Sprints serão adicionadas em breve! Fique ligado.**
 
