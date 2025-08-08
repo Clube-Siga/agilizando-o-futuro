@@ -81,7 +81,7 @@ services:
       - db_password
       - app_agilizando_queue_connection
 
-# --- Definição dos Volumes e Redes Externas ---
+# -- Definição dos Volumes e Redes Externas ---
 volumes:
   agilizando_logs:
     external: true
