@@ -23,3 +23,18 @@ mesmo apos ajusta os nomes dos serviços no env
 o erro persiste
 SQLSTATE[HY000] [2002] php_network_getaddresses: getaddrinfo for db-staging failed: Name does not resolve (Connection: mysql, SQL: select * from `users` where `email` = webertcoach@gmail.com limit 1)
 
+                                                                                                            
+  SQLSTATE[HY000] [2002] php_network_getaddresses: getaddrinfo for db-staging  failed: Name does not resolve  
+   (Connection: mysql, SQL: select exists (select 1 from information_schema.tables where table_schema = sche  
+  ma() and table_name = 'migrations' and table_type in ('BASE TABLE', 'SYSTEM VERSIONED')) as `exists`)       
+                                                                                                              
+
+In Connector.php line 67:
+                                                                                                              
+  SQLSTATE[HY000] [2002] php_network_getaddresses: getaddrinfo for db-staging  failed: Name does not resolve  
+                                                                                                              
+
+In Connector.php line 67:
+                                                                                                       
+  PDO::connect(): php_network_getaddresses: getaddrinfo for db-staging  failed: Name does not resolve  
+                        
