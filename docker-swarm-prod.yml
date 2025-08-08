@@ -9,8 +9,6 @@ secrets:
     external: true
   db_password:
     external: true
-  QUEUE_CONNECTION:
-    external: true
 
 services:
   # --- Serviço da Aplicação (PHP-FPM) ---
@@ -37,7 +35,6 @@ services:
       - app_agilizando_db
       - db_username
       - db_password
-      - QUEUE_CONNECTION
 
     #command: php-fpm
 
@@ -79,12 +76,12 @@ services:
     environment:
       - CACHE_STORE=redis
       - SESSION_DRIVER=redis
+      - QUEUE_CONNECTION=redis
     secrets:
       - app_key_agilizando
       - app_agilizando_db
       - db_username
       - db_password
-      - QUEUE_CONNECTION
 
 # --- Definição dos Volumes e Redes Externas ---
 volumes:
