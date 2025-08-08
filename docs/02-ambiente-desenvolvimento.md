@@ -23,7 +23,7 @@ Com as ferramentas prontas, vamos preparar o projeto.
 
 1.  **Clone o Repositório:**
     ```bash
-    git clone git@github.com:Clube-Siga/agilizando-o-futuro.git
+    git clone https://github.com/Clube-Siga/agilizando-o-futuro.git
     cd agilizando.clubesiga.com.br/src
     ```
     *Note que entramos na pasta `src` para os próximos comandos.*
