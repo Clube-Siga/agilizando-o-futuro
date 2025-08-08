@@ -42,15 +42,17 @@ Implementar um fluxo de trabalho e regras de proteção no repositório GitHub p
     - **Sprint 05:** TDD e Integração com IA (Gemini CLI).
     - **Sprint 06:** Gerenciamento Seguro de Credenciais com Docker Secrets.
     - **Sprint 07:** Possíveis Problemas e Soluções Encontradas pelos Alunos
+    - **Sprint 08:** Arquitetura Limpa na Prática - O Fluxo de Contato
+
 - **Ambiente de Desenvolvimento Local Estabilizado:** Problemas de roteamento do Traefik, extensões PHP, credenciais MySQL e setup do banco de dados foram resolvidos. O login e a criação de usuários estão funcionando.
 - **`README.md` Atualizado:** O `README.md` principal foi atualizado para refletir a nova estrutura de sprints e direcionar os alunos.
 - **Acessibilidade:** O link de clone do repositório na documentação foi alterado de SSH para HTTPS.
 
 ## 4. Próximos Passos e Itens Pendentes
-- **Documentação:** Reestruturar a documentação para seguir os princípios ágeis, criando um backlog de aulas e sprints para cobrir todo o trabalho do projeto, incluindo as partes não documentadas da Turma 01 e 02.
-- analise o projeto o que já foi feito pelos alunos, rotas, controllers, models, request, pacotes componentes, vamos distrinchar o site, o sistema de cadastro, e tudo mais analise os testes, o que faltou ser documentado e ensinado.
-- **Infraestrutura:**
-    - Avaliar e implementar Docker Secrets para gerenciamento seguro de credenciais em produção.
+- **Documentação:** 
+foi feita Análise Técnica e Overview do Projeto "Agilizando o Futuro" `docs\turma-02\00-analise-tecnica-overview.md` agora precisamos darcontinuidade na elaboração das aulas criando as proximas sprint ensinando o que já foi construido, mantendo o padrão de desenvolvimento da aplicação, passando a teoria e usando o testes e comentando e explicando todo o código
+
+- **analisar se temos aulas falando sobre a Infraestrutura:**
     - Analisar e otimizar a montagem de volumes e permissões em produção.
     - Implementar o fluxo de Pull Requests com revisão obrigatória no GitHub.
     - Avaliar a necessidade e implementar serviços de `queue` e `schedule` em produção.

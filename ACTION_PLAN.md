@@ -48,21 +48,6 @@ Este plano de ação detalha as tarefas necessárias para atingir os objetivos d
   - [x] **Atualizar `README.md`** para refletir a nova estrutura de Sprints.
   - [x] **Alterar link de clone do repositório** para HTTPS na documentação.
 
-- [ ] **3.2. Implementar controle de acesso ao repositório.**
-  - Configurar regras de proteção na branch `main` para exigir Pull Requests e revisões.
-
-- [ ] **3.3. Manter a documentação e o plano de ação atualizados.**
-  - O `ACTION_PLAN.md` deve ser o reflexo fiel do andamento do projeto.
-
-- [ ] **3.4. Avaliar e implementar Docker Secrets em produção.**
-  - Garantir que todas as credenciais sensíveis estejam sendo gerenciadas via Docker Secrets.
-
-- [ ] **3.5. Analisar e otimizar a montagem de volumes e permissões em produção.**
-  - Verificar se os volumes estão sendo montados corretamente e se as permissões estão adequadas para o usuário do contêiner.
-
-- [ ] **3.6. Avaliar a necessidade e implementar serviços de `queue` e `schedule` em produção.**
-  - Verificar se a aplicação utiliza esses serviços e configurá-los no Docker Swarm, se necessário.
-
 ## Fase 4: Análise e Documentação do Legado (Turma 01 e 02) - Concluída
 
 - [x] **4.1. Análise do Código Fonte.**
@@ -75,3 +60,27 @@ Este plano de ação detalha as tarefas necessárias para atingir os objetivos d
 - [x] **4.2. Criação do Backlog de Documentação.**
   - [x] Com base na análise, criar um arquivo `docs/turma-02/00-analise-tecnica-overview.md` com o resumo da análise.
   - [x] Criar um arquivo `docs/turma-02/backlog.md` com a lista de funcionalidades a serem documentadas como aulas.
+
+## Fase 5: Documentação Avançada e Infraestrutura
+
+- [ ] **5.1. Criar Sprint 09: Fila de E-mails com Redis**
+    - [ ] **Objetivo:** Ensinar como usar o `Queue` do Laravel com Redis para envio de e-mails de forma assíncrona.
+    - [ ] **Tópicos:**
+        - [ ] Configuração do `QUEUE_CONNECTION` para Redis.
+        - [ ] Criação de um `Job` para o envio do e-mail de contato.
+        - [ ] Despachando o Job no `ContactService`.
+        - [ ] Configurando o serviço do `worker` no `docker-swarm-prod.yml`.
+- [ ] **5.2. Criar Sprint 10: Agendamento de Tarefas com `schedule`**
+    - [ ] **Objetivo:** Ensinar como usar o `Task Scheduling` do Laravel.
+    - [ ] **Tópicos:**
+        - [ ] Configurando o `schedule` no `app/Console/Kernel.php`.
+        - [ ] Criando um comando de exemplo.
+        - [ ] Adicionando o `cron` para executar o `schedule:run`.
+- [ ] **5.3. Criar Sprint 11: Boas Práticas de DevOps - Pull Requests**
+    - [ ] **Objetivo:** Ensinar o fluxo de trabalho com Pull Requests.
+    - [ ] **Tópicos:**
+        - [ ] Configurando `branch protection rules` no GitHub.
+        - [ ] Exigindo revisão de código.
+        - [ ] Exigindo a passagem dos testes (GitHub Actions) antes do merge.
+- [ ] **5.4. Revisar e Documentar Volumes e Permissões**
+    - [ ] **Objetivo:** Criar um documento explicando a estratégia de volumes e as permissões de arquivos em produção.
