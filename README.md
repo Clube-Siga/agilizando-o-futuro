@@ -27,13 +27,19 @@ A primeira turma teve a missão de construir a fundação do nosso site. Eles ap
 
 A segunda turma elevará o projeto a um novo patamar, focando em duas das áreas mais críticas da engenharia de software moderna: a garantia de qualidade através de testes automatizados e a integração de Inteligência Artificial no ciclo de desenvolvimento.
 
+Nesta fase, o aprendizado será organizado em **Sprints**, simulando o ambiente de um projeto ágil real. Cada Sprint terá um objetivo claro e guiará o aluno pelo ciclo **Red, Green, Refactor** do TDD.
+
 *   **Foco de Aprendizagem:**
     *   **Desenvolvimento Guiado por Testes (TDD):** Aprender a escrever testes *antes* do código, garantindo a robustez e a manutenibilidade da aplicação.
     *   **Testes Unitários e de Feature:** Criar uma suíte de testes completa para a aplicação legada pela Turma 01.
     *   **Engenharia de IA com Gemini CLI:** Aprender a interagir e a dar instruções eficazes para assistentes de IA como o Gemini, otimizando o fluxo de trabalho de desenvolvimento.
     *   **Boas Práticas e Guardrails:** Entender como orientar a IA de forma segura e eficiente, evitando armadilhas e maximizando a produtividade.
 
-> **O guia de formação da Turma 02 está em construção! Fique ligado.**
+### 🏃‍♂️ Sprints da Turma 02:
+
+*   **[Sprint 01: Fundamentos de Testes e TDD - Autenticação](./docs/sprints/sprint-01-tdd-autenticacao.md)**
+
+> **Novas Sprints serão adicionadas em breve! Fique ligado.**
 
 ---
 
