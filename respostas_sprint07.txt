@@ -1,9 +1,19 @@
+Resolvendo problema de conexão
 
-bac0cdd14fbe:/var/www/app$ ls -ld /var/www/app/storage
-drwxrwxr-x    5 www-data www-data      4096 Aug  6 15:59 /var/www/app/storage
-bac0cdd14fbe:/var/www/app$ 
+redis-cli -h redis-staging ping
+PONG
+926791b59289:/var/www/app$ 
 
- id
-uid=82(www-data) gid=82(www-data) groups=82(www-data)
-bac0cdd14fbe:/var/www/app$ 
 
+926791b59289:/var/www/app$ ping db-staging
+PING db-staging (10.0.2.136): 56 data bytes
+64 bytes from 10.0.2.136: seq=0 ttl=42 time=0.098 ms
+64 bytes from 10.0.2.136: seq=1 ttl=42 time=0.122 ms
+64 bytes from 10.0.2.136: seq=2 ttl=42 time=0.500 ms
+64 bytes from 10.0.2.136: seq=3 ttl=42 time=0.134 ms
+64 bytes from 10.0.2.136: seq=4 ttl=42 time=0.136 ms
+^C
+--- db-staging ping statistics ---
+5 packets transmitted, 5 packets received, 0% packet loss
+round-trip min/avg/max = 0.098/0.198/0.500 ms
+926791b59289:/var/www/app$ 
