@@ -37,4 +37,18 @@ In Connector.php line 67:
 In Connector.php line 67:
                                                                                                        
   PDO::connect(): php_network_getaddresses: getaddrinfo for db-staging  failed: Name does not resolve  
-                        
+            
+
+permissoe em produção
+
+f1e50c427d8c:/var/www/app$ ls -ld bootstrap/cache storage
+drwxrwxr-x    1 www-data www-data      4096 Aug  8 20:28 bootstrap/cache
+drwxrwxr-x    5 www-data www-data      4096 Aug  6 15:59 storage
+f1e50c427d8c:/var/www/app$ 
+
+ls -l bootstrap/cache/
+total 36
+-rwxr-xr-x    1 www-data www-data      1238 Aug  8 20:59 packages.php
+-rwxr-xr-x    1 www-data www-data     21602 Aug  8 20:59 services.php
+f1e50c427d8c:/var/www/app$ 
+
