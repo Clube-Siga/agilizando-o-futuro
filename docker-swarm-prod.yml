@@ -1,6 +1,8 @@
 version: "3.8"
 # --- ✅ PASSO 1: Declaração de que os segredos já existem no Swarm ---
 secrets:
+  app_key_agilizando:
+    external: true
   app_agilizando_db: 
     external: true
   db_username:
@@ -9,12 +11,6 @@ secrets:
     external: true
   QUEUE_CONNECTION:
     external: true
-  CACHE_STORE:
-    external: true
-  CACHE_DRIVER:
-    external: true
-  SESSION_DRIVER:
-    external: true
 
 services:
   # --- Serviço da Aplicação (PHP-FPM) ---
@@ -22,6 +18,8 @@ services:
     image: ${APP_IMAGE_TAG:-ghcr.io/clube-siga/agilizando-app:latest}
     environment:
       - TZ=America/Sao_Paulo
+      - CACHE_STORE=redis
+      - SESSION_DRIVER=redis
     env_file: [".env.production"]
     user: "82"
     deploy:
@@ -33,14 +31,13 @@ services:
 
     networks:
       - staging
-    # --- ✅ PASSO 2: Adiciona os segredos --- 
+    # --- ✅ PASSO 2: Adiciona os segredos ---
     secrets:
+      - app_key_agilizando
+      - app_agilizando_db
       - db_username
       - db_password
       - QUEUE_CONNECTION
-      - CACHE_STORE
-      - SESSION_DRIVER
-      - CACHE_DRIVER
 
     #command: php-fpm
 
@@ -71,7 +68,6 @@ services:
   # --- Worker para Filas (Queues) ---
   agilizando-worker:
     image: ${APP_IMAGE_TAG:-ghcr.io/clube-siga/agilizando-app:latest}
-    env_file: [".env.production"]
     command: "php artisan queue:work --sleep=3 --tries=3"
     user: "82"
     deploy:
@@ -80,14 +76,15 @@ services:
         condition: on-failure
     networks:
       - staging
+    environment:
+      - CACHE_STORE=redis
+      - SESSION_DRIVER=redis
     secrets:
+      - app_key_agilizando
       - app_agilizando_db
       - db_username
       - db_password
       - QUEUE_CONNECTION
-      - CACHE_STORE
-      - CACHE_DRIVER
-      - SESSION_DRIVER
 
 # --- Definição dos Volumes e Redes Externas ---
 volumes:
