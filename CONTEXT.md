@@ -26,28 +26,5 @@ Implementar um fluxo de trabalho e regras de proteção no repositório GitHub p
 - O `git pull` para sincronização de arquivos está funcional.
 
 ## 4. Itens Pendentes (Ações Imediatas)
-- resolver a renderização em produção, usar curl verboso para identificar erros 
-https://agilizando.clubesiga.com.br/ 
-eferenceError: submit is not defined
-    at ep (Hero-6hSTC0u7.js:73:35183)
-    at Iu (app-CS1N2pDJ.js:44:16970)
-    at iy (app-CS1N2pDJ.js:46:43867)
-    at ry (app-CS1N2pDJ.js:46:39648)
-    at Xw (app-CS1N2pDJ.js:46:39576)
-    at ll (app-CS1N2pDJ.js:46:39430)
-    at Bs (app-CS1N2pDJ.js:46:35817)
-    at Zh (app-CS1N2pDJ.js:46:34768)
-    at x (app-CS1N2pDJ.js:31:1555)
-    at MessagePort.le (app-CS1N2pDJ.js:31:1919)
-overrideMethod @ hook.js:608Understand this error
-app-CS1N2pDJ.js:46 Uncaught ReferenceError: submit is not defined
-    at ep (Hero-6hSTC0u7.js:73:35183)
-    at Iu (app-CS1N2pDJ.js:44:16970)
-    at iy (app-CS1N2pDJ.js:46:43867)
-    at ry (app-CS1N2pDJ.js:46:39648)
-    at Xw (app-CS1N2pDJ.js:46:39576)
-    at ll (app-CS1N2pDJ.js:46:39430)
-    at Bs (app-CS1N2pDJ.js:46:35817)
-    at Zh (app-CS1N2pDJ.js:46:34768)
-    at x (app-CS1N2pDJ.js:31:1555)
-    at MessagePort.le (app-CS1N2pDJ.js:31:1919)Understand this error
+discutir e planejar a documentação do repositório mostrando como todo o processo de criação do site do projeto social foi realizado, como aplicamos a nossa metodologia de aprender com a pratica de projetos reais. a documentação devera servir como o guia de aprendizado, permitindo qualquer pessoa baixar sseguir os passos de execução desde criar um projeto no github, configurar o backlog e cada sprint, ate a conclusão do projeto.
+Criar a pasta `docs` e criar um overview-agile-team-one.md sobre o site feito pela primeira turma do projeto social Agilizando futuro, onde ensinamos metodologia ageis, elaboração do projeto, backlog, sprints etc, mas fale dos assuntos como se estivesse ensinando, pra quem não participou, possa estudar e fazer em casa, fale da tecnologia usada no fronte o REACT com o inertia do laravel e do Back php laravel, como o curso foi pratico na pode separar os temas do que foi ensinado aqui em arquivos separados para cada assunto e linkar eles no overview, ensinamos a configurar o ambiente de desenvolvimento instalando o php, node, configurar apache, nginx, usar virtual domain e com ssl via mkcert. vale lembrar que ensinamos fazer a integração com google recaptcha topa planejar e criar comigo deixando esse repositório como um verdadeiro guia de formação de agiles developers?
