@@ -84,3 +84,5 @@ Este plano de ação detalha as tarefas necessárias para atingir os objetivos d
         - [ ] Exigindo a passagem dos testes (GitHub Actions) antes do merge.
 - [ ] **5.4. Revisar e Documentar Volumes e Permissões**
     - [ ] **Objetivo:** Criar um documento explicando a estratégia de volumes e as permissões de arquivos em produção.
+
+**Nota:** Para garantir a funcionalidade imediata do worker, `CACHE_STORE`, `SESSION_DRIVER` e `QUEUE_CONNECTION` estão sendo configurados via variáveis de ambiente diretamente no `docker-swarm-prod.yml`. O gerenciamento avançado dessas configurações via Docker Secrets será revisitado em uma sprint futura, após a estabilização do ambiente.

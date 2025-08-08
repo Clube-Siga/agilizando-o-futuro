@@ -16,8 +16,6 @@ services:
     image: ${APP_IMAGE_TAG:-ghcr.io/clube-siga/agilizando-app:latest}
     environment:
       - TZ=America/Sao_Paulo
-      - CACHE_STORE=redis
-      - SESSION_DRIVER=redis
     env_file: [".env.production"]
     user: "82"
     deploy:

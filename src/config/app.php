@@ -97,7 +97,7 @@ return [
 
     'cipher' => 'AES-256-CBC',
 
-    'key' => env('APP_KEY'),
+    'key' => env('APP_KEY', file_get_contents('/run/secrets/app_key_agilizando')),
     
     'previous_keys' => [
         ...array_filter(
