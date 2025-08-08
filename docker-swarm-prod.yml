@@ -9,7 +9,11 @@ secrets:
     external: true
   db_password:
     external: true
-  app_agilizando_queue_connection:
+  QUEUE_CONNECTION:
+    external: true
+  CACHE_STORE:
+    external: true
+  SESSION_DRIVER:
     external: true
 
 services:
@@ -29,13 +33,15 @@ services:
 
     networks:
       - staging
-    # --- ✅ PASSO 2: Adiciona os segredos ---
+    # --- ✅ PASSO 2: Adiciona os segredos --- 
     secrets:
       - app_key_agilizando
       - app_agilizando_db
       - db_username
       - db_password
-      - app_agilizando_queue_connection
+      - QUEUE_CONNECTION
+      - CACHE_STORE
+      - SESSION_DRIVER
 
     #command: php-fpm
 
@@ -79,9 +85,11 @@ services:
       - app_agilizando_db
       - db_username
       - db_password
-      - app_agilizando_queue_connection
+      - QUEUE_CONNECTION
+      - CACHE_STORE
+      - SESSION_DRIVER
 
-# -- Definição dos Volumes e Redes Externas ---
+# --- Definição dos Volumes e Redes Externas ---
 volumes:
   agilizando_logs:
     external: true
