@@ -38,6 +38,7 @@ Nesta fase, o aprendizado será organizado em **Sprints**, simulando o ambiente 
 ### 🏃‍♂️ Sprints da Turma 02:
 
 *   **[Sprint 01: Fundamentos de Testes e TDD - Autenticação](./docs/sprints/sprint-01-tdd-autenticacao.md)**
+*   **[Sprint 02: TDD na Prática - Funcionalidade de Registro](./docs/sprints/sprint-02-tdd-registro.md)**
 
 > **Novas Sprints serão adicionadas em breve! Fique ligado.**
 
