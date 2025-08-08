@@ -22,7 +22,7 @@ class RecaptchaServiceTest extends TestCase
         $recaptchaService = new RecaptchaService();
 
         // Defina a chave secreta esperada
-        $expectedSecretKey = '6LdgH-gpAAAAABNJEUutDjz1T456Q9ZG2Bntf0vA';
+        $expectedSecretKey = config('services.google_recaptcha.secret_key');
 
         // Verifique se a chave secreta retornada corresponde à esperada usando o assertEquals retorna verdadeiro se for igual
         $this->assertEquals($expectedSecretKey, $recaptchaService->getSecretKey());
@@ -78,7 +78,7 @@ class RecaptchaServiceTest extends TestCase
         ];
 
         // Chame o método verify
-        $response = $recaptchaService->verify($token, $data);
+        $response = $recaptchaService->verify($data);
 
         // Verifique se a resposta tem sucesso
         $this->assertTrue($response->json('success'));

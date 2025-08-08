@@ -2,6 +2,7 @@
 
 namespace Tests\Feature\Auth;
 
+use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
@@ -23,9 +24,19 @@ class RegistrationTest extends TestCase
             'email' => 'test@example.com',
             'password' => 'password',
             'password_confirmation' => 'password',
+            'cpf' => '849.314.730-32',
+            'date_of_birth' => '2000-01-01',
+            'mobile' => '(11) 99999-9999',
+            'terms' => true,
+            'userType' => 'Student',
         ]);
 
-        $this->assertAuthenticated();
+        $response->assertSessionHasNoErrors(); // Adicionado para verificar erros de validação
+
+        $user = User::where('email', 'test@example.com')->first();
+        $this->assertNotNull($user); // Ensure user is created
+
+        $this->assertAuthenticatedAs($user);
         $response->assertRedirect(route('dashboard', absolute: false));
     }
 }
