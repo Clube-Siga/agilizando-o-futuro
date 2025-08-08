@@ -42,6 +42,7 @@ Nesta fase, o aprendizado será organizado em **Sprints**, simulando o ambiente 
 *   **[Sprint 03: TDD e Segurança - Corrigindo Vulnerabilidades NPM](./docs/sprints/sprint-03-tdd-npm-audit.md)**
 *   **[Sprint 04: TDD e Mocking - Testando Serviços Externos (RecaptchaService)](./docs/sprints/sprint-04-tdd-recaptcha-service.md)**
 *   **[Sprint 05: TDD e Integração com IA (Gemini CLI)](./docs/sprints/sprint-05-tdd-ai-integration.md)**
+*   **[Sprint 06: Gerenciamento Seguro de Credenciais com Docker Secrets](./docs/sprints/sprint-06-docker-secrets.md)**
 
 > **Novas Sprints serão adicionadas em breve! Fique ligado.**
 
