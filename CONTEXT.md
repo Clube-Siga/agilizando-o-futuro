@@ -1,7 +1,7 @@
 # Contexto do Projeto: Migração e Modernização de Deploy
 
 ## 1. Objetivo Principal
-Rodar a aplicação em produção e transformá-la em um guia prático de formação para desenvolvedores ágeis.
+Rodar a aplicação em produção e transformá-la em um guia prático de formação para desenvolvedores ágeis, com uma documentação que reflita a metodologia ágil do projeto.
 
 ## 2. Requisitos e Desafios
 - Não alterar o Dockerfile existente, pois ele já foi testado e roda com outra aplicação Laravel em produção.
@@ -21,6 +21,11 @@ O repositório do projeto será público para fins educacionais. É crucial que 
 ### Controle de Acesso ao Repositório
 Implementar um fluxo de trabalho e regras de proteção no repositório GitHub para impedir que colaboradores (alunos) enviem commits ou merges diretamente para a branch `main`. O fluxo ideal será via **Pull Requests com revisão obrigatória**.
 
+### Documentação Ágil e Abrangente
+- Organizar a documentação utilizando princípios ágeis (backlog, sprints).
+- Garantir que todo o trabalho do projeto, especialmente as partes anteriormente não documentadas da Turma 01, seja exaustivamente documentado.
+- Manter a consistência e clareza em toda a documentação, servindo como um guia prático e um exemplo de gestão de projeto.
+
 ## 3. Status Atual (Conquistas)
 - A configuração inicial do repositório no GitHub foi concluída.
 - A chave SSH para acesso ao servidor de produção está configurada.
@@ -35,11 +40,13 @@ Implementar um fluxo de trabalho e regras de proteção no repositório GitHub p
     - **Sprint 03:** TDD e Segurança - Corrigindo Vulnerabilidades NPM.
     - **Sprint 04:** TDD e Mocking - Testando Serviços Externos (RecaptchaService).
     - **Sprint 05:** TDD e Integração com IA (Gemini CLI).
+    - **Sprint 06:** Gerenciamento Seguro de Credenciais com Docker Secrets.
+- **Ambiente de Desenvolvimento Local Estabilizado:** Problemas de roteamento do Traefik, extensões PHP, credenciais MySQL e setup do banco de dados foram resolvidos. O login e a criação de usuários estão funcionando.
 - **`README.md` Atualizado:** O `README.md` principal foi atualizado para refletir a nova estrutura de sprints e direcionar os alunos.
 - **Acessibilidade:** O link de clone do repositório na documentação foi alterado de SSH para HTTPS.
 
 ## 4. Próximos Passos e Itens Pendentes
-- **Documentação:** Continuar a criação de novas Sprints para a Turma 02, abordando outros testes e funcionalidades.
+- **Documentação:** Reestruturar a documentação para seguir os princípios ágeis, criando um backlog de aulas e sprints para cobrir todo o trabalho do projeto, incluindo as partes não documentadas da Turma 01.
 - **Segurança:** Implementar a correção das vulnerabilidades de segurança do NPM (conforme Sprint 03) e outras que possam surgir.
 - **Infraestrutura:**
     - Avaliar e implementar Docker Secrets para gerenciamento seguro de credenciais em produção.

@@ -42,6 +42,7 @@ Este plano de ação detalha as tarefas necessárias para atingir os objetivos d
     - [x] **Sprint 03:** TDD e Segurança - Corrigindo Vulnerabilidades NPM.
     - [x] **Sprint 04:** TDD e Mocking - Testando Serviços Externos (RecaptchaService).
     - [x] **Sprint 05:** TDD e Integração com IA (Gemini CLI).
+    - [x] **Sprint 06:** Gerenciamento Seguro de Credenciais com Docker Secrets.
   - [x] **Configurar ambiente de testes local:** SQLite em memória, permissões de arquivo.
   - [x] **Corrigir testes existentes:** `RecaptchaServiceTest`, `RegistrationTest`.
   - [x] **Atualizar `README.md`** para refletir a nova estrutura de Sprints.

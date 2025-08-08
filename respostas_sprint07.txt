@@ -1,0 +1,9 @@
+
+bac0cdd14fbe:/var/www/app$ ls -ld /var/www/app/storage
+drwxrwxr-x    5 www-data www-data      4096 Aug  6 15:59 /var/www/app/storage
+bac0cdd14fbe:/var/www/app$ 
+
+ id
+uid=82(www-data) gid=82(www-data) groups=82(www-data)
+bac0cdd14fbe:/var/www/app$ 
+
