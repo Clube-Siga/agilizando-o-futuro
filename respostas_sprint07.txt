@@ -17,3 +17,9 @@ PING db-staging (10.0.2.136): 56 data bytes
 5 packets transmitted, 5 packets received, 0% packet loss
 round-trip min/avg/max = 0.098/0.198/0.500 ms
 926791b59289:/var/www/app$ 
+
+mesmo apos ajusta os nomes dos serviços no env
+
+o erro persiste
+SQLSTATE[HY000] [2002] php_network_getaddresses: getaddrinfo for db-staging failed: Name does not resolve (Connection: mysql, SQL: select * from `users` where `email` = webertcoach@gmail.com limit 1)
+
