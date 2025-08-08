@@ -91,6 +91,24 @@ cd src && php artisan test
 
 ---
 
+## Lidando com Vulnerabilidades Persistentes (Risco Aceito)
+
+Durante esta Sprint, você pode ter notado que, apesar de todas as tentativas com `npm audit fix` (com e sem `--force`) e até mesmo a instalação manual de versões específicas, uma vulnerabilidade de **baixa severidade** no pacote `sweetalert2` pode ter persistido no relatório do `npm audit`.
+
+**Por que isso acontece?**
+
+*   **Dependências Transientes:** A versão vulnerável pode ser uma sub-dependência de outro pacote que não pode ser atualizado facilmente.
+*   **Conflitos de Versão:** A correção pode exigir uma versão de `sweetalert2` que entra em conflito com outras dependências do projeto.
+*   **Risco Baixo:** A descrição da vulnerabilidade (`potentially undesirable behavior`) sugere que não é uma falha crítica de segurança, mas um comportamento que pode ser explorado em cenários muito específicos.
+
+**A Decisão de Gerenciamento de Risco:**
+
+Em projetos reais, nem todas as vulnerabilidades podem ser corrigidas imediatamente. Quando uma vulnerabilidade é de **baixa severidade** e a correção é muito complexa ou disruptiva, a equipe pode decidir **aceitar o risco** por um período, monitorando a situação e planejando uma correção futura (talvez em uma refatoração maior ou quando outras dependências forem atualizadas).
+
+Para os propósitos desta Sprint, e dado o contexto educacional do nosso projeto, consideramos essa vulnerabilidade de baixa severidade no `sweetalert2` como um **risco aceito**. Isso nos permite focar em outros aprendizados, enquanto reconhecemos que a segurança é um processo contínuo de avaliação e mitigação de riscos.
+
+---
+
 ## Conclusão da Sprint 03
 
 Parabéns! Você concluiu a Sprint 03. Você aprendeu a:
@@ -99,5 +117,6 @@ Parabéns! Você concluiu a Sprint 03. Você aprendeu a:
 *   Aplicar correções de segurança em dependências.
 *   Usar sua suíte de testes como uma rede de segurança para lidar com "breaking changes".
 *   Refatorar o código da aplicação para se adaptar a novas versões de dependências.
+*   **Gerenciar riscos de segurança**, entendendo quando uma vulnerabilidade pode ser aceita e documentada.
 
 No próximo Sprint, abordaremos a criação de testes para outras funcionalidades ou a integração com ferramentas de IA.
