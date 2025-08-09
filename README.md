@@ -53,8 +53,10 @@ Nesta fase, o aprendizado será organizado em **Sprints**, simulando o ambiente 
 *   **[Sprint 14: Introdução ao Gemini CLI e Modelos de IA](./docs/turma-02/sprints/sprint-14-introducao-gemini-cli-modelos-ia.md)**
 *   **[Sprint 15: Engenharia de Prompt Avançada e Parâmetros de Geração do Gemini](./docs/turma-02/sprints/sprint-15-engenharia-prompt-avancada-gemini.md)**
 *   **[Sprint 16: Boas Práticas, Guardrails e Casos de Uso Específicos com Gemini](./docs/turma-02/sprints/sprint-16-boas-praticas-guardrails-gemini.md)**
-
-> **Novas Sprints serão adicionadas em breve! Fique ligado.**
+*   **[Sprint 17: Implementando Páginas Estáticas e SEO Básico](./docs/turma-02/sprints/sprint-17-paginas-estaticas-seo-basico.md)**
+*   **[Sprint 18: Controle de Acesso Baseado em Papéis (RBAC) com Spatie/laravel-permission](./docs/turma-02/sprints/sprint-18-rbac-spatie-laravel-permission.md)**
+*   **[Sprint 19: Desenvolvimento de Dashboards por Papel de Usuário](./docs/turma-02/sprints/sprint-19-desenvolvimento-dashboards-por-papel.md)**
+*   **[Sprint 20: Padrão Service e Repository para Organização de Código](./docs/turma-02/sprints/sprint-20-padrao-service-repository.md)**
 
 ---
 

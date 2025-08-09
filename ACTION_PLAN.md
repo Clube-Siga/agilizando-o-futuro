@@ -115,4 +115,18 @@ Este plano de ação detalha as tarefas necessárias para atingir os objetivos d
         - [x] Iteração e Refinamento.
         - [x] Casos de Uso para Engenheiros de Software.
 
-**Nota:** Para garantir a funcionalidade imediata do worker, `CACHE_STORE`, `SESSION_DRIVER` e `QUEUE_CONNECTION` estão sendo configurados via variáveis de ambiente diretamente no `docker-swarm-prod.yml`. O gerenciamento avançado dessas configurações via Docker Secrets será revisitado em uma sprint futura, após a estabilização do ambiente.
+
+## Fase 6: Documentação de Funcionalidades Core da Aplicação
+
+- [x] **6.1. Criar Sprint 17: Implementando Páginas Estáticas e SEO Básico**
+    - [ ] **Objetivo:** Criar e documentar a implementação de páginas estáticas como "Termos de Acordo" e "Políticas de Privacidade", incluindo considerações básicas de SEO.
+    - [ ] **Tópicos:** Criação de rotas, views, e controllers simples para páginas estáticas. Uso de meta tags para SEO.
+- [x] **6.2. Criar Sprint 18: Controle de Acesso Baseado em Papéis (RBAC) com Spatie/laravel-permission**
+    - [ ] **Objetivo:** Ensinar a implementação e o uso do pacote `spatie/laravel-permission` para gerenciar papéis e permissões de usuários, controlando o acesso a funcionalidades da aplicação.
+    - [ ] **Tópicos:** Instalação e configuração do pacote, criação de papéis e permissões, atribuição a usuários, uso de middlewares para proteção de rotas, e verificação de permissões em views.
+- [ ] **6.3. Criar Sprint 19: Desenvolvimento de Dashboards por Papel de Usuário**
+    - [ ] **Objetivo:** Desenvolver as interfaces de usuário (dashboards) específicas para cada papel (`Admin`, `Student`, `Teacher`), demonstrando como adaptar a UI/UX com base nas permissões do usuário.
+    - [ ] **Tópicos:** Criação de views Blade ou componentes Inertia.js para cada dashboard, lógica no `DashboardController` para redirecionamento baseado em papel, e exibição de conteúdo condicional.
+- [ ] **6.4. Criar Sprint 20: Padrão Service e Repository para Organização de Código**
+    - [ ] **Objetivo:** Aprofundar na organização do código Laravel utilizando os padrões Service e Repository para desacoplar a lógica de negócio dos Controllers e Models.
+    - [ ] **Tópicos:** Definição do padrão Service (lógica de negócio), padrão Repository (abstração da camada de persistência), injeção de dependência, e testes unitários para Services e Repositories.
