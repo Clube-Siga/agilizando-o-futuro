@@ -45,6 +45,14 @@ Nesta fase, o aprendizado será organizado em **Sprints**, simulando o ambiente 
 *   **[Sprint 04: TDD e Mocking - Testando Serviços Externos (RecaptchaService)](./docs/turma-02/sprints/sprint-04-tdd-recaptcha-service.md)**
 *   **[Sprint 05: TDD e Integração com IA (Gemini CLI)](./docs/turma-02/sprints/sprint-05-tdd-ai-integration.md)**
 *   **[Sprint 06: Gerenciamento Seguro de Credenciais com Docker Secrets](./docs/turma-02/sprints/sprint-06-docker-secrets.md)**
+*   **[Sprint 09: Fila de E-mails com Redis - Performance na Prática](./docs/turma-02/sprints/sprint-09-fila-de-emails-com-redis.md)**
+*   **[Sprint 10: Agendamento de Tarefas com Laravel Schedule](./docs/turma-02/sprints/sprint-10-agendamento-de-tarefas-com-laravel-schedule.md)**
+*   **[Sprint 11: Depurando Conectividade e Variáveis de Ambiente em Docker Swarm](./docs/turma-02/sprints/sprint-11-depurando-conectividade-e-variaveis-de-ambiente.md)**
+*   **[Sprint 12: Gerenciamento de Volumes e Permissões em Produção](./docs/turma-02/sprints/sprint-12-gerenciamento-de-volumes-e-permissoes.md)**
+*   **[Sprint 13: Health Checks para Contêineres em Docker Swarm](./docs/turma-02/sprints/sprint-13-health-checks-docker-swarm.md)**
+*   **[Sprint 14: Introdução ao Gemini CLI e Modelos de IA](./docs/turma-02/sprints/sprint-14-introducao-gemini-cli-modelos-ia.md)**
+*   **[Sprint 15: Engenharia de Prompt Avançada e Parâmetros de Geração do Gemini](./docs/turma-02/sprints/sprint-15-engenharia-prompt-avancada-gemini.md)**
+*   **[Sprint 16: Boas Práticas, Guardrails e Casos de Uso Específicos com Gemini](./docs/turma-02/sprints/sprint-16-boas-praticas-guardrails-gemini.md)**
 
 > **Novas Sprints serão adicionadas em breve! Fique ligado.**
 

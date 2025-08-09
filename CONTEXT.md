@@ -50,10 +50,4 @@ Implementar um fluxo de trabalho e regras de proteção no repositório GitHub p
 
 ## 4. Próximos Passos e Itens Pendentes
 - **Documentação:** 
-foi feita Análise Técnica e Overview do Projeto "Agilizando o Futuro" `docs\turma-02\00-analise-tecnica-overview.md` agora precisamos darcontinuidade na elaboração das aulas criando as proximas sprint ensinando o que já foi construido, mantendo o padrão de desenvolvimento da aplicação, passando a teoria e usando o testes e comentando e explicando todo o código
-
-- **analisar se temos aulas falando sobre a Infraestrutura:**
-    - Analisar e otimizar a montagem de volumes e permissões em produção.
-    - Implementar o fluxo de Pull Requests com revisão obrigatória no GitHub.
-    - Avaliar a necessidade e implementar serviços de `queue` e `schedule` em produção.
-adicionar no ACTION_PLAN.md as tarefas que não foram concluidas, as que precisam ser criadas, de acordo com o que combinarmos, depois de tudo planejado ai iniciamos cada uma atualizando o contexto 
+foi feita Análise Técnica e Overview do Projeto "Agilizando o Futuro" `docs\turma-02\00-analise-tecnica-overview.md` agora precisamos dar continuidade na elaboração das aulas criando as proximas sprint ensinando o que já foi construido, mantendo o padrão de desenvolvimento da aplicação, passando a teoria e usando o testes e comentando e explicando todo o código

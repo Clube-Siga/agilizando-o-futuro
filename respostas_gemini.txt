@@ -53,3 +53,11 @@ total 36
 f1e50c427d8c:/var/www/app$ 
 
 Apos pesquisa rigorasa foi encontrado espaços em bracos na linha das const no env de banco de dados o que impede o funcionamento
+
+usamos uma rota de debug 
+// ROTA DE DEBUG
+Route::get('/debug-db-config', function () {
+    // Imprime a configuração de banco de dados que o Laravel está usando
+    // EXATAMENTE neste momento da requisição web.
+    dd(config('database.connections.mysql'));
+});

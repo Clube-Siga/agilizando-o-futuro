@@ -34,12 +34,4 @@ Route::middleware('auth')->group(function () {
 });
 
 
-// ROTA DE DEBUG
-Route::get('/debug-db-config', function () {
-    // Imprime a configuração de banco de dados que o Laravel está usando
-    // EXATAMENTE neste momento da requisição web.
-    dd(config('database.connections.mysql'));
-});
-
-
 require __DIR__.'/auth.php';

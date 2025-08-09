@@ -63,26 +63,56 @@ Este plano de ação detalha as tarefas necessárias para atingir os objetivos d
 
 ## Fase 5: Documentação Avançada e Infraestrutura
 
-- [ ] **5.1. Criar Sprint 09: Fila de E-mails com Redis**
-    - [ ] **Objetivo:** Ensinar como usar o `Queue` do Laravel com Redis para envio de e-mails de forma assíncrona.
-    - [ ] **Tópicos:**
-        - [ ] Configuração do `QUEUE_CONNECTION` para Redis.
-        - [ ] Criação de um `Job` para o envio do e-mail de contato.
-        - [ ] Despachando o Job no `ContactService`.
-        - [ ] Configurando o serviço do `worker` no `docker-swarm-prod.yml`.
-- [ ] **5.2. Criar Sprint 10: Agendamento de Tarefas com `schedule`**
-    - [ ] **Objetivo:** Ensinar como usar o `Task Scheduling` do Laravel.
-    - [ ] **Tópicos:**
-        - [ ] Configurando o `schedule` no `app/Console/Kernel.php`.
-        - [ ] Criando um comando de exemplo.
-        - [ ] Adicionando o `cron` para executar o `schedule:run`.
-- [ ] **5.3. Criar Sprint 11: Boas Práticas de DevOps - Pull Requests**
-    - [ ] **Objetivo:** Ensinar o fluxo de trabalho com Pull Requests.
-    - [ ] **Tópicos:**
-        - [ ] Configurando `branch protection rules` no GitHub.
-        - [ ] Exigindo revisão de código.
-        - [ ] Exigindo a passagem dos testes (GitHub Actions) antes do merge.
-- [ ] **5.4. Revisar e Documentar Volumes e Permissões**
-    - [ ] **Objetivo:** Criar um documento explicando a estratégia de volumes e as permissões de arquivos em produção.
+- [x] **5.1. Criar Sprint 09: Fila de E-mails com Redis**
+    - [x] **Objetivo:** Ensinar como usar o `Queue` do Laravel com Redis para envio de e-mails de forma assíncrona.
+    - [x] **Tópicos:**
+        - [x] Configuração do `QUEUE_CONNECTION` para Redis.
+        - [x] Criação de um `Job` para o envio do e-mail de contato.
+        - [x] Despachando o Job no `ContactService`.
+        - [x] Configurando o serviço do `worker` no `docker-swarm-prod.yml`.
+- [x] **5.2. Criar Sprint 10: Agendamento de Tarefas com `schedule`**
+    - [x] **Objetivo:** Ensinar como usar o `Task Scheduling` do Laravel.
+    - [x] **Tópicos:**
+        - [x] Configurando o `schedule` no `app/Console/Kernel.php`.
+        - [x] Criando um comando de exemplo.
+        - [x] Adicionando o `cron` para executar o `schedule:run`.
+- [x] **5.3. Criar Sprint 11: Depurando Conectividade e Variáveis de Ambiente em Docker Swarm**
+    - [x] **Objetivo:** Ensinar técnicas de depuração para problemas de conectividade de rede e interpretação de variáveis de ambiente em ambientes Docker Swarm.
+    - [x] **Tópicos:**
+        - [x] Service Discovery no Docker Swarm.
+        - [x] Resolução de DNS vs. Interpretação de Variáveis de Ambiente.
+        - [x] Precisão em Arquivos `.env`.
+        - [x] Técnicas de Depuração (ping, rota de debug).
+- [x] **5.4. Revisar e Documentar Volumes e Permissões**
+    - [x] **Objetivo:** Criar um documento explicando a estratégia de volumes e as permissões de arquivos em produção.
+- [x] **5.5. Criar Sprint 13: Health Checks para Contêineres em Docker Swarm**
+    - [x] **Objetivo:** Ensinar a importância e como implementar health checks em contêineres Docker, permitindo que o Swarm monitore a saúde dos serviços e reaja a falhas.
+    - [x] **Tópicos:**
+        - [x] O que são Health Checks e por que são importantes.
+        - [x] Tipos de Health Checks (CMD, CMD-SHELL, HTTP).
+        - [x] Parâmetros de configuração (`interval`, `timeout`, `retries`, `start_period`).
+        - [x] Implementando Health Checks no `Dockerfile` e no `docker-swarm.yml`.
+- [x] **5.6. Criar Sprint 14: Introdução ao Gemini CLI e Modelos de IA**
+    - [x] **Objetivo:** Ensinar como instalar, configurar e fazer chamadas básicas usando o Gemini CLI, e como escolher o modelo de IA mais adequado para a tarefa.
+    - [x] **Tópicos:**
+        - [x] Instalação e configuração do Gemini CLI.
+        - [x] Autenticação e gerenciamento de chaves de API.
+        - [x] Seleção de Modelos (`gemini-pro`, `gemini-pro-vision`).
+        - [x] Comandos básicos para geração de conteúdo (`gemini generate-content`).
+        - [x] Interpretação da saída do CLI (texto puro, JSON).
+- [x] **5.7. Criar Sprint 15: Engenharia de Prompt Avançada e Parâmetros de Geração do Gemini**
+    - [x] **Objetivo:** Aprofundar nas técnicas de engenharia de prompt, focando em como formular instruções complexas e utilizar os parâmetros de geração específicos do Gemini para obter respostas mais precisas, controladas e úteis.
+    - [x] **Tópicos:**
+        - [x] Estratégias de Prompt (role-playing, few-shot prompting, chain-of-thought, persona definition).
+        - [x] Parâmetros de Geração (`temperature`, `top_p`, `top_k`).
+        - [x] Saída Estruturada (JSON, YAML, XML).
+        - [x] Gerenciamento de Contexto (conversas multi-turn).
+- [x] **5.8. Criar Sprint 16: Boas Práticas, Guardrails e Casos de Uso Específicos com Gemini**
+    - [x] **Objetivo:** Abordar os aspectos críticos da integração responsável de IA, incluindo segurança, ética, otimização de custos e tratamento de limites.
+    - [x] **Tópicos:**
+        - [x] Filtros de Segurança do Gemini.
+        - [x] Otimização de Custos e Limites de Taxa.
+        - [x] Iteração e Refinamento.
+        - [x] Casos de Uso para Engenheiros de Software.
 
 **Nota:** Para garantir a funcionalidade imediata do worker, `CACHE_STORE`, `SESSION_DRIVER` e `QUEUE_CONNECTION` estão sendo configurados via variáveis de ambiente diretamente no `docker-swarm-prod.yml`. O gerenciamento avançado dessas configurações via Docker Secrets será revisitado em uma sprint futura, após a estabilização do ambiente.

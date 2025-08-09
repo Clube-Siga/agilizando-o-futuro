@@ -14,12 +14,20 @@ services:
     image: ${APP_IMAGE_TAG:-ghcr.io/clube-siga/agilizando-app:latest}
     environment:
       - TZ=America/Sao_Paulo
+      - CACHE_STORE=redis
+      - SESSION_DRIVER=redis
     env_file: [".env.production"]
     user: "82"
     deploy:
       replicas: 1
       restart_policy:
         condition: on-failure
+      healthcheck:
+        test: ["CMD-SHELL", "php artisan migrate:status || exit 1"]
+        interval: 30s
+        timeout: 10s
+        retries: 3
+        start_period: 60s
     volumes:
       - agilizando_storage:/var/www/app/storage
 
@@ -67,6 +75,39 @@ services:
       replicas: 1
       restart_policy:
         condition: on-failure
+      healthcheck:
+        test: ["CMD-SHELL", "php artisan queue:work --stop-when-empty --timeout=5 || exit 1"]
+        interval: 30s
+        timeout: 10s
+        retries: 3
+        start_period: 60s
+    networks:
+      - staging
+    environment:
+      - CACHE_STORE=redis
+      - SESSION_DRIVER=redis
+      - QUEUE_CONNECTION=redis
+    secrets:
+      - app_agilizando_db
+      - db_username
+      - db_password
+
+  # --- Scheduler para Tarefas Agendadas ---
+  agilizando-scheduler:
+    image: ${APP_IMAGE_TAG:-ghcr.io/clube-siga/agilizando-app:latest}
+    env_file: [".env.production"]
+    command: "/usr/sbin/cron -f"
+    user: "82"
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+      healthcheck:
+        test: ["CMD-SHELL", "pgrep cron >/dev/null || exit 1"]
+        interval: 30s
+        timeout: 10s
+        retries: 3
+        start_period: 60s
     networks:
       - staging
     environment:
