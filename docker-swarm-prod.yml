@@ -55,9 +55,10 @@ services:
       - agilizando_logs:/var/log/nginx
     labels:
       - "traefik.enable=true"
+      - "traefik.docker.network=web"
       - "traefik.http.routers.agilizando-nginx.rule=Host(`agilizando.clubesiga.com.br`)"
       - "traefik.http.routers.agilizando-nginx.entrypoints=websecure"
-      - "traefik.http.routers.agilizando-nginx.tls.certresolver=leresolver"
+      - "traefik.http.routers.agilizando-nginx.tls=true"
       - "traefik.http.services.agilizando-nginx.loadbalancer.server.port=80"
     networks:
       - web
