@@ -88,15 +88,12 @@ jobs:
         echo "Deploy da imagem da App: $APP_IMAGE_TAG"
         echo "Deploy da imagem do Nginx: $NGINX_IMAGE_TAG"
 
-        ssh -i ~/.ssh/github_actions_deploy_key -o StrictHostKeyChecking=no -p 6781 webert@31.97.90.215 "
+        ssh -A -i ~/.ssh/github_actions_deploy_key -o StrictHostKeyChecking=no -p 6781 webert@31.97.90.215 "
           set -e
           echo '--> Sincronizando arquivos de configuração via Git...'
           cd /home/webert/agilizando.clubesiga.com.br
 
-          # Garante que o ssh-agent esteja rodando e carrega a chave para operações Git
-          eval "$(ssh-agent -s)"
-          ssh-add ~/.ssh/staging_deploy_key
-
+          # O Agente SSH está sendo encaminhado (flag -A), então não é necessário iniciar um novo.
           git fetch origin main
           git reset --hard origin/main
           
