@@ -59,7 +59,10 @@ services:
       - "traefik.http.routers.agilizando-nginx.rule=Host(`agilizando.clubesiga.com.br`)"
       - "traefik.http.routers.agilizando-nginx.entrypoints=websecure"
       - "traefik.http.routers.agilizando-nginx.tls=true"
+      - "traefik.http.routers.agilizando-nginx.service=agilizando-nginx"
       - "traefik.http.services.agilizando-nginx.loadbalancer.server.port=80"
+      
+
     networks:
       - web
       - staging
