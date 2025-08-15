@@ -68,13 +68,18 @@ jobs:
     - name: Checkout do código
       uses: actions/checkout@v3
 
+    - name: Adicionar Chave do Host da VPS ao known_hosts
+      run: |
+        mkdir -p ~/.ssh
+        ssh-keyscan -p 6781 31.97.90.215 >> ~/.ssh/known_hosts
+
     - name: Instalar chave SSH para acesso ao servidor
       uses: shimataro/ssh-key-action@v2
       with:
         key: ${{ secrets.SSH_KEY }}
         name: github_actions_deploy_key
-        known_hosts: ${{ secrets.KNOWN_HOSTS }}
-        
+        known_hosts: 'useless' # A chave já foi adicionada pelo passo anterior
+
     - name: Fazer Deploy da Stack no Servidor
       run: |
         export APP_IMAGE_TAG="${{ env.IMAGE_NAME_APP }}:${{ github.sha }}"
