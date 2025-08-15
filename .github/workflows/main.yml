@@ -87,6 +87,11 @@ jobs:
           set -e
           echo '--> Sincronizando arquivos de configuração via Git...'
           cd /home/webert/agilizando.clubesiga.com.br
+
+          # Garante que o ssh-agent esteja rodando e carrega a chave para operações Git
+          eval "$(ssh-agent -s)"
+          ssh-add ~/.ssh/staging_deploy_key
+
           git fetch origin main
           git reset --hard origin/main
           
