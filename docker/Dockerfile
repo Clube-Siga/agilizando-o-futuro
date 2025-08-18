@@ -27,7 +27,7 @@ ARG APP_DIR=/var/www/app
 
 # Instala dependências do sistema e extensões PHP (Lógica mantida do modelo)
 RUN apk update && apk add --no-cache \
-    libpq libzip libpng libjpeg-turbo libwebp freetype oniguruma icu-libs bash curl redis \
+    libpq libzip libpng libjpeg-turbo libwebp freetype oniguruma icu-libs bash curl redis cronie \
     && apk add --no-cache --virtual .build-deps $PHPIZE_DEPS linux-headers \
     libzip-dev libjpeg-turbo-dev libpng-dev libwebp-dev freetype-dev \
     oniguruma-dev icu-dev postgresql-dev libxml2-dev && \
@@ -53,8 +53,8 @@ COPY src/config ./config
 COPY src/database ./database
 COPY src/resources ./resources
 COPY src/routes ./routes
-COPY src/artisan . 
-COPY src/composer.json . 
+COPY src/artisan .
+COPY src/composer.json .
 COPY src/composer.lock .
 
 # Cria a estrutura de diretórios do storage
