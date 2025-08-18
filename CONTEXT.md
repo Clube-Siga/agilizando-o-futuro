@@ -49,5 +49,6 @@ Implementar um fluxo de trabalho e regras de proteção no repositório GitHub p
 - **Acessibilidade:** O link de clone do repositório na documentação foi alterado de SSH para HTTPS.
 
 ## 4. Próximos Passos e Itens Pendentes
+Corrigir erro dos serviços da staagilizando que não está com serviços funcionando corretamente
 - **Documentação:** 
 foi feita Análise Técnica e Overview do Projeto "Agilizando o Futuro" `docs\turma-02\00-analise-tecnica-overview.md` agora precisamos dar continuidade na elaboração das aulas criando as proximas sprint ensinando o que já foi construido, mantendo o padrão de desenvolvimento da aplicação, passando a teoria e usando o testes e comentando e explicando todo o código
