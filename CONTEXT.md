@@ -32,6 +32,7 @@ Implementar um fluxo de trabalho e regras de proteção no repositório GitHub p
 - O `git pull` para sincronização de arquivos está funcional.
 - **Aplicação em Produção:** O site `agilizando.clubesiga.com.br` está no ar e funcional.
 - **Correção de Erros em Produção:** O erro de JavaScript (`submit is not defined`) e o erro de conexão com o banco de dados (`Name does not resolve`) foram diagnosticados e corrigidos.
+- **Serviços da Stack 'agilizando' Operacionais:** Todos os serviços da stack `agilizando` (app, nginx, worker, scheduler) estão rodando corretamente na VPS.
 - **Testes Locais:** Todos os testes de feature e unitários estão passando localmente, com o ambiente de teste configurado para usar SQLite em memória.
 - **Documentação da Turma 01:** O guia completo de formação da Turma 01 foi criado na pasta `docs/`.
 - **Metodologia de Sprints para Turma 02:** A nova metodologia de ensino por Sprints e TDD foi implementada, com os seguintes guias criados:
@@ -49,6 +50,5 @@ Implementar um fluxo de trabalho e regras de proteção no repositório GitHub p
 - **Acessibilidade:** O link de clone do repositório na documentação foi alterado de SSH para HTTPS.
 
 ## 4. Próximos Passos e Itens Pendentes
-Corrigir erro dos serviços da staagilizando que não está com serviços funcionando corretamente
 - **Documentação:** 
 foi feita Análise Técnica e Overview do Projeto "Agilizando o Futuro" `docs\turma-02\00-analise-tecnica-overview.md` agora precisamos dar continuidade na elaboração das aulas criando as proximas sprint ensinando o que já foi construido, mantendo o padrão de desenvolvimento da aplicação, passando a teoria e usando o testes e comentando e explicando todo o código

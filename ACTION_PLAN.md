@@ -30,6 +30,7 @@ Este plano de ação detalha as tarefas necessárias para atingir os objetivos d
 - [x] **2.3. Resolver erros impedindo a renderização em produção.**
   - Corrigir erro de JavaScript (`ReferenceError: submit is not defined`).
   - Corrigir erro de conexão com o banco de dados (`Name does not resolve`).
+- [x] **2.4. Garantir que todos os serviços da stack 'agilizando' estejam operacionais.**
 
 ## Fase 3: Governança, Boas Práticas e Formação (Turma 02)
 
